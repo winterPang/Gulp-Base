@@ -1,0 +1,92 @@
+@path: "../../../";
+@import '@{path}less/$variable.less';
+.layout {}
+
+.oasis-box {
+    border: 1px solid @oasis-box-border-color;
+    margin-bottom: @oasis-box-bottom;
+    background: @oasis-box-bg;
+    // overflow-y: hidden; //  会导致下拉框不显示了
+    .box-header {
+        height: @box-header-height;
+        line-height: @box-header-height;
+        background: @box-header-bg;
+        .title {
+            color: @box-header-title-color;
+            font-size: @box-header-title-size;
+            padding-left: 25px; //float: left;
+        }
+        .tips {
+            margin-left: 2%;
+            font-size: @box-header-tips-size;
+        }
+        &.no-background {
+            background: transparent;
+        }
+        .link-detail {
+            font-size: @box-header-title-size;
+            color: @link-detail-color;
+            cursor: pointer;
+            text-decoration: none;
+            i {
+                margin: 17px 11px 0px 0px;
+            }
+            &:hover,
+            &:focus,
+            &:active {
+                color: @mian-color;
+            }
+        } // &.header-bar {
+        //     padding: 10px 5px 5px 15px;
+        //     overflow: hidden;
+        //     //margin-bottom: 20px;
+        //     .title {
+        //         font-size: 1rem;
+        //         padding-left: 0px;
+        //     }
+        //     .link-detail {
+        //         font-size: 15px;
+        //         color: #80878c;
+        //         cursor: pointer;
+        //         text-decoration: none;
+        //         i {
+        //             margin: 17px 11px;
+        //         }
+        //     }
+        // }
+    }
+    .box-body {
+        // overflow: hidden; //  会导致下拉框不显示了
+        height: @box-body-height;
+        padding: 25px 30px;
+        &.no-height {
+            height: auto;
+        }
+        &.echart-box {
+            padding: 0px;
+        }
+        &.echart-height {
+            height: 250px;
+        }
+    }
+    .box-bottom {
+        padding: 10px 15px;
+        background-color: @box-footer-bg;
+        border-top: 1px solid @box-footer-border-bg;
+        border-bottom-right-radius: 3px;
+        border-bottom-left-radius: 3px;
+    }
+}
+
+.oasis-col {
+    &[class^="col-md-"],
+    &[class*="col-md-"],
+    &[class^="col-sm-"],
+    &[class*="col-sm-"],
+    &[class^="col-lg-"],
+    &[class*="col-lg-"],
+    &[class^="col-xs-"],
+    &[class*="col-xs-"] {
+        padding-right: 20px;
+    }
+}

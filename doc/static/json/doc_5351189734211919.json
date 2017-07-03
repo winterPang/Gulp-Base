@@ -1,0 +1,252 @@
+{
+  "Name": "RD_页面统计接口文档",
+  "DocIndex": "doc_5351189734211919",
+  "AllItems": [
+    {
+      "SubItem": "访问页面通知",
+      "ItemName": "绿洲页面统计",
+      "Path": "/pagestat/notifyLvzhouInfo",
+      "Method": "Post",
+      "Parameters": [
+        {
+          "name": "url",
+          "description": "String 页面地址"
+        }
+      ],
+      "Return": "{\n    \"retCode\":\"Number 0--成功；1--失败\"\n}\n",
+      "Error": [
+        {
+          "name": "",
+          "description": ""
+        }
+      ]
+    },
+    {
+      "SubItem": "获取绿洲所有页面的抽样统计信息",
+      "ItemName": "绿洲页面统计",
+      "Path": "/pagestat/getLvzhouAllSampleStat",
+      "Method": "Post",
+      "Parameters": [
+        {
+          "name": "endTime",
+          "description": "String 要求截止的数据记录时间，返回数据是从此时间截止，往前的数据，由Date.toISOString方法获取"
+        },
+        {
+          "name": "interval",
+          "description": "number 统计间隔，单位为小时数"
+        },
+        {
+          "name": "count",
+          "description": "Number 条数"
+        }
+      ],
+      "Return": "[\n    [\n        {\n            \"url\":\"String 页面地址\",\n            \"PV\":\"Number 点击量\",\n            \"UV\":\"Number 独立访客数\",\n            \"IP\":\"Number IP数\",\n            \"ATP\":\"Number 平均在线时间\",\n            \"STP\":\"Number 持续时长\",\n            \"recordTime\":\"String 记录时间，由Date.toISOString获取\"\n        },\n        {\n            \"url\":\"String 页面地址\",\n            \"PV\":\"Number 点击量\",\n            \"UV\":\"Number 独立访客数\",\n            \"IP\":\"Number IP数\",\n            \"ATP\":\"Number 平均在线时间\",\n            \"STP\":\"Number 持续时长\",\n            \"recordTime\":\"String 记录时间，由Date.toISOString获取\"\n        }\n    ],\n    [\n        {\n            \"url\":\"String 页面地址\",\n            \"PV\":\"Number 点击量\",\n            \"UV\":\"Number 独立访客数\",\n            \"IP\":\"Number IP数\",\n            \"ATP\":\"Number 平均在线时间\",\n            \"STP\":\"Number 持续时长\",\n            \"recordTime\":\"String 记录时间，由Date.toISOString获取\"\n        },\n        {\n            \"url\":\"String 页面地址\",\n            \"PV\":\"Number 点击量\",\n            \"UV\":\"Number 独立访客数\",\n            \"IP\":\"Number IP数\",\n            \"ATP\":\"Number 平均在线时间\",\n            \"STP\":\"Number 持续时长\",\n            \"recordTime\":\"String 记录时间，由Date.toISOString获取\"\n        }\n    ]\n]\n",
+      "Error": [
+        {
+          "name": "",
+          "description": ""
+        }
+      ]
+    },
+    {
+      "Error": [
+        {
+          "description": "",
+          "name": ""
+        }
+      ],
+      "Return": "[\n    {\n        \"PV\":\"Number 点击量\",\n        \"UV\":\"Number 独立访客数\",\n        \"IP\":\"Number IP数\",\n        \"ATP\":\"Number 平均在线时间\",\n        \"STP\":\"Number 持续时长\",\n        \"recordTime\":\"String 记录时间，由Date.toISOString获取\"\n    },\n    {\n        \"PV\":\"Number 点击量\",\n        \"UV\":\"Number 独立访客数\",\n        \"IP\":\"Number IP数\",\n        \"ATP\":\"Number 平均在线时间\",\n        \"STP\":\"Number 持续时长\",\n        \"recordTime\":\"String 记录时间，由Date.toISOString获取\"\n    }\n]\n",
+      "Parameters": [
+        {
+          "description": "String 要求截止的数据记录时间，返回数据是从此时间截止，往前的数据，由Date.toISOString方法获取",
+          "name": "endTime"
+        },
+        {
+          "description": "number 统计间隔，单位为小时数",
+          "name": "interval"
+        },
+        {
+          "description": "Number 记录条数",
+          "name": "count"
+        }
+      ],
+      "Method": "Post",
+      "Path": "/pagestat/getLvzhouEntireSampleStat",
+      "ItemName": "绿洲页面统计",
+      "SubItem": "获取绿洲整站抽样统计数据"
+    },
+    {
+      "SubItem": "获取绿洲某时间段统计信息",
+      "ItemName": "绿洲页面统计",
+      "Path": "/pagestat/getLvzhouAllSumStat",
+      "Method": "Post",
+      "Parameters": [
+        {
+          "name": "startTime",
+          "description": "String 起始时间，由Date.toISOString方法生成，可以为\"\"，表示从历史第一条记录开始统计"
+        },
+        {
+          "name": "endTime",
+          "description": "String 结束时间，由Date.toISOString方法生成，可以为“”，表示为持续到当前时间为止"
+        }
+      ],
+      "Return": "[\n    {\n        \"url\":\"String 页面地址\",\n        \"PV\":\"Number 点击量\",\n        \"UV\":\"Number 独立访客数\",\n        \"IP\":\"Number IP数\",\n        \"ATP\":\"Number 平均在线时间\",\n        \"STP\":\"Number 持续时长\"\n    },\n    {\n        \"url\":\"String 页面地址\",\n        \"PV\":\"Number 点击量\",\n        \"UV\":\"Number 独立访客数\",\n        \"IP\":\"Number IP数\",\n        \"ATP\":\"Number 平均在线时间\",\n        \"STP\":\"Number 持续时长\"\n    }\n]\n",
+      "Error": [
+        {
+          "name": "",
+          "description": ""
+        }
+      ]
+    },
+    {
+      "Error": [
+        {
+          "description": "",
+          "name": ""
+        }
+      ],
+      "Return": "{\n    \"PV\":\"Number 点击量\",\n    \"UV\":\"Number 独立访客数\",\n    \"IP\":\"Number IP数\",\n    \"ATP\":\"Number 平均在线时间\",\n    \"STP\":\"Number 持续时长\"\n}\n",
+      "Parameters": [
+        {
+          "description": "String 起始时间，由Date.toISOString方法生成，可以为\"\"，表示从历史第一条记录开始统计",
+          "name": "startTime"
+        },
+        {
+          "description": "String 结束时间，由Date.toISOString方法生成，可以为“”，表示为持续到当前时间为止",
+          "name": "endTime"
+        }
+      ],
+      "Method": "Post",
+      "Path": "/pagestat/getLvzhouEntireSumStat",
+      "ItemName": "绿洲页面统计",
+      "SubItem": "获取绿洲整站某时间段统计信息"
+    },
+    {
+      "Error": [
+        {
+          "description": "",
+          "name": ""
+        }
+      ],
+      "Return": "[\n    [\n        {\n            \"url\":\"String 页面地址\",\n            \"PV\":\"Number 点击量\",\n            \"UV\":\"Number 独立访客数\",\n            \"IP\":\"Number IP数\",\n            \"ATP\":\"Number 平均在线时间\",\n            \"STP\":\"Number 持续时长\",\n            \"recordTime\":\"String 记录时间，由Date.toISOString获取\"\n        },\n        {\n            \"url\":\"String 页面地址\",\n            \"PV\":\"Number 点击量\",\n            \"UV\":\"Number 独立访客数\",\n            \"IP\":\"Number IP数\",\n            \"ATP\":\"Number 平均在线时间\",\n            \"STP\":\"Number 持续时长\",\n            \"recordTime\":\"String 记录时间，由Date.toISOString获取\"\n        }\n    ],\n    [\n        {\n            \"url\":\"String 页面地址\",\n            \"PV\":\"Number 点击量\",\n            \"UV\":\"Number 独立访客数\",\n            \"IP\":\"Number IP数\",\n            \"ATP\":\"Number 平均在线时间\",\n            \"STP\":\"Number 持续时长\",\n            \"recordTime\":\"String 记录时间，由Date.toISOString获取\"\n        },\n        {\n            \"url\":\"String 页面地址\",\n            \"PV\":\"Number 点击量\",\n            \"UV\":\"Number 独立访客数\",\n            \"IP\":\"Number IP数\",\n            \"ATP\":\"Number 平均在线时间\",\n            \"STP\":\"Number 持续时长\",\n            \"recordTime\":\"String 记录时间，由Date.toISOString获取\"\n        }\n    ]\n]\n",
+      "Parameters": [
+        {
+          "description": "String 指定的场景ID",
+          "name": "modelId"
+        },
+        {
+          "description": "String 要求截止的数据记录时间，返回数据从此时间截止，往前的数据，由Date.toISOString方法获取，\" \"  表示为当前时间 。",
+          "name": "endTime"
+        },
+        {
+          "description": "number 统计间隔，单位为小时数",
+          "name": "interval"
+        },
+        {
+          "description": "Number 条数",
+          "name": "count"
+        }
+      ],
+      "Method": "Post",
+      "Path": "/pagestat/getLvzhouAllSampleStatForModel",
+      "ItemName": "绿洲页面统计",
+      "SubItem": "获取绿洲指定场景的所有页面统计信息"
+    },
+    {
+      "SubItem": "获取绿洲指定场景的整站的统计信息",
+      "ItemName": "绿洲页面统计",
+      "Path": "/pagestat/getLvzhouEntireSampleStatForModel",
+      "Method": "Post",
+      "Parameters": [
+        {
+          "name": "modelId",
+          "description": "String 指定的场景ID"
+        },
+        {
+          "name": "endTime",
+          "description": "String 要求截止的数据记录时间，返回数据从此时间截止，往前的数据，由Date.toISOString方法获取，\" \"  表示为当前时间 。"
+        },
+        {
+          "name": "interval",
+          "description": "number 统计间隔，单位为小时数"
+        },
+        {
+          "name": "count",
+          "description": "Number 条数"
+        }
+      ],
+      "Return": "[\n    {\n        \"PV\":\"Number 点击量\",\n        \"UV\":\"Number 独立访客数\",\n        \"IP\":\"Number IP数\",\n        \"ATP\":\"Number 平均在线时间\",\n        \"STP\":\"Number 持续时长\",\n        \"recordTime\":\"String 记录时间，由Date.toISOString获取\"\n    },\n    {\n        \"PV\":\"Number 点击量\",\n        \"UV\":\"Number 独立访客数\",\n        \"IP\":\"Number IP数\",\n        \"ATP\":\"Number 平均在线时间\",\n        \"STP\":\"Number 持续时长\",\n        \"recordTime\":\"String 记录时间，由Date.toISOString获取\"\n    }\n]\n",
+      "Error": [
+        {
+          "name": "",
+          "description": ""
+        }
+      ]
+    },
+    {
+      "Error": [
+        {
+          "description": "",
+          "name": ""
+        }
+      ],
+      "Return": "[\n    {\n        \"url\":\"String 页面地址\",\n        \"PV\":\"Number 点击量\",\n        \"UV\":\"Number 独立访客数\",\n        \"IP\":\"Number IP数\",\n        \"ATP\":\"Number 平均在线时间\",\n        \"STP\":\"Number 持续时长\"\n    },\n    {\n        \"url\":\"String 页面地址\",\n        \"PV\":\"Number 点击量\",\n        \"UV\":\"Number 独立访客数\",\n        \"IP\":\"Number IP数\",\n        \"ATP\":\"Number 平均在线时间\",\n        \"STP\":\"Number 持续时长\"\n    }\n]\n",
+      "Parameters": [
+        {
+          "description": "String 指定的场景编号",
+          "name": "modelId"
+        },
+        {
+          "description": "String 起始时间，由Date.toISOString方法生成，可以为\"\"，表示从历史第一条记录开始统计",
+          "name": "startTime"
+        },
+        {
+          "description": "String 要求截止的数据记录时间，返回数据从此时间截止，往前的数据，由Date.toISOString方法获取，\" \"  表示为当前时间 。",
+          "name": "endTime"
+        }
+      ],
+      "Method": "Post",
+      "Path": "/pagestat/getLvzhouAllSumStatForModel",
+      "ItemName": "绿洲页面统计",
+      "SubItem": "获取绿洲指定场景的某段时间的统计信息"
+    },
+    {
+      "SubItem": "获取绿洲指点场景的某段时间的整站统计信息",
+      "ItemName": "绿洲页面统计",
+      "Path": "/pagestat/getLvzhouEntireSumStatForModel",
+      "Method": "Post",
+      "Parameters": [
+        {
+          "name": "modelId",
+          "description": "String 指定的场景ID"
+        },
+        {
+          "name": "startTime",
+          "description": "String 起始时间，由Date.toISOString方法生成，可以为\"\"，表示从历史第一条记录开始统计"
+        },
+        {
+          "name": "endTime",
+          "description": "String 要求截止的数据记录时间，返回数据从此时间截止，往前的数据，由Date.toISOString方法获取，\" \"  表示为当前时间 。"
+        },
+        {
+          "name": "endTime",
+          "description": "String 结束时间，由Date.toISOString方法生成，可以为“”，表示为持续到当前时间为止"
+        },
+        {
+          "name": "startTime",
+          "description": "String 起始时间，由Date.toISOString方法生成，可以为\"\"，表示从历史第一条记录开始统计"
+        }
+      ],
+      "Return": "{\n    \"PV\":\"Number 点击量\",\n    \"UV\":\"Number 独立访客数\",\n    \"IP\":\"Number IP数\",\n    \"ATP\":\"Number 平均在线时间\",\n    \"STP\":\"Number 持续时长\"\n}\n",
+      "Error": [
+        {
+          "name": "",
+          "description": ""
+        }
+      ]
+    }
+  ],
+  "author": "李楠09810",
+  "description": "研发统计 pv和tp 前台发送给后台保存前台和获取统计数据的接口",
+  "retcode": 0
+}

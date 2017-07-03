@@ -1,0 +1,171 @@
+{
+  "Name": "设备信息接口文档",
+  "DocIndex": "doc_7665526976343244",
+  "AllItems": [
+    {
+      "SubItem": "获取设备的详细信息",
+      "ItemName": "通用",
+      "Path": "/devmonitor/devinfo",
+      "Method": "Get",
+      "Parameters": [
+        {
+          "name": "devSN",
+          "description": "设备序列号"
+        }
+      ],
+      "Return": "{\n    \"devMode\":\"H3C WX5510E\",\n    \"devBaslineVersion\":\"7.1.064\",\n    \"devSoftVersion\":\"Release 5119P12\",\n    \"devAddress\":\"110.142.55.66\",\n    \"devLocation\":{\n        \"country\":\"中国\",\n        \"province\":\"浙江\",\n        \"city\":\"杭州\"\n    },\n    \"devOnlineTime\":1123,\n    \"devUplineTime\":1300\n}\n",
+      "Error": [
+        {
+          "name": "errcode:'not found'",
+          "description": "不存在时返回errcode"
+        }
+      ]
+    },
+    {
+      "Error": [
+        {
+          "description": "设置成功",
+          "name": "errCode=0"
+        },
+        {
+          "description": "设置失败",
+          "name": "errCode=1"
+        }
+      ],
+      "Return": "{\n    \"errCode\":0\n}\n",
+      "Parameters": [
+        {
+          "description": "设备序列号",
+          "name": "devSN"
+        },
+        {
+          "description": "上行带宽值，单位Mbps,可选",
+          "name": "upBandwidth"
+        },
+        {
+          "description": "上行带宽值，单位Mbps，可选",
+          "name": "downBandwidth"
+        }
+      ],
+      "Method": "Get",
+      "Path": "/devmonitor/setbandwidth",
+      "ItemName": "通用",
+      "SubItem": "设置上下行带宽"
+    },
+    {
+      "Error": [
+        {
+          "description": "获取成功",
+          "name": "errCode=0"
+        },
+        {
+          "description": "未设置带宽",
+          "name": "errCode=1"
+        },
+        {
+          "description": "数据库查找失败",
+          "name": "errCode=2"
+        }
+      ],
+      "Return": "{\n    \"errCode\":0,\n    \"upBandwidth\":10,\n    \"downBandwidth\":10\n}\n",
+      "Parameters": [
+        {
+          "description": "设备序列号",
+          "name": "devSN"
+        }
+      ],
+      "Method": "Get",
+      "Path": "/devmonitor/getbandwidth",
+      "ItemName": "通用",
+      "SubItem": "获取设备带宽"
+    },
+    {
+      "Error": [
+        {
+          "description": "错误时返回错误信息，否则为“”",
+          "name": "errCode"
+        }
+      ],
+      "Return": "{\n    \"errCode\":\"String，错误信息\",\n    \"dataList\":[\n        {\n            \"interfaceName\":\"string,接口名字\",\n            \"dataList\":[\n                {\n                    \"recordDate\":\"string,采样时间，前段无需转格式\",\n                    \"upflow\":\"int,上行流量\",\n                    \"downflow\":\"int,下行流量\",\n                    \"spped_up\":\"int,上行速度\",\n                    \"spped_down\":\"int,下行速度\"\n                }\n            ]\n        }\n    ]\n}\n",
+      "Parameters": [
+        {
+          "description": "设备序列号",
+          "name": "devSN"
+        },
+        {
+          "description": "获取统计数据类型：\n1.“today”--获取当天数据，\n2.“oneWeek”--获取最近七天（不包括当天）\n3.“oneMonth”--获取最近一个月（不包括当天）\n4.“halfYear”--获取最近半年（不包括当月）\n5.\"oneYear\"--获取最近一年（不包括当月）",
+          "name": "statistic_type"
+        }
+      ],
+      "Method": "Get",
+      "Path": "/devmonitor/gethistUplinkData",
+      "ItemName": "通用",
+      "SubItem": "获取接口历史信息"
+    },
+    {
+      "SubItem": "获取设备cpu使用率历史信息",
+      "ItemName": "获取设备cpu使用率历史信息",
+      "Path": "/devmonitor/gethistcpuratioinfo",
+      "Method": "Get",
+      "Parameters": [
+        {
+          "name": "devSN",
+          "description": "设备序列号"
+        },
+        {
+          "name": "statistic_type",
+          "description": "统计类型，枚举值，取值如下：\n1.oneWeek  ---一周统计信息\n2.oneMonth----一月统计信息\n3.custom----自定义统计信息"
+        },
+        {
+          "name": "startTime",
+          "description": "可选，自定义时需要携带，统计开始时间"
+        },
+        {
+          "name": "endTime",
+          "description": "可选，自定义时需要携带，统计结束时间"
+        }
+      ],
+      "Return": "{\n    \"errCode\":\"Number, 错误码，0--获取正确，非0---获取失败\",\n    \"errInfo\":\"String,错误原因，错误码非0情况携带错误信息\",\n    \"dataList\":[\n        {\n            \"recordDate\":\"String,统计时间\",\n            \"highestCpuRatio\":\"Number,最高cpu使用率\",\n            \"highestTime\":\"Date,最高值时间\",\n            \"lowestCpuRatio\":\"Number,最低cpu使用率\",\n            \"lowestTime\":\"Date，最低值时间\"\n        }\n    ]\n}\n",
+      "Error": [
+        {
+          "name": "",
+          "description": ""
+        }
+      ]
+    },
+    {
+      "Error": [
+        {
+          "description": "",
+          "name": ""
+        }
+      ],
+      "Return": "{\n    \"errCode\":\"Number, 错误码，0--获取正确，非0---获取失败\",\n    \"errInfo\":\"String,错误原因，错误码非0情况携带错误信息\",\n    \"dataList\":[\n        {\n            \"recordDate\":\"String,统计时间\",\n            \"highestMemoryRatio\":\"Number,最高memory使用率\",\n            \"highestTime\":\"Date,最高值时间\",\n            \"lowestMemoryRatio\":\"Number,最低memory使用率\",\n            \"lowestTime\":\"Date，最低值时间\"\n        }\n    ]\n}\n",
+      "Parameters": [
+        {
+          "description": "设备序列号",
+          "name": "devSN"
+        },
+        {
+          "description": "统计类型：枚举值，如下：\n1.oneWeek---一周统计值\n2.oneMonth---一月统计值\n3.custom---自定义",
+          "name": "statistic_type"
+        },
+        {
+          "description": "自定义统计开始时间",
+          "name": "startTime"
+        },
+        {
+          "description": "自定义统计结束时间",
+          "name": "endTime"
+        }
+      ],
+      "Method": "Get",
+      "Path": "/devmonitor/gethistmemoryratioinfo",
+      "ItemName": "获取设备内存使用率历史信息",
+      "SubItem": "获取设备内存使用率历史信息"
+    }
+  ],
+  "author": "y10159",
+  "description": "devmonitor相关接口",
+  "retcode": 0
+}

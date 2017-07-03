@@ -1,0 +1,328 @@
+{
+  "Name": "ssidmonitor微服务接口文档",
+  "DocIndex": "doc_1695979735814035",
+  "AllItems": [
+    {
+      "Error": [
+        {
+          "description": "",
+          "name": "无"
+        }
+      ],
+      "Return": "{\n    \"ssidList\":[\n        {\n            \"acSN\":\"string\",\n            \"stName\":\"string，服务模板名\",\n            \"ssidName\":\"string，ssid\",\n            \"ssid\":\"string，新版ssid_id\",\n            \"status\":\"number，使能状态\",\n            \"hideSSID\":\"number，ssid隐藏状态\",\n            \"maxClients\":\"number，最大上线终端个数\",\n            \"akmMode\":\"number，身份认证与秘钥管理模式\",\n            \"cipherSuite\":\"number，加密套件\",\n            \"securityIE\":\"number，安全IE\",\n            \"maxSendRatio\":\"number，最大发送速率\",\n            \"maxReceiveRatio\":\"number，最大接收速率\",\n            \"authLocation\":\"number，认证位置\",\n            \"FwdLocation\":\"number，转发位置\",\n            \"vlanId\":\"number，vlan\",\n            \"authMode\":\"number，认证模式\",\n            \"seamlessRoam\":\"number，零漫游状态\",\n            \"isolationFlag\":\"number，用户隔离\",\n            \"insProtect\":\"number，入侵保护\",\n            \"insProtectMode\":\"number，入侵保护模式\",\n            \"description\":\"string，服务模板描述\",\n            \"bindApList\":[\n                {\n                    \"ApName\":\"string\",\n                    \"radioId\":\"number\",\n                    \"isInherit\":\"number,服务模板是否是继承的1-是 0-否\",\n                    \"wlanID\":\"number\",\n                    \"radioType\":\"string\"\n                }\n            ],\n            \"bindApGroupList\":[\n                {\n                    \"ApGroupName\":\"string\",\n                    \"radioId\":\"number\",\n                    \"ApModel\":\"string\",\n                    \"radioType\":\"string\"\n                }\n            ],\n            \"clinetCount\":\"number,服务模板上线客户端个数\"\n        }\n    ]\n}\n",
+      "Parameters": [
+        {
+          "description": "设备序列号",
+          "name": "devSN"
+        },
+        {
+          "description": "服务模板名（选填）",
+          "name": "stName"
+        },
+        {
+          "description": "跳过数目（选填）",
+          "name": "skipnum"
+        },
+        {
+          "description": "一次获取最多列表个数（选填）",
+          "name": "limitnum"
+        }
+      ],
+      "Method": "Get",
+      "Path": "/ssidmonitor/getssidlist",
+      "ItemName": "服务模板信息",
+      "SubItem": "获取服务模板详细信息"
+    },
+    {
+      "SubItem": "获取AP列表及其绑定服务模板数量",
+      "ItemName": "服务模板计数",
+      "Path": "/ssidmonitor/getapbindstcount",
+      "Method": "Get",
+      "Parameters": [
+        {
+          "name": "devSN",
+          "description": "设备序列号"
+        },
+        {
+          "name": "skipnum",
+          "description": "跳过条目数"
+        },
+        {
+          "name": "limitnum",
+          "description": "最大返回条目数"
+        }
+      ],
+      "Return": "{\n    \"apTotalCnt\":\"number\",\n    \"apLeftCnt\":\"number\",\n    \"apList\":[\n        {\n            \"apName\":\"string, AP名字\",\n            \"stBindCount\":\"number,ap下绑定服务模板数量\",\n            \"apSN\":\"string\",\n            \"apModel\":\"string\",\n            \"radioNum\":\"number,AP下radio的数量\"\n        }\n    ]\n}\n",
+      "Error": [
+        {
+          "name": "无",
+          "description": ""
+        }
+      ]
+    },
+    {
+      "Error": [
+        {
+          "description": "",
+          "name": "无"
+        }
+      ],
+      "Return": "{\n    \"apgroupList\":[\n        {\n            \"apGroupName \":\"string, AP组名字\",\n            \"stBindCount\":\"number,ap组下绑定服务模板数量\",\n            \"apGrpDesc\":\"string, AP组描述\",\n            \"modelList\":[\n                {\n                    \"model\":\"string, AP模板\",\n                    \"radioNum\":\"number,radio数量\"\n                }\n            ]\n        }\n    ]\n}\n",
+      "Parameters": [
+        {
+          "description": "设备序列号",
+          "name": "devSN"
+        },
+        {
+          "description": "跳过条目数",
+          "name": "skipnum"
+        },
+        {
+          "description": "最大返回条目数",
+          "name": "limitnum"
+        }
+      ],
+      "Method": "Get",
+      "Path": "ssidmonitor/getapgroupbindstcount",
+      "ItemName": "服务模板计数",
+      "SubItem": "获取AP组列表及其绑定服务模板数量"
+    },
+    {
+      "SubItem": "获取AP下绑定服务模板列表和未绑定服务模板列表",
+      "ItemName": "服务模板绑定与解绑定",
+      "Path": "ssidmonitor/getapbindstlist",
+      "Method": "Get",
+      "Parameters": [
+        {
+          "name": "devSN",
+          "description": "设备序列号"
+        },
+        {
+          "name": "apName",
+          "description": "AP名"
+        },
+        {
+          "name": "skipnum",
+          "description": "跳过条目数"
+        },
+        {
+          "name": "limitnum",
+          "description": "最大返回条目数"
+        },
+        {
+          "name": "ownerName",
+          "description": "用户名"
+        },
+        {
+          "name": "shopName",
+          "description": "商铺名"
+        }
+      ],
+      "Return": "{\n    \"stList\":{\n        \"stBindTotalCnt\":\"number\",\n        \"stBindLeftCnt\":\"number\",\n        \"stBindList\":[\n            {\n                \"stName\":\"string，服务模板名字\",\n                \"description\":\"string，服务模板描述\",\n                \"ssidName\":\"string\",\n                \"status\":\"number\",\n                \"lvzhouAuthMode\":\"number\",\n                \"lvzhouAuthModeVerbose\":\"见服务模板简要信息接口\"\n            }\n        ],\n        \"stUnBindTotalCnt\":\"number\",\n        \"stUnBindLeftCnt\":\"number\",\n        \"stUnBindList\":[\n            {\n                \"stName\":\"string，服务模板名字\",\n                \"description\":\"string，服务模板描述\",\n                \"ssidName\":\"string\",\n                \"status\":\"number\",\n                \"lvzhouAuthMode\":\"number\",\n                \"lvzhouAuthModeVerbose\":\"见服务模板简要信息接口\"\n            }\n        ],\n        \"apSN\":\"string\",\n        \"radioNum\":\"number\"\n    }\n}\n",
+      "Error": [
+        {
+          "name": "无",
+          "description": ""
+        }
+      ]
+    },
+    {
+      "Error": [
+        {
+          "description": "",
+          "name": "无"
+        }
+      ],
+      "Return": "{\n    \"stList\":{\n        \"bindTotalCnt\":\"number，服务模板绑定总数\",\n        \"bindLeftCnt\":\"number，服务模板绑定总数\",\n        \"stBindList\":[\n            {\n                \"stName\":\"string，服务模板名字\",\n                \"ssidName\":\"string\",\n                \"description\":\"string，服务模板描述\",\n                \"status\":\"number,使能状态 1-enable, 2-disable\",\n                \"lvzhouAuthMode\":\"number\",\n                \"lvzhouAuthModeVerbose\":\"见服务模板简要信息接口\"\n            }\n        ],\n        \"unbindTotalCnt\":\"number，服务模板未绑定总数\",\n        \"unbindLeftCnt\":\"number，服务模板未绑定总数\",\n        \"stUnBindList\":[\n            {\n                \"stName\":\"string，服务模板名字\",\n                \"ssidName\":\"string\",\n                \"description\":\"string，服务模板描述\",\n                \"status\":\"number,使能状态 1-enable, 2-disable\",\n                \"lvzhouAuthMode\":\"number\",\n                \"lvzhouAuthModeVerbose\":\"见服务模板简要信息接口\"\n            }\n        ]\n    },\n    \"modelList\":[\n        {\n            \"model\":\"string, AP模板\",\n            \"radioNum\":\"number,radio数量\"\n        }\n    ]\n}\n",
+      "Parameters": [
+        {
+          "description": "设备序列号",
+          "name": "devSN"
+        },
+        {
+          "description": "AP组名",
+          "name": "apGroupName"
+        },
+        {
+          "description": "查询跳过数",
+          "name": "skipnum"
+        },
+        {
+          "description": "查询最大数",
+          "name": "limitnum"
+        },
+        {
+          "description": "用户名",
+          "name": "ownerName"
+        },
+        {
+          "description": "商铺名",
+          "name": "shopName"
+        }
+      ],
+      "Method": "Get",
+      "Path": "ssidmonitor/ getapgroupbindstlist",
+      "ItemName": "服务模板绑定与解绑定",
+      "SubItem": "获取AP组下绑定服务模板列表和未绑定服务模板列表"
+    },
+    {
+      "Error": [
+        {
+          "description": "",
+          "name": "无"
+        }
+      ],
+      "Return": "{\n    \"stBindList\":{\n        \"apTotalCnt\":\"number，查询总数\",\n        \"apLeftCnt\":\"number，剩余未查询数\",\n        \"bindApList\":[\n            {\n                \"apName\":\"string，AP名称\",\n                \"macAddr\":\"string\",\n                \"ipv4Addr\":\"string\",\n                \"ipv6Addr\":\"string\",\n                \"apGroupName\":\"string，所属AP组\",\n                \"branch\":\"string，所属分支\"\n            }\n        ],\n        \"apGrpTotalCnt\":\"number，查询总数\",\n        \"apGrpLeftCnt\":\"number，剩余未查询数\",\n        \"bindApGroupList\":[\n            {\n                \"apGroupName\":\"string，AP组名称\",\n                \"description\":\"string，AP组描述\",\n                \"branch\":\"string，所属分支\"\n            }\n        ]\n    }\n}\n",
+      "Parameters": [
+        {
+          "description": "设备序列号",
+          "name": "devSN"
+        },
+        {
+          "description": "服务模板名字",
+          "name": "stName"
+        },
+        {
+          "description": "查询跳过数",
+          "name": "skipnum"
+        },
+        {
+          "description": "每次查询数",
+          "name": "limitnum"
+        },
+        {
+          "description": "{\n    findoption:\"查找条件，JSON格式，以apName(仅限AP),apGroupName,description(仅限AP组),branch为查询条件，如{\"apName\":\"ap1\"}\",\n    sortoption:\"排序条件，JSON格式，以apName(仅限AP),apGroupName,description(仅限AP组),branch之一为关键字排序，值为1升序，值为-1降序，如{\"apGroupName\":1}\"\n}",
+          "name": "body"
+        },
+        {
+          "description": "分支（可选）",
+          "name": "branch"
+        }
+      ],
+      "Method": "Post",
+      "Path": "ssidmonitor/getstbindlist",
+      "ItemName": "服务模板绑定与解绑定",
+      "SubItem": "获取服务模板都绑定到哪些AP（组）"
+    },
+    {
+      "Error": [
+        {
+          "description": "",
+          "name": "无"
+        }
+      ],
+      "Return": "{\n    \"bindApTotalCnt\":\"number\",\n    \"bindApLeftCnt\":\"number\",\n    \"bindApList\":[\n        {\n            \"apName\":\"string\",\n            \"apSN\":\"string\",\n            \"apModel\":\"string\",\n            \"radioNum\":\"number\",\n            \"apGroupName\":\"string\"\n        }\n    ],\n    \"unbindApTotalCnt\":\"number\",\n    \"unbindApLeftCnt\":\"number\",\n    \"unbindApList\":[\n        {\n            \"apName\":\"string\",\n            \"apSN\":\"string\",\n            \"apModel\":\"string\",\n            \"radioNum\":\"number\",\n            \"apGroupName\":\"string\"\n        }\n    ]\n}\n",
+      "Parameters": [
+        {
+          "description": "设备序列号",
+          "name": "devSN"
+        },
+        {
+          "description": "服务模板名",
+          "name": "stName"
+        },
+        {
+          "description": "跳过条目数",
+          "name": "skipnum"
+        },
+        {
+          "description": "每次最大返回条目数",
+          "name": "limitnum"
+        }
+      ],
+      "Method": "Get",
+      "Path": "/ssidmonitor/getstbindaplist",
+      "ItemName": "服务模板绑定与解绑定",
+      "SubItem": "获取服务模板绑定未绑定AP"
+    },
+    {
+      "SubItem": "获取服务模板绑定与未绑定AP组",
+      "ItemName": "服务模板绑定与解绑定",
+      "Path": "/ssidmonitor/getstbindapgrouplist",
+      "Method": "Get",
+      "Parameters": [
+        {
+          "name": "devSN",
+          "description": "设备序列号"
+        },
+        {
+          "name": "stName",
+          "description": "服务模板名字"
+        },
+        {
+          "name": "skipnum",
+          "description": "跳过条目数"
+        },
+        {
+          "name": "limitnum",
+          "description": "最大返回条目数"
+        }
+      ],
+      "Return": "{\n    \"bindApGroupTotalCnt\":\"number\",\n    \"bindApGroupLeftCnt\":\"number\",\n    \"bindApGroupList\":[\n        {\n            \"apGroupName\":\"string\",\n            \"description\":\"string\",\n            \"modelList\":[\n                {\n                    \"model\":\"String\",\n                    \"radioNum\":\"Number\"\n                }\n            ]\n        }\n    ],\n    \"unbindApGroupTotalCnt\":\"number\",\n    \"unbindApGroupLeftCnt\":\"number\",\n    \"unbindApGroupList\":[\n        {\n            \"apGroupName\":\"string\",\n            \"description\":\"string\",\n            \"modelList\":[\n                {\n                    \"model\":\"String\",\n                    \"radioNum\":\"Number\"\n                }\n            ]\n        }\n    ]\n}\n",
+      "Error": [
+        {
+          "name": "无",
+          "description": ""
+        }
+      ]
+    },
+    {
+      "Error": [
+        {
+          "description": "",
+          "name": "无"
+        }
+      ],
+      "Return": "{\n    \"ssidList\":[\n        {\n            \"acSN\":\"string\",\n            \"stName\":\"string\",\n            \"ssidName\":\"string\",\n            \"ssid\":\"string，新版ssid_id\",\n            \"status\":\"number，1-开启，2-关闭\",\n            \"description\":\"string\",\n            \"vlanId\":\"number\",\n            \"clientCount\":\"number\",\n            \"ApCnt\":\"number\",\n            \"bindApList\":[\n                {\n                    \"ApName\":\"string\",\n                    \"apSN\":\"string\",\n                    \"radioId\":\"number\",\n                    \"isInherit\":\"number\",\n                    \"wlanID\":\"number\",\n                    \"radioType\":\"string\"\n                }\n            ],\n            \"ApGroupCnt\":\"number\",\n            \"bindApGroupList\":[\n                {\n                    \"ApGroupName\":\"string\",\n                    \"radioId\":\"number\",\n                    \"ApModel\":\"string\",\n                    \"radioType\":\"string\"\n                }\n            ],\n            \"lvzhouAuthMode\":\"number，-1-获取失败，0-不认证，1-一键登录，2-账号认证\",\n            \"lvzhouAuthModeVerbose\":{\n                \"authCfgTemplateName\":\"string\",\n                \"authType\":\"number\",\n                \"onlineMaxTime\":\"number\",\n                \"isEnableSms\":\"number\",\n                \"isEnableWeixin\":\"number\",\n                \"isEnableAli\":\"number\",\n                \"isEnableAccount\":\"number\",\n                \"isEnableQQ\":\"number\",\n                \"isWeixinConnectWifi\":\"number\",\n                \"smsAuthContent\":\"string\",\n                \"v3flag\":\"number\",\n                \"uamAuthParamList\":[\n                    {\n                        \"authParamName\":\"string\",\n                        \"authParamValue\":\"string\"\n                    }\n                ]\n            }\n        }\n    ]\n}\n",
+      "Parameters": [
+        {
+          "description": "设备序列号",
+          "name": "devSN"
+        },
+        {
+          "description": "服务模板名（可选, 仅指定后返回bindApList和bindApGroupList）",
+          "name": "stName"
+        },
+        {
+          "description": "跳过数（可选）",
+          "name": "skipnum"
+        },
+        {
+          "description": "最大返回数据数（可选）",
+          "name": "limitnum"
+        },
+        {
+          "description": "用户名（可选，仅同时指定shopName和ownerName返回lvzhouAuthMode、lvzhouAuthModeVerbose）",
+          "name": "ownerName"
+        },
+        {
+          "description": "商铺名（可选, 仅同时指定shopName和ownerName返回lvzhouAuthMode、lvzhouAuthModeVerbose）",
+          "name": "shopName"
+        },
+        {
+          "description": "分支名（可选）",
+          "name": "branch"
+        },
+        {
+          "description": "顶级组名（可选，仅指定topName和nasId通过cloudapgroup获取信息）",
+          "name": "topName"
+        },
+        {
+          "description": "（可选）",
+          "name": "midName"
+        },
+        {
+          "description": "（可选）",
+          "name": "nasId"
+        }
+      ],
+      "Method": "Get",
+      "Path": "/ssidmonitor/getssidinfobrief",
+      "ItemName": "服务模板信息",
+      "SubItem": "获取服务模板简要信息"
+    }
+  ],
+  "author": "hkf4715",
+  "description": "提供服务模板相关信息的获取",
+  "retcode": 0
+}

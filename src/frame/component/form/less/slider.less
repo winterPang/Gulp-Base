@@ -1,0 +1,37 @@
+@import "../../../less/$variable.less";
+
+.oasis-slider {
+  display: inline-block;
+  &.disabled {
+    cursor: not-allowed;
+    label {
+      cursor: not-allowed;
+    }
+    .slider {
+      pointer-events: none;
+      .slider-handle {
+        background: @middle-gray-dark;
+      }
+    }
+  }
+  .slider {
+    margin: 0 10px;
+    .slider-selection {
+      box-shadow: none;
+      background: @light-mian-color;
+    }
+    .slider-handle {
+      background: @mian-color;
+    }
+    .slider-track {
+      box-shadow: none;
+    }
+  }
+  label {
+    font-weight: lighter;
+    text-align: right;
+    &::after {
+      content: ":"
+    }
+  }
+}

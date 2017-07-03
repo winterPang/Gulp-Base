@@ -1,0 +1,949 @@
+{
+  "Name": "data_analysis_read接口文档-1",
+  "DocIndex": "doc_8513411562187756",
+  "AllItems": [
+    {
+      "Error": [
+        {
+          "description": "",
+          "name": "无"
+        }
+      ],
+      "Return": "{\n    \"baseinfo\":{\n        \"current_lingering\":\"Number，实时驻留客流量\",\n        \"current_lingering_compare\":\"Number，实时驻留客流量比较值\",\n        \"lingering_apex\":\"Number，驻留客流峰值\",\n        \"lingering_apex_compare\":\"Number，驻留客流峰值比较值\",\n        \"lingering_total\":\"Number，总驻留客流量\",\n        \"lingering_total_compare\":\"Number，总驻留客流量比较值\",\n        \"lingering_time_ave\":\"Number，平均驻留时长\",\n        \"lingering_time_ave_compare\":\"Number，平均驻留时长比较值\"\n    }\n}\n",
+      "Parameters": [
+        {
+          "description": "统计时间维度 \n取值如下：1.today 按整点统计\n2.oneWeek 最近7天 按天统计\n3.oneMonth 最近30天 按天统计\n4.oneYear 最近1年 按月统计\n5.custom 自定义",
+          "name": "statistics_type"
+        },
+        {
+          "description": "开始时间 （可选，改选项用于statistic_type= custom类型，选取统计的开始时间）",
+          "name": "startTime"
+        },
+        {
+          "description": "结束时间（可选，改选项用于statistic_type= custom类型，选取统计的结束时间）",
+          "name": "endTime"
+        },
+        {
+          "description": "{\n    devSNList:[\n        {devSN: string}\n    ]\n}",
+          "name": "body"
+        }
+      ],
+      "Method": "Get",
+      "Path": "/data_analysis_read/getlingeringbaseinfo",
+      "ItemName": "驻留分析-获取驻留分析基本信息",
+      "SubItem": "获取驻留分析基本信息"
+    },
+    {
+      "SubItem": "获取驻留分析详细信息列表",
+      "ItemName": "驻留分析-获取驻留分析详细信息列表",
+      "Path": "/data_analysis_read/getlingeringdetailinfo",
+      "Method": "Get",
+      "Parameters": [
+        {
+          "name": "statistics_type",
+          "description": "统计时间维度 \n取值如下：1.today 按整点统计\n2.oneWeek 最近7天 按天统计\n3.oneMonth 最近30天 按天统计\n4.oneYear 最近1年 按月统计\n5.custom 自定义"
+        },
+        {
+          "name": "startTime",
+          "description": "开始时间 （可选，改选项用于statistic_type= custom类型，选取统计的开始时间）"
+        },
+        {
+          "name": "endTime",
+          "description": "结束时间（可选，改选项用于statistic_type= custom类型，选取统计的结束时间）"
+        },
+        {
+          "name": "body",
+          "description": "devSNList:[{devSN:string}]JSON格式 设备序列号数组"
+        }
+      ],
+      "Return": "{\n    \"detailinfo_list\":[\n        {\n            \"name\":\"String，场景或区域名\",\n            \"lingering_total\":\"Number，总驻留客流量\",\n            \"lingering_time_ave\":\"Number，平均驻留时长\",\n            \"cur_online_L_lingering\":\"Number，低驻留人数\",\n            \"cur_online_M_lingering\":\"Number，中驻留人数\",\n            \"cur_online_H_lingering\":\"Number，高驻留人数\",\n            \"cur_online_A_lingering\":\"Number，常驻人数\",\n            \"lingering_apex\":\"Number，驻留客流峰值\",\n            \"lingering_apex_time\":\"String，到达驻留客流峰值时间\"\n        }\n    ]\n}\n",
+      "Error": [
+        {
+          "name": "无",
+          "description": ""
+        }
+      ]
+    },
+    {
+      "SubItem": "获取平均驻留时长",
+      "ItemName": "通用-获取平均驻留时长",
+      "Path": "/data_analysis_read/getdataforlingeringtimeave",
+      "Method": "Get",
+      "Parameters": [
+        {
+          "name": "statistics_type",
+          "description": "统计时间维度 \n取值如下：1.today 按整点统计\n2.oneWeek 最近7天 按天统计\n3.oneMonth 最近30天 按天统计\n4.oneYear 最近1年 按月统计\n5.custom 自定义"
+        },
+        {
+          "name": "startTime",
+          "description": "开始时间 （可选，改选项用于statistic_type= custom类型，选取统计的开始时间）"
+        },
+        {
+          "name": "endTime",
+          "description": "结束时间（可选，改选项用于statistic_type= custom类型，选取统计的结束时间）"
+        },
+        {
+          "name": "body",
+          "description": "{\n    devSNList:[\n        {devSN: string}\n    ]\n}"
+        }
+      ],
+      "Return": "{\n    \"lingering_time_ave\":\"Number，平均驻留时长\",\n    \"lingering_time\":[\n        {\n            \"name\":\"<10分钟\",\n            \"value\":\"Number，场所或区域个数\"\n        },\n        {\n            \"name\":\"10~20分钟\",\n            \"value\":\"Number，场所或区域个数\"\n        },\n        {\n            \"name\":\"<20~30分钟\",\n            \"value\":\"Number，场所或区域个数\"\n        },\n        {\n            \"name\":\">30分钟\",\n            \"value\":\"Number，场所或区域个数\"\n        }\n    ]\n}\n",
+      "Error": [
+        {
+          "name": "无",
+          "description": ""
+        }
+      ]
+    },
+    {
+      "SubItem": "获取平均驻留率",
+      "ItemName": "通用-获取平均驻留率",
+      "Path": "/data_analysis_read/getdataforlingeringratioave",
+      "Method": "Get",
+      "Parameters": [
+        {
+          "name": "statistics_type",
+          "description": "统计时间维度 \n取值如下：1.today 按整点统计\n2.oneWeek 最近7天 按天统计\n3.oneMonth 最近30天 按天统计\n4.oneYear 最近1年 按月统计\n5.custom 自定义"
+        },
+        {
+          "name": "startTime",
+          "description": "开始时间 （可选，改选项用于statistic_type= custom类型，选取统计的开始时间）"
+        },
+        {
+          "name": "endTime",
+          "description": "结束时间（可选，改选项用于statistic_type= custom类型，选取统计的结束时间）"
+        },
+        {
+          "name": "body",
+          "description": "{\n    devSNList:[\n        {devSN: string}\n    ]\n}"
+        }
+      ],
+      "Return": "{\n    \"lingering_ratio_ave\":\"Number，平均驻留率\",\n    \"lingering_ratio\":[\n        {\n            \"name\":\"<20%\",\n            \"value\":\"Number，场所或区域个数\"\n        },\n        {\n            \"name\":\"20~40%\",\n            \"value\":\"Number，场所或区域个数\"\n        },\n        {\n            \"name\":\">40%\",\n            \"value\":\"Number，场所或区域个数\"\n        }\n    ]\n}\n",
+      "Error": [
+        {
+          "name": "无",
+          "description": ""
+        }
+      ]
+    },
+    {
+      "Error": [
+        {
+          "description": "",
+          "name": "无"
+        }
+      ],
+      "Return": "{\n    \"lingering_time_ratio_ave\":\"Number，驻留时长比率\",\n    \"lingering_time_ratio\":[\n        {\n            \"name\":\"低驻留\",\n            \"value\":\"Number，场所或区域个数\"\n        },\n        {\n            \"name\":\"中驻留\",\n            \"value\":\"Number，场所或区域个数\"\n        },\n        {\n            \"name\":\"高驻留\",\n            \"value\":\"Number，场所或区域个数\"\n        }\n    ]\n}\n",
+      "Parameters": [
+        {
+          "description": "统计时间维度 \n取值如下：1.today 按整点统计\n2.oneWeek 最近7天 按天统计\n3.oneMonth 最近30天 按天统计\n4.oneYear 最近1年 按月统计\n5.custom 自定义",
+          "name": "statistics_type"
+        },
+        {
+          "description": "开始时间 （可选，改选项用于statistic_type= custom类型，选取统计的开始时间）",
+          "name": "startTime"
+        },
+        {
+          "description": "结束时间（可选，改选项用于statistic_type= custom类型，选取统计的结束时间）",
+          "name": "endTime"
+        },
+        {
+          "description": "{\n    devSNList:[\n        {devSN: string}\n    ]\n}",
+          "name": "body"
+        }
+      ],
+      "Method": "Get",
+      "Path": "/data_analysis_read/getdataforlingeringtimerate",
+      "ItemName": "驻留分析-获取驻留时长比率",
+      "SubItem": "获取驻留时长比率"
+    },
+    {
+      "SubItem": "获取驻留客流前五/后五",
+      "ItemName": "驻留分析-获取驻留客流前五/后五",
+      "Path": "/data_analysis_read/getrankingdataforlingering",
+      "Method": "Get",
+      "Parameters": [
+        {
+          "name": "statistics_type",
+          "description": "统计时间维度 \n取值如下：1.today 按整点统计\n2.oneWeek 最近7天 按天统计\n3.oneMonth 最近30天 按天统计\n4.oneYear 最近1年 按月统计\n5.custom 自定义"
+        },
+        {
+          "name": "ranking_type",
+          "description": "取值如下：1.top 前五  2.behind 后五"
+        },
+        {
+          "name": "startTime",
+          "description": "开始时间 （可选，改选项用于statistic_type= custom类型，选取统计的开始时间）"
+        },
+        {
+          "name": "endTime",
+          "description": "结束时间（可选，改选项用于statistic_type= custom类型，选取统计的结束时间）"
+        },
+        {
+          "name": "body",
+          "description": "{\n    devSNList:[\n        {devSN: string}\n    ]\n}"
+        }
+      ],
+      "Return": "{\n    \"lingering_rank\":{\n        \"data_value\":[\n            \"Number\",\n            \"Number\",\n            \"Number\",\n            \"Number\",\n            \"Number，排名前/后五的驻留客流量\"\n        ],\n        \"data_name\":[\n            \"String\",\n            \"String\",\n            \"String\",\n            \"String\",\n            \"String，排名前/后五的驻留客流量对应的场所/区域名\"\n        ]\n    }\n}\n",
+      "Error": [
+        {
+          "name": "无",
+          "description": ""
+        }
+      ]
+    },
+    {
+      "Error": [
+        {
+          "description": "",
+          "name": "无"
+        }
+      ],
+      "Return": "{\n    \"data\":{\n        \"tendency\":[\n            \"Number，驻留客流量\"\n        ],\n        \"tendency_compare\":[\n            \"Number，驻留客流量比较值\"\n        ]\n    }\n}\n",
+      "Parameters": [
+        {
+          "description": "统计时间维度 \n取值如下：1.today 按整点统计\n2.oneWeek 最近7天 按天统计\n3.oneMonth 最近30天 按天统计\n4.oneYear 最近1年 按月统计\n5.custom 自定义",
+          "name": "statistics_type"
+        },
+        {
+          "description": "比较维度（可选，改选项用于statistic_type= today类型）\n取值如下：\n1.yestoday 昨天\n2.dayofweek 上周同期\n3.dayofmonth 上月同期\n",
+          "name": "compare_type"
+        },
+        {
+          "description": "开始时间 （可选，改选项用于statistic_type= custom类型，选取统计的开始时间）",
+          "name": "startTime"
+        },
+        {
+          "description": "结束时间（可选，改选项用于statistic_type= custom类型，选取统计的结束时间）",
+          "name": "endTime"
+        },
+        {
+          "description": "{\n    devSNList:[\n        {devSN: string}\n    ]\n}",
+          "name": "body"
+        }
+      ],
+      "Method": "Get",
+      "Path": "/data_analysis_read/gettendencydataforlingering",
+      "ItemName": "驻留分析-获取驻留客流趋势",
+      "SubItem": "获取驻留客流趋势"
+    },
+    {
+      "Error": [
+        {
+          "description": "错误时返回错误码",
+          "name": "errInfo"
+        }
+      ],
+      "Return": "{\n    \"custormerbaseinfo\":{\n        \"customers_total\":\"Number，总顾客数\",\n        \"customers_total_compare\":\"Number，总顾客数比较值\",\n        \"customers_new\":\"Number，新增顾客数\",\n        \"customers_new_compare\":\"Number，新增顾客数比较值\",\n        \"wificustomers_total\":\"Number，WiFi连接数\",\n        \"wificustomers_total_compare\":\"Number，WiFi连接数比较值\",\n        \"wificustomers_new\":\"Number，新增WiFi连接数\",\n        \"wificustomers_new_compare\":\"Number，新增WiFi连接数比较值\"\n    }\n}\n",
+      "Parameters": [
+        {
+          "description": "统计时间维度 \n取值如下：1.today 按整点统计\n2.oneWeek 最近7天 按天统计\n3.oneMonth 最近30天 按天统计\n4.oneYear 最近1年 按月统计\n5.custom 自定义",
+          "name": "statistics_type"
+        },
+        {
+          "description": "开始时间 （可选，改选项用于statistic_type= custom类型，选取统计的开始时间）",
+          "name": "startTime"
+        },
+        {
+          "description": "结束时间（可选，改选项用于statistic_type= custom类型，选取统计的结束时间）",
+          "name": "endTime"
+        },
+        {
+          "description": "{\n    devSNList:[\n        {devSN: string}\n    ]\n}",
+          "name": "body"
+        }
+      ],
+      "Method": "Get",
+      "Path": "/data_analysis_read/getcustomerbaseinfo",
+      "ItemName": "客群分析-获取客群分析基本信息",
+      "SubItem": "获取客群分析基本信息"
+    },
+    {
+      "SubItem": "获取客群分析详细信息列表",
+      "ItemName": "客群分析-获取客群分析详细信息列表",
+      "Path": "/data_analysis_read/getcustomersdetaildata",
+      "Method": "Get",
+      "Parameters": [
+        {
+          "name": "statistics_type",
+          "description": "统计时间维度 \n取值如下：1.today 按整点统计\n2.oneWeek 最近7天 按天统计\n3.oneMonth 最近30天 按天统计\n4.oneYear 最近1年 按月统计\n5.custom 自定义"
+        },
+        {
+          "name": "startTime",
+          "description": "开始时间 （可选，改选项用于statistic_type= custom类型，选取统计的开始时间）"
+        },
+        {
+          "name": "endTime",
+          "description": "结束时间（可选，改选项用于statistic_type= custom类型，选取统计的结束时间）"
+        },
+        {
+          "name": "body",
+          "description": "{\n    devSNList:[\n        {devSN: string}\n    ]\n}"
+        },
+        {
+          "name": "startTime",
+          "description": "开始时间 （可选，改选项用于statistic_type= custom类型，选取统计的开始时间）"
+        },
+        {
+          "name": "endTime",
+          "description": "结束时间（可选，改选项用于statistic_type= custom类型，选取统计的结束时间）"
+        },
+        {
+          "name": "body",
+          "description": "{\n    devSNList:[\n        {devSN: string}\n    ]\n}"
+        }
+      ],
+      "Return": "{\n    \"slist_data\":[\n        {\n            \"name\":\"String，场景或区域名\",\n            \"customers_new\":\"Number，新增顾客数\",\n            \"customers_total\":\"Number，累计顾客数\",\n            \"wificustomers_new\":\"Number，新增WiFi数\",\n            \"wificustomers_total\":\"Number，WiFi连接数\"\n        }\n    ]\n}\n",
+      "Error": [
+        {
+          "name": "errInfo",
+          "description": "错误时返回错误信息"
+        }
+      ]
+    },
+    {
+      "SubItem": "获取新顾客比率",
+      "ItemName": "客群分析-获取新顾客比率",
+      "Path": "/data_analysis_read/getnewcustomerratio",
+      "Method": "Get",
+      "Parameters": [
+        {
+          "name": "statistics_type",
+          "description": "统计时间维度 \n取值如下：1.today 按整点统计\n2.oneWeek 最近7天 按天统计\n3.oneMonth 最近30天 按天统计\n4.oneYear 最近1年 按月统计\n5.custom 自定义"
+        },
+        {
+          "name": "startTime",
+          "description": "开始时间 （可选，改选项用于statistic_type= custom类型，选取统计的开始时间）"
+        },
+        {
+          "name": "endTime",
+          "description": "结束时间（可选，改选项用于statistic_type= custom类型，选取统计的结束时间）"
+        },
+        {
+          "name": "body",
+          "description": "{\n    devSNList:[\n        {devSN: string}\n    ]\n}"
+        }
+      ],
+      "Return": "{\n    \"new_customer_ratio\":{\n        \"customers_new\":\"Number，新顾客数\",\n        \"customers_old\":\"Number，老顾客数\"\n    }\n}\n",
+      "Error": [
+        {
+          "name": "errInfo",
+          "description": "错误时返回错误信息"
+        }
+      ]
+    },
+    {
+      "Error": [
+        {
+          "description": "错误时返回错误码",
+          "name": "errInfo"
+        }
+      ],
+      "Return": "{\n    \"wifi_ratio\":{\n        \"customers_wifi\":\"Number，使用WiFi数\",\n        \"customers_noWifi\":\"Number，未使用WiFi数\"\n    }\n}\n",
+      "Parameters": [
+        {
+          "description": "统计时间维度 \n取值如下：1.today 按整点统计\n2.oneWeek 最近7天 按天统计\n3.oneMonth 最近30天 按天统计\n4.oneYear 最近1年 按月统计\n5.custom 自定义",
+          "name": "statistics_type"
+        },
+        {
+          "description": "开始时间 （可选，改选项用于statistic_type= custom类型，选取统计的开始时间）",
+          "name": "startTime"
+        },
+        {
+          "description": "结束时间（可选，改选项用于statistic_type= custom类型，选取统计的结束时间）",
+          "name": "endTime"
+        },
+        {
+          "description": "{\n    devSNList:[\n        {devSN: string}\n    ]\n}",
+          "name": "body"
+        }
+      ],
+      "Method": "Get",
+      "Path": "/data_analysis_read/getwifiratio",
+      "ItemName": "客群分析-获取wifi使用比率",
+      "SubItem": "获取wifi使用比率"
+    },
+    {
+      "Error": [
+        {
+          "description": "错误时返回错误信息",
+          "name": "errInfo"
+        }
+      ],
+      "Return": "{\n    \"data\":{\n        \"tendency\":[\n            {\n                \"1:00\":\"Number，当前顾客数\",\n                \"2016-8-1\":\"Number，当前顾客数\",\n                \"2016-8\":\"Number，当前顾客数\"\n            }\n        ],\n        \"tendency_compare\":[\n            {\n                \"1:00\":\"Number，当前顾客数\"\n            }\n        ]\n    }\n}\n",
+      "Parameters": [
+        {
+          "description": "统计时间维度 \n取值如下：1.today 按整点统计\n2.oneWeek 最近7天 按天统计\n3.oneMonth 最近30天 按天统计\n4.oneYear 最近1年 按月统计\n5.custom 自定义",
+          "name": "statistics_type"
+        },
+        {
+          "description": "比较维度（可选，改选项用于statistic_type= today类型）\n取值如下：\n1.yesterday昨天\n2.weekAgo上周同期\n3.monthAgo上月同期\n",
+          "name": "compare_type"
+        },
+        {
+          "description": "开始时间 （可选，改选项用于statistic_type= custom类型，选取统计的开始时间）",
+          "name": "startTime"
+        },
+        {
+          "description": "结束时间（可选，改选项用于statistic_type= custom类型，选取统计的结束时间）",
+          "name": "endTime"
+        },
+        {
+          "description": "{\n    devSNList:[\n        {devSN: string}\n    ]\n}",
+          "name": "body"
+        }
+      ],
+      "Method": "Get",
+      "Path": "/data_analysis_read/gettendencydataforcustomers",
+      "ItemName": "客群分析-获取当前顾客数趋势",
+      "SubItem": "获取当前顾客数趋势"
+    },
+    {
+      "Error": [
+        {
+          "description": "",
+          "name": "无"
+        }
+      ],
+      "Return": "{\n    \"data\":{\n        \"tendency\":[\n            \"Number，WiFi连接数\"\n        ],\n        \"tendency_compare\":[\n            \"Number，WiFi连接数比较值\"\n        ]\n    }\n}\n",
+      "Parameters": [
+        {
+          "description": "统计时间维度 \n取值如下：1.today 按整点统计\n2.oneWeek 最近7天 按天统计\n3.oneMonth 最近30天 按天统计\n4.oneYear 最近1年 按月统计\n5.custom 自定义",
+          "name": "statistics_type"
+        },
+        {
+          "description": "比较维度（可选，改选项用于statistic_type= today类型）\n取值如下：\n1.yestoday 昨天\n2.dayofweek 上周同期\n3.dayofmonth 上月同期\n",
+          "name": "compare_type"
+        },
+        {
+          "description": "开始时间 （可选，改选项用于statistic_type= custom类型，选取统计的开始时间）",
+          "name": "startTime"
+        },
+        {
+          "description": "结束时间（可选，改选项用于statistic_type= custom类型，选取统计的结束时间）",
+          "name": "endTime"
+        },
+        {
+          "description": "{\n    devSNList:[\n        {devSN: string}\n    ]\n}",
+          "name": "body"
+        }
+      ],
+      "Method": "Get",
+      "Path": "/data_analysis_read/gettendencydataforwificustomers",
+      "ItemName": "客群分析-获取当前WiFi连接数趋势",
+      "SubItem": "获取当前WiFi连接数趋势"
+    },
+    {
+      "SubItem": "获取到访客流趋势",
+      "ItemName": "通用-获取到访客流趋势",
+      "Path": "/data_analysis_read/getdaofangtendencydata",
+      "Method": "Get",
+      "Parameters": [
+        {
+          "name": "statistics_type",
+          "description": "统计时间维度 \n取值如下：1.today 按整点统计\n2.oneWeek 最近7天 按天统计\n3.oneMonth 最近30天 按天统计\n4.oneYear 最近1年 按月统计\n5.custom 自定义"
+        },
+        {
+          "name": "compare_type",
+          "description": "比较维度（可选，改选项用于statistic_type= today类型）\n取值如下：\n1.yestoday 昨天\n2.dayofweek 上周同期\n3.dayofmonth 上月同期\n"
+        },
+        {
+          "name": "startTime",
+          "description": "开始时间 （可选，改选项用于statistic_type= custom类型，选取统计的开始时间）"
+        },
+        {
+          "name": "endTime",
+          "description": "结束时间（可选，改选项用于statistic_type= custom类型，选取统计的结束时间）"
+        },
+        {
+          "name": "body",
+          "description": "{\n    devSNList:[\n        {devSN: string}\n    ]\n}"
+        }
+      ],
+      "Return": "{\n    \"data\":{\n        \"tendency\":[\n            \"Number，到访客流量\"\n        ],\n        \"tendency_compare\":[\n            \"Number，到访客流量比较值\"\n        ]\n    }\n}\n",
+      "Error": [
+        {
+          "name": "无",
+          "description": ""
+        }
+      ]
+    },
+    {
+      "Error": [
+        {
+          "description": "错误时返回错误信息",
+          "name": "errInfo"
+        }
+      ],
+      "Return": "{\n    \"rank_data\":[\n        {\n            \"name\":\"String,场所devSN或者区域名字\",\n            \"customers_new\":\"Number, 新增顾客数\"\n        }\n    ]\n}\n",
+      "Parameters": [
+        {
+          "description": "统计时间维度 \n取值如下：1.today 按整点统计\n2.oneWeek 最近7天 按天统计\n3.oneMonth 最近30天 按天统计\n4.oneYear 最近1年 按月统计\n5.custom 自定义",
+          "name": "statistics_type"
+        },
+        {
+          "description": "取值如下：1.top 前五  2.behind 后五",
+          "name": "rank_type"
+        },
+        {
+          "description": "开始时间 （可选，改选项用于statistic_type= custom类型，选取统计的开始时间）",
+          "name": "startTime"
+        },
+        {
+          "description": "结束时间（可选，改选项用于statistic_type= custom类型，选取统计的结束时间）",
+          "name": "endTime"
+        },
+        {
+          "description": "排名个数",
+          "name": "rank_number"
+        },
+        {
+          "description": "场所类型：0---场所，1--区域",
+          "name": "place_type"
+        },
+        {
+          "description": "{\n    devSNList:[\n        {devSN: string}\n    ]\n}",
+          "name": "body"
+        }
+      ],
+      "Method": "Get",
+      "Path": "/data_analysis_read/getrankingdatafornewcustomer",
+      "ItemName": "客群分析-获取新增顾客TOP K",
+      "SubItem": "获取新增顾客前五/后五"
+    },
+    {
+      "SubItem": "获取客流统计基本信息",
+      "ItemName": "客流统计-获取客流统计基本信息",
+      "Path": "/data_analysis_read/getflowbaseinfo",
+      "Method": "Get",
+      "Parameters": [
+        {
+          "name": "statistics_type",
+          "description": "统计时间维度 \n取值如下：1.today 按整点统计\n2.oneWeek 最近7天 按天统计\n3.oneMonth 最近30天 按天统计\n4.oneYear 最近1年 按月统计\n5.custom 自定义"
+        },
+        {
+          "name": "startTime",
+          "description": "开始时间 （可选，改选项用于statistic_type= custom类型，选取统计的开始时间）"
+        },
+        {
+          "name": "endTime",
+          "description": "结束时间（可选，改选项用于statistic_type= custom类型，选取统计的结束时间）"
+        },
+        {
+          "name": "startTime",
+          "description": "开始时间 （可选，改选项用于statistic_type= custom类型，选取统计的开始时间）"
+        },
+        {
+          "name": "endTime",
+          "description": "结束时间（可选，改选项用于statistic_type= custom类型，选取统计的结束时间）"
+        },
+        {
+          "name": "body",
+          "description": "{\n    devSNList:[\n        {devSN: string}\n    ]\n}"
+        }
+      ],
+      "Return": "{\n    \"flowbaseinfo\":{\n        \"cur_total_visitors\":\"Number，总到访客流\",\n        \"cur_total_visitors_compare\":\"Number，总到访客流比较值\",\n        \"passengers_total\":\"Number，总客流量\",\n        \"passengers_total_compare\":\"Number，总客流量比较值\",\n        \"visitors_number\":\"Number，平均到访次数\",\n        \"visitors_number_compare\":\"Number，平均到访次数比较值\"\n    }\n}\n",
+      "Error": [
+        {
+          "name": "无",
+          "description": ""
+        }
+      ]
+    },
+    {
+      "SubItem": "获取客流统计详细信息列表",
+      "ItemName": "客流统计-获取客流统计详细信息列表",
+      "Path": "/data_analysis_read/getflowdetaildata",
+      "Method": "Get",
+      "Parameters": [
+        {
+          "name": "statistics_type",
+          "description": "统计时间维度 \n取值如下：1.today 按整点统计\n2.oneWeek 最近7天 按天统计\n3.oneMonth 最近30天 按天统计\n4.oneYear 最近1年 按月统计\n5.custom 自定义"
+        },
+        {
+          "name": "place_type",
+          "description": "场所类型：0--场所，1--区域"
+        },
+        {
+          "name": "startTime",
+          "description": "开始时间 （可选，改选项用于statistic_type= custom类型，选取统计的开始时间）"
+        },
+        {
+          "name": "endTime",
+          "description": "结束时间（可选，改选项用于statistic_type= custom类型，选取统计的结束时间）"
+        },
+        {
+          "name": "body",
+          "description": "{\n    devSNList:[\n        {devSN: string}\n    ]\n}"
+        }
+      ],
+      "Return": "{\n    \"slist_data\":[\n        {\n            \"name\":\"String，场景或区域名\",\n            \"passengers_total\":\"Number，总客流量\",\n            \"passengers_ratio\":\"Double，总客流占比\",\n            \"visitors_total\":\"Number，到访客流量\",\n            \"visitors_ratio\":\"Number，到访率\",\n            \"visitors_apex\":\"Number，到访客流峰值\",\n            \"visitors_apex_time\":\"String，到达到访客流峰值时间,无需格式转化\",\n            \"visitors_times_avg\":\"Number，平均到访次数\",\n            \"history_visitors_times_avg\":\"Double，历史平均到访次数\"\n        }\n    ]\n}\n",
+      "Error": [
+        {
+          "name": "errInfo",
+          "description": "错误时返回错误码"
+        }
+      ]
+    },
+    {
+      "SubItem": "获取平均到访率",
+      "ItemName": "通用-获取平均到访率",
+      "Path": "/data_analysis_read/getvisitsratio",
+      "Method": "Get",
+      "Parameters": [
+        {
+          "name": "statistics_type",
+          "description": "统计时间维度 \n取值如下：1.today 按整点统计\n2.oneWeek 最近7天 按天统计\n3.oneMonth 最近30天 按天统计\n4.oneYear 最近1年 按月统计\n5.custom 自定义"
+        },
+        {
+          "name": "startTime",
+          "description": "开始时间 （可选，改选项用于statistic_type= custom类型，选取统计的开始时间）"
+        },
+        {
+          "name": "endTime",
+          "description": "结束时间（可选，改选项用于statistic_type= custom类型，选取统计的结束时间）"
+        },
+        {
+          "name": "body",
+          "description": "{\n    devSNList:[\n        {devSN: string}\n    ]\n}"
+        }
+      ],
+      "Return": "{\n    \"visits_ratio_ave\":\"Number，到访率\",\n    \"visits_ratio\":[\n        {\n            \"value\":\"Number，场景或区域个数\",\n            \"name\":\"<20%\"\n        },\n        {\n            \"value\":\"Number，场景或区域个数\",\n            \"name\":\"20~40%\"\n        },\n        {\n            \"value\":\"Number，场景或区域个数\",\n            \"name\":\">40%\"\n        }\n    ]\n}\n",
+      "Error": [
+        {
+          "name": "无",
+          "description": ""
+        }
+      ]
+    },
+    {
+      "Error": [
+        {
+          "description": "",
+          "name": "无"
+        }
+      ],
+      "Return": "{\n    \"visits_number_ave\":\"Number，平均到访次数\",\n    \"visits_numbe_ratio\":[\n        {\n            \"value\":\"Number，场景或区域个数\",\n            \"name\":\"2次以下\"\n        },\n        {\n            \"value\":\"Number，场景或区域个数\",\n            \"name\":\"2~5次\"\n        },\n        {\n            \"value\":\"Number，场景或区域个数\",\n            \"name\":\"5次以上\"\n        }\n    ]\n}\n",
+      "Parameters": [
+        {
+          "description": "统计时间维度 \n取值如下：1.today 按整点统计\n2.oneWeek 最近7天 按天统计\n3.oneMonth 最近30天 按天统计\n4.oneYear 最近1年 按月统计\n5.custom 自定义",
+          "name": "statistics_type"
+        },
+        {
+          "description": "开始时间 （可选，改选项用于statistic_type= custom类型，选取统计的开始时间）",
+          "name": "startTime"
+        },
+        {
+          "description": "结束时间（可选，改选项用于statistic_type= custom类型，选取统计的结束时间）",
+          "name": "endTime"
+        },
+        {
+          "description": "{\n    devSNList:[\n        {devSN: string}\n    ]\n}",
+          "name": "body"
+        }
+      ],
+      "Method": "Get",
+      "Path": "/data_analysis_read/getaveragevisitsnumber",
+      "ItemName": "通用-获取平均到访次数",
+      "SubItem": "获取平均到访次数"
+    },
+    {
+      "SubItem": "获取总客流量趋势",
+      "ItemName": "客流统计-获取总客流量趋势",
+      "Path": "/data_analysis_read/gettendencydataforflow",
+      "Method": "Get",
+      "Parameters": [
+        {
+          "name": "statistics_type",
+          "description": "统计时间维度 \n取值如下：1.today 按整点统计\n2.oneWeek 最近7天 按天统计\n3.oneMonth 最近30天 按天统计\n4.oneYear 最近1年 按月统计\n5.custom 自定义"
+        },
+        {
+          "name": "compare_type",
+          "description": "比较维度（可选，改选项用于statistic_type= today类型）\n取值如下：\n1.yestoday 昨天\n2.dayofweek 上周同期\n3.dayofmonth 上月同期\n"
+        },
+        {
+          "name": "startTime",
+          "description": "开始时间 （可选，改选项用于statistic_type= custom类型，选取统计的开始时间）"
+        },
+        {
+          "name": "endTime",
+          "description": "结束时间（可选，改选项用于statistic_type= custom类型，选取统计的结束时间）"
+        },
+        {
+          "name": "body",
+          "description": "{\n    devSNList:[\n        {devSN: string}\n    ]\n}"
+        }
+      ],
+      "Return": "{\n    \"data\":{\n        \"tendency\":[\n            \"Number，总客流量\"\n        ],\n        \"tendency_compare\":[\n            \"Number，总客流量比较值\"\n        ]\n    }\n}\n",
+      "Error": [
+        {
+          "name": "无",
+          "description": ""
+        }
+      ]
+    },
+    {
+      "Error": [
+        {
+          "description": "错误信息",
+          "name": "errInfo"
+        }
+      ],
+      "Return": "{\n    \"rank_data\":[\n        {\n            \"name\":\"String,场所devSN或者区域名字\",\n            \"customers_wifi\":\"Number,wifi数\"\n        }\n    ]\n}\n",
+      "Parameters": [
+        {
+          "description": "统计时间维度 \n取值如下：1.today 按整点统计\n2.oneWeek 最近7天 按天统计\n3.oneMonth 最近30天 按天统计\n4.oneYear 最近1年 按月统计\n5.custom 自定义",
+          "name": "statistics_type"
+        },
+        {
+          "description": "取值如下：1.top 前五  2.behind 后五",
+          "name": "rank_type"
+        },
+        {
+          "description": "开始时间 （可选，改选项用于statistic_type= custom类型，选取统计的开始时间）",
+          "name": "startTime"
+        },
+        {
+          "description": "结束时间（可选，改选项用于statistic_type= custom类型，选取统计的结束时间）",
+          "name": "endTime"
+        },
+        {
+          "description": "排名个数",
+          "name": "rank_number"
+        },
+        {
+          "description": "场所类型：0---场所，1--区域",
+          "name": "place_type"
+        },
+        {
+          "description": "{\n    devSNList:[\n        {devSN: string}\n    ]\n}",
+          "name": "body"
+        }
+      ],
+      "Method": "Get",
+      "Path": "/data_analysis_read/getrankingdataforwifi",
+      "ItemName": "客群分析-获取WiFi连接TOP K",
+      "SubItem": "获取WiFi连接前五/后五"
+    },
+    {
+      "SubItem": "获取总客流量前五/后五",
+      "ItemName": "客流统计-获取总客流量前五/后五",
+      "Path": "/data_analysis_read/getrankingdataforpassengers",
+      "Method": "Get",
+      "Parameters": [
+        {
+          "name": "statistics_type",
+          "description": "统计时间维度 \n取值如下：1.today 按整点统计\n2.oneWeek 最近7天 按天统计\n3.oneMonth 最近30天 按天统计\n4.oneYear 最近1年 按月统计\n5.custom 自定义"
+        },
+        {
+          "name": "rank_type",
+          "description": "取值如下：1.top 前五  2.last 后五"
+        },
+        {
+          "name": "startTime",
+          "description": "开始时间 （可选，改选项用于statistic_type= custom类型，选取统计的开始时间）"
+        },
+        {
+          "name": "endTime",
+          "description": "结束时间（可选，改选项用于statistic_type= custom类型，选取统计的结束时间）"
+        },
+        {
+          "name": "body",
+          "description": "{\n    devSNList:[\n        {devSN: string}\n    ]\n}"
+        },
+        {
+          "name": "place_type",
+          "description": "0-表示取所有场所\n1-表示取某一个场所"
+        },
+        {
+          "name": "rank_number",
+          "description": "排名所取个数"
+        }
+      ],
+      "Return": "{\n    \"passengers_rank\":{\n        \"data_value\":[\n            \"Number\",\n            \"Number\",\n            \"Number\",\n            \"Number\",\n            \"Number，排名前/后五的总客流量\"\n        ],\n        \"data_name\":[\n            \"String\",\n            \"String\",\n            \"String\",\n            \"String\",\n            \"String，排名前/后五的总客流量对应的场所/区域名\"\n        ]\n    }\n}\n",
+      "Error": [
+        {
+          "name": "无",
+          "description": ""
+        }
+      ]
+    },
+    {
+      "Error": [
+        {
+          "description": "",
+          "name": "无"
+        }
+      ],
+      "Return": "{\n    \"visitors_rank\":{\n        \"data_value\":[\n            \"Number\",\n            \"Number\",\n            \"Number\",\n            \"Number\",\n            \"Number，排名前/后五的总客流量\"\n        ],\n        \"data_name\":[\n            \"String\",\n            \"String\",\n            \"String\",\n            \"String\",\n            \"String，排名前/后五的总客流量对应的场所/区域名\"\n        ]\n    }\n}\n",
+      "Parameters": [
+        {
+          "description": "统计时间维度 \n取值如下：1.today 按整点统计\n2.oneWeek 最近7天 按天统计\n3.oneMonth 最近30天 按天统计\n4.oneYear 最近1年 按月统计\n5.custom 自定义",
+          "name": "statistics_type"
+        },
+        {
+          "description": "取值如下：1.top 前五  2.behind 后五",
+          "name": "ranking_type"
+        },
+        {
+          "description": "开始时间 （可选，改选项用于statistic_type= custom类型，选取统计的开始时间）",
+          "name": "startTime"
+        },
+        {
+          "description": "结束时间（可选，改选项用于statistic_type= custom类型，选取统计的结束时间）",
+          "name": "endTime"
+        },
+        {
+          "description": "{\n    devSNList:[\n        {devSN: string}\n    ]\n}",
+          "name": "body"
+        },
+        {
+          "description": "0-表示取所有场所\n1-表示取某一个场所",
+          "name": "place_type"
+        },
+        {
+          "description": "排名所取个数",
+          "name": "rank_number"
+        }
+      ],
+      "Method": "Get",
+      "Path": "/data_analysis_read/getrankingdataforvisitors",
+      "ItemName": "客流统计-获取到访客流量前五/后五",
+      "SubItem": "获取到访客流量前五/后五"
+    },
+    {
+      "Error": [
+        {
+          "description": "",
+          "name": "无"
+        }
+      ],
+      "Return": "{\n    \"viewbaseinfo\":{\n        \"passengers_total\":\"Number，总客流量\",\n        \"passengers_total_compare\":\"Number，总客流量比较值\",\n        \"cur_total_visitors\":\"Number，总到访客流\",\n        \"cur_total_visitors_compare\":\"Number，总到访客流比较值\",\n        \"cur_total_customers\":\"Number，总顾客数\",\n        \"cur_total_customers_compare\":\"Number，总顾客数比较值\",\n        \"cur_online_newCustomers\":\"Number，新增顾客数\",\n        \"cur_online_newCustomers_compare\":\"Number，新增顾客数比较值\",\n        \"lingering_time_ave\":\"Number，平均驻留时长\",\n        \"lingering_time_ave_compare\":\"Number，平均驻留时长比较值\"\n    }\n}\n",
+      "Parameters": [
+        {
+          "description": "统计时间维度 \n取值如下：1.today 按整点统计\n2.oneWeek 最近7天 按天统计\n3.oneMonth 最近30天 按天统计\n4.oneYear 最近1年 按月统计\n5.custom 自定义",
+          "name": "statistics_type"
+        },
+        {
+          "description": "开始时间 （可选，改选项用于statistic_type= custom类型，选取统计的开始时间）",
+          "name": "startTime"
+        },
+        {
+          "description": "结束时间（可选，改选项用于statistic_type= custom类型，选取统计的结束时间）",
+          "name": "endTime"
+        }
+      ],
+      "Method": "Get",
+      "Path": "/data_analysis_read/getflowbaseinfo",
+      "ItemName": "概览-获取概览基本信息",
+      "SubItem": "获取概览基本信息"
+    },
+    {
+      "Error": [
+        {
+          "description": "",
+          "name": "无"
+        }
+      ],
+      "Return": "{\n    \"new_customer_ave\":\"Number\",\n    \"new_customer_ratio\":[\n        {\n            \"value\":\"Number，场景个数\",\n            \"name\":\"小于25%\"\n        },\n        {\n            \"value\":\"Number，场景个数\",\n            \"name\":\"25%~70%\"\n        },\n        {\n            \"value\":\"Number，场景个数\",\n            \"name\":\"大于70%\"\n        }\n    ]\n}\n",
+      "Parameters": [
+        {
+          "description": "统计时间维度 \n取值如下：1.today 按整点统计\n2.oneWeek 最近7天 按天统计\n3.oneMonth 最近30天 按天统计\n4.oneYear 最近1年 按月统计\n5.custom 自定义",
+          "name": "statistics_type"
+        },
+        {
+          "description": "开始时间 （可选，改选项用于statistic_type= custom类型，选取统计的开始时间）",
+          "name": "startTime"
+        },
+        {
+          "description": "结束时间（可选，改选项用于statistic_type= custom类型，选取统计的结束时间）",
+          "name": "endTime"
+        }
+      ],
+      "Method": "Get",
+      "Path": "/data_analysis_read/getnewcustomerratioforview",
+      "ItemName": "概览-获取新顾客比率",
+      "SubItem": "获取新顾客比率"
+    },
+    {
+      "SubItem": "获取实时数据基本信息",
+      "ItemName": "获取实时数据基本信息",
+      "Path": "/data_analysis_read/getcurrentlingeringinfo",
+      "Method": "Get",
+      "Parameters": [
+        {
+          "name": "body",
+          "description": "{\n    devSNList:[\n        {devSN: string}\n    ]\n}"
+        },
+        {
+          "name": "",
+          "description": ""
+        }
+      ],
+      "Return": "{\n    \"data\":{\n        \"current_lingering\":\"Number，实时驻留客流量\",\n        \"current_lingering_compare\":\"Number，实时驻留客流量比较值\"\n    }\n}\n",
+      "Error": [
+        {
+          "name": "无",
+          "description": ""
+        }
+      ]
+    },
+    {
+      "SubItem": "客流统计-获取实时到访客流信息",
+      "ItemName": "客流统计-获取实时到访客流信息",
+      "Path": "/data_analysis_read/getcurrentflowbaseinfo",
+      "Method": "Get",
+      "Parameters": [
+        {
+          "name": "body",
+          "description": "{\n   “devSNList”:[{\"devSN\":\"String,设备序列号\"}]\n}"
+        }
+      ],
+      "Return": "{\n    \"current_visitors\":{\n        \"current_visitors\":\"Number,当前到访客流\",\n        \"current_visitors_compare\":\"Number,比较值\"\n    }\n}\n",
+      "Error": [
+        {
+          "name": "errInfo",
+          "description": "错误时返回错误信息"
+        }
+      ]
+    },
+    {
+      "Error": [
+        {
+          "description": "错误时携带错误信息",
+          "name": "errInfo"
+        }
+      ],
+      "Return": "{\n    \"visitors_apex\":{\n        \"visitors_apex\":\"Number,峰值\",\n        \"visitors_apex_compare\":\"Number,峰值比较值\"\n    }\n}\n",
+      "Parameters": [
+        {
+          "description": "统计类型:枚举值如下：\n1.today\n2.oneWeek\n3.oneMonth\n4:oneYear\n5:custom",
+          "name": "statistics_type"
+        },
+        {
+          "description": "开始时间 （可选，改选项用于statistic_type= custom类型，选取统计的开始时间）",
+          "name": "startTime"
+        },
+        {
+          "description": "结束时间（可选，改选项用于statistic_type= custom类型，选取统计的结束时间）",
+          "name": "endTime"
+        },
+        {
+          "description": "{\n    devSNList:[\n        {devSN: string}\n    ]\n}",
+          "name": "body"
+        },
+        {
+          "description": "排名所取个数",
+          "name": "rank_number"
+        }
+      ],
+      "Method": "Post",
+      "Path": "/data_analysis_read/getbasevisitorsapex",
+      "ItemName": "客流统计-获取到访客流峰值信息",
+      "SubItem": "客流统计-获取到访客流峰值信息"
+    }
+  ],
+  "author": "xkf6105",
+  "description": "data_analysis_read数据分析相关接口",
+  "retcode": 0
+}

@@ -1,0 +1,97 @@
+{
+  "Name": "RD_微信通知接口文档",
+  "DocIndex": "doc_4989945086584393",
+  "AllItems": [
+    {
+      "Error": [
+        {
+          "description": "",
+          "name": ""
+        }
+      ],
+      "Return": "[\n    {\n        \"official_account\":\"String 公众号\",\n        \"nickname\":\"String 微信昵称A\",\n        \"binding_time\":\"Number 绑定时间(ms)\",\n        \"send_count\":\"Number 发送次数\"\n    },\n    {\n        \"official_account\":\"String 公众号\",\n        \"nickname\":\"String 微信昵称B\",\n        \"binding_time\":\"Number 绑定时间(ms)\",\n        \"send_count\":\"Number 发送次数\"\n    }\n]\n",
+      "Parameters": [
+        {
+          "description": "云端账号",
+          "name": "account"
+        }
+      ],
+      "Method": "Post",
+      "Path": "/wechatnotify/getnicknamebyaccount",
+      "ItemName": "微信通知",
+      "SubItem": "根据account获取nickname"
+    },
+    {
+      "Error": [
+        {
+          "description": "",
+          "name": ""
+        }
+      ],
+      "Return": "[\n    {\n        \"official_account\":\"String 公众号\",\n        \"account\":\"String 云端账号A\",\n        \"binding_time\":\"Number 绑定时间(ms)\",\n        \"send_count\":\"Number 发送次数\"\n    },\n    {\n        \"official_account\":\"String 公众号\",\n        \"account\":\"String 云端账号A\",\n        \"binding_time\":\"Number 绑定时间(ms)\",\n        \"send_count\":\"Number 发送次数\"\n    }\n]\n",
+      "Parameters": [
+        {
+          "description": "微信昵称",
+          "name": "nickname"
+        }
+      ],
+      "Method": "Post",
+      "Path": "/wechatnotify/getaccountbynickname",
+      "ItemName": "微信通知",
+      "SubItem": "根据nickname获取account"
+    },
+    {
+      "SubItem": "获取所有绑定信息",
+      "ItemName": "微信通知",
+      "Path": "/wechatnotify/getallaccount",
+      "Method": "Post",
+      "Parameters": [
+        {
+          "name": "",
+          "description": ""
+        }
+      ],
+      "Return": "[\n    {\n        \"official_account\":\"String 公众号\",\n        \"account\":\"String 云端账号A\",\n        \"nickname\":\"String 微信昵称\",\n        \"binding_time\":\"Number 绑定时间(ms)\",\n        \"send_count\":\"Number 发送次数\"\n    },\n    {\n        \"official_account\":\"String 公众号\",\n        \"account\":\"String 云端账号A\",\n        \"nickname\":\"String 微信昵称\",\n        \"binding_time\":\"Number 绑定时间(ms)\",\n        \"send_count\":\"Number 发送次数\"\n    }\n]\n",
+      "Error": [
+        {
+          "name": "",
+          "description": ""
+        }
+      ]
+    },
+    {
+      "Error": [
+        {
+          "description": "成功",
+          "name": "0"
+        },
+        {
+          "description": "失败",
+          "name": "1"
+        }
+      ],
+      "Return": "{\n    \"retCode\":\"Number 错误码\"\n}\n",
+      "Parameters": [
+        {
+          "description": "公众号，现在默认为h3clvzhou",
+          "name": "official_account"
+        },
+        {
+          "description": "微信昵称",
+          "name": "nickname"
+        },
+        {
+          "description": "云端账户名",
+          "name": "account"
+        }
+      ],
+      "Method": "Post",
+      "Path": "/wechatnotify/setunbind",
+      "ItemName": "微信通知",
+      "SubItem": "设置去绑定"
+    }
+  ],
+  "author": "zhengli",
+  "description": "本文档是用来描述微信通知的接口信息",
+  "retcode": 0
+}

@@ -1,0 +1,26 @@
+@import "../../../less/$variable.less";
+
+.oasis-datetime {
+  display: inline-block;
+  &.disabled {
+    label,
+    input {
+      cursor: not-allowed;
+    }
+    input {
+      background: #eee !important;
+    }
+  }
+  label {
+    font-weight: lighter;
+    text-align: right;
+    &::after {
+      content: ":"
+    }
+  }
+  .form-control {
+    &[readonly] {
+      background: #fff;
+    }
+  }
+}

@@ -1,0 +1,93 @@
+@path: "../../";
+@import '@{path}frame/less/$variable.less';
+.content {
+    // margin: 80px 10% 0px;
+    font-size: 17px;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    display: -webkit-flex;
+    flex-direction: row;
+    justify-content: flex-start; // justify-content: space-between;
+    .content-menu {
+        width: 240px;
+        height: 100%;
+        overflow: auto;
+        padding-top: 20px;
+        flex-shrink: 0; //  TODO 即使空间不够也不缩小
+        .version {
+            text-align: center;
+            .dropdown {
+                display: inline-block;
+            }
+        }
+        ul {
+            li {
+                list-style-type: none;
+                margin-bottom: 8px;
+                margin-top: 8px;
+                cursor: pointer;
+                &:hover {
+                    color: @mian-color;
+                }
+                &.active {
+                    color: @mian-color;
+                    a {
+                        color: @mian-color;
+                    }
+                }
+            }
+            a:hover,
+            a:active,
+            a:focus,
+            a:visited {
+                text-decoration: none;
+            }
+            .level2 a {
+                margin-left: -15px;
+                font-size: 14px;
+                &:hover {
+                    color: @mian-color;
+                }
+            }
+            &.level1 {
+                a {
+                    color: @global-font-color;
+                    &:hover {
+                        color: @mian-color;
+                    }
+                }
+            }
+        }
+    }
+    .main-content {
+        flex-grow: 1;
+        padding-top: 20px;
+        overflow: auto;
+    }
+}
+
+// .content{
+// 	.content-menu{
+// 		position: absolute;
+// 	    bottom: 0px;
+// 	    top: 50px;
+// 	    left:0px;
+// 	    padding: @paddingValue;
+// 		display: inline-block;
+// 		width: @contentMenuWidth;
+// 		background-color: @contentMenuBackColor;
+// 		overflow-y:auto;
+// 	}
+// 	.main-content{
+// 		position: absolute;
+// 		bottom: 0px;
+// 		top: 50px;
+// 		right: 0px;
+// 		left:  @contentMenuWidth;
+// 		padding: @paddingValue;
+// 		display: inline-block;
+// 		background-color: @contentContentBackColor;
+// 		overflow-y:auto; 
+// 	}	
+// }

@@ -1,0 +1,221 @@
+{
+  "Name": "安全策略的配置获取与配置设置API",
+  "DocIndex": "doc_8624139905247827",
+  "AllItems": [
+    {
+      "Error": [
+        {
+          "description": "成功返回0, 失败返回1",
+          "name": "0/1"
+        }
+      ],
+      "Return": "{\n    \"apName\":\"apName1\",\n    \"radioID\":\"1\",\n    \"natDetectStatus\":\"on/off\",\n    \"wipsStatus\":\"on/off\",\n    \"probeStatus\":\"on/off\",\n    \"floodStatus\":\"on/off\",\n    \"phishStatus\":\"on/off\",\n    \"ctmPhishStatus\":\"on/off\"\n}\n",
+      "Parameters": [
+        {
+          "description": "可选, 默认状态不存在",
+          "name": "BranchName"
+        },
+        {
+          "description": "必选",
+          "name": "limit"
+        },
+        {
+          "description": "必选",
+          "name": "skip"
+        },
+        {
+          "description": "可选",
+          "name": "apName"
+        },
+        {
+          "description": "可选",
+          "name": "radioID"
+        },
+        {
+          "description": "私接代理查找条件, 可选, on/off",
+          "name": "natDetectStatus"
+        },
+        {
+          "description": "无线安全查找条件, 可选, on/off",
+          "name": "wipsStatus"
+        },
+        {
+          "description": "无线探针查找条件, 可选, on/off",
+          "name": "probeStatus"
+        },
+        {
+          "description": "必选",
+          "name": "method: apStatusGet"
+        }
+      ],
+      "Method": "Post",
+      "Path": "v3/ant/confmgr",
+      "ItemName": "通过ApName获取AP的状态",
+      "SubItem": "通过ApName获取AP的状态"
+    },
+    {
+      "SubItem": "通过ApGroupName获取ApGroup的状态",
+      "ItemName": "通过ApGroupName获取ApGroup的状态",
+      "Path": "v3/ant/confmgr",
+      "Method": "Post",
+      "Parameters": [
+        {
+          "name": "branchName",
+          "description": "可选, 默认状态不存在"
+        },
+        {
+          "name": "limit",
+          "description": "必选"
+        },
+        {
+          "name": "skip",
+          "description": "必选"
+        },
+        {
+          "name": "apGroupName",
+          "description": "可选"
+        },
+        {
+          "name": "radioID",
+          "description": "可选"
+        },
+        {
+          "name": "natDetectStatus",
+          "description": "可选"
+        },
+        {
+          "name": "wipsStatus",
+          "description": "可选"
+        },
+        {
+          "name": "probeStatus",
+          "description": "可选"
+        },
+        {
+          "name": "method: apGroupStatusGet",
+          "description": "必选"
+        }
+      ],
+      "Return": "{\n    \"apGroupName\":\"apGroupName1\",\n    \"radioID\":\"1\",\n    \"natDetectStatus\":\"on/off\",\n    \"wipsStatus\":\"on/off\",\n    \"probeStatus\":\"on/off\",\n    \"floodStatus\":\"on/off\",\n    \"phishStatus\":\"on/off\",\n    \"ctmPhishStatus\":\"on/off\"\n}\n",
+      "Error": [
+        {
+          "name": "0/1",
+          "description": "成功返回0, 失败返回1\n"
+        }
+      ]
+    },
+    {
+      "Error": [
+        {
+          "description": "成功返回0, 失败返回1",
+          "name": "0/1"
+        }
+      ],
+      "Return": "{\n    \"apName\":\"apName1\",\n    \"radioID\":\"1\",\n    \"natDetectStatus\":\"on\",\n    \"wipsStatus\":\"on\",\n    \"probeStatus\":\"off\",\n    \"floodStatus\":\"on/off\",\n    \"phishStatus\":\"on/off\",\n    \"ctmPhishStatus\":\"on/off\"\n}\n",
+      "Parameters": [
+        {
+          "description": "可选, 默认状态不存在",
+          "name": "branchName"
+        },
+        {
+          "description": "必选",
+          "name": "limit"
+        },
+        {
+          "description": "必选",
+          "name": "skip"
+        },
+        {
+          "description": "必选",
+          "name": "apName"
+        },
+        {
+          "description": "必选",
+          "name": "radioID"
+        },
+        {
+          "description": "必选",
+          "name": "limit"
+        },
+        {
+          "description": "必选",
+          "name": "skip"
+        },
+        {
+          "description": "私接代理查找条件, 二选一(on/off)",
+          "name": "natDetectStatus"
+        },
+        {
+          "description": "无线安全查找条件, 二选一(on/off)",
+          "name": "wipsStatus"
+        },
+        {
+          "description": "无线探针查找条件, 二选一(on/off)",
+          "name": "probeStatus"
+        },
+        {
+          "description": "必选",
+          "name": "method: apStatusSet"
+        }
+      ],
+      "Method": "Post",
+      "Path": "v3/ant/confmgr",
+      "ItemName": "通过ApName设置AP的状态",
+      "SubItem": "通过ApName设置AP的状态"
+    },
+    {
+      "SubItem": "通过ApGroupName设置ApGroup的状态",
+      "ItemName": "通过ApGroupName设置ApGroup的状态",
+      "Path": "v3/ant/confmgr",
+      "Method": "Post",
+      "Parameters": [
+        {
+          "name": "branchName",
+          "description": "可选, 默认状态不存在"
+        },
+        {
+          "name": "limit",
+          "description": "必选"
+        },
+        {
+          "name": "skip",
+          "description": "必选"
+        },
+        {
+          "name": "apGroupName",
+          "description": "必选"
+        },
+        {
+          "name": "radioID",
+          "description": "必选"
+        },
+        {
+          "name": "natDetectStatus",
+          "description": "私接代理查找条件, 二选一(on/off)"
+        },
+        {
+          "name": "wipsStatus",
+          "description": "无线安全查找条件, 二选一(on/off)"
+        },
+        {
+          "name": "probeStatus",
+          "description": "无线探针查找条件, 二选一(on/off)"
+        },
+        {
+          "name": "method: apGroupStatusSet",
+          "description": "必选"
+        }
+      ],
+      "Return": "{\n    \"apGroupName\":\"apGroupName\",\n    \"radioID\":\"1\",\n    \"natDetectStatus\":\"on/off\",\n    \"wipsStatus\":\"on/off\",\n    \"probeStatus\":\"on/off\",\n    \"floodStatus\":\"on/off\",\n    \"phishStatus\":\"on/off\",\n    \"ctmPhishStatus\":\"on/off\"\n}\n",
+      "Error": [
+        {
+          "name": "0/1",
+          "description": "成功返回0, 失败返回1"
+        }
+      ]
+    }
+  ],
+  "author": "hanfenglei",
+  "description": "提供安全策略相关的配置接口：\n1, 通过ApName获取AP的状态;\n2, 通过ApGroupName获取ApGroup的状态;\n3, 通过ApName设置AP的状态;\n4, 通过ApGroupName设置ApGroup的状态;",
+  "retcode": 0
+}

@@ -1,0 +1,64 @@
+@import "../../../less/$variable.less";
+
+.oasis-select {
+  display: inline-block;
+  &.disabled {
+    label,
+    input {
+      cursor: not-allowed;
+    }
+  }
+  label {
+    font-weight: lighter;
+    text-align: right;
+    &::after {
+      content: ":"
+    }
+  }
+  .form-control {
+    &[readonly] {
+      background: @middle-white;
+    }
+    &[disabled] {
+      background: @input-disabled-bg-color;
+    }
+  }
+  .dropdown {
+    display: inline-block;
+    .dropdown-menu {
+      border-radius: 0;
+      padding: 0;
+      width: 100%;
+      margin-top: -1px;
+      a {
+        padding: 3px 10px;
+      }
+      ul {
+        overflow: auto;
+      }
+    }
+    .list-group {
+      margin-bottom: 0;
+      .list-group-item {
+        border-radius: 0;
+        border: 0;
+        padding: 5px 10px;
+        &:hover,
+        &.active,
+        &:active,
+        &:focus {
+          color: #ffffff;
+          background-color: @middle-silver;
+        }
+        &:hover {
+          border-left: @middle-silver-light;
+        }
+      }
+    }
+    .search-box {
+      // position: absolute;
+      border-bottom: 1px solid @middle-gray;
+      padding: 5px;
+    }
+  }
+}

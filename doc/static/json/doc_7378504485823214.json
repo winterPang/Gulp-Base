@@ -1,0 +1,270 @@
+{
+  "Name": "scenarioserver场景微服务接口",
+  "DocIndex": "doc_7378504485823214",
+  "AllItems": [
+    {
+      "SubItem": "获取用户属性的接口",
+      "ItemName": "用户属性",
+      "Path": "v3/scenarioserver",
+      "Method": "Post",
+      "Parameters": [
+        {
+          "name": "Method",
+          "description": "表示获取用户属性的表示，必须是\"getUserAttr\""
+        },
+        {
+          "name": "param.userName",
+          "description": "用户名字"
+        }
+      ],
+      "Return": "{\n    \"bUserTest\":true,\n    \"bUserNew\":false\n}\n",
+      "Error": [
+        {
+          "name": "0",
+          "description": "成功，并且bUserTest和bUserNew的值有意义，这两个值表示是否测试账号，是否新用户"
+        },
+        {
+          "name": "-1",
+          "description": "表示获取失败"
+        }
+      ]
+    },
+    {
+      "Error": [
+        {
+          "description": "0:正确     -1：失败",
+          "name": "retCOde"
+        }
+      ],
+      "Return": "[\n    {\n        \"scenarioId\":1,\n        \"devSN\":1,\n        \"model\":1,\n        \"devName\":1,\n        \"devBrief\":1,\n        \"shopName\":1,\n        \"scenarioName\":1,\n        \"redirectUrl\":1\n    }\n]\n",
+      "Parameters": [
+        {
+          "description": "getdevListByUser",
+          "name": "Method"
+        },
+        {
+          "description": "当前用户（param是一个对象）\n注：Method和param都是放在请求消息体data里的",
+          "name": "param.userName"
+        }
+      ],
+      "Method": "Post",
+      "Path": "v3/scenarioserver",
+      "ItemName": "用户属性",
+      "SubItem": "获取该用户下所有的设备序列号"
+    },
+    {
+      "Error": [
+        {
+          "description": "0:成功 -1:失败\n注：其中全部权限（监控、配置、运维）都会在返回结果中显示，如果拥有MONITOR_READ（监控读权限），就会置成true，如果没有该项权限，就会置成false，其他类似",
+          "name": "retCode"
+        }
+      ],
+      "Return": "{\n    \"MONITOR_READ\":true,\n    \"MONITOR_WRITE\":true,\n    \"MONITOR_EXEC\":true,\n    \"CONFIG_READ\":true,\n    \"CONFIG_WRITE\":true,\n    \"OPERATION_READ\":true,\n    \"OPERATION_WRITE\":true,\n    \"MAINTENANCE_READ\":true,\n    \"MAINTENANCE_WRITE\":true,\n    \"MAINTENANCE_EXEC\":true\n}\n",
+      "Parameters": [
+        {
+          "description": "来自于浏览器",
+          "name": "cookies"
+        },
+        {
+          "description": "来自于浏览器",
+          "name": "session"
+        },
+        {
+          "description": "设备序列号",
+          "name": "devSN"
+        }
+      ],
+      "Method": "Post",
+      "Path": "var scenarios = require('wlanpub').getScenario()",
+      "ItemName": "wlanpub之权限篇",
+      "SubItem": "getDevPermission"
+    },
+    {
+      "Error": [
+        {
+          "description": "0：成功 -1 ：失败 注释：根据session中的用户名去获取该用户在场景外部的权限 比如获取子账户操作员、运营账号的不同权限  对应不同的绿洲menu",
+          "name": "retCode"
+        }
+      ],
+      "Return": "{\n    \"SHOP_READ\":\"true\",\n    \"SHOP_WRITE\":\"true\",\n    \"DEVICE_READ\":\"true\",\n    \"DEVICE_WRITE\":\"true\",\n    \"REGION_READ\":\"true\",\n    \"REGION_WRITE\":\"true\",\n    \"SUBTENANT_READ\":\"true\",\n    \"SUBTENANT_WRITE\":\"true\",\n    \"MSG_READ\":\"true\",\n    \"MSG_WRITE\":\"true\"\n}\n",
+      "Parameters": [
+        {
+          "description": "来自于浏览器，包含用户信息",
+          "name": "session"
+        },
+        {
+          "description": "来自于浏览器",
+          "name": "cookies"
+        }
+      ],
+      "Method": "Post",
+      "Path": "var scenarios = require('wlanpub').getScenario()",
+      "ItemName": "wlanpub之权限篇",
+      "SubItem": "getManagePermission"
+    },
+    {
+      "Error": [
+        {
+          "description": "0：正常 -1 ：失败\n注释：此处和getDevPermission接口类似，只是查询条件不一样，这个是根据用户名和场所Id",
+          "name": "retCode"
+        }
+      ],
+      "Return": "{\n    \"MONITOR_READ\":true,\n    \"MONITOR_WRITE\":true,\n    \"MONITOR_EXEC\":true,\n    \"CONFIG_READ\":true,\n    \"CONFIG_WRITE\":true,\n    \"OPERATION_READ\":true,\n    \"OPERATION_WRITE\":true,\n    \"MAINTENANCE_READ\":true,\n    \"MAINTENANCE_WRITE\":true,\n    \"MAINTENANCE_EXEC\":true\n}\n",
+      "Parameters": [
+        {
+          "description": "是一个对象{scenarioId:\"123\"},包含场所Id",
+          "name": "data"
+        },
+        {
+          "description": "来自于浏览器",
+          "name": "session"
+        },
+        {
+          "description": "设备序列号",
+          "name": "devSN"
+        },
+        {
+          "description": "来自于浏览器，主要包含用户名",
+          "name": "session"
+        },
+        {
+          "description": "用于回调",
+          "name": "callback"
+        }
+      ],
+      "Method": "Post",
+      "Path": "var scenarios = require('wlanpub').getScenario()",
+      "ItemName": "wlanpub之权限篇",
+      "SubItem": "getPermissionByScenarioId"
+    },
+    {
+      "SubItem": "getDevUserInfos",
+      "ItemName": "wlanpub设备接口",
+      "Path": "var scenarios = require('wlanpub').getScenario()注释：这样能够连上scenarios数据库",
+      "Method": "Post",
+      "Parameters": [
+        {
+          "name": "devSN",
+          "description": "设备序列号"
+        },
+        {
+          "name": "callback",
+          "description": "用于回调"
+        }
+      ],
+      "Return": "{\n    \"devSN\":\"设备序列号\",\n    \"userName\":\"用户名\",\n    \"scenarioId\":\"场所Id\",\n    \"scenarioName\":\"场景名称\",\n    \"shopName\":\"场所名称\",\n    \"bUserTest\":\"字符串true是测试用户\",\n    \"bUserNew\":\"字符串true融合环境新用户\"\n}\n",
+      "Error": [
+        {
+          "name": "retCode",
+          "description": "0：正常 -1 ：失败"
+        }
+      ]
+    },
+    {
+      "SubItem": "getdevListByScenarioId",
+      "ItemName": "wlanpub设备接口",
+      "Path": "var scenarios = require('wlanpub').getScenario()",
+      "Method": "Post",
+      "Parameters": [
+        {
+          "name": "data",
+          "description": "一个包含scenarioId的对象{scenarioId:\"123\"}"
+        }
+      ],
+      "Return": "[\n    {\n        \"devSN\":\"设备序列号\",\n        \"userName\":\"用户名\",\n        \"scenarioId\":\"场所Id\",\n        \"scenarioName\":\"场景名称\",\n        \"shopName\":\"场所名称\",\n        \"model\":\"场景对应的唯一字符\"\n    }\n]\n",
+      "Error": [
+        {
+          "name": "retCode",
+          "description": "0:正常 -1 :失败"
+        }
+      ]
+    },
+    {
+      "Error": [
+        {
+          "description": "0:成功 -1 :失败",
+          "name": "retCode"
+        }
+      ],
+      "Return": "[\n    {\n        \"devSN\":\"设备序列号\",\n        \"userName\":\"用户名\",\n        \"scenarioId\":\"场所Id\",\n        \"scenarioName\":\"场景名称\",\n        \"shopName\":\"场所名称\",\n        \"model\":\"场景对应的唯一字符\",\n        \"redirectUrl\":\"绿洲url\"\n    }\n]\n",
+      "Parameters": [
+        {
+          "description": "来自于浏览器，主要用来获取其中的用户名",
+          "name": "session"
+        }
+      ],
+      "Method": "Post",
+      "Path": "var scenarios = require('wlanpub').getScenario()",
+      "ItemName": "wlanpub设备接口",
+      "SubItem": "getdevListByUser"
+    },
+    {
+      "SubItem": "delDevInfoFromRedis",
+      "ItemName": "wlanpub之redis缓存",
+      "Path": "var scenarios = require('wlanpub').getScenario()",
+      "Method": "Post",
+      "Parameters": [
+        {
+          "name": "devSN",
+          "description": "设备序列号"
+        }
+      ],
+      "Return": "",
+      "Error": [
+        {
+          "name": "retCode",
+          "description": "注释：删除指定设备序列号的设备信息，该信息在getDevUserInfos时添加到缓存中的（只有场景微服务使用）"
+        }
+      ]
+    },
+    {
+      "Error": [
+        {
+          "description": "注释：删除redis中用户设备所在场所权限的缓存，关键字是设备+name（只有场景微服务使用）",
+          "name": "recCode"
+        }
+      ],
+      "Return": "",
+      "Parameters": [
+        {
+          "description": "设备序列号",
+          "name": "devSN"
+        },
+        {
+          "description": "用户名",
+          "name": "name"
+        }
+      ],
+      "Method": "Post",
+      "Path": "var  scenarios= require('wlanpun').getScenario()",
+      "ItemName": "wlanpub之redis缓存",
+      "SubItem": "delUserDevPermissionFromRedis"
+    },
+    {
+      "Error": [
+        {
+          "description": "0:成功 -1 失败",
+          "name": "retCode"
+        }
+      ],
+      "Return": "{\n}\n",
+      "Parameters": [
+        {
+          "description": "setSubAccountApAccess/clearSubAccountApAccess",
+          "name": "Method"
+        },
+        {
+          "description": "[被授权的子账号数组]",
+          "name": "param"
+        }
+      ],
+      "Method": "Post",
+      "Path": "/v3/scenarioserver",
+      "ItemName": "AP分组接口",
+      "SubItem": "AP分组授权/收回权限"
+    }
+  ],
+  "author": "weizhiguang",
+  "description": "场景微服务接口",
+  "retcode": 0
+}

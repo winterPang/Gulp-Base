@@ -1,8 +1,7 @@
 /**
  * Created by Administrator on 2016/9/5.
  */
-define(['jquery'], function ($) {
-    console.log("============util================");
+
     function getRcString(sRcId, sRcName) {
         return $("#" + sRcId).attr(sRcName) || "";
     }
@@ -15,20 +14,20 @@ define(['jquery'], function ($) {
         var path = '/v3';
         if (typeof(releaseUrl) != "string" || !releaseUrl) {
             //console.log("eeeee")
-            return "";
+            return {};
         }
 
         if (releaseUrl && !method) {
            // console.log("eeeee")
-            return "";
+            return {};
         }
 
         if (typeof(localUrl) != "string" || !localUrl || !/\.json$/.test(localUrl)) {
             //console.log("aaa")
-            return "";
+            return {};
         }
 
-        if (host === 'localhost') {
+        if (host.indexOf('localhost') >= 0) {
             return {
                 method: 'get',
                 url: localPath + localUrl
@@ -118,8 +117,7 @@ define(['jquery'], function ($) {
     if (!getLang()) {
         setLang({'lang': 'cn'}, undefined, '.h3c.com');
     }
-
-   
+  
     /*
      *flag  传入数值单位  
      *unit  true/false 单位  
@@ -181,8 +179,6 @@ define(['jquery'], function ($) {
             return strPktBytes;
     }
 
-    
-
     /*
      * formStr yyyy/mm/dd hh:MM:ss
      */
@@ -240,14 +236,75 @@ define(['jquery'], function ($) {
         return nHour + ":" + nMinute + ":" + nSeconds;
     }
 
-    return {
+    function transformHtmlToString(value){
+        var codeHtml = "";
+        if(typeof value == 'string' && value){
+            codeHtml = value.replace(/\</g, "&amp;lt;");
+            codeHtml = codeHtml.replace(/\>/g, "&amp;gt;");
+        }
+        return codeHtml;
+    }
+
+    function copyToClipboard(elem) {
+    // create hidden text element, if it doesn't already exist
+        var targetId = "_hiddenCopyText_";
+        var isInput = elem.tagName === "INPUT" || elem.tagName === "TEXTAREA";
+        var origSelectionStart, origSelectionEnd;
+        if (isInput) {
+            // can just use the original source element for the selection and copy
+            target = elem;
+            origSelectionStart = elem.selectionStart;
+            origSelectionEnd = elem.selectionEnd;
+        } else {
+            // must use a temporary form element for the selection and copy
+            target = document.getElementById(targetId);
+            if (!target) {
+                var target = document.createElement("textarea");
+                target.style.position = "absolute";
+                target.style.left = "-9999px";
+                target.style.top = "0";
+                target.id = targetId;
+                document.body.appendChild(target);
+            }
+            // target.textContent = elem.textContent;
+            target.textContent = elem.textContent.replace(/\s/g,"");
+        }
+        // select the content
+        var currentFocus = document.activeElement;
+        target.focus();
+        target.setSelectionRange(0, target.value.length);
+
+        // copy the selection
+        var succeed;
+        try {
+            succeed = document.execCommand("copy");
+        } catch(e) {
+            succeed = false;
+        }
+        // restore original focus
+        if (currentFocus && typeof currentFocus.focus === "function") {
+            currentFocus.focus();
+        }
+
+        if (isInput) {
+            // restore prior selection
+            elem.setSelectionRange(origSelectionStart, origSelectionEnd);
+        } else {
+            // clear temporary content
+            target.textContent = "";
+        }
+        return succeed;
+    }
+    window.copyToClipboard = copyToClipboard;
+
+    export default {
         getRcString: getRcString,
         getUrl: getUrl,
         getLang: getLang,
         setLang: setLang,
         transformFlow:transformFlow,
         transformTimeStr:transformTimeStr,
-        transformOnlineTimeStr:transformOnlineTimeStr
-
+        transformOnlineTimeStr:transformOnlineTimeStr,
+        transformHtmlToString:transformHtmlToString,
+        copyToClipboard:copyToClipboard
     }
-});

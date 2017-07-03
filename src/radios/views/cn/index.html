@@ -1,0 +1,141 @@
+<!--
+1、form排版太灵活，只通过配置项来达到生成表单不一定能达到需求
+2、单个元素很简单，封装太复杂不合适
+3、表单验证，angular自带验证，还是自己封装？
+-->
+<div class="radios">
+    <header class="content-header">
+        <h1>Radio单选按钮样式</h1>
+        <p>绿洲OASIS提供一套基于绿洲的表单组件</p>
+    </header>
+    <oasis-row>
+        <oasis-col md=12>
+            <oasis-box>
+                <oasis-box-header>
+                    <span class="title">radio</span>
+                </oasis-box-header>
+                <oasis-box-body height-auto='true'>
+                    <oasis-radio os-model="radio.checked" value="checked">选中状态</oasis-radio>
+                    <oasis-radio os-model="radio.checked" value="unchecked">未选中状态</oasis-radio><br>
+                     <oasis-radio os-model="radio.checked" value="1"></oasis-radio>
+                    <oasis-radio os-model="radio.checked" value="2"></oasis-radio><br>
+                </oasis-box-body>
+                <oasis-box-footer>
+                    <div ng-show="codeShow" class="code-content">
+                        <oasis-col md=8 >
+                            <button class="copy-btn" onclick="   if(copyToClipboard($(this).parent()[0])){alert('复制成功')}else{alert('复制失败')}">copy
+                            </button>
+                            <pre>html:<br/>&lt;oasis-radio os-model="radio.isChecked" value="checked"&gt;选中状态&lt;/oasis-radio&gt;<br/>&lt;oasis-radio os-model="radio.isChecked" value="unchecked"&gt;选中状态&lt;/oasis-radio&gt;</pre>
+                             <pre>js:<br/> $scope.radio={isChecked:'checked'}<br/>$scope.$watch('radio.isChecked',function(v){console.log(v)})
+
+                             </pre>
+                        </oasis-col>
+                        <oasis-col md="4" >
+                            <p>
+                            <mark>os-model</mark>属性.设置双向绑定，通过在Scope作用域初始化绑定默认选中结果。<br/>例如:<br/>$scope.radio1 = {
+                                isChecked:'checked'
+                            }，通过点击选择我们可以修改其os-model的值。使其变为可以选中的状态。通过监听<br>$scope.$watch('radio1.isChecked'function(v){})处理radio选择事件。
+                            </p>
+                        </oasis-col>
+                    </div>
+                    <div class="code-change">
+                        <i ng-show="!codeShow" class="glyphicon glyphicon-chevron-down" ng-click="codeShow=!codeShow">
+                            <span class="code-font">显示代码</span></i>
+                        <i ng-show="codeShow" class="glyphicon glyphicon-chevron-up" ng-click="codeShow=!codeShow">
+                            <span class="code-font">隐藏代码</span></i>
+                    </div>
+                </oasis-box-footer>
+            </oasis-box>
+        </oasis-col>
+    </oasis-row>
+     <oasis-row>
+        <oasis-col md=12>
+            <oasis-box>
+                <oasis-box-header>
+                    <span class="title">禁用radio按钮</span>
+                </oasis-box-header>
+                <oasis-box-body height-auto='true'>
+                    <oasis-radio os-model="radio1.checked" os-disabled="radio1.isDisable"value="checked">选中状态</oasis-radio>
+                    <oasis-radio os-model="radio1.checked" os-disabled="radio1.isUncheckedDisable" value="unchecked">未选中状态</oasis-radio>
+                </oasis-box-body>
+                <oasis-box-footer>
+                    <div ng-show="codeShow" class="code-content">
+                        <oasis-col md=8 >
+                            <button class="copy-btn" onclick="   if(copyToClipboard($(this).parent()[0])){alert('复制成功')}else{alert('复制失败')}">copy
+                            </button>
+                            <pre>html:<br/>&lt;oasis-radio os-model="radio.isChecked" os-disabled="radio1.isDisable" value="checked"&gt;选中状态&lt;/oasis-radio&gt;<br/>&lt;oasis-radio os-model="radio.isChecked" os-disabled="radio1.isUncheckedDisable" value="unchecked"&gt;选中状态&lt;/oasis-radio&gt;</pre>
+                             <pre>js:<br/> $scope.radio1={isDisable:true}<br/>$scope.$watch('radio1.isDisable',function(v){console.log(v)})
+
+                             </pre>
+                        </oasis-col>
+                        <oasis-col md="4" >
+                            <p>
+                            <mark>os-disabled</mark>属性.设置双向绑定，通过在Scope作用域初始化绑定默认是否需要禁用radio按钮。<br/>例如:<br/>$scope.radio1 = {
+                                isDisable:true
+                            }异步使其失效，或者监听改值处理当被禁用时候的事件处理
+                            </p>
+                        </oasis-col>
+                    </div>
+                    <div class="code-change">
+                        <i ng-show="!codeShow" class="glyphicon glyphicon-chevron-down" ng-click="codeShow=!codeShow">
+                            <span class="code-font">显示代码</span></i>
+                        <i ng-show="codeShow" class="glyphicon glyphicon-chevron-up" ng-click="codeShow=!codeShow">
+                            <span class="code-font">隐藏代码</span></i>
+                    </div>
+                </oasis-box-footer>
+            </oasis-box>
+        </oasis-col>
+    </oasis-row>
+    <oasis-row>
+        <oasis-col md=12>
+            <oasis-box>
+                <oasis-box-header>
+                    <span class="title">属性配置</span>
+                </oasis-box-header>
+                <oasis-box-body height-auto>
+                    <table>
+                        <table class="table">
+                        <thead>
+                            <tr class="active">
+                                <th style="width: 100px">元素</th>
+                                <th>属性</th>
+                                <th style="width: 100px">类型</th>
+                                <th style="width: 100px">可选值</th>
+                                <th style="width: 100px">默认值</th>
+                                <th>说明</th>
+                            </tr>
+                        </thead>
+                            <tr>
+                                <td rowspan="3"
+                                style="vertical-align: middle;">oasis-radio</td>
+                                <td>os-model</td>
+                                <td>string或number或boolean</td>
+                                <td>-------</td>
+                                <td>-------</td>
+                                <td><mark>os-model</mark>属性。指令实现双向绑定。可以通过初始化设置其值与value值一致实现默认选项。通过监听其值的变化，处理用户选择不同选项事件</td>
+                            </tr>
+                            <tr>
+                                <!-- <td >
+                                oasis-button</td> -->
+                                <td>os-disabled</td>
+                                <td>boolean</td>
+                                <td>-------</td>
+                                <td>-------</td>
+                                <td><mark>os-disabled</mark>指令实现双向绑定,通过设置其boolean类型的数值，触发单选按钮的禁止。通过监听其值可以监听单选按钮的状态变化</td>
+                            </tr>
+                            <tr>
+                                <!-- <td >
+                                oasis-button</td> -->
+                                <td>value</td>
+                                <td>string或number或boolean</td>
+                                <td>-------</td>
+                                <td>-------</td>
+                                <td><mark>value</mark>属性类似于radio元素的vaule属性，预设改组的radio的值</td>
+                            </tr>
+                        </table>
+                    </table>
+                </oasis-box-body>
+            </oasis-box>
+        </oasis-col>
+    </oasis-row>
+</div>

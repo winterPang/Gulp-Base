@@ -1,0 +1,46 @@
+@import "../../../less/$variable.less";
+
+.oasis-spinner {
+  display: inline-block;
+  &.disabled {
+    label,
+    input {
+      cursor: not-allowed;
+    }
+  }
+  label {
+    font-weight: lighter;
+    text-align: right;
+    &::after {
+      content: ":"
+    }
+  }
+  .form-control {
+    width: auto;
+    text-align: center;
+    margin: 0 -7px;
+    -moz-appearance: textfield; //  删除小箭头
+    -webkit-appearance: textfield;
+    &[disabled] {
+      border-color: @input-border;
+    }
+  }
+  .btn {
+    border: 1px solid @input-border;
+    width: 40px;
+    padding: 0;
+    line-height: 30px;
+    font-size: 20px;
+    outline: none !important;
+    &.btn-left {
+      border-radius: 4px 0 0 4px;
+    }
+    &.btn-right {
+      border-radius: 0 4px 4px 0;
+    }
+    &[disabled] {
+      background: @middle-gray;
+      opacity: 1;
+    }
+  }
+}

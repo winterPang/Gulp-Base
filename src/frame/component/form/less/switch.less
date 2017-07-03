@@ -1,0 +1,69 @@
+@import "../../../less/$variable.less";
+
+.oasis-switch {
+  display: inline-block;
+  &.disabled {
+    cursor: not-allowed;
+    label, div {
+      pointer-events: none;
+    }
+  }
+  .switch-box {
+    display: inline-block;
+    height: 32px;
+    //border: 1px solid #00caff;
+    //width: 100px;
+    vertical-align: middle;
+    overflow: hidden;
+    border-radius: 16px;
+  }
+  .switch-handler {
+    width: 200%;
+    height: 100%;
+    font-size: 14px;
+    transition: all 200ms linear;
+    &.active {
+      margin-left: -100%;
+    }
+    > div {
+      height: 100%;
+      float: left;
+      width: 50%;
+      position: relative;
+      line-height: 32px;
+      user-select: none;
+      > div {
+        position: absolute;
+        width: 20px;
+        height: 20px;
+        border-radius: 10px;
+        top: 6px;
+        z-index: 10;
+        background: #fff;
+      }
+      &:first-child {
+        padding-left: 15px;
+        background: @mian-color;
+        color: #fff;
+        > div {
+          right: 8px;
+        }
+      }
+      &:last-child {
+        padding-right: 15px;
+        background: @middle-gray;
+        text-align: right;
+        > div {
+          left: 8px;
+        }
+      }
+    }
+  }
+  label {
+    font-weight: lighter;
+    text-align: right;
+    &::after {
+      content: ":"
+    }
+  }
+}

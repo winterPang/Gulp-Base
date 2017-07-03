@@ -1,0 +1,63 @@
+{
+  "Name": "return  url  of device",
+  "DocIndex": "doc_07648606507961331",
+  "AllItems": [
+    {
+      "SubItem": "return  puburl of device",
+      "ItemName": "http  request",
+      "Path": "/devmonitor/web/pubURL",
+      "Method": "Get",
+      "Parameters": [
+        {
+          "name": "devSN",
+          "description": "string设备序列号"
+        }
+      ],
+      "Return": "{\n    \"URL\":\"String,   PUBLIC  URL  of  device\",\n    \"errorcode\":\"number   as following\"\n}\n",
+      "Error": [
+        {
+          "name": "1",
+          "description": "not  exsit"
+        },
+        {
+          "name": "0",
+          "description": "puburl  is  returned  successfuly"
+        }
+      ]
+    },
+    {
+      "Error": [
+        {
+          "description": "no error ----- 0        \nerror  ------1   if error  there is an error info",
+          "name": "\"errCode\":0,"
+        }
+      ],
+      "Return": "{\n    \"url\":\"devmonitor\",\n    \"dataList\":[\n        {\n            \"recordDate\":\"2017/01/06\",\n            \"highestCpuRatio\":19,\n            \"highestTime\":\"2017-01-06T11:29:17.045Z\",\n            \"lowestCpuRatio\":0,\n            \"lowestTime\":\"2017-01-06T11:09:15.886Z\"\n        }\n    ]\n}\n",
+      "Parameters": [
+        {
+          "description": "device sequece number",
+          "name": "devSN"
+        },
+        {
+          "description": "oneWeek /oneMonth/custom",
+          "name": "statistic_type"
+        },
+        {
+          "description": "number  is  better,string is not suggested",
+          "name": "startTime"
+        },
+        {
+          "description": "number  is  better,string is not suggested",
+          "name": "endTime"
+        }
+      ],
+      "Method": "Get",
+      "Path": "/devmonitor/gethistcpuratioinfo",
+      "ItemName": "http  request",
+      "SubItem": "History of  cpu (by time)"
+    }
+  ],
+  "author": "qkf7000",
+  "description": "null\n",
+  "retcode": 0
+}

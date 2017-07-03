@@ -1,0 +1,87 @@
+{
+  "Name": "drs模块接口文档",
+  "DocIndex": "doc_33632246307818914",
+  "AllItems": [
+    {
+      "SubItem": "drsEnable使能drs",
+      "ItemName": "使能drs",
+      "Path": "https://v3webtest.h3c.com/v3/ant/confmgr",
+      "Method": "Post",
+      "Parameters": [
+        {
+          "name": "method",
+          "description": "drsEnable"
+        },
+        {
+          "name": "devSN",
+          "description": "设备序列号"
+        },
+        {
+          "name": "configType",
+          "description": "等于0下发设备\n等于1发给微服务"
+        },
+        {
+          "name": "subMsgType",
+          "description": "等于0 来自浏览器消息"
+        },
+        {
+          "name": "deviceModule",
+          "description": "设备模块名DRS"
+        },
+        {
+          "name": "cloudModule",
+          "description": "云端模块名DRS"
+        }
+      ],
+      "Return": "{\n    \"result\":\"success/fail\",\n    \"reason\":\"\"\n}\n",
+      "Error": [
+        {
+          "name": "",
+          "description": ""
+        }
+      ]
+    },
+    {
+      "Error": [
+        {
+          "description": "",
+          "name": ""
+        }
+      ],
+      "Return": "{\n    \"result\":[\n        {\n            \"status\":\"on/off\"\n        }\n    ],\n    \"reason\":\"\"\n}\n",
+      "Parameters": [
+        {
+          "description": "drsGet",
+          "name": "method"
+        },
+        {
+          "description": "设备序列号",
+          "name": "devSN"
+        },
+        {
+          "description": "等于0 来自浏览器消息",
+          "name": "subMsgType"
+        },
+        {
+          "description": "等于1 发给微服务消息",
+          "name": "configType"
+        },
+        {
+          "description": "设备模块名DRS",
+          "name": "deviceModule"
+        },
+        {
+          "description": "云端模块名DRS",
+          "name": "cloudModule"
+        }
+      ],
+      "Method": "Post",
+      "Path": "https://v3webtest.h3c.com/v3/ant/confmgr",
+      "ItemName": "drs状态",
+      "SubItem": "drsGet获取drs状态"
+    }
+  ],
+  "author": "lkf6417",
+  "description": "概述接口drsGet和drsEnable",
+  "retcode": 0
+}

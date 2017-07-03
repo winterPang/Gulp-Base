@@ -1,0 +1,182 @@
+{
+  "Name": "STAMGR_配置接口API",
+  "DocIndex": "doc_519892702344805",
+  "AllItems": [
+    {
+      "Error": [
+        {
+          "description": "表示结果：可能取值success/busy/cloudtimeout",
+          "name": "result"
+        },
+        {
+          "description": "设备返回的字符串",
+          "name": "deviceResult"
+        },
+        {
+          "description": " * 1-->消息格式问题，webserver无法解析\n * 2-->权限问题\n * 3-->设备端消息超时\n * 4-->主连接未找到\n * 5-->webserver内部逻辑错误\n * 6-->webserver与设备端通信异常\n * 7-->微服务消息处理错误",
+          "name": "errCode"
+        },
+        {
+          "description": "不用关心",
+          "name": "communicateResult"
+        },
+        {
+          "description": "不用关心",
+          "name": "serviceResult"
+        }
+      ],
+      "Return": "{\n    \"result\":\"success\",\n    \"deviceResult\":[\n        {\n            \"result\":\"success\"\n        }\n    ],\n    \"errCode\":0,\n    \"communicateResult\":\"success\",\n    \"serviceResult\":\"success\"\n}\n",
+      "Parameters": [
+        {
+          "description": "AC序列号",
+          "name": "devSN"
+        },
+        {
+          "description": "值固定为：“0\"",
+          "name": "configType"
+        },
+        {
+          "description": "值固定为：stamgr",
+          "name": "cloudModule"
+        },
+        {
+          "description": "值固定为：stamgr",
+          "name": "deviceModule"
+        },
+        {
+          "description": "值固定为：SyncSSIDList",
+          "name": "method"
+        },
+        {
+          "description": "值为空的单个数组：[{}]",
+          "name": "param"
+        }
+      ],
+      "Method": "Post",
+      "Path": "/ant/confmgr",
+      "ItemName": "配置同步",
+      "SubItem": "实时同步SSID配置"
+    },
+    {
+      "SubItem": "分支绑定服务模板",
+      "ItemName": "服务绑定与解绑定",
+      "Path": "/ant/confmgr",
+      "Method": "Post",
+      "Parameters": [
+        {
+          "name": "devSN",
+          "description": "AC序列号"
+        },
+        {
+          "name": "configType",
+          "description": "值固定为：“0\""
+        },
+        {
+          "name": "cloudModule",
+          "description": "值固定为：stamgr"
+        },
+        {
+          "name": "deviceModule",
+          "description": "值固定为：stamgr"
+        },
+        {
+          "name": "policy",
+          "description": "值固定为：cloudFirst"
+        },
+        {
+          "name": "method",
+          "description": "值固定为：SSIDBindByAPGroup"
+        },
+        {
+          "name": "param",
+          "description": "{\n    \"branchList\":[\"string，分支名\"],\n    \"stNameList\":[\"string, 要绑定服务模板名\",\"st1\",\"st2\",\"...\"]\n}   "
+        }
+      ],
+      "Return": "{\n    \"result\":\"success\",\n    \"deviceResult\":[\n        {\n            \"result\":\"success\"\n        }\n    ],\n    \"errCode\":0,\n    \"communicateResult\":\"success\",\n    \"serviceResult\":\"success\"\n}\n",
+      "Error": [
+        {
+          "name": "result",
+          "description": "表示结果：可能取值success/fail"
+        },
+        {
+          "name": "deviceResult",
+          "description": "设备返回的字符串"
+        },
+        {
+          "name": "errCode",
+          "description": " * 1-->消息格式问题，webserver无法解析\n * 2-->权限问题\n * 3-->设备端消息超时\n * 4-->主连接未找到\n * 5-->webserver内部逻辑错误\n * 6-->webserver与设备端通信异常\n * 7-->微服务消息处理错误>消息格式问题，webserver无法解析"
+        },
+        {
+          "name": "communicateResult",
+          "description": "不用关心"
+        },
+        {
+          "name": "serviceResult",
+          "description": "不用关心"
+        }
+      ]
+    },
+    {
+      "Error": [
+        {
+          "description": "表示结果：可能取值success/fail",
+          "name": "result"
+        },
+        {
+          "description": "设备返回的字符串",
+          "name": "deviceResult"
+        },
+        {
+          "description": " * 1-->消息格式问题，webserver无法解析\n * 2-->权限问题\n * 3-->设备端消息超时\n * 4-->主连接未找到\n * 5-->webserver内部逻辑错误\n * 6-->webserver与设备端通信异常\n * 7-->微服务消息处理错误>消息格式问题，webserver无法解析",
+          "name": "errCode"
+        },
+        {
+          "description": "不用关心",
+          "name": "communicateResult"
+        },
+        {
+          "description": "不用关心",
+          "name": "serviceResult"
+        }
+      ],
+      "Return": "{\n    \"result\":\"success\",\n    \"deviceResult\":[\n        {\n            \"result\":\"success\"\n        }\n    ],\n    \"errCode\":0,\n    \"communicateResult\":\"success\",\n    \"serviceResult\":\"success\"\n}\n",
+      "Parameters": [
+        {
+          "description": "AC序列号",
+          "name": "devSN"
+        },
+        {
+          "description": "值固定为：“0”",
+          "name": "configType"
+        },
+        {
+          "description": "值固定为：stamgr",
+          "name": "cloudModule"
+        },
+        {
+          "description": "值固定为：stamgr",
+          "name": "deviceModule"
+        },
+        {
+          "description": "值固定为：cloudFirst",
+          "name": "policy"
+        },
+        {
+          "description": "值固定为：SSIDUnbindByAPGroup",
+          "name": "method"
+        },
+        {
+          "description": "{\n    \"branchList\":[\"string，分支名\"],\n    \"stNameList\":[\"string, 要绑定服务模板名\",\"st1\",\"st2\",\"...\"]\n}   ",
+          "name": "param"
+        }
+      ],
+      "Method": "Post",
+      "Path": "ant/confmgr",
+      "ItemName": "服务绑定与解绑定",
+      "SubItem": "分支解绑定服务模板"
+    }
+  ],
+  "author": "w08292",
+  "description": "提供stamgr相关的配置操作接口API：例如ssid的配置，client相关配置操作等",
+  "retcode": 0
+}

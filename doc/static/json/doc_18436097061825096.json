@@ -1,0 +1,172 @@
+{
+  "Name": "用户身份信息接口",
+  "DocIndex": "doc_18436097061825096",
+  "AllItems": [
+    {
+      "Error": [
+        {
+          "description": "",
+          "name": ""
+        }
+      ],
+      "Return": "{\n    \"retCode\":\"number, 0--成功;1--失败\",\n    \"totalCount\":\"number, 数据总条数\",\n    \"userList\":[\n        {\n            \"userId\":\"string, 用户id\",\n            \"name\":\"string, 用户名(可能是手机号，可能是用户微信昵称)\",\n            \"macAddr\":\"string, 用户mac地址, 格式: xx-xx-xx-xx-xx-xx\",\n            \"sex\":\"number, 性别 1--male; 2--female; 0--unknown\",\n            \"age\":\"number, 年龄\",\n            \"nickname\":\"String,微信昵称，不存在为''\",\n            \"tel\":\"String,手机号，不存在为''\",\n            \"headimgurl\":\"String,微信头像url,不存在为''\"\n        }\n    ]\n}\n",
+      "Parameters": [
+        {
+          "description": "Array, 设备序列号数组",
+          "name": "devSNList"
+        },
+        {
+          "description": "String 起始时间，由Date.toISOString方法生成，可以为\"\"，表示从历史第一条记录开始统计",
+          "name": "startTime"
+        },
+        {
+          "description": "String 要求截止的数据记录时间，返回数据从此时间截止，往前的数据，由Date.toISOString方法获取，\" \"  表示为当前时间 。",
+          "name": "endTime"
+        },
+        {
+          "description": "number, 跳过的条数",
+          "name": "skipNum"
+        },
+        {
+          "description": "number, 每页显示的条数",
+          "name": "limitNum"
+        },
+        {
+          "description": "{\n    \"paramOp\": \"string, 参数的关系, 取值: and;or\",\n    \"params\": [\n        {\n            \"type\": \"string, 类型, 取值: macAddr;sex;age\",\n            \"opt\": \"string, 条件, 取值: eq--等于; gt--大于; gte--大于等于; lt--小于; lte--小于等于; \",\n            \"value\": \"根据不用类型不同取值, macAddr--string; sex--number; age--number\"\n        }\n    ]\n}\n\noption为空，则返回所有数据",
+          "name": "option"
+        }
+      ],
+      "Method": "Post",
+      "Path": "/useridentity/getOnlineUser",
+      "ItemName": "用户身份信息",
+      "SubItem": "获取在线用户身份信息"
+    },
+    {
+      "SubItem": "获取历史用户身份信息",
+      "ItemName": "用户身份信息",
+      "Path": "/useridentity/getUserHistory",
+      "Method": "Post",
+      "Parameters": [
+        {
+          "name": "devSNList",
+          "description": "Array, 设备序列号数组"
+        },
+        {
+          "name": "startTime",
+          "description": "String 起始时间，由Date.toISOString方法生成，可以为\"\"，表示从历史第一条记录开始统计"
+        },
+        {
+          "name": "endTime",
+          "description": "String 要求截止的数据记录时间，返回数据从此时间截止，往前的数据，由Date.toISOString方法获取，\" \"  表示为当前时间 。"
+        },
+        {
+          "name": "skipNum",
+          "description": "number, 跳过的条数"
+        },
+        {
+          "name": "limitNum",
+          "description": "number, 每页显示的条数"
+        },
+        {
+          "name": "option",
+          "description": "{\n    \"paramOp\": \"string, 参数的关系, 取值: and;or\",\n    \"params\": [\n        {\n            \"type\": \"string, 类型, 取值: macAddr;sex;age\",\n            \"opt\": \"string, 条件, 取值: eq--等于; gt--大于; gte--大于等于; lt--小于; lte--小于等于; \",\n            \"value\": \"根据不用类型不同取值, macAddr--string; sex--number; age--number\"\n        }\n    ]\n}\n\noption为空，则返回所有数据"
+        }
+      ],
+      "Return": "{\n    \"retCode\":\"number, 0--成功;1--失败\",\n    \"totalCount\":\"number, 数据总条数\",\n    \"userList\":[\n        {\n            \"userId\":\"string, 用户id\",\n            \"name\":\"string, 用户名(可能是手机号，可能是用户微信昵称)\",\n            \"macAddr\":\"string, 用户mac地址, 格式: xx-xx-xx-xx-xx-xx\",\n            \"sex\":\"number, 性别 1--male; 2--female; 0--unknown\",\n            \"age\":\"number, 年龄\",\n            \"visitTime\":\"string, 访问时间 Date.toISOString生成\",\n            \"nickname\":\"String,微信昵称，不存在为''\",\n            \"tel\":\"String,手机号，不存在为''\",\n            \"headimgurl\":\"String,微信头像url,不存在为''\"\n        }\n    ]\n}\n",
+      "Error": [
+        {
+          "name": "",
+          "description": ""
+        }
+      ]
+    },
+    {
+      "Error": [
+        {
+          "description": "",
+          "name": ""
+        }
+      ],
+      "Return": "{\n    \"retCode\":\"number, 0--成功;1--失败\",\n    \"totalCount\":\"number, 数据总条数\",\n    \"userList\":[\n        {\n            \"userId\":\"string, 用户id\",\n            \"name\":\"string, 用户名(可能是手机号，可能是用户微信昵称)\",\n            \"macAddr\":\"string, 用户mac地址, 格式: xx-xx-xx-xx-xx-xx\",\n            \"sex\":\"number, 性别 1--male; 2--female; 0--unknown\",\n            \"age\":\"number, 年龄\",\n            \"visitTime\":\"string, 访问时间 Date.toISOString生成\",\n            \"nickname\":\"String,微信昵称，不存在为''\",\n            \"tel\":\"String,手机号，不存在为''\",\n            \"headimgurl\":\"String,微信头像url,不存在为''\"\n        }\n    ]\n}\n",
+      "Parameters": [
+        {
+          "description": "Array, 设备序列号数组",
+          "name": "devSNList"
+        },
+        {
+          "description": "string, 用户id",
+          "name": "userId"
+        },
+        {
+          "description": "String 起始时间，由Date.toISOString方法生成，可以为\"\"，表示从历史第一条记录开始统计",
+          "name": "startTime"
+        },
+        {
+          "description": "String 要求截止的数据记录时间，返回数据从此时间截止，往前的数据，由Date.toISOString方法获取，\" \"  表示为当前时间 。",
+          "name": "endTime"
+        },
+        {
+          "description": "number, 跳过的条数",
+          "name": "skipNum"
+        },
+        {
+          "description": "number, 每页显示的条数",
+          "name": "limitNum"
+        }
+      ],
+      "Method": "Post",
+      "Path": "/useridentity/getOneUserHistroy",
+      "ItemName": "用户身份信息",
+      "SubItem": "获取指定用户历史信息"
+    },
+    {
+      "SubItem": "获取新老用户个数",
+      "ItemName": "用户身份信息",
+      "Path": "/useridentity/getNewOldUserNumber",
+      "Method": "Post",
+      "Parameters": [
+        {
+          "name": "devSNList",
+          "description": "Array, 设备序列号数组"
+        },
+        {
+          "name": "startTime",
+          "description": "String 起始时间，由Date.toISOString方法生成，可以为\"\"，表示从历史第一条记录开始统计"
+        },
+        {
+          "name": "endTime",
+          "description": "String 要求截止的数据记录时间，返回数据从此时间截止，往前的数据，由Date.toISOString方法获取，\" \"  表示为当前时间 。"
+        }
+      ],
+      "Return": "{\n    \"retCode\":\"number, 0--成功;1--失败\",\n    \"newUserNumber\":\"number\",\n    \"oldUserNumber\":\"number\"\n}\n",
+      "Error": [
+        {
+          "name": "",
+          "description": ""
+        }
+      ]
+    },
+    {
+      "Error": [
+        {
+          "description": "",
+          "name": ""
+        }
+      ],
+      "Return": "{\n    \"retCode\":\"number, 0--成功;1--失败\",\n    \"onlineUserNumber\":\"number\",\n    \"offlineUserNumber\":\"number\"\n}\n",
+      "Parameters": [
+        {
+          "description": "Array, 设备序列号数组",
+          "name": "devSNList"
+        }
+      ],
+      "Method": "Post",
+      "Path": "/useridentity/getOnOffLineUserNumber",
+      "ItemName": "用户身份信息",
+      "SubItem": "获取在线离线用户数"
+    }
+  ],
+  "author": "l09810",
+  "description": "用户身份信息接口",
+  "retcode": 0
+}

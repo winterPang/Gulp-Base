@@ -1,0 +1,93 @@
+<div class="selects">
+    <header class="content-header">
+        <h1>Select选择框样式</h1>
+        <p>Desc: 绿洲OASIS提供一套基于绿洲的表单组件下拉选择框组件</p>
+        <p>Author: <a href="mailto:KF.zhangfuqiang@h3c.com">KF.zhangfuqiang@h3c.com</a></p>
+    </header>
+
+    <oasis-row>
+        <oasis-col md=12>
+            <oasis-box>
+                <oasis-box-header>
+                    <span class="title">Example</span>
+                </oasis-box-header>
+                <oasis-box-body height-auto>
+                    <span class="btn btn-default" ng-click="disabled=!disabled">os-disabled</span>
+                    <oasis-select os-label="test" os-trigger="#tttt" os-model="val" os-data="select.data" os-key="$all" os-disabled="disabled" placeholder="请选择" labelwidth=40></oasis-select>{{val}}
+                    <span id="tttt">使用任意DOM触发</span>
+                </oasis-box-body>
+                <oasis-box-footer>
+                    <div class="code-change">
+                        <div ng-show="!codeShow" ng-click="codeShow=!codeShow">
+                            <i class="glyphicon glyphicon-menu-down"></i>
+                            <span>显示代码</span>
+                        </div>
+                        <div ng-show="codeShow" ng-click="codeShow=!codeShow">
+                            <i class="glyphicon glyphicon-menu-up"></i>
+                            <span>隐藏代码</span>
+                        </div>
+                    </div>
+                    <div ng-show="codeShow" class="code-content">
+                        <oasis-col md=12>
+                            <pre>
+// html部分
+&lt;span class="btn btn-info" ng-click="disabled=!disabled"&gt;os-disabled&lt;/span&gt;
+&lt;oasis-select os-label="test" os-trigger="#tttt" os-model="val" os-data="select.data" os-key="$all" os-disabled="disabled" placeholder="请选择" labelwidth=40&gt;&lt;/oasis-select&gt;{{val}}
+&lt;span id="tttt"&gt;sssss&lt;/span&gt;
+// js部分
+$scope.select = {
+    data: [
+        {id: 'zhangsan', name: '张三'},
+        {id: 'lisi', name: '李四'},
+        {id: 'wangwu', name: '王五'},
+        {id: 'dongyi', name: '东一'},
+        {id: 'wangyu', name: '王雨'},
+        {id: 'wangyu2', name: '王雨2'},
+        {id: 'wangyu3', name: '王雨3'},
+        {id: 'wangyu4', name: '王雨4'},
+        {id: 'wangyu5', name: '王雨5'},
+        {id: 'wangyu6', name: '王雨6'},
+        {id: 'wangyu7', name: '王雨7'}
+    ],
+    value: 'zhangsan'
+};</pre>
+                            <button class="copy-btn" onclick="if(copyToClipboard($(this).parent()[0])){alert('复制成功')}else{alert('复制失败')}">copy
+                            </button>
+                        </oasis-col>
+                    </div>
+                </oasis-box-footer>
+            </oasis-box>
+        </oasis-col>
+    </oasis-row>
+    <oasis-row>
+        <oasis-col md=12>
+            <oasis-box>
+                <oasis-box-header>
+                    <span class="title">属性配置 (<small>开发的时候请看完配置，否则会导致自己实现组件的功能</small>)</span>
+                </oasis-box-header>
+                <oasis-box-body height-auto>
+                    <table class="table doc-table">
+                        <thead>
+                            <tr class="active">
+                                <th width="150px">属性</th>
+                                <th width="100px">类型</th>
+                                <th width="100px">可选值</th>
+                                <th width="150px">默认值</th>
+                                <th>说明</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="prop in props" ng-class="{info:prop.important}">
+                                <td>{{prop.name}}</td>
+                                <td>{{prop.type}}</td>
+                                <td>{{prop.values || '---'}}</td>
+                                <td style="color:blue">{{prop.def || '---'}}</td>
+                                <td>{{prop.desc || '---'}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </oasis-box-body>
+            </oasis-box>
+        </oasis-col>
+    </oasis-row>
+</div>

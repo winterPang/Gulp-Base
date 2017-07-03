@@ -1,0 +1,1261 @@
+{
+  "Name": "微信连Wi-Fi接口文档",
+  "DocIndex": "doc_6077198758721352",
+  "AllItems": [
+    {
+      "SubItem": "创建门店",
+      "ItemName": "门店接口",
+      "Path": "/wifiShop/createShop",
+      "Method": "Post",
+      "Parameters": [
+        {
+          "name": "nasid",
+          "description": "场所Id"
+        },
+        {
+          "name": "appId",
+          "description": "公众号AppId"
+        },
+        {
+          "name": "business_name",
+          "description": "门店名称（仅为商户名，如：国美、麦当劳，不应包含地区、地址、分店名等信息，错误示例：北京国美）"
+        },
+        {
+          "name": "branch_name",
+          "description": "分店名称（不应包含地区信息，不应与门店名有重复，错误示例：北京王府井店）"
+        },
+        {
+          "name": "province",
+          "description": "门店所在的省份（直辖市填城市名,如：北京市）"
+        },
+        {
+          "name": "city",
+          "description": "门店所在的城市"
+        },
+        {
+          "name": "district",
+          "description": "门店所在地区"
+        },
+        {
+          "name": "address",
+          "description": "门店所在的详细街道地址（不要填写省市信息）"
+        },
+        {
+          "name": "telephone",
+          "description": "门店的电话（纯数字，区号、分机号均由“-”隔开）"
+        },
+        {
+          "name": "categories",
+          "description": "门店的类型（不同级分类用“,”隔开，如：美食，川菜，火锅。详细分类参见附件：微信门店类目表）"
+        },
+        {
+          "name": "offset_type",
+          "description": "坐标类型，1 为火星坐标（目前只能选1）"
+        },
+        {
+          "name": "longitude",
+          "description": "门店所在地理位置的经度"
+        },
+        {
+          "name": "latitude",
+          "description": "门店所在地理位置的纬度（经纬度均为火星坐标，最好选用腾讯地图标记的坐标）"
+        },
+        {
+          "name": "photo_list",
+          "description": "图片列表，url 形式，可以有多张图片，尺寸为\n640*340px。必须为上一接口生成的url。图片内容不允许与门店不相关，不允许为二维码、员工合照（或模特肖像）、营业执照、无门店正门的街景、地图截图、公交地铁站牌、菜单截图等"
+        },
+        {
+          "name": "special",
+          "description": "特色服务，如免费wifi，免费停车，送货上门等商户能提供的特色功能或服务"
+        },
+        {
+          "name": "open_time",
+          "description": "营业时间，24 小时制表示，用“-”连接，如 8:00-20:00"
+        },
+        {
+          "name": "avg_price",
+          "description": "人均价格，大于0 的整数"
+        },
+        {
+          "name": "sid",
+          "description": "商户自己的id，用于后续审核通过收到poi_id 的通知时，做对应关系。请商户自己保证唯一识别性"
+        },
+        {
+          "name": "introduction",
+          "description": "商户简介，主要介绍商户信息等"
+        },
+        {
+          "name": "recommend",
+          "description": "推荐品，餐厅可为推荐菜；酒店为推荐套房；景点为推荐游玩景点等，针对自己行业的推荐内容"
+        }
+      ],
+      "Return": "{\n    \"errcode\":40001,\n    \"errmsg\":\"invalid credential\"\n}\n",
+      "Error": [
+        {
+          "name": "40001",
+          "description": "invalid credential"
+        },
+        {
+          "name": "0",
+          "description": "正常返回"
+        }
+      ]
+    },
+    {
+      "Error": [
+        {
+          "description": "正常返回",
+          "name": "0"
+        }
+      ],
+      "Return": "{\n    \"business\":{\n        \"base_info\":{\n            \"sid\":\"e6f8261a-1647-4a88-a115-d47860b76028\",\n            \"business_name\":\"回龙观人民食堂\",\n            \"branch_name\":\"\",\n            \"province\":\"北京\",\n            \"city\":\"市辖区\",\n            \"district\":\"昌平区\",\n            \"address\":\"回龙观东大街298号\",\n            \"telephone\":\"010-82774808\",\n            \"categories\":[\n                \"美食,其它美食,家常菜\"\n            ],\n            \"offset_type\":1,\n            \"longitude\":116.364883423,\n            \"latitude\":40.0805587769,\n            \"photo_list\":[\n            ],\n            \"recommend\":\"\",\n            \"special\":\"\",\n            \"introduction\":\"华三回龙观人民食堂。\",\n            \"open_time\":\"08:00-18:00\",\n            \"avg_price\":15,\n            \"update_status\":0,\n            \"available_state\":3,\n            \"poi_id\":\"403249127\"\n        }\n    },\n    \"errcode\":\"0\",\n    \"errmsg\":\"ok\"\n}\n",
+      "Parameters": [
+        {
+          "description": "场所Id",
+          "name": "nasid"
+        },
+        {
+          "description": "微信公众平台appId",
+          "name": "appId"
+        },
+        {
+          "description": "微信的门店ID，微信内门店唯一标示ID",
+          "name": "poi_id"
+        }
+      ],
+      "Method": "Post",
+      "Path": "/wifiShop/getShopinfo",
+      "ItemName": "门店接口",
+      "SubItem": "查詢门店信息"
+    },
+    {
+      "SubItem": "查询门店列表",
+      "ItemName": "门店接口",
+      "Path": "/wifiShop/getShoplist",
+      "Method": "Post",
+      "Parameters": [
+        {
+          "name": "nasid",
+          "description": "场所Id"
+        },
+        {
+          "name": "appId",
+          "description": "微信公众号AppId"
+        },
+        {
+          "name": "begin",
+          "description": "开始位置，0 即为从第一条开始查询"
+        },
+        {
+          "name": "limit",
+          "description": "返回数据条数，最大允许50，默认为20"
+        }
+      ],
+      "Return": "{\n    \"business_list\":[\n        {\n            \"base_info\":{\n                \"sid\":\"33788392\",\n                \"business_name\":\"麦当劳\",\n                \"branch_name\":\"艺苑路店\",\n                \"province\":\"广东省\",\n                \"city\":\"广州市\",\n                \"district\":\"海珠区\",\n                \"address\":\"艺苑路11 号\",\n                \"telephone\":\"020-12345678\",\n                \"categories\":[\n                    \"美食,小吃快餐\"\n                ],\n                \"offset_type\":1,\n                \"longitude\":115.323745728,\n                \"latitude\":25.097486496,\n                \"photo_list\":[\n                ],\n                \"recommend\":\"麦辣鸡腿堡套餐，麦乐鸡，全家桶\",\n                \"special\":\"免费wifi，外卖服务\",\n                \"introduction\":\"麦当劳是全球大型跨国连锁餐厅，1940 年创立于美国，在世界上大约拥有3 万间分店。主要售卖汉堡包，以及薯条、炸鸡、汽水、冰品、沙拉、 水果等快餐食品\",\n                \"open_time\":\"8:00-20:00\",\n                \"avg_price\":35,\n                \"update_status\":0,\n                \"available_state\":2,\n                \"poi_id\":\"461165056\"\n            }\n        },\n        {\n            \"base_info\":{\n                \"sid\":\"64599kaiyana-shangdiwxaafe49821384615a\",\n                \"business_name\":\"北京凯雅娜美容\",\n                \"branch_name\":\"北京凯亚娜美容上地店\",\n                \"province\":\"北京市\",\n                \"city\":\"北京市\",\n                \"district\":\"朝阳区\",\n                \"address\":\"上地东里得实大厦4-301\",\n                \"telephone\":\"18600078769\",\n                \"categories\":[\n                    \"基础设施,公共设施\"\n                ],\n                \"offset_type\":1,\n                \"longitude\":0,\n                \"latitude\":0,\n                \"photo_list\":[\n                ],\n                \"recommend\":\"\",\n                \"special\":\"\",\n                \"introduction\":\"\",\n                \"open_time\":\"\",\n                \"avg_price\":0,\n                \"update_status\":0,\n                \"available_state\":4,\n                \"poi_id\":\"404395790\"\n            }\n        }\n    ],\n    \"total_count\":23,\n    \"errcode\":\"0\",\n    \"errmsg\":\"ok\"\n}\n",
+      "Error": [
+        {
+          "name": "0",
+          "description": "正常返回"
+        }
+      ]
+    },
+    {
+      "Error": [
+        {
+          "description": "正常返回",
+          "name": "0"
+        }
+      ],
+      "Return": "{\n    \"errcode\":0,\n    \"errmsg\":\"ok\"\n}\n",
+      "Parameters": [
+        {
+          "description": "场所Id",
+          "name": "nasid"
+        },
+        {
+          "description": "公众号AppId",
+          "name": "appId"
+        },
+        {
+          "description": "门店Id",
+          "name": "poi_id"
+        },
+        {
+          "description": "电话",
+          "name": "telephone "
+        },
+        {
+          "description": "照片列表",
+          "name": "photo_list"
+        },
+        {
+          "description": "推荐",
+          "name": "recommend"
+        },
+        {
+          "description": "特色服务",
+          "name": "special"
+        },
+        {
+          "description": "介绍",
+          "name": "introduction"
+        },
+        {
+          "description": "开放时间",
+          "name": "open_time"
+        },
+        {
+          "description": "平均价格",
+          "name": "avg_price"
+        }
+      ],
+      "Method": "Post",
+      "Path": "/wifiShop/updateShop",
+      "ItemName": "门店接口",
+      "SubItem": "修改门店服务信息"
+    },
+    {
+      "Error": [
+        {
+          "description": "正常返回",
+          "name": "0"
+        }
+      ],
+      "Return": "{\n    \"errcode\":0,\n    \"errmsg\":\"ok\"\n}\n",
+      "Parameters": [
+        {
+          "description": "场所Id",
+          "name": "nasid"
+        },
+        {
+          "description": "公众号AppId",
+          "name": "appId"
+        },
+        {
+          "description": "门店Id",
+          "name": "poi_id"
+        }
+      ],
+      "Method": "Post",
+      "Path": "/wifiShop/deleteShop",
+      "ItemName": "门店接口",
+      "SubItem": "删除门店"
+    },
+    {
+      "SubItem": "获取门店Wi-Fi信息列表",
+      "ItemName": "门店接口",
+      "Path": "/wifiShop/getWifishoplist",
+      "Method": "Post",
+      "Parameters": [
+        {
+          "name": "nasid",
+          "description": "场所Id"
+        },
+        {
+          "name": "appId",
+          "description": "公众号AppId"
+        },
+        {
+          "name": "pageindex",
+          "description": "分页下标，默认从1开始"
+        },
+        {
+          "name": "pagesize",
+          "description": "每页的个数，默认10个，最大20个"
+        }
+      ],
+      "Return": "{\n    \"data\":{\n        \"totalcount\":23,\n        \"pageindex\":1,\n        \"pagecount\":12,\n        \"records\":[\n            {\n                \"shop_name\":\"北京凯雅娜美容(北京凯亚娜美容上地店)\",\n                \"shop_id\":\"5844931\",\n                \"sid\":\"64599kaiyana-shangdiwxaafe49821384615a\",\n                \"ssid\":\"kaiyana-shangdi\",\n                \"ssid_list\":[\n                    \"kaiyana-shangdi\"\n                ],\n                \"protocol_type\":31\n            },\n            {\n                \"shop_name\":\"麦当劳(艺苑路店)\",\n                \"shop_id\":\"5463581\",\n                \"sid\":\"33788392\",\n                \"ssid\":\"\",\n                \"ssid_list\":[\n                ],\n                \"protocol_type\":0\n            }\n        ]\n    },\n    \"errcode\":\"0\"\n}\n",
+      "Error": [
+        {
+          "name": "0",
+          "description": "正常返回"
+        }
+      ]
+    },
+    {
+      "Error": [
+        {
+          "description": "正常返回",
+          "name": "0"
+        }
+      ],
+      "Return": "{\n    \"data\":{\n        \"shop_name\":\"二十一世纪大厦\",\n        \"ssid\":\"h3clvzhou\",\n        \"ssid_list\":[\n            \"h3clvzhou\"\n        ],\n        \"ssid_password_list\":[\n            {\n                \"ssid\":\"h3clvzhou\",\n                \"password\":\"\"\n            }\n        ],\n        \"password\":\"\",\n        \"protocol_type\":31,\n        \"ap_count\":0,\n        \"template_id\":0,\n        \"homepage_url\":\"https:\",<code>//wifi.weixin.qq.com/buyer/cgi-bin/default</code>\n        \"bar_type\":0\n    },\n    \"errcode\":\"0\"\n}\n",
+      "Parameters": [
+        {
+          "description": "场所Id",
+          "name": "nasid"
+        },
+        {
+          "description": "公众号AppId",
+          "name": "appId"
+        },
+        {
+          "description": "门店Wi-Fi信息Id",
+          "name": "shop_id"
+        }
+      ],
+      "Method": "Post",
+      "Path": "/wifiShop/getWifishopinfo",
+      "ItemName": "门店接口",
+      "SubItem": "查询门店Wi-Fi信息"
+    },
+    {
+      "SubItem": "修改门店Wi-Fi网络信息",
+      "ItemName": "门店接口",
+      "Path": "/wifiShop/updateWifishop",
+      "Method": "Post",
+      "Parameters": [
+        {
+          "name": "nasid",
+          "description": "场所Id"
+        },
+        {
+          "name": "appId",
+          "description": "微信公众平台appId"
+        },
+        {
+          "name": "shop_id",
+          "description": "门店WiFi信息ID"
+        },
+        {
+          "name": "ssid",
+          "description": "无线网络设备的ssid。32个字符以内；ssid支持中文，但可能因设备兼容性问题导致显示乱码，或无法连接等问题，相关风险自行承担！当门店下是portal型设备时，ssid必填；当门店下是密码型设备时，ssid选填，且ssid和密码必须有一个以大写字母“WX”开头"
+        },
+        {
+          "name": "password",
+          "description": "无线网络设备的密码。8-24个字符；不能包含中文字符；当门店下是密码型设备时，才可填写password，且ssid和密码必须有一个以大写字母“WX”开头"
+        },
+        {
+          "name": "old_ssid",
+          "description": "需要修改的ssid，当门店下有多个ssid时，必填"
+        }
+      ],
+      "Return": "{\n    \"errcode\":0\n}\n",
+      "Error": [
+        {
+          "name": "0",
+          "description": "正常返回；注：如果门店的Wi-Fi信息中有多个ssid，调用此接口未传入old_ssid，则会有如下提示：{\"errcode\": \"9002008\",\"errmsg\": \"不合法的参数;该门店下有多个ssid，需要填写old_ssid参数\"}。"
+        }
+      ]
+    },
+    {
+      "Error": [
+        {
+          "description": "正常返回去；注：此接口用于清空门店Wi-Fi信息中的ssid列表，如果传入ssid字段，则清空指定ssid，不传入则清空所有ssid。",
+          "name": "0"
+        }
+      ],
+      "Return": "{\n    \"errcode\":0\n}\n",
+      "Parameters": [
+        {
+          "description": "场所Id",
+          "name": "nasid"
+        },
+        {
+          "description": "公众平台AppId",
+          "name": "appId"
+        },
+        {
+          "description": "门店WiFi信息Id",
+          "name": "shop_id"
+        },
+        {
+          "description": "无线网络设备的ssid。若不填写ssid，默认为清空门店下所有设备；填写ssid则为清空该ssid下的所有设备",
+          "name": "ssid"
+        }
+      ],
+      "Method": "Post",
+      "Path": "/wifiShop/cleanWifishop",
+      "ItemName": "门店接口",
+      "SubItem": "清空门店Wi-Fi网络及设备"
+    },
+    {
+      "SubItem": "获取二维码",
+      "ItemName": "配置连网方式",
+      "Path": "/wifiConn/getQrCode",
+      "Method": "Post",
+      "Parameters": [
+        {
+          "name": "nasid",
+          "description": "场所Id"
+        },
+        {
+          "name": "appId",
+          "description": "公众号appId"
+        },
+        {
+          "name": "shop_id",
+          "description": "门店WiFi信息ID"
+        },
+        {
+          "name": "ssid",
+          "description": "已添加到门店下的无线网络名称"
+        },
+        {
+          "name": "img_id",
+          "description": "物料样式编号：\n0-纯二维码，可用于自由设计宣传材料；\n1-二维码物料，155mm×215mm(宽×高)，可直接张贴"
+        }
+      ],
+      "Return": "{\n    \"data\":{\n        \"qrcode_url\":\"http:\"<code>//p.qpic.cn/ecc_merchant/0/69a0e6017d3248eb_1465183725933/0</code>\n    },\n    \"errcode\":\"0\"\n}\n",
+      "Error": [
+        {
+          "name": "0",
+          "description": "正常返回；注：如果门店下有多个ssid，而获取二维码时，没有指定ssid，则会有如下提示：\n{\"errcode\": \"9002008\",\"errmsg\": \"不合法的参数;参数错误;该门店下有多个ssid，需要填写ssid参数\"}。"
+        }
+      ]
+    },
+    {
+      "Error": [
+        {
+          "description": "正常返回",
+          "name": "0"
+        }
+      ],
+      "Return": "{\n    \"errcode\":0,\n    \"errmsg\":\"\"\n}\n",
+      "Parameters": [
+        {
+          "description": "微信公众平台appId",
+          "name": "appId"
+        },
+        {
+          "description": "场所Id",
+          "name": "nasid"
+        },
+        {
+          "description": "门店名称（仅为商户名，如：国美、麦当劳，不应包含地区、地址、分店名等信息，错误示例：北京国美）",
+          "name": "business_name"
+        },
+        {
+          "description": "分店名称（不应包含地区信息，不应与门店名有重复，错误示例：北京王府井店）",
+          "name": "branch_name"
+        },
+        {
+          "description": "门店所在的省份（直辖市填城市名,如：北京市）",
+          "name": "province"
+        },
+        {
+          "description": "门店所在的城市",
+          "name": "city"
+        },
+        {
+          "description": "门店所在地区",
+          "name": "district"
+        },
+        {
+          "description": "门店所在的详细街道地址（不要填写省市信息）",
+          "name": "address"
+        },
+        {
+          "description": "门店的电话（纯数字，区号、分机号均由“-”隔开）",
+          "name": "telephone"
+        },
+        {
+          "description": "门店的类型（不同级分类用“,”隔开，如：美食，川菜，火锅。详细分类参见附件：微信门店类目表）",
+          "name": "categories"
+        },
+        {
+          "description": "坐标类型，1 为火星坐标（目前只能选1）",
+          "name": "offset_type"
+        },
+        {
+          "description": "门店所在地理位置的经度",
+          "name": "longitude"
+        },
+        {
+          "description": "门店所在地理位置的纬度（经纬度均为火星坐标，最好选用腾讯地图标记的坐标）",
+          "name": "latitude"
+        },
+        {
+          "description": "图片列表，url 形式，可以有多张图片，尺寸为\n640*340px。必须为上一接口生成的url。图片内容不允许与门店不相关，不允许为二维码、员工合照（或模特肖像）、营业执照、无门店正门的街景、地图截图、公交地铁站牌、菜单截图等",
+          "name": "photo_list"
+        },
+        {
+          "description": "特色服务，如免费wifi，免费停车，送货上门等商户能提供的特色功能或服务",
+          "name": "special"
+        },
+        {
+          "description": "营业时间，24 小时制表示，用“-”连接，如 8:00-20:00",
+          "name": "open_time"
+        },
+        {
+          "description": "人均价格，大于0 的整数",
+          "name": "avg_price"
+        },
+        {
+          "description": "商户自己的id，用于后续审核通过收到poi_id 的通知时，做对应关系。请商户自己保证唯一识别性",
+          "name": "sid"
+        },
+        {
+          "description": "商户简介，主要介绍商户信息等",
+          "name": "introduction"
+        },
+        {
+          "description": "推荐品，餐厅可为推荐菜；酒店为推荐套房；景点为推荐游玩景点等，针对自己行业的推荐内容",
+          "name": "recommend"
+        },
+        {
+          "description": "门店是否可用状态。1 表示系统错误、2 表示审核中、3 审核通过、4 审核驳回。当该字段为1、2、4 状态时，poi_id 为空",
+          "name": "available_state"
+        },
+        {
+          "description": "扩展字段是否正在更新中。1 表示扩展字段正在更新中，尚未生效，不允许再次更新； 0 表示扩展字段没有在更新中或更新已生效，可以再次更新",
+          "name": "update_status"
+        },
+        {
+          "description": "微信的门店ID",
+          "name": "poi_id"
+        }
+      ],
+      "Method": "Post",
+      "Path": "/wifiShopDb/saveShop",
+      "ItemName": "门店数据持久化接口",
+      "SubItem": "保存门店"
+    },
+    {
+      "SubItem": "删除门店",
+      "ItemName": "门店数据持久化接口",
+      "Path": "/wifiShopDb/deleteShop",
+      "Method": "Post",
+      "Parameters": [
+        {
+          "name": "appId",
+          "description": "微信公众平台appId"
+        },
+        {
+          "name": "nasid",
+          "description": "场所ID"
+        },
+        {
+          "name": "poi_id",
+          "description": "微信的门店ID，微信内门店唯一标示ID"
+        },
+        {
+          "name": "sid",
+          "description": "商户自己的id，用于后续审核通过收到poi_id 的通知时，做对应关系。请商户自己保证唯一识别性。\n注意：由于一个门店可能导入多个场所，所以只传入poi_id可能会删除多个门店记录，这里可以再带入sid来进一步确认要删除的门店。"
+        }
+      ],
+      "Return": "{\n    \"errcode\":0,\n    \"errmsg\":\"deleteNum=1\"\n}\n",
+      "Error": [
+        {
+          "name": "0",
+          "description": "删除数据数大于一，正常返回"
+        },
+        {
+          "name": "1",
+          "description": "未删除数据"
+        }
+      ]
+    },
+    {
+      "Error": [
+        {
+          "description": "正常返回",
+          "name": "0"
+        }
+      ],
+      "Return": "{\n    \"base_info\":{\n        \"sid\":\"64599kaiyana-shangdiwxaafe49821384615a\",\n        \"business_name\":\"北京凯雅娜美容\",\n        \"branch_name\":\"北京凯亚娜美容上地店\",\n        \"province\":\"北京市\",\n        \"city\":\"北京市\",\n        \"district\":\"朝阳区\",\n        \"address\":\"上地东里得实大厦4-301\",\n        \"telephone\":\"18600078769\",\n        \"categories\":[\n            \"基础设施,公共设施\"\n        ],\n        \"offset_type\":1,\n        \"longitude\":0,\n        \"latitude\":0,\n        \"photo_list\":[\n        ],\n        \"recommend\":\"麦辣鸡腿堡套餐，麦乐鸡，全家桶\",\n        \"special\":\"免费wifi，外卖服务\",\n        \"introduction\":\"麦当劳是全球大型跨国连锁餐厅，1940 年创立于美国，在世界上大约拥有3 万间分店。主要售卖汉堡包，以及薯条、炸鸡、汽水、冰品、沙拉、水果等快餐食品\",\n        \"open_time\":\"8:00-20:00\",\n        \"avg_price\":10,\n        \"update_status\":0,\n        \"available_state\":3,\n        \"poi_id\":\"404395790\"\n    },\n    \"nasid\":374,\n    \"errcode\":\"0\",\n    \"errmsg\":\"\"\n}\n",
+      "Parameters": [
+        {
+          "description": "微信公众平台appId",
+          "name": "appId"
+        },
+        {
+          "description": "场所ID",
+          "name": "nasid"
+        },
+        {
+          "description": "微信的门店ID，微信内门店唯一标示ID",
+          "name": "poi_id"
+        },
+        {
+          "description": "商户自己的id，用于后续审核通过收到poi_id 的通知时，做对应关系。请商户自己保证唯一识别性",
+          "name": "sid"
+        }
+      ],
+      "Method": "Post",
+      "Path": "/wifiShopDb/queryShop",
+      "ItemName": "门店数据持久化接口",
+      "SubItem": "查询门店"
+    },
+    {
+      "Error": [
+        {
+          "description": "正常返回",
+          "name": "0"
+        }
+      ],
+      "Return": "{\n    \"errcode\":0,\n    \"errmsg\":\"\"\n}\n",
+      "Parameters": [
+        {
+          "description": "微信公众平台appId",
+          "name": "appId"
+        },
+        {
+          "description": "场所Id",
+          "name": "nasid"
+        },
+        {
+          "description": "门店名称（仅为商户名，如：国美、麦当劳，不应包含地区、地址、分店名等信息，错误示例：北京国美",
+          "name": "business_name"
+        },
+        {
+          "description": "分店名称（不应包含地区信息，不应与门店名有重复，错误示例：北京王府井店）",
+          "name": "branch_name"
+        },
+        {
+          "description": "门店所在的省份（直辖市填城市名,如：北京市）",
+          "name": "province"
+        },
+        {
+          "description": "门店所在的城市",
+          "name": "city"
+        },
+        {
+          "description": "门店所在地区",
+          "name": "district"
+        },
+        {
+          "description": "门店所在的详细街道地址（不要填写省市信息）",
+          "name": "address"
+        },
+        {
+          "description": "门店的电话（纯数字，区号、分机号均由“-”隔开）",
+          "name": "telephone"
+        },
+        {
+          "description": "门店的类型（不同级分类用“,”隔开，如：美食，川菜，火锅。详细分类参见附件：微信门店类目表）",
+          "name": "categories"
+        },
+        {
+          "description": "坐标类型，1 为火星坐标（目前只能选1）",
+          "name": "offset_type"
+        },
+        {
+          "description": "门店所在地理位置的经度",
+          "name": "longitude"
+        },
+        {
+          "description": "门店所在地理位置的纬度（经纬度均为火星坐标，最好选用腾讯地图标记的坐标）",
+          "name": "latitude"
+        },
+        {
+          "description": "图片列表，url 形式，可以有多张图片，尺寸为\n640*340px。必须为上一接口生成的url。图片内容不允许与门店不相关，不允许为二维码、员工合照（或模特肖像）、营业执照、无门店正门的街景、地图截图、公交地铁站牌、菜单截图等",
+          "name": "photo_list"
+        },
+        {
+          "description": "特色服务，如免费wifi，免费停车，送货上门等商户能提供的特色功能或服务",
+          "name": "special"
+        },
+        {
+          "description": "营业时间，24 小时制表示，用“-”连接，如 8:00-20:00",
+          "name": "open_time"
+        },
+        {
+          "description": "人均价格，大于0 的整数",
+          "name": "avg_price"
+        },
+        {
+          "description": "商户自己的id，用于后续审核通过收到poi_id 的通知时，做对应关系。请商户自己保证唯一识别性",
+          "name": "sid"
+        },
+        {
+          "description": "商户简介，主要介绍商户信息等",
+          "name": "introduction"
+        },
+        {
+          "description": "推荐品，餐厅可为推荐菜；酒店为推荐套房；景点为推荐游玩景点等，针对自己行业的推荐内容",
+          "name": "recommend"
+        },
+        {
+          "description": "门店是否可用状态。1 表示系统错误、2 表示审核中、3 审核通过、4 审核驳回。当该字段为1、2、4 状态时，poi_id 为空",
+          "name": "available_state"
+        },
+        {
+          "description": "扩展字段是否正在更新中。1 表示扩展字段正在更新中，尚未生效，不允许再次更新； 0 表示扩展字段没有在更新中或更新已生效，可以再次更新",
+          "name": "update_status"
+        },
+        {
+          "description": "微信的门店ID，微信内门店唯一标示ID",
+          "name": "poi_id"
+        }
+      ],
+      "Method": "Post",
+      "Path": "/wifiShopDb/updateShop",
+      "ItemName": "门店数据持久化接口",
+      "SubItem": "更新门店"
+    },
+    {
+      "Error": [
+        {
+          "description": "正常返回。",
+          "name": "0"
+        }
+      ],
+      "Return": "{\n    \"base_infos\":[\n        {\n            \"accountName\":\"hq-wifi\",\n            \"appId\":\"wx7f7fdb43f56f4ff9\",\n            \"sid\":\"64599kaiyana-shangdiwxaafe49821384615a\",\n            \"business_name\":\"北京凯雅娜美容\",\n            \"branch_name\":\"北京凯亚娜美容上地店\",\n            \"province\":\"北京市\",\n            \"city\":\"北京市\",\n            \"district\":\"朝阳区\",\n            \"address\":\"上地东里得实大厦4-301\",\n            \"telephone\":\"18600078769\",\n            \"categories\":[\n                \"基础设施,公共设施\"\n            ],\n            \"offset_type\":1,\n            \"longitude\":0,\n            \"latitude\":0,\n            \"photo_list\":[\n            ],\n            \"recommend\":\"麦辣鸡腿堡套餐，麦乐鸡，全家桶\",\n            \"special\":\"免费wifi，外卖服务\",\n            \"introduction\":\"麦当劳是全球大型跨国连锁餐厅，1940 年创立于美国，在世界上大约拥有3 万间分店。主要售卖汉堡包，以及薯条、炸鸡、汽水、冰品、沙拉、水果等快餐食品\",\n            \"open_time\":\"8:00-20:00\",\n            \"avg_price\":10,\n            \"update_status\":0,\n            \"available_state\":3,\n            \"poi_id\":\"404395790\"\n        }\n    ],\n    \"nasid\":374,\n    \"errcode\":\"0\",\n    \"errmsg\":\"\"\n}\n",
+      "Parameters": [
+        {
+          "description": "微信公众平台appId",
+          "name": "appId"
+        },
+        {
+          "description": "场所ID",
+          "name": "nasid"
+        }
+      ],
+      "Method": "Post",
+      "Path": "/wifiShopDb/queryShopList",
+      "ItemName": "门店数据持久化接口",
+      "SubItem": "查询门店列表"
+    },
+    {
+      "SubItem": "保存门店的Wi-Fi信息",
+      "ItemName": "门店数据持久化接口",
+      "Path": "/wifiShopDb/saveWifiShop",
+      "Method": "Post",
+      "Parameters": [
+        {
+          "name": "appId",
+          "description": "微信公众平台appId"
+        },
+        {
+          "name": "nasid",
+          "description": "场所ID"
+        },
+        {
+          "name": "sid",
+          "description": "商户自己的id，用于后续审核通过收到poi_id 的通知时，做对应关系。请商户自己保证唯一识别性。"
+        },
+        {
+          "name": "shop_id",
+          "description": "门店WiFi信息ID"
+        },
+        {
+          "name": "shop_name",
+          "description": "门店名称"
+        },
+        {
+          "name": "ssid",
+          "description": "无线网络设备的ssid，未添加设备为空"
+        },
+        {
+          "name": "password",
+          "description": "设备密码，当设备类型为密码型时返回"
+        },
+        {
+          "name": "protocol_type",
+          "description": "门店内设备的设备类型，0-未添加设备，1-专业型设备，4-密码型设备，5-portal自助型设备，31-portal改造型设备"
+        },
+        {
+          "name": "ap_count",
+          "description": "门店内设备总数"
+        },
+        {
+          "name": "template_id",
+          "description": "商家主页模板类型"
+        },
+        {
+          "name": "homepage_url",
+          "description": "商家主页链接"
+        },
+        {
+          "name": "bar_type",
+          "description": "顶部常驻入口上显示的文本内容：0--欢迎光临+公众号名称；1--欢迎光临+门店名称；2--已连接+公众号名称+WiFi；3--已连接+门店名称+Wi-Fi"
+        },
+        {
+          "name": "finishpage_url",
+          "description": "连网完成页链接"
+        },
+        {
+          "name": "secretkey",
+          "description": "改造portal页面所需参数，该参数用于触发呼起微信的JSAPI接口的sign参数值的计算"
+        }
+      ],
+      "Return": "{\n    \"errcode\":0,\n    \"errmsg\":\"\"\n}\n",
+      "Error": [
+        {
+          "name": "0",
+          "description": "正常返回"
+        }
+      ]
+    },
+    {
+      "Error": [
+        {
+          "description": "删除数据数大于一，正常返回",
+          "name": "0"
+        },
+        {
+          "description": "未删除数据。",
+          "name": "1"
+        }
+      ],
+      "Return": "{\n    \"errcode\":0,\n    \"errmsg\":\"deleteNum=1\"\n}\n",
+      "Parameters": [
+        {
+          "description": "微信公众平台appId",
+          "name": "appId"
+        },
+        {
+          "description": "场所ID",
+          "name": "nasid"
+        },
+        {
+          "description": "门店Wi-Fi信息ID",
+          "name": "shop_id"
+        },
+        {
+          "description": "商户自己的id，用于后续审核通过收到poi_id 的通知时，做对应关系。请商户自己保证唯一识别性。\n注意：由于一个门店可能导入多个场所，所以只传入shop_id可能会删除多个Wifi门店记录，这里可以再带入sid来进一步确认要删除的门店。",
+          "name": "sid"
+        }
+      ],
+      "Method": "Post",
+      "Path": "/wifiShopDb/deleteWifiShop",
+      "ItemName": "门店数据持久化接口",
+      "SubItem": "删除门店的Wi-Fi信息"
+    },
+    {
+      "SubItem": "更新门店的Wi-Fi信息",
+      "ItemName": "门店数据持久化接口",
+      "Path": "/wifiShopDb/updateWifiShop",
+      "Method": "Post",
+      "Parameters": [
+        {
+          "name": "appId",
+          "description": "微信公众平台appId"
+        },
+        {
+          "name": "nasid",
+          "description": "场所ID"
+        },
+        {
+          "name": "shop_id",
+          "description": "门店WiFi信息ID"
+        },
+        {
+          "name": "sid",
+          "description": "商户自己的id，用于后续审核通过收到poi_id 的通知时，做对应关系。请商户自己保证唯一识别性。"
+        },
+        {
+          "name": "ssid_list",
+          "description": "无线网络设备的ssid列表，返回数组格式"
+        },
+        {
+          "name": "ssid_password_list",
+          "description": "ssid和密码的列表，数组格式。当为密码型设备时，密码才有值"
+        },
+        {
+          "name": "ssid",
+          "description": "无线网络设备的ssid，未添加设备为空"
+        },
+        {
+          "name": "password",
+          "description": "设备密码，当为密码型设备时，密码才有值"
+        },
+        {
+          "name": "protocol_type",
+          "description": "门店内设备的设备类型，0-未添加设备，1-专业型设备，4-密码型设备，5-portal自助型设备，31-portal改造型设备"
+        },
+        {
+          "name": "ap_count",
+          "description": "门店内设备总数"
+        },
+        {
+          "name": "template_id",
+          "description": "商家主页模板类型"
+        },
+        {
+          "name": "homepage_url",
+          "description": "商家主页链接"
+        },
+        {
+          "name": "bar_type",
+          "description": "顶部常驻入口上显示的文本内容：0--欢迎光临+公众号名称；1--欢迎光临+门店名称；2--已连接+公众号名称+WiFi；3--已连接+门店名称+Wi-Fi"
+        },
+        {
+          "name": "finishpage_url",
+          "description": "连网完成页链接"
+        },
+        {
+          "name": "secretkey",
+          "description": "改造portal页面所需参数，该参数用于触发呼起微信的JSAPI接口的sign参数值的计算"
+        }
+      ],
+      "Return": "{\n    \"errcode\":0,\n    \"errmsg\":\"\"\n}\n",
+      "Error": [
+        {
+          "name": "0",
+          "description": "正常返回"
+        }
+      ]
+    },
+    {
+      "Error": [
+        {
+          "description": "正常返回",
+          "name": "0"
+        }
+      ],
+      "Return": "{\n    \"nasid\":374,\n    \"data\":{\n        \"shop_id\":\"5844931\",\n        \"shop_name\":\"北京凯雅娜美容(北京凯亚娜美容上地店)\",\n        \"ssid\":\"kaiyana-shangdi\",\n        \"protocol_type\":31,\n        \"sid\":\"64599kaiyana-shangdiwxaafe49821384615a\",\n        \"accountid\":107,\n        \"password\":\"123456789\",\n        \"ap_count\":2,\n        \"template_id\":1,\n        \"homepage_url\":\"http:\",<code>//www.weixin.qq.com/</code>\n        \"bar_type\":1,\n        \"ssid_list_json\":\"[\"kaiyana-shangd1i\"]\",\n        \"ssid_password_list_json\":\"[{\"ssid\":\"kaiyana-shangd1i\",\"password\":\"\"}]\",\n        \"nasid\":374\n    },\n    \"errcode\":\"0\",\n    \"errmsg\":\"\"\n}\n",
+      "Parameters": [
+        {
+          "description": "微信公众平台appId",
+          "name": "appId"
+        },
+        {
+          "description": "场所ID",
+          "name": "nasid"
+        },
+        {
+          "description": "门店WiFi信息ID",
+          "name": "shop_id"
+        },
+        {
+          "description": "商户自己的id，用于后续审核通过收到poi_id 的通知时，做对应关系。请商户自己保证唯一识别性。\n注意：由于一个门店可能导入多个场所，所以只传入shop_id可能会只查询多个Wifi门店记录中的一个，这里可以再带入sid来进一步确认要查询的门店。",
+          "name": "sid"
+        }
+      ],
+      "Method": "Post",
+      "Path": "/wifiShopDb/queryWifiShop",
+      "ItemName": "门店数据持久化接口",
+      "SubItem": "查询门店的Wi-Fi信息"
+    },
+    {
+      "SubItem": "查询门店的Wi-Fi信息列表",
+      "ItemName": "门店数据持久化接口",
+      "Path": "/wifiShopDb/queryWifiShopList",
+      "Method": "Post",
+      "Parameters": [
+        {
+          "name": "appId",
+          "description": "微信公众平台appId"
+        },
+        {
+          "name": "nasid",
+          "description": "场所ID"
+        }
+      ],
+      "Return": "{\n    \"nasid\":374,\n    \"datas\":[\n        {\n            \"accountName\":\"hq-wifi\",\n            \"appId\":\"wx7f7fdb43f56f4ff9\",\n            \"shop_name\":\"北京凯雅娜美容(北京凯亚娜美容上地店)\",\n            \"shop_id\":\"5844931\",\n            \"sid\":\"64599kaiyana-shangdiwxaafe49821384615a\",\n            \"ssid\":\"kaiyana-shangdi\",\n            \"ssid_list\":[\n                \"kaiyana-shangd1i\"\n            ],\n            \"ssid_password_list\":[\n                {\n                    \"ssid\":\"kaiyana-shangd1i\",\n                    \"password\":\"\"\n                }\n            ],\n            \"password\":\"123456789\",\n            \"protocol_type\":31,\n            \"ap_count\":2,\n            \"template_id\":1,\n            \"homepage_url\":\"http:\",<code>//www.weixin.qq.com/</code>\n            \"bar_type\":1\n        }\n    ],\n    \"errcode\":\"0\",\n    \"errmsg\":\"\"\n}\n",
+      "Error": [
+        {
+          "name": "0",
+          "description": "正常返回。"
+        }
+      ]
+    },
+    {
+      "Error": [
+        {
+          "description": "正常返回,数据保存成功",
+          "name": "0"
+        },
+        {
+          "description": "表示门店sid和Wifi门店sid不一致",
+          "name": "1"
+        },
+        {
+          "description": "表示门店保存失败（门店Wifi信息未保存）",
+          "name": "2"
+        },
+        {
+          "description": "门店能保存成功（已回滚，未保存），但是门店保存Wifi信息失败",
+          "name": "3"
+        },
+        {
+          "description": "门店保存成功（回滚失败），但是门店WiFi信息保存失败。",
+          "name": "4"
+        }
+      ],
+      "Return": "{\n    \"errcode\":0,\n    \"errmsg\":\"\"\n}\n",
+      "Parameters": [
+        {
+          "description": "{\n  \"appId\": \"wxaafe49821384615a\", \n\"nasid\":374,\n  \"shop_info\":{\n \"sid\":\"001\",\n                 \"business_name\":\"麦当劳\",\n                 \"branch_name\":\"艺苑路店\",\n                 \"province\":\"广东省\",\n                 \"city\":\"广州市\",\n                 \"address\":\"海珠区艺苑路11 号\",\n                 \"telephone\":\"020-12345678\",\n                 \"categories\":[\"美食,小吃快餐\"],\n                 \"offset_type\":1,\n                 \"longitude\":115.32375,\n                 \"latitude\":25.097486,\n                 \"photo_list\":[{\"photo_url\":\"https:// XXX.com\"} ， {\"photo_url\":\"https://XXX.com\"}],\n                 \"recommend\":\"麦辣鸡腿堡套餐，麦乐鸡，全家桶\",\n                 \"special\":\"免费wifi，外卖服务\",\n                 \"introduction\":\"麦当劳是全球大型跨国连锁餐厅，1940 年创立于美国，在世界上大约拥有3 万间分店。主要售卖汉堡包，以及薯条、炸鸡、汽水、冰品、沙拉、水果等快餐食品\",\n                 \"open_time\":\"8:00-20:00\",\n                 \"avg_price\":35,\n                 \"available_state\":3,\n                 \"update_status\":0,\n \t\t\t\t\"poi_id\":\"32323232323\"\n  },\n\"wifishop_info\": {\n      \"sid\": \"001\",\n      \"shop_id\": \"429620\",\n    \"shop_name\": \"麦当劳(艺苑路店)\",\n    \"ssid\": \"WX4123\",\n    \"password\": \"123456789\",\n    \"protocol_type\": 4,\n    \"ap_count\": 2,\n    \"template_id\": 1,\n    \"homepage_url\": \"http://www.weixin.qq.com/\",\n\"bar_type\": 1,\n\"secretkey\": \"1af08ec5cdb70a4d7365bcd64d3120f6\"\n  }\n}",
+          "name": "入参示例"
+        }
+      ],
+      "Method": "Post",
+      "Path": "/wifiShopDb/saveAllShopInfo",
+      "ItemName": "门店数据持久化接口",
+      "SubItem": "门店数据保存接口"
+    },
+    {
+      "Error": [
+        {
+          "description": "正常返回",
+          "name": "0"
+        }
+      ],
+      "Return": "{\n    \"errcode\":0,\n    \"errmsg\":\"\",\n    \"datas\":[\n        {\n            \"store_id\":123123,\n            \"account_id\":429620,\n            \"owner_id\":123123,\n            \"open_id\":\"o9oefuC__TJIHt3BJoEWhkhanZYU\",\n            \"user_type\":7,\n            \"nickname\":\"Nick\",\n            \"sex\":2,\n            \"province\":\"北京\",\n            \"city\":\"北京\",\n            \"country\":\"中国\",\n            \"headimgurl\":\"xxxx\",\n            \"unionid\":\"\",\n            \"user_mac\":\"D0-A6-37-0E-77-3C\",\n            \"tid\":\"01000612f15919c0f81f0c590084494771022988c49cca335b768a\"\n        }\n    ]\n}\n",
+      "Parameters": [
+        {
+          "description": "微信用户加密后的微信号",
+          "name": "openId"
+        },
+        {
+          "description": "用户设备的MAC地址，注意格式只可以为冒号或者横杠分割",
+          "name": "mac"
+        },
+        {
+          "description": "返回MAC地址格式，不填默认为1，1：字母大写横杠分割，2：字母大写冒号分割，3：字母小写横杠分割，4：字母小写冒号分割",
+          "name": "macType"
+        }
+      ],
+      "Method": "Post",
+      "Path": "weixinAuthUser/queryAuthUser",
+      "ItemName": "微信认证用户接口",
+      "SubItem": "获取微信认证用户信息"
+    },
+    {
+      "SubItem": "批量获取微信认证用户信息",
+      "ItemName": "微信认证用户接口",
+      "Path": "weixinAuthUser/queryBulkAuthUsers",
+      "Method": "Post",
+      "Parameters": [
+        {
+          "name": "macs",
+          "description": "用户设备的MAC地址列表，注意格式只可以为冒号或者横杠分割"
+        },
+        {
+          "name": "macType",
+          "description": "返回MAC地址格式，不填默认为1，1：字母大写横杠分割，2：字母大写冒号分割，3：字母小写横杠分割，4：字母小写冒号分割"
+        },
+        {
+          "name": "openIds",
+          "description": "OpenId列表"
+        }
+      ],
+      "Return": "{\n    \"errcode\":0,\n    \"errmsg\":\"\",\n    \"datas\":[\n        {\n            \"nickname\":\"Nick\",\n            \"sex\":2,\n            \"headimgurl\":\"xxxx\",\n            \"user_mac\":\"D0-A6-37-0E-77-3C\"\n        },\n        {\n            \"nickname\":\"Nick1212\",\n            \"sex\":1,\n            \"headimgurl\":\"xxxx\",\n            \"user_mac\":\"00-66-37-1E-74-3C\"\n        }\n    ]\n}\n",
+      "Error": [
+        {
+          "name": "0",
+          "description": "正常返回"
+        }
+      ]
+    },
+    {
+      "Error": [
+        {
+          "description": "正常返回",
+          "name": "0"
+        }
+      ],
+      "Return": "{\n    \"data\":{\n        \"totalcount\":23,\n        \"pageindex\":1,\n        \"pagecount\":12,\n        \"records\":[\n            {\n                \"is_sync\":\"true\",\n                \"shop_name\":\"北京凯雅娜美容(北京凯亚娜美容上地店)\",\n                \"shop_id\":\"5844931\",\n                \"ssid_list\":[\n                    \"kaiyana-shangdi\"\n                ],\n                \"available_state\":3\n            },\n            {\n                \"is_sync\":\"true\",\n                \"shop_name\":\"麦当劳(艺苑路店)\",\n                \"shop_id\":\"5463581\",\n                \"ssid_list\":[\n                ],\n                \"available_state\":3\n            }\n        ]\n    },\n    \"errcode\":\"0\"\n}\n",
+      "Parameters": [
+        {
+          "description": "公众号的appId",
+          "name": "appId"
+        },
+        {
+          "description": "场所ID",
+          "name": "nasid"
+        },
+        {
+          "description": "分页下标，默认从1开始",
+          "name": "pageindex"
+        },
+        {
+          "description": "每页的个数，默认10个，最大20个",
+          "name": "pagesize"
+        }
+      ],
+      "Method": "Get",
+      "Path": "shopConfigs/wifiShops",
+      "ItemName": "门店配置",
+      "SubItem": "获取门店Wi-Fi信息列表"
+    },
+    {
+      "SubItem": "同步门店Wi-Fi信息",
+      "ItemName": "门店配置",
+      "Path": "shopConfigs/wifiShops",
+      "Method": "Post",
+      "Parameters": [
+        {
+          "name": "action",
+          "description": "动作名，这里固定为：sync_shop"
+        },
+        {
+          "name": "appId",
+          "description": "公众号appId"
+        },
+        {
+          "name": "nasid",
+          "description": "场所ID"
+        },
+        {
+          "name": "shop_id",
+          "description": "门店Wi-Fi信息ID"
+        }
+      ],
+      "Return": "{\n    \"errcode\":0,\n    \"errmsg\":\"\",\n    \"ssid_list\":[\n        \"kaiyana-shangdi\"\n    ]\n}\n",
+      "Error": [
+        {
+          "name": "0",
+          "description": "正常返回,数据保存成功"
+        },
+        {
+          "name": "1",
+          "description": "表示action参数错误"
+        },
+        {
+          "name": "2",
+          "description": "场所ID错误"
+        },
+        {
+          "name": "3",
+          "description": "此场所ID下找不到appId对应的公众号"
+        },
+        {
+          "name": "4",
+          "description": "appId对应的公众号内无此shop_id对应的门店Wi-Fi信息"
+        },
+        {
+          "name": "5",
+          "description": "SecretKey获取失败"
+        },
+        {
+          "name": "-1",
+          "description": "其他错误信息"
+        }
+      ]
+    },
+    {
+      "Error": [
+        {
+          "description": "正常返回,数据保存成功",
+          "name": "0"
+        },
+        {
+          "description": "sync_type参数错误",
+          "name": "1"
+        },
+        {
+          "description": "场所ID错误",
+          "name": "2"
+        },
+        {
+          "description": "此场所ID下找不到appId对应的公众",
+          "name": "3"
+        },
+        {
+          "description": "appId对应的公众号内无此shop_id对应的门店Wi-Fi信息",
+          "name": "4"
+        },
+        {
+          "description": "此门店信息尚未同步",
+          "name": "5"
+        },
+        {
+          "description": "ssid长度超过100",
+          "name": "6"
+        },
+        {
+          "description": "其他错误信息",
+          "name": "-1"
+        }
+      ],
+      "Return": "{\n    \"errcode\":0,\n    \"errmsg\":\"\",\n    \"ssid_list\":[\n        \"kaiyana-shangdi\"\n    ]\n}\n",
+      "Parameters": [
+        {
+          "description": "同步类型，replace：替换，即直接替换ssid列表内容，append：追加，将ssid列表中的值追加到门店Wi-Fi信息中的ssid列表中，重复项会被忽略。",
+          "name": "sync_type"
+        },
+        {
+          "description": "公众号appId",
+          "name": "appId"
+        },
+        {
+          "description": "场所ID",
+          "name": "nasid"
+        },
+        {
+          "description": "门店Wi-Fi信息ID",
+          "name": "shop_id"
+        },
+        {
+          "description": "ssid列表",
+          "name": "ssid_list"
+        }
+      ],
+      "Method": "Post",
+      "Path": "shopConfigs/wifiShops/ssidList",
+      "ItemName": "门店配置",
+      "SubItem": "同步门店Wi-Fi信息中的ssid列表"
+    },
+    {
+      "SubItem": "取消同步门店Wi-Fi信息",
+      "ItemName": "门店配置",
+      "Path": "shopConfigs/wifiShops",
+      "Method": "Post",
+      "Parameters": [
+        {
+          "name": "action",
+          "description": "动作名，这里固定为：desync_shop"
+        },
+        {
+          "name": "appId",
+          "description": "公众号appId"
+        },
+        {
+          "name": "nasid",
+          "description": "场所ID"
+        },
+        {
+          "name": "shop_id",
+          "description": "门店Wi-Fi信息ID"
+        }
+      ],
+      "Return": "{\n    \"errcode\":0,\n    \"errmsg\":\"\"\n}\n",
+      "Error": [
+        {
+          "name": "0",
+          "description": "正常返回,数据保存成功"
+        },
+        {
+          "name": "1",
+          "description": "action参数错误"
+        },
+        {
+          "name": "2",
+          "description": "表示场所ID错误"
+        },
+        {
+          "name": "3",
+          "description": "此场所ID下找不到appId对应的公众号"
+        },
+        {
+          "name": "4",
+          "description": "appId对应的公众号内无此shop_id对应的门店Wi-Fi信息"
+        },
+        {
+          "name": "5",
+          "description": "绿洲上此场所下无shop_id对应的门店Wi-Fi信息，即此门店尚未同步"
+        },
+        {
+          "name": "-1",
+          "description": "其他错误信息"
+        }
+      ]
+    },
+    {
+      "Error": [
+        {
+          "description": "正常返回",
+          "name": "0"
+        }
+      ],
+      "Return": "{\n    \"uuid\":\"\"\n}\n",
+      "Parameters": [
+        {
+          "description": "操作类型，获取UUID填getuuid，注意全小写",
+          "name": "type"
+        }
+      ],
+      "Method": "Get",
+      "Path": "weixinUtils/utils",
+      "ItemName": "其他接口",
+      "SubItem": "获取UUID"
+    }
+  ],
+  "author": "h12111",
+  "description": "提供微信连Wi-Fi门店配置的Rest接口；注意此文档无法描述JSON格式的入参，以及接口使用注意事项等信息，还请以开发人员提供的最新接口文档为准。",
+  "retcode": 0
+}

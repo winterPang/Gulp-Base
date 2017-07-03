@@ -1,0 +1,423 @@
+{
+  "Name": "APMGR配置接口API",
+  "DocIndex": "doc_6487375267315656",
+  "AllItems": [
+    {
+      "SubItem": "创建分支",
+      "ItemName": "配置管理",
+      "Path": "/ ant/confmgr",
+      "Method": "Post",
+      "Parameters": [
+        {
+          "name": "devSN",
+          "description": "“xxxxx”，String，设备序列号"
+        },
+        {
+          "name": "configType",
+          "description": "0，Number，配置类型"
+        },
+        {
+          "name": "cloudModule",
+          "description": "“apmgr“，String，配置模块名"
+        },
+        {
+          "name": "deviceModule",
+          "description": "“apmgr”，String，设备模块名"
+        },
+        {
+          "name": "method",
+          "description": "“AddBranch“，String，微服务调用的方法名"
+        },
+        {
+          "name": "param",
+          "description": "[\n    {\n        acSN:\"String\",\n        branchName:\"String\",\n        location:\"String,区域名称\",\n        branchType:\"Number,0-本地无AC，1-本地有AC，2-本地有AC且有独立无线服务\",\n        localAcSN:\"String\",\n        wlanIdNum:\"Number\",\n        apGroupList:[\n            {\n                apGroupName:\"String\"\n            }\n        ]\n    }\n]"
+        }
+      ],
+      "Return": "{\n    \"communicateResult\":\"success/fail\",\n    \"serviceResult\":\"success/fail\",<code>//微服务处理结果</code>\n    \"reason\":\"\",<code>//微服务处理失败原因</code>\n    \"deviceResult\":\"[{result: 'success/fail'}]\"<code>//设备处理返回结果</code>\n}\n",
+      "Error": [
+        {
+          "name": "",
+          "description": ""
+        }
+      ]
+    },
+    {
+      "Error": [
+        {
+          "description": "",
+          "name": ""
+        }
+      ],
+      "Return": "{\n    \"communicateResult\":\"success/fail\",\n    \"serviceResult\":\"success/fail\",<code>//微服务处理结果</code>\n    \"reason\":\"\",<code>//微服务处理失败原因</code>\n    \"deviceResult\":\"[{result: 'success/fail'}]\"<code>//设备处理返回结果</code>\n}\n",
+      "Parameters": [
+        {
+          "description": "“xxxxx”，String，设备序列号",
+          "name": "devSN"
+        },
+        {
+          "description": "0，Number，配置类型",
+          "name": "configType"
+        },
+        {
+          "description": "“apmgr“，String，配置模块名",
+          "name": "cloudModule"
+        },
+        {
+          "description": "“apmgr”，String，设备模块名",
+          "name": "deviceModule"
+        },
+        {
+          "description": "“AddLocalAC“，String，微服务调用的方法名",
+          "name": "method"
+        },
+        {
+          "description": "[\n    {\n        acSN:\"String\",\n        localACName:\"String\",\n        localACModel:\"String\",\n        localACSN:\"String\"\n    }\n]",
+          "name": "param"
+        }
+      ],
+      "Method": "Post",
+      "Path": "/ant/confmgr",
+      "ItemName": "配置管理",
+      "SubItem": "创建本地AC"
+    },
+    {
+      "SubItem": "添加AP组描述字段",
+      "ItemName": "配置管理",
+      "Path": "/ant/confmgr",
+      "Method": "Post",
+      "Parameters": [
+        {
+          "name": "devSN",
+          "description": "\"xxxxx\",string,设备序列号"
+        },
+        {
+          "name": "configType",
+          "description": "0,Number,配置类型"
+        },
+        {
+          "name": "cloudModule",
+          "description": "\"apmgr\",string,配置模块名"
+        },
+        {
+          "name": "deviceModule",
+          "description": "\"apmgr\",string,设备模块名"
+        },
+        {
+          "name": "method",
+          "description": "\"AddGroupDescription\",string,微服务调用的方法名"
+        },
+        {
+          "name": "param",
+          "description": "[\n    {\n        acSN:\"string\",\n        apGroupName:\"string\",\n        groupDescription:\"string\"\n    }\n]"
+        }
+      ],
+      "Return": "{\n    \"result\":\"success\",\n    \"deviceResult\":[\n        {\n            \"result\":\"success\"\n        }\n    ],\n    \"errCode\":0,\n    \"communicateResult\":\"success\",\n    \"serviceResult\":\"success\"\n}\n",
+      "Error": [
+        {
+          "name": "",
+          "description": ""
+        }
+      ]
+    },
+    {
+      "Error": [
+        {
+          "description": "",
+          "name": ""
+        }
+      ],
+      "Return": "{\n    \"result\":\"success\",\n    \"deviceResult\":[\n        {\n            \"result\":\"success\"\n        }\n    ],\n    \"errCode\":0,\n    \"communicateResult\":\"success\",\n    \"serviceResult\":\"success\"\n}\n",
+      "Parameters": [
+        {
+          "description": "\"xxxxx\",string,设备序列号",
+          "name": "devSN"
+        },
+        {
+          "description": "0,Number,配置类型",
+          "name": "configType"
+        },
+        {
+          "description": "\"apmgr\",string,配置模块名",
+          "name": "cloudModule"
+        },
+        {
+          "description": "\"apmgr\",string,设备模块名",
+          "name": "deviceModule"
+        },
+        {
+          "description": "\"DelGroupDescription\",string,微服务调用的方法名",
+          "name": "method"
+        },
+        {
+          "description": "[\n    {\n        acSN:\"string\",\n        apGroupName:\"string\"\n    }\n]",
+          "name": "param"
+        }
+      ],
+      "Method": "Post",
+      "Path": "/ant/confmgr",
+      "ItemName": "配置管理",
+      "SubItem": "删除AP组描述字段"
+    },
+    {
+      "Error": [
+        {
+          "description": "",
+          "name": ""
+        }
+      ],
+      "Return": "{\n    \"result\":\"string 结果 取值 success 或者 fail\",\n    \"errCode\":\"number 错误码 0--成功，其他--失败\",\n    \"communicateResult\":\"string 与设备通信结果 取值 success 或者 fail\",\n    \"serviceResult\":\"string 微服务对配置数据处理的结果 取值 success 或者 fail\",\n    \"deviceResult\":\"array 设备处理每条配置的结果 [{result : success/fail }]\",\n    \"reason\":\"string 失败原因\"\n}\n",
+      "Parameters": [
+        {
+          "description": "“xxxxx”，String，设备序列号",
+          "name": "devSN"
+        },
+        {
+          "description": "0，Number，配置类型",
+          "name": "configType"
+        },
+        {
+          "description": "“apmgr“，String，配置模块名",
+          "name": "cloudModule"
+        },
+        {
+          "description": "“apmgr”，String，设备模块名",
+          "name": "deviceModule"
+        },
+        {
+          "description": "“DelBranch“，String，微服务调用的方法名",
+          "name": "method"
+        },
+        {
+          "description": "[\n     {\n        acSN:\"String\",\n        branchName:\"String\",\n    }\n]",
+          "name": "param"
+        },
+        {
+          "description": "\"cloudFirst\"，String，先到云端再到设备端",
+          "name": "policy"
+        }
+      ],
+      "Method": "Post",
+      "Path": "/ant/confmgr",
+      "ItemName": "配置管理",
+      "SubItem": "删除分支"
+    },
+    {
+      "SubItem": "删除本地AC",
+      "ItemName": "配置管理",
+      "Path": "/ant/confmgr",
+      "Method": "Post",
+      "Parameters": [
+        {
+          "name": "devSN",
+          "description": "“xxxxx”，String，设备序列号"
+        },
+        {
+          "name": "configType",
+          "description": "0，Number，配置类型"
+        },
+        {
+          "name": "cloudModule",
+          "description": "“apmgr“，String，配置模块名"
+        },
+        {
+          "name": "deviceModule",
+          "description": "“apmgr”，String，设备模块名"
+        },
+        {
+          "name": "method",
+          "description": "“DelLocalAC“，String，微服务调用的方法名"
+        },
+        {
+          "name": "param",
+          "description": "[\n    {\n        acSN:\"String\",\n        localACSN:\"String\"\n    }\n]"
+        }
+      ],
+      "Return": "{\n    \"communicateResult\":\"success/fail\",\n    \"serviceResult\":\"success/fail\",<code>//微服务处理结果</code>\n    \"reason\":\"\",<code>//微服务处理失败原因</code>\n    \"deviceResult\":\"[{result: 'success/fail'}]\"<code>//设备处理返回结果</code>\n}\n",
+      "Error": [
+        {
+          "name": "",
+          "description": ""
+        }
+      ]
+    },
+    {
+      "SubItem": "同步apgroup配置",
+      "ItemName": "同步apgroup配置",
+      "Path": "/ant/confmgr",
+      "Method": "Post",
+      "Parameters": [
+        {
+          "name": "devSN",
+          "description": "AC序列号"
+        },
+        {
+          "name": "configType",
+          "description": "0"
+        },
+        {
+          "name": "cloudModule",
+          "description": "apmgr"
+        },
+        {
+          "name": "deviceModule",
+          "description": "apmgr"
+        },
+        {
+          "name": "method",
+          "description": "SyncAPGroup"
+        },
+        {
+          "name": "param",
+          "description": "值为空的单个数组：[{}]"
+        }
+      ],
+      "Return": "{\n    \"result\":\"success\",\n    \"deviceResult\":[\n        {\n            \"result\":\"success\"\n        }\n    ],\n    \"errCode\":0,\n    \"communicateResult\":\"success\",\n    \"serviceResult\":\"success\"\n}\n",
+      "Error": [
+        {
+          "name": "result",
+          "description": "表示结果：可能取值success/busy/cloudtimeout"
+        },
+        {
+          "name": "deviceResult",
+          "description": "设备返回的字符串"
+        },
+        {
+          "name": "errCode",
+          "description": "权限问题\n * 3-->设备端消息超时\n * 4-->主连接未找到\n * 5-->webserver内部逻辑错误\n * 6-->webserver与设备端通信异常\n * 7-->微服务消息处理错误>* 1-->消息格式问题，webserver无法解析\n * 2-->权限问题\n * 3-->设备端消息超时\n * 4-->主连接未找到\n * 5-->webserver内部逻辑错误\n * 6-->webserver与设备端通信异常\n * 7-->微服务消息处理错误>消息格式问题，webserver无法解析\n * 2-->权限问题\n * 3-->设备端消息超时\n * 4-->主连接未找到\n * 5-->webserver内部逻辑错误\n * 6-->webserver与设备端通信异常\n * 7-->微服务消息处理错误>* 1-->消息格式问题，webserver无法解析\n * 2-->权限问题\n * 3-->设备端消息超时\n * 4-->主连接未找到\n * 5-->webserver内部逻辑错误\n * 6-->webserver与设备端通信异常\n * 7-->微服务消息处理错误"
+        },
+        {
+          "name": "communicateResult",
+          "description": "不用关心"
+        },
+        {
+          "name": "serviceResult",
+          "description": "不用关心"
+        }
+      ]
+    },
+    {
+      "SubItem": "修改本地AC",
+      "ItemName": "修改本地AC",
+      "Path": "/ant/confmgr",
+      "Method": "Post",
+      "Parameters": [
+        {
+          "name": "devSN",
+          "description": "AC序列号"
+        },
+        {
+          "name": "configType",
+          "description": "0,Number,配置类型"
+        },
+        {
+          "name": "cloudModule",
+          "description": "\"apmgr\",string,配置模块名"
+        },
+        {
+          "name": "deviceModule",
+          "description": "\"apmgr\",string,设备模块名"
+        },
+        {
+          "name": "method",
+          "description": "\"ModifyLocalAC\",string,微服务调用的方法名"
+        },
+        {
+          "name": "param",
+          "description": "[\n    {\n        oldName:\"string\",\n        oldSN:\"string\",\n        newName:\"string\",\n        newSN:\"string\"\n    }\n]"
+        }
+      ],
+      "Return": "{\n    \"result\":\"success\",\n    \"deviceResult\":[\n        {\n            \"result\":\"success\"\n        }\n    ],\n    \"errCode\":0,\n    \"communicateResult\":\"success\",\n    \"serviceResult\":\"success\"\n}\n",
+      "Error": [
+        {
+          "name": "",
+          "description": ""
+        }
+      ]
+    },
+    {
+      "Error": [
+        {
+          "description": "",
+          "name": ""
+        }
+      ],
+      "Return": "{\n    \"result\":\"string 结果 取值 success 或者 fail\",\n    \"errCode\":\"number 错误码 0--成功，其他--失败\",\n    \"communicateResult\":\"string 与设备通信结果 取值 success 或者 fail\",\n    \"serviceResult\":\"string 微服务对配置数据处理的结果 取值 success 或者 fail\",\n    \"deviceResult\":\"array 设备处理每条配置的结果 [{result : success/fail }]\",\n    \"reason\":\"string 失败原因\"\n}\n",
+      "Parameters": [
+        {
+          "description": "“xxxxx”，String，设备序列号",
+          "name": "devSN"
+        },
+        {
+          "description": "0，Number，配置类型",
+          "name": "configType"
+        },
+        {
+          "description": "“apmgr“，String，配置模块名",
+          "name": "cloudModule"
+        },
+        {
+          "description": "“apmgr”，String，设备模块名",
+          "name": "deviceModule"
+        },
+        {
+          "description": "“ModifyBranch“，String，微服务调用的方法名",
+          "name": "method"
+        },
+        {
+          "description": "\"cloudFirst\"，String，先到云端再到设备端",
+          "name": "policy"
+        },
+        {
+          "description": "[\n    {\n        branchName:\"String\",(分支名不能修改，但要下传)\n        location:\"String,区域名称\",\n        apGroupList:[\n            {\n                apGroupName:\"String\"\n            }\n        ]\n    }\n]",
+          "name": "param"
+        }
+      ],
+      "Method": "Post",
+      "Path": "/ant/confmgr",
+      "ItemName": "修改分支",
+      "SubItem": "修改分支"
+    },
+    {
+      "SubItem": "同步本地AC",
+      "ItemName": "同步本地AC",
+      "Path": "/ant/confmgr",
+      "Method": "Post",
+      "Parameters": [
+        {
+          "name": "devSN",
+          "description": "\"xxxxx\",string,设备序列号"
+        },
+        {
+          "name": "configType",
+          "description": "0,Number,配置类型"
+        },
+        {
+          "name": "cloudModule",
+          "description": "\"apmgr\",string,配置模块名"
+        },
+        {
+          "name": "deviceModule",
+          "description": "\"apmgr\",string,设备模块名"
+        },
+        {
+          "name": "method",
+          "description": "\"SyncLocalAC\",string,微服务调用的方法名"
+        },
+        {
+          "name": "param",
+          "description": "无"
+        }
+      ],
+      "Return": "{\n    \"result\":\"success\",\n    \"deviceResult\":[\n        {\n            \"result\":\"success\"\n        }\n    ],\n    \"errCode\":0,\n    \"communicateResult\":\"success\",\n    \"serviceResult\":\"success\"\n}\n",
+      "Error": [
+        {
+          "name": "result",
+          "description": "表示结果：可能取值success/busy/cloudtimeout\ndeviceResult\n设备返回的字符串\nerrCode\n权限问题\n * 3-->设备端消息超时\n * 4-->主连接未找到\n * 5-->webserver内部逻辑错误\n * 6-->webserver与设备端通信异常\n * 7-->微服务消息处理错误>* 1-->消息格式问题，webserver无法解析\n * 2-->权限问题\n * 3-->设备端消息超时\n * 4-->主连接未找到\n * 5-->webserver内部逻辑错误\n * 6-->webserver与设备端通信异常\n * 7-->微服务消息处理错误>消息格式问题，webserver无法解析\n * 2-->权限问题\n * 3-->设备端消息超时\n * 4-->主连接未找到\n * 5-->webserver内部逻辑错误\n * 6-->webserver与设备端通信异常\n * 7-->微服务消息处理错误>* 1-->消息格式问题，webserver无法解析\n * 2-->权限问题\n * 3-->设备端消息超时\n * 4-->主连接未找到\n * 5-->webserver内部逻辑错误\n * 6-->webserver与设备端通信异常\n * 7-->微服务消息处理错误\ncommunicateResult\n不用关心\nserviceResult\n不用关心"
+        }
+      ]
+    }
+  ],
+  "author": "",
+  "description": "提供apmgr相关的配置接口：如ap组的创建删除，组规则添加删除",
+  "retcode": 0
+}

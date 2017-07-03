@@ -1,0 +1,39 @@
+<div class="oasisecharts">
+	<oasis-row>
+        <oasis-col md=12>
+            <oasis-box>
+                <oasis-box-header>
+                    <span class="title">radio</span>
+                </oasis-box-header>
+                <oasis-box-body height-auto='true'>
+                    <oasis-echart></oasis-echart> 
+                </oasis-box-body>
+                <oasis-box-footer>
+                    <div ng-show="codeShow" class="code-content">
+                        <oasis-col md=8 >
+                            <button class="copy-btn" onclick="   if(copyToClipboard($(this).parent()[0])){alert('复制成功')}else{alert('复制失败')}">copy
+                            </button>
+                            <pre>html:<br/>&lt;oasis-radio os-model="radio.isChecked" value="checked"&gt;选中状态&lt;/oasis-radio&gt;<br/>&lt;oasis-radio os-model="radio.isChecked" value="unchecked"&gt;选中状态&lt;/oasis-radio&gt;</pre>
+                             <pre>js:<br/> $scope.radio={isChecked:'checked'}<br/>$scope.$watch('radio.isChecked',function(v){console.log(v)})
+
+                             </pre>
+                        </oasis-col>
+                        <oasis-col md="4" >
+                            <p>
+                            <mark>os-model</mark>属性.设置双向绑定，通过在Scope作用域初始化绑定默认选中结果。<br/>例如:<br/>$scope.radio1 = {
+                                isChecked:'checked'
+                            }，通过点击选择我们可以修改其os-model的值。使其变为可以选中的状态。通过监听<br>$scope.$watch('radio1.isChecked'function(v){})处理radio选择事件。
+                            </p>
+                        </oasis-col>
+                    </div>
+                    <div class="code-change">
+                        <i ng-show="!codeShow" class="glyphicon glyphicon-chevron-down" ng-click="codeShow=!codeShow">
+                            <span class="code-font">显示代码</span></i>
+                        <i ng-show="codeShow" class="glyphicon glyphicon-chevron-up" ng-click="codeShow=!codeShow">
+                            <span class="code-font">隐藏代码</span></i>
+                    </div>
+                </oasis-box-footer>
+            </oasis-box>
+        </oasis-col>
+    </oasis-row>
+</div>

@@ -1,0 +1,185 @@
+{
+  "Name": "apmgr微服务专门为安全策略微服务提供的接口文档",
+  "DocIndex": "doc_35476860823109746",
+  "AllItems": [
+    {
+      "SubItem": "getApAndRadioList(acSN, matchData, skipnum, limitnum, sortoption, findoption, flag, callback)",
+      "ItemName": "getApAndRadioList(acSN, matchData, skipnum, limitnum, sortoption, findoption, flag, callback)",
+      "Path": "cpspub.branchModel.getApAndRadioList",
+      "Method": "Get",
+      "Parameters": [
+        {
+          "name": "acSN",
+          "description": "“xxx”，String，设备序列号"
+        },
+        {
+          "name": "matchData",
+          "description": "无筛选条件：\"{}\"或“”或“null”，\n有筛选条件：\"{On:[\"xxx\",\"xxx\"...], Off:[\"xxx\",\"xxx\"...]}\""
+        },
+        {
+          "name": "skipnum",
+          "description": "Number，跳过数目"
+        },
+        {
+          "name": "limitnum",
+          "description": "Number，显示数目"
+        },
+        {
+          "name": "sortoption",
+          "description": "排序条件，JSON格式，排序关键字，以apName，apSN，radioId，radioMode，值为1（表示升序，值为-1表示降序）如：以apName为升序：{apName:1}"
+        },
+        {
+          "name": "findoption",
+          "description": "查找条件，JSON格式，以apName、apSN、radioId、radioMode为查找条件（JSON格式，模糊匹配）,如{radioMode:”5G”}"
+        },
+        {
+          "name": "callback",
+          "description": "callback(response)，回调函数"
+        }
+      ],
+      "Return": "{\n    \"totalCntOn\":\"Number,符合筛选条件On数组中的在线AP的radio总数（若无筛选条件On，则表示所有的在线AP的radio总数）\",\n    \"leftCntOn\":\"Number,符合筛选条件On数组中的在线AP的radio剩余数量（若无筛选条件On，则表示所有的在线AP的radio剩余数量）\",\n    \"totalCntOff\":\"Number,除去筛选条件Off数组中的在线AP的radio总数（若无筛选条件Off，则表示所有的在线AP的radio总数）\",\n    \"leftCntOff\":\"Number,除去筛选条件Off数组中的在线AP的radio剩余数量（若无筛选条件Off，则表示所有的在线AP的radio剩余数量）\",\n    \"apListOn\":\"[],符合筛选条件On数组中的在线AP的radio数组列表（若无筛选条件On，则表示所有的在线AP的radio数组列表）\",\n    \"apListOff\":\"[],除去筛选条件Off数组中的在线AP的radio数组列表（若无筛选条件Off，则表示所有的在线AP的radio数组列表）\"\n}\n",
+      "Error": [
+        {
+          "name": "",
+          "description": ""
+        }
+      ]
+    },
+    {
+      "Error": [
+        {
+          "description": "",
+          "name": ""
+        }
+      ],
+      "Return": "{\n    \"totalCntOn\":\"Number,符合筛选条件On数组中的在线AP的radio总数（若无筛选条件On，则表示所有的在线AP的radio总数）\",\n    \"leftCntOn\":\"Number,符合筛选条件On数组中的在线AP的radio剩余数量（若无筛选条件On，则表示所有的在线AP的radio剩余数量）\",\n    \"totalCntOff\":\"Number,除去筛选条件Off数组中的在线AP的radio总数（若无筛选条件Off，则表示所有的在线AP的radio总数）\",\n    \"leftCntOff\":\"Number,除去筛选条件Off数组中的在线AP的radio剩余数量（若无筛选条件Off，则表示所有的在线AP的radio剩余数量）\",\n    \"apListOn\":\"[],符合筛选条件On数组中的在线AP的radio数组列表（若无筛选条件On，则表示所有的在线AP的radio数组列表）\",\n    \"apListOff\":\"[],除去筛选条件Off数组中的在线AP的radio数组列表（若无筛选条件Off，则表示所有的在线AP的radio数组列表）\"\n}\n",
+      "Parameters": [
+        {
+          "description": "“xxx”，String，设备序列号",
+          "name": "acSN"
+        },
+        {
+          "description": "无筛选条件：\"{}\"或“”或“null”，\n有筛选条件：\"{On:[\"xxx\",\"xxx\"...], Off:[\"xxx\",\"xxx\"...]}\"",
+          "name": "matchData"
+        },
+        {
+          "description": "“xxx”，String，分支名称",
+          "name": "branchName"
+        },
+        {
+          "description": "Number，跳过数目",
+          "name": "skipnum"
+        },
+        {
+          "description": "Number，显示数目",
+          "name": "limitnum"
+        },
+        {
+          "description": "排序条件，JSON格式，排序关键字，以apName，apSN，radioId，radioMode，值为1（表示升序，值为-1表示降序）如：以apName为升序：{apName:1}",
+          "name": "sortoption"
+        },
+        {
+          "description": "查找条件，JSON格式，以apName、apSN、radioId、radioMode为查找条件（JSON格式，模糊匹配）,如{radioMode:”5G”}",
+          "name": "findoption"
+        },
+        {
+          "description": "callback(response)，回调函数",
+          "name": "callback"
+        }
+      ],
+      "Method": "Get",
+      "Path": "cpspub.branchModel.getApAndRadioListByBranch",
+      "ItemName": "getApAndRadioListByBranch(acSN, matchData, branchName, skipnum, limitnum, sortoption, findoption, flag, callback)",
+      "SubItem": "getApAndRadioListByBranch(acSN, matchData, branchName, skipnum, limitnum, sortoption, findoption, flag, callback)"
+    },
+    {
+      "SubItem": "getApGroupAndRadioList(acSN, matchData, skipnum, limitnum, sortoption, findoption, flag, callback)",
+      "ItemName": "getApGroupAndRadioList(acSN, matchData, skipnum, limitnum, sortoption, findoption, flag, callback)",
+      "Path": "cpspub.branchModel.getApGroupAndRadioList",
+      "Method": "Get",
+      "Parameters": [
+        {
+          "name": "acSN",
+          "description": "“xxx”，String，设备序列号"
+        },
+        {
+          "name": "matchData",
+          "description": "无筛选条件：\"{}\"或“”或“null”，\n有筛选条件：\"{On:[\"xxx\",\"xxx\"...], Off:[\"xxx\",\"xxx\"...]}\""
+        },
+        {
+          "name": "skipnum",
+          "description": "Number，跳过数目"
+        },
+        {
+          "name": "limitnum",
+          "description": "Number，显示数目"
+        },
+        {
+          "name": "sortoption",
+          "description": "排序条件，JSON格式，排序关键字，以apGroupName，radioModel，radioId，radioMode，值为1（表示升序，值为-1表示降序）如：以apGroupName为升序：{apGroupName:1}"
+        },
+        {
+          "name": "findoption",
+          "description": "查找条件，JSON格式，以apGroupName、radioModel、radioId、radioMode为查找条件（JSON格式，模糊匹配）,如{radioMode:”5G”}"
+        },
+        {
+          "name": "callback",
+          "description": "callback(response)，回调函数"
+        }
+      ],
+      "Return": "{\n    \"totalCntOn\":\"Number,符合筛选条件On数组中的APGroup的radio总数（若无筛选条件On，则表示所有的APGroup的radio总数）\",\n    \"leftCntOn\":\"Number,符合筛选条件On数组中的APGroup的radio剩余数量（若无筛选条件On，则表示所有的APGroup的radio剩余数量）\",\n    \"totalCntOff\":\"Number,除去筛选条件Off数组中的APGroup的radio总数（若无筛选条件Off，则表示所有的APGroup的radio总数）\",\n    \"leftCntOff\":\"Number,除去筛选条件Off数组中的APGroup的radio剩余数量（若无筛选条件Off，则表示所有的APGroup的radio剩余数量）\",\n    \"apGrpListOn\":\"[],符合筛选条件On数组中的APGroup的radio数组列表（若无筛选条件On，则表示所有的APGroup的radio数组列表）\",\n    \"apGrpListOff\":\"[],除去筛选条件Off数组中的APGroup的radio数组列表（若无筛选条件Off，则表示所有的APGroup的radio数组列表）\"\n}\n",
+      "Error": [
+        {
+          "name": "",
+          "description": ""
+        }
+      ]
+    },
+    {
+      "Error": [
+        {
+          "description": "",
+          "name": ""
+        }
+      ],
+      "Return": "{\n    \"totalCntOn\":\"Number,符合筛选条件On数组中的APGroup的radio总数（若无筛选条件On，则表示所有的APGroup的radio总数）\",\n    \"leftCntOn\":\"Number,符合筛选条件On数组中的APGroup的radio剩余数量（若无筛选条件On，则表示所有的APGroup的radio剩余数量）\",\n    \"totalCntOff\":\"Number,除去筛选条件Off数组中的APGroup的radio总数（若无筛选条件Off，则表示所有的APGroup的radio总数）\",\n    \"leftCntOff\":\"Number,除去筛选条件Off数组中的APGroup的radio剩余数量（若无筛选条件Off，则表示所有的APGroup的radio剩余数量）\",\n    \"apGrpListOn\":\"[],符合筛选条件On数组中的APGroup的radio数组列表（若无筛选条件On，则表示所有的APGroup的radio数组列表）\",\n    \"apGrpListOff\":\"[],除去筛选条件Off数组中的APGroup的radio数组列表（若无筛选条件Off，则表示所有的APGroup的radio数组列表）\"\n}\n",
+      "Parameters": [
+        {
+          "description": "“xxx”，String，设备序列号",
+          "name": "acSN"
+        },
+        {
+          "description": "无筛选条件：\"{}\"或“”或“null”，\n有筛选条件：\"{On:[\"xxx\",\"xxx\"...], Off:[\"xxx\",\"xxx\"...]}\"",
+          "name": "matchData"
+        },
+        {
+          "description": "Number，跳过数目",
+          "name": "skipnum"
+        },
+        {
+          "description": "Number，显示数目",
+          "name": "limitnum"
+        },
+        {
+          "description": "排序条件，JSON格式，排序关键字，以apGroupName，radioModel，radioId，radioMode，值为1（表示升序，值为-1表示降序）如：以apGroupName为升序：{apGroupName:1}",
+          "name": "sortoption"
+        },
+        {
+          "description": "查找条件，JSON格式，以apGroupName、radioModel、radioId、radioMode为查找条件（JSON格式，模糊匹配）,如{radioMode:”5G”}",
+          "name": "findoption"
+        },
+        {
+          "description": "callback(response)，回调函数",
+          "name": "callback"
+        }
+      ],
+      "Method": "Get",
+      "Path": "cpspub.branchModel.getApGroupAndRadioListByBranch",
+      "ItemName": "getApGroupAndRadioListByBranch(acSN, matchData, branchName, skipnum, limitnum, sortoption, findoption, flag, callback)",
+      "SubItem": "getApGroupAndRadioListByBranch(acSN, matchData, branchName, skipnum, limitnum, sortoption, findoption, flag, callback)"
+    }
+  ],
+  "author": "lkf7250",
+  "description": "apmgr微服务专门提供给安全策略微服务的接口说明",
+  "retcode": 0
+}

@@ -1,0 +1,136 @@
+<div class="checkboxs">
+ 	<header class="content-header">
+        <h1>Checckbox复选框样式</h1>
+        <p>绿洲OASIS提供一套基于绿洲的表单组件</p>
+    </header>
+	 <oasis-row>
+        <oasis-col md=12>
+            <oasis-box>
+                <oasis-box-header>
+                    <span class="title">ChecckBox</span>
+                </oasis-box-header>
+                <oasis-box-body height-auto='true'>
+                   <oasis-checkbox os-model="checkbox.values" value=1>选中状态</oasis-checkbox>
+                   <oasis-checkbox os-model="checkbox.values" value=2>选中状态</oasis-checkbox>
+                   <oasis-checkbox os-model="checkbox.values" value=3>选中状态</oasis-checkbox>
+                   <oasis-checkbox os-model="checkbox.values" value=4>未选中状态</oasis-checkbox>
+                   <oasis-checkbox os-model="checkbox.values" value=5>未选中状态</oasis-checkbox>
+                </oasis-box-body>
+                <oasis-box-footer>
+                    <div ng-show="codeShow" class="code-content">
+                        <oasis-col md=8 >
+                            <button class="copy-btn" onclick="   if(copyToClipboard($(this).parent()[0])){alert('复制成功')}else{alert('复制失败')}">copy
+                            </button>
+                            <pre>html:<br/>&lt;oasis-checkbox os-model="checkbox.values" value=1&gt;选中状态&lt;/oasis-checkbox&gt;<br/>&lt;oasis-checkbox os-model="checkbox.values" value=2&gt;选中状态&lt;/oasis-checkbox&gt;<br/>&lt;oasis-checkbox os-model="checkbox.values" value=3&gt;选中状态&lt;/oasis-checkbox&gt;<br/>&lt;oasis-checkbox os-model="checkbox.values" value=4&gt;未选中状态&lt;/oasis-checkbox&gt;<br/>&lt;oasis-checkbox os-model="checkbox.values" value=5&gt;未选中状态&lt;/oasis-checkbox&gt;
+                             </pre>
+                            <pre>js:<br/>$scope.checkbox = {values:[1,2,3]}
+                            </pre>
+                        </oasis-col>
+                        <oasis-col md="4" >
+                            <p>
+                            <mark>os-model</mark>属性.设置双向绑定，通过在Scope作用域初始化绑定默认选中结果。<br/>例如:<br/>$scope.checkbox = {values:[1,2,3]}，chekBox设置的values数据必须是数组。通过点击选择我们可以修改其os-model的值。使其变为可以选中的状态。通过监听<br>$scope.$watch('checkbox1.values',(v,oldv) => {console.log(v); },true)处理checkBox选择事件。
+                            </p>
+                        </oasis-col>
+                    </div>
+                    <div class="code-change">
+                        <i ng-show="!codeShow" class="glyphicon glyphicon-chevron-down" ng-click="codeShow=!codeShow">
+                            <span class="code-font">显示代码</span></i>
+                        <i ng-show="codeShow" class="glyphicon glyphicon-chevron-up" ng-click="codeShow=!codeShow">
+                            <span class="code-font">隐藏代码</span></i>
+                    </div>
+                </oasis-box-footer>
+            </oasis-box>
+        </oasis-col>
+    </oasis-row>
+   <oasis-row>
+        <oasis-col md=12>
+            <oasis-box>
+                <oasis-box-header>
+                    <span class="title">禁用checkbox</span>
+                </oasis-box-header>
+                <oasis-box-body height-auto='true'>
+                   <oasis-checkbox os-model="checkbox1.values" os-disabled="checkbox1.isDisabled" value=1>禁用状态</oasis-checkbox>
+                   <oasis-checkbox os-model="checkbox1.values" value=2>选中状态</oasis-checkbox>
+                   <oasis-checkbox os-model="checkbox1.values" value=3 os-disabled="checkbox1.isDisabled1">禁用状态</oasis-checkbox>
+                   <oasis-checkbox os-model="checkbox1.values" value=4>选中状态</oasis-checkbox>
+                   <oasis-checkbox os-model="checkbox1.values" value=5 os-disabled="checkbox1.isDisabled2">禁用状态</oasis-checkbox>
+                </oasis-box-body>
+                <oasis-box-footer>
+                    <div ng-show="codeShow" class="code-content">
+                        <oasis-col md=8 >
+                            <button class="copy-btn" onclick="   if(copyToClipboard($(this).parent()[0])){alert('复制成功')}else{alert('复制失败')}">copy
+                            </button>
+                            <pre>html:<br/>&lt;oasis-checkbox os-model="checkbox1.values" os-disabled="checkbox1.isDisabled" value=1&gt;选中禁用状态&lt;/oasis-checkbox&gt;<br/>&lt;oasis-checkbox os-model="checkbox1.values" value=2&gt;选中状态&lt;/oasis-checkbox&gt;<br/>&lt;oasis-checkbox os-model="checkbox1.values" os-disabled="checkbox1.isDisabled1" value=3&gt;未选中禁用状态&lt;/oasis-checkbox&gt;<br/>&lt;oasis-checkbox os-model="checkbox1.values" value=4&gt;选中状态&lt;/oasis-checkbox&gt;<br/>&lt;oasis-checkbox os-model="checkbox1.values" os-disabled="checkbox1.isDisabled2" value=5&gt;未选中禁用状态&lt;/oasis-checkbox&gt;
+                             </pre>
+                            <pre>js:<br/>$scope.checkbox1 = {values:[1,2,4]};
+                            </pre>
+                        </oasis-col>
+                        <oasis-col md="4" >
+                            <p>
+                            <mark>os-disable</mark>属性.设置双向绑定，通过在Scope作用域初始化绑定默认选中结果。<br/>例如:<br/>$scope.checkbox1.isDisabled=true;。使其禁用状态。通过监听<br>$scope.$watch('checkbox1.isDisabled1',(v,oldv) => {console.log(v);})处理checkBox状态变化事件。
+                            </p>
+                        </oasis-col>
+                    </div>
+                    <div class="code-change">
+                        <i ng-show="!codeShow" class="glyphicon glyphicon-chevron-down" ng-click="codeShow=!codeShow">
+                            <span class="code-font">显示代码</span></i>
+                        <i ng-show="codeShow" class="glyphicon glyphicon-chevron-up" ng-click="codeShow=!codeShow">
+                            <span class="code-font">隐藏代码</span></i>
+                    </div>
+                </oasis-box-footer>
+            </oasis-box>
+        </oasis-col>
+    </oasis-row>
+     <oasis-row>
+        <oasis-col md=12>
+            <oasis-box>
+                <oasis-box-header>
+                    <span class="title">属性配置</span>
+                </oasis-box-header>
+                <oasis-box-body height-auto>
+                    <table>
+                        <table class="table">
+                        <thead>
+                            <tr class="active">
+                                <th style="width: 100px">元素</th>
+                                <th>属性</th>
+                                <th style="width: 100px">类型</th>
+                                <th style="width: 100px">可选值</th>
+                                <th style="width: 100px">默认值</th>
+                                <th>说明</th>
+                            </tr>
+                        </thead>
+                            <tr>
+                                <td rowspan="3"
+                                style="vertical-align: middle;">oasis-checkbox</td>
+                                <td>os-model</td>
+                                <td>string或number或boolean</td>
+                                <td>-------</td>
+                                <td>-------</td>
+                                <td><mark>os-model</mark>属性。指令实现双向绑定。可以通过初始化设置其值与value值一致实现默认选项。也可以动态赋值，改变其选择选项。通过监听其值的变化，处理用户选择事件</td>
+                            </tr>
+                            <tr>
+                                <!-- <td >
+                                oasis-button</td> -->
+                                <td>os-disabled</td>
+                                <td>boolean</td>
+                                <td>-------</td>
+                                <td>-------</td>
+                                <td><mark>os-disabled</mark>指令实现双向绑定,通过设置其boolean类型的数值，触发单选按钮的禁止。通过监听其值可以监听单选按钮的状态变化</td>
+                            </tr>
+                            <tr>
+                                <!-- <td >
+                                oasis-button</td> -->
+                                <td>value</td>
+                                <td>string或number或boolean</td>
+                                <td>-------</td>
+                                <td>-------</td>
+                                <td><mark>value</mark>属性类似于radio元素的vaule属性，预设改组的radio的值</td>
+                            </tr>
+                        </table>
+                    </table>
+                </oasis-box-body>
+            </oasis-box>
+        </oasis-col>
+    </oasis-row>
+</div>

@@ -1,0 +1,36 @@
+{
+  "Name": "宾客微服务文档",
+  "DocIndex": "doc_5977237473707646",
+  "AllItems": [
+    {
+      "Error": [
+        {
+          "description": "",
+          "name": ""
+        }
+      ],
+      "Return": "{\n    \"error\":0,\n    \"errorMessage\":\"\",\n    \"result\":{\n        \"_id\":\"57b59bc0bdcd7017b4ccbaa6\",\n        \"devSN\":\"210235A1JNB161000011\",\n        \"count4\":3,\n        \"count3\":4,\n        \"count2\":8,\n        \"count1\":5\n    }\n}\n",
+      "Parameters": [
+        {
+          "description": "设备序列号",
+          "name": "devSN"
+        },
+        {
+          "description": "是否认证用户",
+          "name": "auth"
+        },
+        {
+          "description": "是否指定分支",
+          "name": "branch"
+        }
+      ],
+      "Method": "Get",
+      "Path": "/visitor/getstatisticsbycount",
+      "ItemName": "按次数分类",
+      "SubItem": "按来访次数统计"
+    }
+  ],
+  "author": "z07742",
+  "description": "jjj",
+  "retcode": 0
+}

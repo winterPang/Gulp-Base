@@ -1,0 +1,32 @@
+{
+  "Name": "v2广告统计",
+  "DocIndex": "doc_09738812454394064",
+  "AllItems": [
+    {
+      "Error": [
+        {
+          "description": "",
+          "name": ""
+        }
+      ],
+      "Return": "{\n    \"errorcode\":0,\n    \"errormsg\":\"\",\n    \"data\":[\n        {\n            \"pv\":0,\n            \"pu\":0,\n            \"pv_pu\":\"0\",\n            \"clickCount\":0\n        },\n        {\n            \"pv\":0,\n            \"pu\":0,\n            \"pv_pu\":\"0\",\n            \"clickCount\":0\n        },\n        {\n            \"pv\":0,\n            \"pu\":0,\n            \"pv_pu\":\"0\",\n            \"clickCount\":0\n        },\n        {\n            \"pv\":19,\n            \"pu\":9,\n            \"pv_pu\":\"2.1\",\n            \"clickCount\":0\n        },\n        {\n            \"pv\":1,\n            \"pu\":1,\n            \"pv_pu\":\"1.0\",\n            \"clickCount\":0\n        }\n    ],\n    \"rowCount\":5\n}\n",
+      "Parameters": [
+        {
+          "description": "",
+          "name": ""
+        },
+        {
+          "description": "起始时间，结束时间，粒度。单位都是毫秒",
+          "name": "startTime，endTime，span，"
+        }
+      ],
+      "Method": "Get",
+      "Path": "o2oportal/advertisement/queryByMonthSpan",
+      "ItemName": "广告统计获取",
+      "SubItem": "广告统计按月获取"
+    }
+  ],
+  "author": "hkf6496",
+  "description": "",
+  "retcode": 0
+}

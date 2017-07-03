@@ -1,0 +1,502 @@
+{
+  "Name": "基于ap分组(stamonitor/visitor接口文档)",
+  "DocIndex": "doc_6828065851046317",
+  "AllItems": [
+    {
+      "Error": [
+        {
+          "description": "0:成功,response对应具体数据;\n-1:失败,response对应错误提示。",
+          "name": "errCode"
+        }
+      ],
+      "Return": "{\n    \"response\":{\n        \"time\":\"Date\",\n        \"totalCount\":\"Number\",\n        \"newCount\":\"Number\"\n    },\n    \"errCode\":0\n}\n",
+      "Parameters": [
+        {
+          "description": "clientstat_cloud_yesterday",
+          "name": "method"
+        },
+        {
+          "description": "组Id",
+          "name": "groupId"
+        },
+        {
+          "description": "\"auth\":获取认证终端统计;\"xiaobei\":获取小贝终端统计;\"\"获取该groupId下终端统计总数",
+          "name": "dataType"
+        }
+      ],
+      "Method": "Post",
+      "Path": "v3/stamonitor/monitor",
+      "ItemName": "stamonitor模块",
+      "SubItem": "获取昨天一天新增用户和总用户终端数量统计数据"
+    },
+    {
+      "SubItem": "获取过去一周的新增用户和总用户终端数量统计数据",
+      "ItemName": "stamonitor模块",
+      "Path": "v3/stamonitor/monitor",
+      "Method": "Post",
+      "Parameters": [
+        {
+          "name": "method",
+          "description": "clientstat_cloud_lastweek"
+        },
+        {
+          "name": "groupId",
+          "description": "组Id"
+        },
+        {
+          "name": "dataType",
+          "description": "\"auth\":获取认证终端统计;\"xiaobei\":获取小贝终端统计;\"\"获取该groupId下终端统计总数"
+        }
+      ],
+      "Return": "{\n    \"response\":{\n        \"time\":\"Date\",\n        \"totalCount\":\"Number\",\n        \"newCount\":\"Number\"\n    },\n    \"errCode\":0\n}\n",
+      "Error": [
+        {
+          "name": "errCode",
+          "description": "0:成功,response对应具体数据;\n-1:失败,response对应错误提示。"
+        }
+      ]
+    },
+    {
+      "Error": [
+        {
+          "description": "0:成功,response对应具体数据;\n-1:失败,response对应错误提示。",
+          "name": "errCode"
+        }
+      ],
+      "Return": "{\n    \"response\":{\n        \"time\":\"Date\",\n        \"totalCount\":\"Number\",\n        \"newCount\":\"Number\"\n    },\n    \"errCode\":0\n}\n",
+      "Parameters": [
+        {
+          "description": "clientstat_cloud_lastmonth",
+          "name": "method"
+        },
+        {
+          "description": "组Id",
+          "name": "groupId"
+        },
+        {
+          "description": "\"auth\":获取认证终端统计;\"xiaobei\":获取小贝终端统计;\"\"获取该groupId下终端统计总数",
+          "name": "dataType"
+        }
+      ],
+      "Method": "Post",
+      "Path": "v3/stamonitor/monitor",
+      "ItemName": "stamonitor模块",
+      "SubItem": "获取过去一月的新增用户和总用户终端数量统计数据"
+    },
+    {
+      "SubItem": "基于终端数量获取ap数量统计信息",
+      "ItemName": "stamonitor模块",
+      "Path": "v3/stamonitor/monitor",
+      "Method": "Post",
+      "Parameters": [
+        {
+          "name": "method",
+          "description": "apstatic_cloud_clientnum"
+        },
+        {
+          "name": "groupId",
+          "description": "组Id"
+        }
+      ],
+      "Return": "{\n    \"response\":{\n        \"totalCount\":\"Number\",\n        \"statistics\":[\n            {\n                \"count\":\"Number\",\n                \"percent\":\"Number\"\n            },\n            {\n                \"count\":\"Number\",\n                \"percent\":\"Number\"\n            },\n            {\n                \"count\":\"Number\",\n                \"percent\":\"Number\"\n            },\n            {\n                \"count\":\"Number\",\n                \"percent\":\"Number\"\n            },\n            {\n                \"count\":\"Number\",\n                \"percent\":\"Number\"\n            },\n            {\n                \"count\":\"Number\",\n                \"percent\":\"Number\"\n            },\n            {\n                \"count\":\"Number\",\n                \"percent\":\"Number\"\n            },\n            {\n                \"count\":\"Number\",\n                \"percent\":\"Number\"\n            }\n        ]\n    },\n    \"errCode\":0\n}\n",
+      "Error": [
+        {
+          "name": "errCode",
+          "description": "0:成功,response对应具体数据;\n-1:失败,response对应错误提示。"
+        }
+      ]
+    },
+    {
+      "Error": [
+        {
+          "description": "0:成功,response对应具体数据;\n-1:失败,response对应错误提示。",
+          "name": "errCode"
+        }
+      ],
+      "Return": "{\n    \"response\":{\n        \"conditionCount\":0,\n        \"asymmetricCount\":0\n    },\n    \"errCode\":0\n}\n",
+      "Parameters": [
+        {
+          "description": "clientcount_cloud_condition",
+          "name": "method"
+        },
+        {
+          "description": "组Id",
+          "name": "groupId"
+        }
+      ],
+      "Method": "Post",
+      "Path": "v3/stamonitor/monitor",
+      "ItemName": "stamonitor模块",
+      "SubItem": "获取认证用户数量和非认证终端数量"
+    },
+    {
+      "SubItem": "获取终端总数和认证终端数量",
+      "ItemName": "stamonitor模块",
+      "Path": "v3/stamonitor/monitor",
+      "Method": "Post",
+      "Parameters": [
+        {
+          "name": "method",
+          "description": "clientallcount_cloud_condition"
+        },
+        {
+          "name": "groupId",
+          "description": "组Id"
+        }
+      ],
+      "Return": "{\n    \"response\":{\n        \"conditionCount\":0,\n        \"totalCount\":0\n    },\n    \"errCode\":0\n}\n",
+      "Error": [
+        {
+          "name": "errCode",
+          "description": "0:成功,response对应具体数据;\n-1:失败,response对应错误提示。"
+        }
+      ]
+    },
+    {
+      "Error": [
+        {
+          "description": "0:成功,response对应具体数据;\n-1:失败,response对应错误提示。\n",
+          "name": "errCode"
+        }
+      ],
+      "Return": "{\n    \"response\":[\n        {\n            \"clientMode\":\"802.11a\",\n            \"count\":0\n        },\n        {\n            \"clientMode\":\"802.11ac\",\n            \"count\":0\n        },\n        {\n            \"clientMode\":\"802.11an\",\n            \"count\":0\n        },\n        {\n            \"clientMode\":\"802.11g\",\n            \"count\":0\n        },\n        {\n            \"clientMode\":\"802.11gn\",\n            \"count\":0\n        },\n        {\n            \"clientMode\":\"802.11b\",\n            \"count\":0\n        }\n    ],\n    \"errCode\":0\n}\n",
+      "Parameters": [
+        {
+          "description": "clientcount_cloud_clientmode",
+          "name": "method"
+        },
+        {
+          "description": "组Id",
+          "name": "groupId"
+        },
+        {
+          "description": "\"auth\":认证用户; \"\": 关联用户",
+          "name": "dataType"
+        }
+      ],
+      "Method": "Post",
+      "Path": "v3/stamonitor/monitor",
+      "ItemName": "stamonitor模块",
+      "SubItem": "基于终端射频类型获取终端数量统计信息"
+    },
+    {
+      "SubItem": "基于终端频带获取终端数量统计信息",
+      "ItemName": "stamonitor模块",
+      "Path": "v3/stamonitor/monitor",
+      "Method": "Post",
+      "Parameters": [
+        {
+          "name": "method",
+          "description": "clientcount_cloud_bandtype"
+        },
+        {
+          "name": "groupId",
+          "description": "组Id"
+        },
+        {
+          "name": "dataType",
+          "description": "\"auth\":认证用户 ; \"\":关联用户"
+        }
+      ],
+      "Return": "{\n    \"response\":{\n        \"bandType5G_count\":0,\n        \"bandType2p4G_count\":0\n    },\n    \"errCode\":0\n}\n",
+      "Error": [
+        {
+          "name": "errCode",
+          "description": "\n0:成功,response对应具体数据;\n-1:失败,response对应错误提示。"
+        }
+      ]
+    },
+    {
+      "Error": [
+        {
+          "description": "0:成功,response对应具体数据;\n-1:失败,response对应错误提示。",
+          "name": "errCode"
+        }
+      ],
+      "Return": "{\n    \"response\":{\n        \"_id\":0,\n        \"clientCount\":0\n    },\n    \"errCode\":0\n}\n",
+      "Parameters": [
+        {
+          "description": "clientcount_cloud_vendor",
+          "name": "method"
+        },
+        {
+          "description": "组Id",
+          "name": "groupId"
+        },
+        {
+          "description": "\"auth\":认证用户 ; \"\":关联用户",
+          "name": "dataType"
+        }
+      ],
+      "Method": "Post",
+      "Path": "v3/stamonitor/monitor",
+      "ItemName": "stamonitor模块",
+      "SubItem": "基于厂商获取终端数量统计信息"
+    },
+    {
+      "SubItem": "获取认证终端数量统计信息",
+      "ItemName": "stamonitor模块",
+      "Path": "v3/stamonitor/monitor",
+      "Method": "Post",
+      "Parameters": [
+        {
+          "name": "method",
+          "description": "clientcount_cloud_auth"
+        },
+        {
+          "name": "groupId",
+          "description": "组Id"
+        },
+        {
+          "name": "dateType",
+          "description": "“auth”"
+        }
+      ],
+      "Return": "{\n    \"response\":{\n        \"authClientCount_5G\":0,\n        \"authClientCount_2p4G\":0,\n        \"authClientTotalCount\":0\n    },\n    \"errCode\":0\n}\n",
+      "Error": [
+        {
+          "name": "errCode",
+          "description": "\n0:成功,response对应具体数据;\n-1:失败,response对应错误提示。"
+        }
+      ]
+    },
+    {
+      "Error": [
+        {
+          "description": "0:成功,response对应具体数据;\n-1:失败,response对应错误提示。",
+          "name": "errCode"
+        }
+      ],
+      "Return": "{\n    \"response\":{\n        \"apGroupName\":0,\n        \"Count24G\":0,\n        \"Count5G\":0\n    },\n    \"errCode\":0\n}\n",
+      "Parameters": [
+        {
+          "description": "clientcount_cloud_group",
+          "name": "method"
+        },
+        {
+          "description": "组Id",
+          "name": "groupId"
+        },
+        {
+          "description": "“auth”：认证终端；“”：关联终端",
+          "name": "dataType"
+        }
+      ],
+      "Method": "Post",
+      "Path": "v3/stamonitor/monitor",
+      "ItemName": "stamonitor模块",
+      "SubItem": "基于group获取终端数量统计信息"
+    },
+    {
+      "Error": [
+        {
+          "description": "0:成功,response对应具体数据;\n-1:失败,response对应错误提示。",
+          "name": "errCode"
+        }
+      ],
+      "Return": "{\n    \"response\":{\n        \"halfhour\":0,\n        \"onehour\":0,\n        \"greatertwohour\":0,\n        \"twohour\":0\n    },\n    \"errCode\":0\n}\n",
+      "Parameters": [
+        {
+          "description": "clientcount_cloud_onlinetime",
+          "name": "method"
+        },
+        {
+          "description": "组Id",
+          "name": "groupId"
+        },
+        {
+          "description": "“auth”：认证用户；“”：关联用户",
+          "name": "dataType"
+        }
+      ],
+      "Method": "Post",
+      "Path": "v3/stamonitor/monitor",
+      "ItemName": "stamonitor模块",
+      "SubItem": "基于onlinetime获取终端数量统计信息"
+    },
+    {
+      "SubItem": "获取终端上线信息",
+      "ItemName": "stamonitor模块",
+      "Path": "v3/stamonitor/monitor",
+      "Method": "Post",
+      "Parameters": [
+        {
+          "name": "method",
+          "description": "clientcount_cloud_onlineinfo"
+        },
+        {
+          "name": "groupId",
+          "description": "组Id"
+        },
+        {
+          "name": "dataType",
+          "description": "\"auth\":获取认证终端统计;\"\"获取该groupId下终端统计总数"
+        },
+        {
+          "name": "skipNum",
+          "description": "分页中跳过终端的数量"
+        },
+        {
+          "name": "limitNum",
+          "description": "分页中每页限制终端的数量"
+        },
+        {
+          "name": "devSN",
+          "description": "第一次填空，以后填入上次返回结果中的devSN"
+        }
+      ],
+      "Return": "{\n    \"response\":{\n        \"skipNum\":0,\n        \"limitNum\":0,\n        \"count_left\":0,\n        \"count_total\":0,\n        \"devSN\":\"\",\n        \"clientInfo\":[\n            {\n                \"clientMAC\":\"String\",\n                \"clientIP\":\"String\",\n                \"onlineTime\":\"Date\",\n                \"upLineTime\":\"Date\"\n            }\n        ]\n    },\n    \"errCode\":0\n}\n",
+      "Error": [
+        {
+          "name": "errCode",
+          "description": "0:成功,response对应具体数据;\n-1:失败,response对应错误提示。"
+        }
+      ]
+    },
+    {
+      "SubItem": "获取终端详细信息",
+      "ItemName": "stamonitor模块",
+      "Path": "v3/stamonitor/monitor",
+      "Method": "Post",
+      "Parameters": [
+        {
+          "name": "method",
+          "description": "clientcount_cloud_verbosepage"
+        },
+        {
+          "name": "groupId",
+          "description": "组Id"
+        }
+      ],
+      "Return": "{\n    \"response\":{\n        \"skipNum\":0,\n        \"limitNum\":0,\n        \"count_left\":0,\n        \"count_total\":0,\n        \"devSN\":\"\",\n        \"clientInfo\":[\n        ]\n    },\n    \"errCode\":0\n}\n",
+      "Error": [
+        {
+          "name": "errCode",
+          "description": "0:成功,response对应具体数据;\n-1:失败,response对应错误提示。"
+        }
+      ]
+    },
+    {
+      "Error": [
+        {
+          "description": "\n0:成功,response对应具体数据;\n-1:失败,response对应错误提示。",
+          "name": "errCode"
+        }
+      ],
+      "Return": "{\n    \"response\":{\n        \"acSN\":0,\n        \"count\":0\n    },\n    \"errCode\":0\n}\n",
+      "Parameters": [
+        {
+          "description": "clientcount_cloud_authpage",
+          "name": "method"
+        },
+        {
+          "description": "组Id",
+          "name": "groupId"
+        }
+      ],
+      "Method": "Post",
+      "Path": "v3/stamonitor/monitor",
+      "ItemName": "stamonitor模块",
+      "SubItem": "authpage"
+    },
+    {
+      "SubItem": "clientcount_cloud_history",
+      "ItemName": "基于cloudapgroup",
+      "Path": "v3/stamonitor/monitor",
+      "Method": "Post",
+      "Parameters": [
+        {
+          "name": "method",
+          "description": "clientcount_cloud_history"
+        },
+        {
+          "name": "groupId",
+          "description": "组Id"
+        }
+      ],
+      "Return": "",
+      "Error": [
+        {
+          "name": "",
+          "description": ""
+        }
+      ]
+    },
+    {
+      "SubItem": "clientcount_cloud_history",
+      "ItemName": "stamonitor模块",
+      "Path": "v3/stamonitor/monitor",
+      "Method": "Post",
+      "Parameters": [
+        {
+          "name": "method",
+          "description": "clientcount_cloud_history"
+        }
+      ],
+      "Return": "",
+      "Error": [
+        {
+          "name": "",
+          "description": ""
+        }
+      ]
+    },
+    {
+      "Error": [
+        {
+          "description": "0:成功,response对应具体数据;\n-1:失败,response对应错误提示。",
+          "name": "errCode"
+        }
+      ],
+      "Return": "{\n    \"response\":{\n        \"skipNum\":0,\n        \"limitNum\":0,\n        \"count_left\":0,\n        \"count_total\":0,\n        \"devSN\":\"\",\n        \"clientInfo\":[\n            {\n                \"clientMAC\":\"String\",\n                \"clientIP\":\"String\",\n                \"onlineTime\":\"Date\",\n                \"upLineTime\":\"Date\"\n            }\n        ]\n    },\n    \"errCode\":0\n}\n",
+      "Parameters": [
+        {
+          "description": "组ID",
+          "name": "groupId"
+        },
+        {
+          "description": "分页中跳过终端的数量",
+          "name": "skipNum"
+        },
+        {
+          "description": "分页中每页限制终端的数量",
+          "name": "limitNum"
+        },
+        {
+          "description": "第一次填空，以后填入上次返回结果中的devSN",
+          "name": "devSN"
+        }
+      ],
+      "Method": "Post",
+      "Path": "v3/stamonitor/monitor/",
+      "ItemName": "stamonitor模块",
+      "SubItem": "获取终端历史上线信息"
+    },
+    {
+      "Error": [
+        {
+          "description": "0:成功；-1：失败",
+          "name": "retCode"
+        }
+      ],
+      "Return": "[\n    {\n        \"count1\":0,\n        \"count2\":0,\n        \"count3\":0,\n        \"count4\":0,\n        \"devSN\":\"aaaa\"\n    },\n    {\n        \"count1\":0,\n        \"count2\":0,\n        \"count3\":0,\n        \"count4\":0,\n        \"devSN\":\"bbbbb\"\n    }\n]\n",
+      "Parameters": [
+        {
+          "description": "组id",
+          "name": "groupId"
+        },
+        {
+          "description": "\"auth\":认证用户统计;\n\"\": 关联用户统计",
+          "name": "dataType"
+        }
+      ],
+      "Method": "Get",
+      "Path": "v3/visitor/getAuthCountByCloudap",
+      "ItemName": "vistor模块",
+      "SubItem": "基于ap分组统计vistor数据"
+    }
+  ],
+  "author": "lishi kf7040",
+  "description": "目前涉及stamonitor 16个接口；visitor 1个接口",
+  "retcode": 0
+}

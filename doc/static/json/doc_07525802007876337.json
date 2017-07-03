@@ -1,0 +1,83 @@
+{
+  "Name": "STAMGR_数据获取API",
+  "DocIndex": "doc_07525802007876337",
+  "AllItems": [
+    {
+      "Error": [
+        {
+          "description": "当前场景client总数",
+          "name": "total"
+        },
+        {
+          "description": "802.11a的client个数",
+          "name": "11a"
+        },
+        {
+          "description": "802.11b的client个数",
+          "name": "11b"
+        },
+        {
+          "description": "802.11gn的client个数",
+          "name": "11gn"
+        },
+        {
+          "description": "802.11an的client个数",
+          "name": "11an"
+        },
+        {
+          "description": "802.11gac的client个数",
+          "name": "11gac"
+        },
+        {
+          "description": "802.11ac的client个数",
+          "name": "11ac"
+        }
+      ],
+      "Return": "{\n    \"total\":\"23\",\n    \"11a\":\"2\",\n    \"11b\":\"3\",\n    \"11gn\":\"4\",\n    \"11an\":\"5\",\n    \"11gac\":\"6\",\n    \"11ac\":\"7\"\n}\n",
+      "Parameters": [
+        {
+          "description": "AC序列号",
+          "name": "devSN"
+        }
+      ],
+      "Method": "Get",
+      "Path": "/stamonitor/getUserAuthClientMode",
+      "ItemName": "认证终端统计",
+      "SubItem": "获取认证终端的终端类型个数"
+    },
+    {
+      "SubItem": "获取认证终端按终端厂商统计",
+      "ItemName": "认证终端统计",
+      "Path": "/stamonitor/getUserAuthClientVendor",
+      "Method": "Get",
+      "Parameters": [
+        {
+          "name": "devSN",
+          "description": "AC序列号"
+        }
+      ],
+      "Return": "{\n    \"totalCnt\":\"2\",\n    \"clientVendorList\":[\n        {\n            \"clientVendor\":\"华为\",\n            \"cnt\":\"10\"\n        },\n        {\n            \"clientVendor\":\"小米\",\n            \"cnt\":\"3\"\n        }\n    ]\n}\n",
+      "Error": [
+        {
+          "name": "totalCnt",
+          "description": "clientVendorList数组个数，表示有几种类别的厂商"
+        },
+        {
+          "name": "clientVendorList",
+          "description": "终端厂商列表"
+        },
+        {
+          "name": "clientVendor",
+          "description": "终端厂商名称"
+        },
+        {
+          "name": "cnt",
+          "description": "该终端厂商个数"
+        }
+      ]
+    }
+  ],
+  "author": "w08292",
+  "description": "提供stamgr相关表（clients、hisclientinfos等）的数据获取",
+  "retcode": 0
+}

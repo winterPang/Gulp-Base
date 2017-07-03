@@ -1,0 +1,28 @@
+{
+  "Name": "getACListName",
+  "DocIndex": "doc_04551776281471809",
+  "AllItems": [
+    {
+      "Error": [
+        {
+          "description": "",
+          "name": ""
+        }
+      ],
+      "Return": "{\n    \"url\":\"devmonitor\",\n    \"NameArr\":[\n        \"name of lucifer001\",\n        \"name of lucifer002\"\n    ]\n}\n",
+      "Parameters": [
+        {
+          "description": "[\"ac--lucifer--001\",\"ac----lucifer----002\",......]",
+          "name": "acSNlist"
+        }
+      ],
+      "Method": "Post",
+      "Path": "/devmonitor/web/NameOfAcList",
+      "ItemName": "HTTP REQUEST",
+      "SubItem": "/devmonitor/web/NameOfAcList"
+    }
+  ],
+  "author": "qkf7000",
+  "description": "/devmonitor/web/NameOfAcList\nas u  can c .\nInput  : one devSN arr .\nOutput  :  one devName arr(correspond with devSN)",
+  "retcode": 0
+}

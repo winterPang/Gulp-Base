@@ -1,0 +1,197 @@
+{
+  "Name": "PORTAL_认证信息接口文档",
+  "DocIndex": "doc_4859219138574211",
+  "AllItems": [
+    {
+      "SubItem": "获取portal user列表",
+      "ItemName": "应用统计",
+      "Path": "/portalmonitor/web/userlist",
+      "Method": "Get",
+      "Parameters": [
+        {
+          "name": "devSN",
+          "description": "\"设备序列号\""
+        }
+      ],
+      "Return": "{\n    \"userList\":[\n        {\n            \"UserIP\":\"ip地址\",\n            \"AuthType\":\"认证类型: 0-本地认证 1-云端认证 2-QQ认证 3-邮箱认证 4-微信认证 5-简版微信认证\",\n            \"UserMac\":\"mac地址\",\n            \"UserName\":\"portal用户名\",\n            \"timeStamp\":\"时戳\",\n            \"OnlineTime\":\"上线时间\",\n            \"InBytes\":\"上行流量\",\n            \"OutBytes\":\"下行流量\",\n            \"DurationTime\":\"用户在线时长\",\n            \"UpdateFlag\":\"更新标记\"\n        }\n    ]\n}\n",
+      "Error": [
+        {
+          "name": "",
+          "description": ""
+        }
+      ]
+    },
+    {
+      "SubItem": "获取portal user 列表（分页）",
+      "ItemName": "应用统计",
+      "Path": "/portalmonitor/web/userlist_page",
+      "Method": "Get",
+      "Parameters": [
+        {
+          "name": "devSN",
+          "description": "“设备序列号”"
+        },
+        {
+          "name": "skipnum",
+          "description": "“跳过数目”"
+        },
+        {
+          "name": "limitnum",
+          "description": "“显示数目”"
+        }
+      ],
+      "Return": "{\n    \"count\":\"总数\",\n    \"userList\":[\n        {\n            \"UserIP\":\"ip地址\",\n            \"AuthType\":\"认证类型:0-本地认证 1-云端认证 2-QQ认证 3-邮箱认证 4-微信认证 5-简版微信认证\",\n            \"UserMac\":\"mac地址\",\n            \"UserName\":\"portal用户名\",\n            \"timeStamp\":\"时戳\",\n            \"OnlineTime\":\"上线时间\",\n            \"InBytes\":\"上行流量\",\n            \"OutBytes\":\"下行流量\",\n            \"DurationTime\":\"\",\n            \"UpdateFlag\":\"更新标记\"\n        }\n    ]\n}\n",
+      "Error": [
+        {
+          "name": "",
+          "description": ""
+        }
+      ]
+    },
+    {
+      "SubItem": "获取认证失败日志信息",
+      "ItemName": "应用统计",
+      "Path": "/portalmonitor/web/getfailrecord",
+      "Method": "Get",
+      "Parameters": [
+        {
+          "name": "devSN",
+          "description": "“设备序列号”"
+        }
+      ],
+      "Return": "{\n    \"userList\":[\n        {\n            \"UserIP\":\"ip地址\",\n            \"UserMac\":\"mac地址\",\n            \"UserName\":\"portal用户名\",\n            \"ApName\":\"ap名\",\n            \"Ssid\":\"ssid名\",\n            \"AuthFailTime\":\"认证失败时间\",\n            \"AuthFailReason\":\"认证失败原因\"\n        }\n    ]\n}\n",
+      "Error": [
+        {
+          "name": "",
+          "description": ""
+        }
+      ]
+    },
+    {
+      "SubItem": "获取认证失败日志信息（分页）",
+      "ItemName": "应用统计",
+      "Path": "/portalmonitor/web/getfailrecord_page",
+      "Method": "Get",
+      "Parameters": [
+        {
+          "name": "devSN",
+          "description": "“设备序列号”"
+        },
+        {
+          "name": "Skipnum",
+          "description": "“跳过数目”"
+        },
+        {
+          "name": "Limitnum",
+          "description": "“显示数目”"
+        }
+      ],
+      "Return": "{\n    \"userList\":[\n        {\n            \"UserIP\":\"ip地址\",\n            \"UserMac\":\"mac地址\",\n            \"UserName\":\"portal用户名\",\n            \"ApName\":\"ap名\",\n            \"Ssid\":\"ssid名\",\n            \"AuthFailTime\":\"认证失败时间\",\n            \"AuthFailReason\":\"认证失败原因\"\n        }\n    ]\n}\n",
+      "Error": [
+        {
+          "name": "",
+          "description": ""
+        }
+      ]
+    },
+    {
+      "Error": [
+        {
+          "description": "",
+          "name": ""
+        }
+      ],
+      "Return": "{\n    \"userList\":[\n        {\n            \"UserIP\":\"ip地址\",\n            \"UserMac\":\"mac地址\",\n            \"ApName\":\"ap名\",\n            \"Ssid\":\"ssid名\",\n            \"AuthErrorTime\":\"认证失败时间\",\n            \"AuthErrorReason\":\"认证失败原因\"\n        }\n    ]\n}\n",
+      "Parameters": [
+        {
+          "description": "“设备序列号”",
+          "name": "devSN"
+        }
+      ],
+      "Method": "Get",
+      "Path": "/portalmonitor/web/getabnormalrecord",
+      "ItemName": "应用统计",
+      "SubItem": "获取认证异常日志信息"
+    },
+    {
+      "SubItem": "获取认证异常日志信息（分页）",
+      "ItemName": "应用统计",
+      "Path": "/portalmonitor/web/getabnormalrecord_page",
+      "Method": "Get",
+      "Parameters": [
+        {
+          "name": "devSN",
+          "description": "“设备序列号”"
+        },
+        {
+          "name": "Skipnum",
+          "description": "“跳过数目”"
+        },
+        {
+          "name": "Limitnum",
+          "description": "“显示数目”"
+        }
+      ],
+      "Return": "{\n    \"userList\":[\n        {\n            \"UserIP\":\"ip地址\",\n            \"UserMac\":\"mac地址\",\n            \"ApName\":\"ap名\",\n            \"Ssid\":\"ssid名\",\n            \"AuthErrorTime\":\"认证失败时间\",\n            \"AuthErrorReason\":\"认证失败原因\"\n        }\n    ]\n}\n",
+      "Error": [
+        {
+          "name": "",
+          "description": ""
+        }
+      ]
+    },
+    {
+      "Error": [
+        {
+          "description": "",
+          "name": ""
+        }
+      ],
+      "Return": "{\n    \"portalusercount\":\"在线用户数\"\n}\n",
+      "Parameters": [
+        {
+          "description": "“设备序列号”",
+          "name": "devSN"
+        }
+      ],
+      "Method": "Get",
+      "Path": "/portalmonitor/portalusercount",
+      "ItemName": "应用统计",
+      "SubItem": "获取在线portal用户数"
+    },
+    {
+      "Error": [
+        {
+          "description": "",
+          "name": ""
+        }
+      ],
+      "Return": "{\n    \"count_total\":\"总数\",\n    \"count_left\":\"剩余数目\",\n    \"userList\":[\n        {\n            \"UserIP\":\"ip地址\",\n            \"AuthTypeStr\":\"云端下发的认证方式\",\n            \"UserMac\":\"mac地址\",\n            \"UserName\":\"portal用户名\",\n            \"OnlineTime\":\"上线时间\"\n        }\n    ]\n}\n",
+      "Parameters": [
+        {
+          "description": "“设备序列号”",
+          "name": "devSN"
+        },
+        {
+          "description": "“跳过数目”",
+          "name": "skipnum"
+        },
+        {
+          "description": "“显示数目”",
+          "name": "limitnum"
+        },
+        {
+          "description": "{\n    findoption:\"查找条件，JSON格式，以portal信息字段为查找条件（JSON格式，模糊匹配）,如{UserIP:”192”}注意：1.数值类型的字段只支持精确匹配\",\n    sortoption:\"排序条件，JSON格式，排序关键字，以portal信息字段，值为1（表示升序，值为-1表示降序）如：以mac地址为升序：{UserMac:1}\"\n}",
+          "name": "body"
+        }
+      ],
+      "Method": "Post",
+      "Path": "/portalmonitor/portalonlineuserlist",
+      "ItemName": "应用统计",
+      "SubItem": "获取未关联portal用户列表（支持排序和条件查找）"
+    }
+  ],
+  "author": "xiaoaijiang",
+  "description": "本文档是用来描述portal认证的接口信息",
+  "retcode": 0
+}

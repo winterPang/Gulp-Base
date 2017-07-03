@@ -34,3 +34,17 @@
   -ms-transition: @transition;
   -o-transition: @transition;
 }
+
+.backgroundImage(@bgColor){
+  background-image: -webkit-linear-gradient(@bgColor,@bgColor 60%, @bgColor);
+  background-image: -o-linear-gradient(@bgColor, @bgColor 60%, @bgColor);
+  background-image: linear-gradient(@bgColor, @bgColor 60%, @bgColor);
+};
+
+.opacityfun(@opacity){
+  //filter: alpha(opacity= (@opacity*100));
+  -moz-opacity:@opacity;
+  -webkit-opacity: @opacity;
+  -ms-opacity:@opacity;
+  opacity: @opacity;
+}

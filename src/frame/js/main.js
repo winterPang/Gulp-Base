@@ -2,40 +2,26 @@ require.config({
     baseUrl: '../',
     waitSeconds: 0,
     paths: {
-        "jquery":  "frame/libs/jquery/jquery-1.11.3",
-
-        "jquery.twbsPagination":"frame/libs/jquery/jquery.twbsPagination",
-
-        "async":"frame/libs/async/2.0.1/async.min",
-
-        "echarts":  "frame/libs/echarts/echarts-all",
-
-        "echarts3": "frame/libs/echarts/echarts.min",
-
-        "angular":  "frame/libs/angularjs/angular",
-
+        "jquery": "frame/libs/jquery/jquery-1.11.3.min",
+        "jquery.twbsPagination": "frame/libs/jquery/jquery.twbsPagination",
+        "async": "frame/libs/async/2.0.1/async.min",
+        "echarts": "frame/libs/echarts/echarts-all",
+        "echarts3": "frame/libs/echarts3.6.1/echarts.min",
+        "echarts-chinaMap": "frame/libs/echarts3.6.1/echart-map/china",
+        "angular": "frame/libs/angularjs/angular.min",
         "angular-messages": "frame/libs/angularjs/angular-messages",
-
-        "angular-ui-router":  "frame/libs/ui-router/angular-ui-router",
-
+        "angular-ui-router": "frame/libs/ui-router/angular-ui-router.min",
         "angularAMD": "frame/libs/angularjs/angularAMD",
-
+        "babel-polyfill": "frame/libs/babel-polyfill/dist/polyfill",
         "bootstrap": "frame/libs/bootstrap/js/bootstrap",
-
-        "bootstrapTable":"frame/libs/bootstrap-table/bootstrap-table",
-
+        "bootstrapTable": "frame/libs/bootstrap-table/bootstrap-table",
         "bootstrap-table-CN": "frame/js/empty",
-
-        "select2":"frame/libs/select2-4.0.3/js/select2.min",
-
-        "select2-cn":"frame/libs/select2-4.0.3/js/i18n/zh-CN",
-
-        "layer": "frame/libs/layer/layer",
-
-        "bootstrapValidator":"frame/libs/bootstrap-validator/js/bootstrapValidator",
-
+        "select2": "frame/libs/select2-4.0.3/js/select2",
+        "select2-cn": "frame/libs/select2-4.0.3/js/i18n/zh-CN",
+        "select2-en": "frame/libs/select2-4.0.3/js/i18n/en",
+        "select2-bootstrap-theme": "frame/libs/select2-4.0.3/select2-bootstrap-theme/dist/select2-bootstrap",
+        "bootstrapValidator": "frame/libs/bootstrap-validator/js/bootstrapValidator",
         "bootstrapValidatorCN": "frame/libs/bootstrap-validator/js/language/zh_CN",
-
         "jqueryZtree": "frame/libs/ztree/js/jquery.ztree.all.min",
         "jqueryTreetable": "frame/libs/treetable/jquery-treetable",
         'require-plugin-async': "frame/libs/requirejs/plugins/async",
@@ -46,53 +32,42 @@ require.config({
         "bootstrapDatepicker": "frame/libs/bootstrap-datepicker/js/bootstrap-datepicker.min",
         "bootstrapDatetimepicker": "frame/libs/bootstrap-datetimepicker/js/bootstrap-datetimepicker.min",
         "bootstrapDatepickerCN": "frame/libs/bootstrap-datepicker/js/bootstrap-datepicker.zh-CN.min",
+        "bootstrapSlider": "frame/libs/bootstrap-slider/bootstrap-slider",
         "fullcalendar": "frame/libs/fullcalendar-3.0.1/js/fullcalendar",
-        "jqueryValidator":"frame/libs/jquery-validator/jquery.validate.min",
-        "jqueryValidatorAddMethods": "frame/libs/jquery-validator/additional-methods.min",
         "notice": "frame/libs/notice/jquery-notice",
         'bootmodal': 'frame/libs/bootmodal/bootModal',
+        "sprintf": "frame/libs/sprintf/1.0.3/sprintf.min",
+        'rangepicker': 'frame/libs/rangepicker/rangepicker',
+        //CSS配置 -- zhangfq
+        bootstrap_slider_css: "frame/libs/bootstrap-slider/css/bootstrap-slider",
+        bootstrap_css: 'frame/libs/bootstrap/css/bootstrap.min',
+        bootstrap_table_css: 'frame/libs/bootstrap-table/bootstrap-table.min',
+        fontAwesome_css: 'frame/libs/font-awesome-4.7.0/css/font-awesome.min',
+        bootstrap_daterangepicker_css: "frame/libs/bootstrap-daterangepicker/daterangepicker",
+        select2_css: "frame/libs/select2-4.0.3/css/select2.min",
+        reset_css: 'frame/less/reset',
+        //主要入口文件
+        'app': 'frame/js/app',
+        'utils': 'frame/js/utils',
         'socketio': '../../../v3/web/chat/js/socket.io',
         'xiaobeichat': '../../../v3/web/chat/xiaobeichat',
-        'utils': 'frame/js/utils',
-        "sprintf":"frame/libs/sprintf/1.0.3/sprintf.min",
-        'app': 'frame/js/app',
-        //'routes': 'frame/js/routes',
-        //'loader': 'frame/js/loader',
-        //baseService
-        "baseService": "frame/js/base_service",
-        // controller
-        //'menuController': 'frame/js/menuController',
-        
-        //directive
-        //bsTable -- bootstrapTable -- zhangfq
-        bsTable: 'frame/directive/bs_table',
-
-        //CSS配置 -- zhangfq
-        bootstrap_css: 'frame/libs/bootstrap/css/bootstrap.min',
-        frame_css: 'frame/css/frame',
-        private_css: 'frame/css/private',
-        common_css: 'frame/css/common',
-        top_panel_css: 'frame/css/top-panel',
-        navbar_css: 'frame/css/navbar',
-        leftmenu_css: 'frame/css/leftmenu',
-        content_css: 'frame/css/content',
-        jqueryNotice_css: 'frame/css/jqueryNotice',
-        bootstrap_table_css: 'frame/libs/bootstrap-table/bootstrap-table.min',
-        ztree_css: 'frame/libs/ztree/css/zTreeStyle',
-        treetable_css: [
-            'frame/libs/treetable/css/jquery.treetable',
-            'frame/libs/treetable/css/jquery.treetable.theme.default',
-            'frame/libs/treetable/css/screen'
-        ],
-        select2_css: "frame/libs/select2-4.0.3/css/select2.min",
-        fontawesome_min_css: 'frame/libs/Font-Awesome/css/font-awesome.min',
-        bootstrap_daterangepicker_css: "frame/libs/bootstrap-daterangepicker/daterangepicker",
-        bootstrap_daterangepicker1_2_css: "frame/libs/bootstrap-daterangepicker/daterangepicker1_2",
-        // fullcalendar_css:"frame/libs/fullcalendar-3.0.1/css/fullcalendar.min",
-        fullcalendar_css:  "frame/libs/fullcalendar-3.0.1/css/fullcalendar",
-
         //component define
-        echartNodataPie: "frame/component/echart_nodata_pie"
+        oasisMenu: "frame/component/menu/oasis-menu",
+        oasisRow: "frame/component/layout/oasis-row",
+        oasisCol: "frame/component/layout/oasis-col",
+        oasisBox: "frame/component/layout/oasis-box",
+        oasisBoxHeader: "frame/component/layout/oasis-box-header",
+        oasisBoxBody: "frame/component/layout/oasis-box-body",
+        oasisBoxFooter: "frame/component/layout/oasis-box-footer",
+        oasisButton: "frame/component/button/oasis-button",
+        oasisTable: "frame/component/table/bs_table",
+        oasisModal: 'frame/component/modal/bs_modal',
+        oasisRadio: 'frame/component/form/oasis-radio',
+        oasisCheckbox: 'frame/component/form/oasis-checkbox',
+        oasisSelect: 'frame/component/form/oasis-Select',
+        oasisEchart: 'frame/component/echarts/oasis-echart',
+        //service
+        $alert: './frame/service/alert'
     },
     shim: {
         "angular": {
@@ -112,12 +87,15 @@ require.config({
             deps: ['socketio', 'jquery'],
             exports: "xiaobeichat"
         },
+        'rangepicker': {
+            deps: ['jquery']
+        },
         "angularAMD": {
             deps: ["angular"],
             exports: "angularAMD"
         },
         "bootstrap": {
-            deps: ["jquery"],
+            deps: ["jquery", 'css!bootstrap_css', 'css!fontAwesome_css'],
             exports: '$'
         },
         "echarts": {
@@ -133,14 +111,6 @@ require.config({
         },
         'bootstrapValidatorCN': {
             deps: ['bootstrapValidator'],
-            exports: '$'
-        },
-        'jqueryValidator': {
-            deps: ["jquery"],
-            exports: '$'
-        },
-        'jqueryValidatorAddMethods': {
-            deps: ["jqueryValidator"],
             exports: '$'
         },
         "jquery.twbsPagination": {
@@ -169,9 +139,6 @@ require.config({
             deps: ["bootstrap"],
             exports: '$'
         },
-        "layer": {
-            deps: ["jquery"]
-        },
         "jqueryTreetable": {
             deps: ["jquery"],
             exports: '$'
@@ -180,27 +147,30 @@ require.config({
             deps: ["jquery", "moment"],
             exports: '$'
         },
+        'select2': {
+            deps: ["css!select2_css"]
+        },
         "select2-cn": {
             deps: ['select2']
+        },
+        'oasisBox': {
+            deps: ['oasisRow', 'oasisCol', 'oasisBoxHeader', 'oasisBoxBody', 'oasisBoxFooter']
         }
     },
     map: {
         '*': {
             // 加载css文件的配置
-            css: 'frame/libs/requirejs/css.min'
+            css: 'frame/libs/requirejs/css.min',
         }
     },
     deps: [
+        'jquery',
+        'bootstrap',
         //  启动加载的css文件
-        'css!bootstrap_css', 'css!navbar_css', 'css!bootstrap_table_css', 'css!frame_css', 'css!private_css',
-        'css!common_css', 'css!leftmenu_css', 'css!top_panel_css', 'css!content_css',
-        'css!jqueryNotice_css', 'css!fontawesome_min_css', 'css!select2_css',
+        'css!reset_css',
         //  启动加载的js文件
         //  I think 'jquery' must be loaded first,set angular.element === $.
-        'jquery', 'app', 'baseService', 'bsTable', 'angular-messages', 'select2',
-        'frame/directive/bs_modal', 'frame/directive/bs_pager',
-        'frame/directive/ajax_valid', 'frame/directive/reptpas',
-        'frame/directive/changepwd', 'frame/directive/number_range', 'frame/directive/select2'
-    ]/*,
-     urlArgs: "bust=" + (new Date()).getTime()*/
+        'app', '$alert', 'oasisMenu', 'oasisBox', 'oasisButton',
+        'oasisTable', 'oasisModal', 'oasisRadio'
+    ]
 });

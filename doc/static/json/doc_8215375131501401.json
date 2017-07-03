@@ -1,0 +1,63 @@
+{
+  "Name": "设备升级接口",
+  "DocIndex": "doc_8215375131501401",
+  "AllItems": [
+    {
+      "Error": [
+        {
+          "description": "",
+          "name": ""
+        }
+      ],
+      "Return": "{\n    \"retCode\":\"number 结果 0—成功；1—无权限；2--主连接不存在；3--设备正在升级；4--其他错误\"\n}\n",
+      "Parameters": [
+        {
+          "description": "String 序列号",
+          "name": "devSN"
+        },
+        {
+          "description": "Number 版本大小",
+          "name": "fileSize"
+        },
+        {
+          "description": "String 版本路径",
+          "name": "devVersionUrl"
+        },
+        {
+          "description": "Number 1：保存配置，0：不保存配置",
+          "name": "saveConfig"
+        },
+        {
+          "description": "Number  1：重启设备，0：不重启设备",
+          "name": "rebootDev"
+        }
+      ],
+      "Method": "Post",
+      "Path": "/base/updateDev",
+      "ItemName": "设备升级",
+      "SubItem": "设备升级"
+    },
+    {
+      "Error": [
+        {
+          "description": "",
+          "name": ""
+        }
+      ],
+      "Return": "{\n    \"status\":\"Number   状态 0--正在升级; 1--升级成功; 2--下载失败; 3—设备空间不足;4--保存配置失败; 5--其他错误 （非0可以进行升级操作）\",\n    \"devVersionUrl\":\"String,  AC设备软件存放路径 (status = 0时携带此字段)\",\n    \"percent\":\"Number  下载进度百分比\",\n    \"eventMessage\":\"String,  错误描述(用户不需要感知的错误，比如解压缩失败等)\"\n}\n",
+      "Parameters": [
+        {
+          "description": "String  序列号",
+          "name": "devSN"
+        }
+      ],
+      "Method": "Post",
+      "Path": "/base/getUpdateStatus",
+      "ItemName": "设备升级",
+      "SubItem": "获取设备升级状态"
+    }
+  ],
+  "author": "l09810",
+  "description": "设备升级接口",
+  "retcode": 0
+}

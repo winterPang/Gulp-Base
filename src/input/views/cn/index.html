@@ -1,0 +1,176 @@
+<div class="input">
+    <header class="content-header">
+        <h1>Input组件</h1>
+        <p>Desc: 绿洲OASIS提供一套基于绿洲的表单组件</p>
+        <p>Author: <a href="mailto:KF.zhangfuqiang@h3c.com">KF.zhangfuqiang@h3c.com</a></p>
+        <!--<p>Published: 2017/06/09</p>-->
+    </header>
+    <oasis-row>
+        <oasis-col md=12>
+            <oasis-box>
+                <oasis-box-header>
+                    <span class="title">Example</span>
+                </oasis-box-header>
+                <oasis-box-body height-auto id="codebox">
+                    <div>
+                        <oasis-input os-model="app" os-label="名称"></oasis-input> {{app}}
+                    </div>
+                    <div style="margin-top:10px">
+                        <oasis-input os-model="app" test-msg="aaaa" os-label="禁用测试" os-disabled="disabled"></oasis-input>
+                        <button class="btn" ng-click="disabled=!disabled">{{disabled?'启用':'禁用'}}</button>
+                    </div>
+                    <div style="margin-top:10px">
+                        <oasis-input os-model="number" os-label="数字测试" os-type="number"></oasis-input> number => {{number}}
+                    </div>
+                    <div style="margin-top:10px">
+                        <oasis-input os-model="email" os-label="邮箱测试" os-type="email"></oasis-input> email => {{email}}
+                    </div>
+                    <h3>表单验证</h3>
+                    <div style="margin-top:10px">
+                        <oasis-input labelwidth="120" os-valid-result="result" os-model="email" os-valid="true" os-label="required测试" required></oasis-input>
+                    </div>
+                    <div style="margin-top:10px">
+                        <oasis-input os-type="number" labelwidth="120" os-valid-result="result" os-model="number" os-valid="true" os-label="number测试"></oasis-input>
+                    </div>
+                    <div style="margin-top:10px">
+                        <oasis-input labelwidth="120" os-model="email" os-valid="true" os-label="email测试" os-type="email"></oasis-input>
+                    </div>
+                    <div style="margin-top:10px">
+                        <oasis-input labelwidth="120" os-model="phone" os-valid="true" os-label="phone测试" os-type="phone"></oasis-input>
+                    </div>
+                    <div style="margin-top:10px">
+                        <oasis-input labelwidth="120" os-model="mac" os-valid="true" os-label="mac测试" os-type="mac"></oasis-input>
+                    </div>
+                    <div style="margin-top:10px">
+                        <oasis-input labelwidth="120" os-model="ip" os-valid="true" os-label="ip测试" os-type="ip"></oasis-input>
+                    </div>
+                    <div style="margin-top:10px">
+                        <oasis-input labelwidth="120" os-model="min" os-valid="true" os-label="min测试" os-type="number" min=10></oasis-input>
+                    </div>
+                    <div style="margin-top:10px">
+                        <oasis-input labelwidth="120" os-model="max" os-valid="true" os-label="max测试" os-type="number" max=10></oasis-input>
+                    </div>
+                    <div style="margin-top:10px">
+                        <oasis-input labelwidth="120" os-model="range" os-valid="true" os-label="range测试" os-type="number" range="0,20"></oasis-input>
+                    </div>
+                    <div style="margin-top:10px">
+                        <oasis-input labelwidth="120" os-model="minlen" os-valid="true" os-label="minlen测试" minlen=5></oasis-input>
+                    </div>
+                    <div style="margin-top:10px">
+                        <oasis-input labelwidth="120" os-model="maxlen" os-valid="true" os-label="maxlen测试" maxlen=5></oasis-input>
+                    </div>
+                    <div style="margin-top:10px">
+                        <oasis-input labelwidth="120" os-model="lenrange" os-valid="true" os-label="lenrange测试" lenrange="2,10"></oasis-input>
+                    </div>
+                    <div style="margin-top:10px">
+                        <oasis-input labelwidth="120" os-model="pattern" os-valid="true" os-label="pattern测试" pattern="[a-zA-Z0-9]{2,8}"></oasis-input>
+                    </div>
+                </oasis-box-body>
+                <oasis-box-footer>
+                    <div class="code-change">
+                        <div ng-show="!codeShow" ng-click="codeShow=!codeShow">
+                            <i class="glyphicon glyphicon-menu-down"></i>
+                            <span>显示代码</span>
+                        </div>
+                        <div ng-show="codeShow" ng-click="codeShow=!codeShow">
+                            <i class="glyphicon glyphicon-menu-up"></i>
+                            <span>隐藏代码</span>
+                        </div>
+                    </div>
+                    <div ng-show="codeShow" class="code-content">
+                        <oasis-col md=12>
+                            <pre>
+&lt;div&gt;
+    &lt;oasis-input os-model="app" os-label="名称"&gt;&lt;/oasis-input&gt; {{app}}
+&lt;/div&gt;
+&lt;div style="margin-top:10px"&gt;
+    &lt;oasis-input os-model="app" test-msg="aaaa" os-label="禁用测试" os-disabled="disabled"&gt;&lt;/oasis-input&gt;
+    &lt;button class="btn" ng-click="disabled=!disabled"&gt;{{disabled?'启用':'禁用'}}&lt;/button&gt;
+&lt;/div&gt;
+&lt;div style="margin-top:10px"&gt;
+    &lt;oasis-input os-model="number" os-label="数字测试" os-type="number"&gt;&lt;/oasis-input&gt; number =&gt; {{number}}
+&lt;/div&gt;
+&lt;div style="margin-top:10px"&gt;
+    &lt;oasis-input os-model="email" os-label="邮箱测试" os-type="email"&gt;&lt;/oasis-input&gt; email =&gt; {{email}}
+&lt;/div&gt;
+&lt;h3&gt;表单验证&lt;/h3&gt;
+&lt;div style="margin-top:10px"&gt;
+    &lt;oasis-input labelwidth="120" os-valid-result="result" os-model="email" os-valid="true" os-label="required测试" required&gt;&lt;/oasis-input&gt;
+&lt;/div&gt;
+&lt;div style="margin-top:10px"&gt;
+    &lt;oasis-input os-type="number" labelwidth="120" os-valid-result="result" os-model="number" os-valid="true" os-label="number测试"&gt;&lt;/oasis-input&gt;
+&lt;/div&gt;
+&lt;div style="margin-top:10px"&gt;
+    &lt;oasis-input labelwidth="120" os-model="email" os-valid="true" os-label="email测试" os-type="email"&gt;&lt;/oasis-input&gt;
+&lt;/div&gt;
+&lt;div style="margin-top:10px"&gt;
+    &lt;oasis-input labelwidth="120" os-model="phone" os-valid="true" os-label="phone测试" os-type="phone"&gt;&lt;/oasis-input&gt;
+&lt;/div&gt;
+&lt;div style="margin-top:10px"&gt;
+    &lt;oasis-input labelwidth="120" os-model="mac" os-valid="true" os-label="mac测试" os-type="mac"&gt;&lt;/oasis-input&gt;
+&lt;/div&gt;
+&lt;div style="margin-top:10px"&gt;
+    &lt;oasis-input labelwidth="120" os-model="ip" os-valid="true" os-label="ip测试" os-type="ip"&gt;&lt;/oasis-input&gt;
+&lt;/div&gt;
+&lt;div style="margin-top:10px"&gt;
+    &lt;oasis-input labelwidth="120" os-model="min" os-valid="true" os-label="min测试" os-type="number" min=10&gt;&lt;/oasis-input&gt;
+&lt;/div&gt;
+&lt;div style="margin-top:10px"&gt;
+    &lt;oasis-input labelwidth="120" os-model="max" os-valid="true" os-label="max测试" os-type="number" max=10&gt;&lt;/oasis-input&gt;
+&lt;/div&gt;
+&lt;div style="margin-top:10px"&gt;
+    &lt;oasis-input labelwidth="120" os-model="range" os-valid="true" os-label="range测试" os-type="number" range="0,20"&gt;&lt;/oasis-input&gt;
+&lt;/div&gt;
+&lt;div style="margin-top:10px"&gt;
+    &lt;oasis-input labelwidth="120" os-model="minlen" os-valid="true" os-label="minlen测试" minlen=5&gt;&lt;/oasis-input&gt;
+&lt;/div&gt;
+&lt;div style="margin-top:10px"&gt;
+    &lt;oasis-input labelwidth="120" os-model="maxlen" os-valid="true" os-label="maxlen测试" maxlen=5&gt;&lt;/oasis-input&gt;
+&lt;/div&gt;
+&lt;div style="margin-top:10px"&gt;
+    &lt;oasis-input labelwidth="120" os-model="lenrange" os-valid="true" os-label="lenrange测试" lenrange="2,10"&gt;&lt;/oasis-input&gt;
+&lt;/div&gt;
+&lt;div style="margin-top:10px"&gt;
+    &lt;oasis-input labelwidth="120" os-model="pattern" os-valid="true" os-label="pattern测试" pattern="[a-zA-Z0-9]{2,8}"&gt;&lt;/oasis-input&gt;
+&lt;/div&gt;
+                            </pre>
+                            <button class="copy-btn" onclick="if(copyToClipboard($(this).parent()[0])){alert('复制成功')}else{alert('复制失败')}">copy
+                            </button>
+                        </oasis-col>
+                    </div>
+                </oasis-box-footer>
+            </oasis-box>
+        </oasis-col>
+    </oasis-row>
+    <oasis-row>
+        <oasis-col md=12>
+            <oasis-box>
+                <oasis-box-header>
+                    <span class="title">属性配置 (<small>请关注着色的样式,开发的时候请看完配置，否则会导致自己实现组件的功能</small>)</span>
+                </oasis-box-header>
+                <oasis-box-body height-auto>
+                    <table class="table doc-table">
+                        <thead>
+                            <tr class="active">
+                                <th width="150px">属性</th>
+                                <th width="100px">类型</th>
+                                <th width="100px">可选值</th>
+                                <th width="150px">默认值</th>
+                                <th>说明</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="prop in props" ng-class="{info:prop.important}">
+                                <td>{{prop.name}}</td>
+                                <td>{{prop.type}}</td>
+                                <td>{{prop.values || '---'}}</td>
+                                <td style="color:blue">{{prop.def || '---'}}</td>
+                                <td>{{prop.desc || '---'}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </oasis-box-body>
+            </oasis-box>
+        </oasis-col>
+    </oasis-row>
+</div>

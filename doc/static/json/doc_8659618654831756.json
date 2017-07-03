@@ -1,0 +1,94 @@
+{
+  "Name": "告警订阅管理接口文档",
+  "DocIndex": "doc_8659618654831756",
+  "AllItems": [
+    {
+      "Error": [
+        {
+          "description": "成功",
+          "name": "0"
+        },
+        {
+          "description": "失败 ",
+          "name": "1"
+        }
+      ],
+      "Return": "{\n    \"retCode\":\"返回值\"\n}\n",
+      "Parameters": [
+        {
+          "description": "设备序列号",
+          "name": "devSN"
+        },
+        {
+          "description": "场景ID",
+          "name": "nasID"
+        },
+        {
+          "description": "[\n    {\n        \"type\":\"wechat\",\n        \"enable\":\"是否使能\",\n        \"times\":“发送条数限制”,     //不限制条数时，值为Number.POSITIVE_INFINITY\n        \"allowedTime\":“允许发送时间”//[{start:Number, end:Number}],对应分钟数，如6:20即6*60+20=380\n    },\n    {\n        \"type\":\"sms\",\n        \"enable\":\"是否使能\",\n        \"times\":“发送条数限制”,\n        \"allowedTime\":\"允许发送时间\"//[{start:Number, end:Number}],同上\n    },\n    {\n        \"type\":\"lvzhouchat\",\n        \"enable\":\"是否使能\",\n        \"allowedTime\":\"允许发送时间\"//[{start:Number, end:Number}],同上\n    }\n]",
+          "name": "config"
+        }
+      ],
+      "Method": "Post",
+      "Path": "/subscribemgr/setNoDisturb",
+      "ItemName": "订阅管理",
+      "SubItem": "设置勿扰模式的接口"
+    },
+    {
+      "Error": [
+        {
+          "description": "成功",
+          "name": "0"
+        },
+        {
+          "description": "失败",
+          "name": "1"
+        }
+      ],
+      "Return": "{\n    \"retCode\":\"返回值\"\n}\n",
+      "Parameters": [
+        {
+          "description": "设备序列号",
+          "name": "devSN"
+        },
+        {
+          "description": "场景ID",
+          "name": "nasID"
+        },
+        {
+          "description": "[\n    {\n        \"type\": \"消息类型\",\n        \"enable\": \"是否使能\",\n        \"times\": \"发送条数限制\",\n        \"noticeType\": {\n            \"wechat\": \"是否使能微信发送\",\n            \"sms\": \"是否使能短信发送\",\n            \"lvzhouchat\": \"是否使能绿洲聊聊发送\"\n        }\n    },\n    ......\n]",
+          "name": "config"
+        }
+      ],
+      "Method": "Post",
+      "Path": "subscribemgr/setNoticeOption",
+      "ItemName": "订阅管理",
+      "SubItem": "设置通知设置的接口"
+    },
+    {
+      "SubItem": "获取勿扰模式的接口",
+      "ItemName": "订阅管理",
+      "Path": "/subscribemgr/getNoDisturb",
+      "Method": "Post",
+      "Parameters": [
+        {
+          "name": "devSN",
+          "description": "设备序列号"
+        },
+        {
+          "name": "nasID",
+          "description": "场景ID"
+        }
+      ],
+      "Return": "[\n    {\n        \"type\":\"wechat\",\n        \"enable\":\"是否使能\",\n        \"times\":\"发送条数限制\",\n        \"allowedTime\":\"允许发送时间\"\n    },\n    {\n        \"type\":\"sms\",\n        \"enable\":\"是否使能\",\n        \"times\":\"发送条数限制\",\n        \"allowedTime\":\"允许发送时间\"\n    },\n    {\n        \"type\":\"lvzhouchat\",\n        \"enable\":\"是否使能\",\n        \"allowedTime\":\"允许发送时间\"\n    }\n]\n",
+      "Error": [
+        {
+          "name": "",
+          "description": ""
+        }
+      ]
+    }
+  ],
+  "author": "zhengli",
+  "description": "本文档是用来描述告警订阅管理的接口信息",
+  "retcode": 0
+}

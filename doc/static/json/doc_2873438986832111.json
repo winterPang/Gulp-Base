@@ -1,0 +1,222 @@
+{
+  "Name": "portal历史记录查询接口文档",
+  "DocIndex": "doc_2873438986832111",
+  "AllItems": [
+    {
+      "SubItem": "获取指定设备号的portal上下线历史记录",
+      "ItemName": "portal历史记录查询",
+      "Path": "/portalmonitor/portalhistory/getportalhistorylistbydevsn",
+      "Method": "Post",
+      "Parameters": [
+        {
+          "name": "page",
+          "description": "Number 要查询的页码，默认为第1页"
+        },
+        {
+          "name": "count",
+          "description": "Number 查询时每页的记录条数，默认为20条"
+        },
+        {
+          "name": "devSN",
+          "description": "String  要查询设备的历史记录的设备号"
+        },
+        {
+          "name": "startTime",
+          "description": "String 要求截止的数据记录时间，返回数据是从此时间开始，往后至endTime的数据，由Date.toISOString方法，默认为2016-01-01"
+        },
+        {
+          "name": "endTime",
+          "description": "String 要求截止的数据记录时间，返回数据是从此时间截止，往前至startTime的数据，由Date.toISOString方法，默认为当前时间"
+        },
+        {
+          "name": "sortField",
+          "description": "需要排序的字段 [\"devSN\", \"UserMac\", \"UserIP\", \"AuthType\", \"AuthTypeStr\", \"UserName\", \"offlineTimeStr\", \"onlineTimeStr\",\"DurationTimeStr\"]，字段名为上面数组中的任意一个，格式为：sortField={onlineTimeStr:1} 其中-1为将序，1为升序， 默认为按onlineTimeStr将序排列"
+        },
+        {
+          "name": "checkField",
+          "description": "需要筛选的字段 [ \"UserMac\", \"UserIP\", \"AuthType\", \"AuthTypeStr\", \"UserName\",\"DurationTimeStr\"]，字段名为上面数组中的任意一个，格式为checkField={UserIP:\"172.168.0.255\"}，默认为无筛选字段"
+        }
+      ],
+      "Return": "{\n    \"historyList\":[\n        {\n            \"devSN\":\"设备号\",\n            \"UserMac\":\"Mac地址\",\n            \"UserIP\":\"IP地址\",\n            \"AuthType\":\"认证类型（数字）\",\n            \"AuthTypeStr\":\"认证类型（字符串）\",\n            \"UserName\":\"用户名\",\n            \"offlineTimeStr\":\"下线时间\",\n            \"InMBytes\":\"上传流量（MB）\",\n            \"OutMBytes\":\"下载流量(MB)\",\n            \"onlineTimeStr\":\"上线时间\",\n            \"DurationTimeStr\":\"持续时间\",\n            \"SSID\":\"clientSSID\",\n            \"ApName\":\"ApName\",\n            \"clientVendor\":\"生产厂商\",\n            \"clientVendorEn\":\"生产厂商（英文）\"\n        },\n        {\n            \"devSN\":\"设备号\",\n            \"UserMac\":\"Mac地址\",\n            \"UserIP\":\"IP地址\",\n            \"AuthType\":\"认证类型（数字）\",\n            \"AuthTypeStr\":\"认证类型（字符串）\",\n            \"UserName\":\"用户名\",\n            \"offlineTimeStr\":\"下线时间\",\n            \"InMBytes\":\"上传流量（MB）\",\n            \"OutMBytes\":\"下载流量(MB)\",\n            \"onlineTimeStr\":\"上线时间\",\n            \"DurationTimeStr\":\"持续时间\",\n            \"SSID\":\"clientSSID\",\n            \"ApName\":\"ApName\",\n            \"clientVendor\":\"生产厂商\",\n            \"clientVendorEn\":\"生产厂商（英文）\"\n        }\n    ],\n    \"totalcount\":\"总记录数\"\n}\n",
+      "Error": [
+        {
+          "name": "",
+          "description": ""
+        }
+      ]
+    },
+    {
+      "SubItem": "获取所有设备的统计信息",
+      "ItemName": "portal历史记录查询",
+      "Path": "/portalmonitor/portalhistory/getallportalhistorystatbydevsn",
+      "Method": "Post",
+      "Parameters": [
+        {
+          "name": "page",
+          "description": "Number 要查询的页码，默认为第1页"
+        },
+        {
+          "name": "count",
+          "description": "Number 查询时每页的记录条数，默认为20条"
+        },
+        {
+          "name": "startTime",
+          "description": "String 要求截止的数据记录时间，返回数据是从此时间开始，往后至endTime的数据，由Date.toISOString方法，默认为2016-01-01"
+        },
+        {
+          "name": "endTime",
+          "description": "String 要求截止的数据记录时间，返回数据是从此时间截止，往前至startTime的数据，由Date.toISOString方法，默认为当前时间"
+        }
+      ],
+      "Return": "{\n    \"historyList\":[\n        {\n            \"onlineCount\":\"上下线次数\",\n            \"InBytes\":\"上传流量\",\n            \"OutBytes\":\"下载流量\",\n            \"devSN\":\"设备号\",\n            \"DurationTime\":\"总在线时长\"\n        },\n        {\n            \"onlineCount\":\"上下线次数\",\n            \"InBytes\":\"上传流量\",\n            \"OutBytes\":\"下载流量\",\n            \"devSN\":\"设备号\",\n            \"DurationTime\":\"总在线时长\"\n        }\n    ],\n    \"totalcount\":83\n}\n",
+      "Error": [
+        {
+          "name": "",
+          "description": ""
+        }
+      ]
+    },
+    {
+      "SubItem": "获取单个设备的上下线历史记录统计信息",
+      "ItemName": "portal历史记录查询",
+      "Path": "/portalmonitor/portalhistory/getsingleportalhistorystatbydevsn",
+      "Method": "Post",
+      "Parameters": [
+        {
+          "name": "devSN",
+          "description": "String  要查询设备的历史记录的设备号"
+        },
+        {
+          "name": "startTime",
+          "description": "String 要求截止的数据记录时间，返回数据是从此时间开始，往后至endTime的数据，由Date.toISOString方法，默认为2016-01-01"
+        },
+        {
+          "name": "endTime",
+          "description": "String 要求截止的数据记录时间，返回数据是从此时间截止，往前至startTime的数据，由Date.toISOString方法，默认为当前时间"
+        }
+      ],
+      "Return": "{\n    \"onlineCount\":\"上下线次数\",\n    \"InBytes\":\"上传流量\",\n    \"OutBytes\":\"下载流量\",\n    \"devSN\":\"设备号\",\n    \"DurationTime\":\"总在线时长\"\n}\n",
+      "Error": [
+        {
+          "name": "",
+          "description": ""
+        }
+      ]
+    },
+    {
+      "SubItem": "获取以小时为单位的portal历史记录的统计信息",
+      "ItemName": "portal历史记录查询",
+      "Path": "/portalmonitor/portalhistory/getportalhistoryhourstatlist",
+      "Method": "Post",
+      "Parameters": [
+        {
+          "name": "page",
+          "description": "Number 要查询的页码，默认为第1页"
+        },
+        {
+          "name": "count",
+          "description": "Number 查询时每页的记录条数，默认为20条"
+        },
+        {
+          "name": "startTime",
+          "description": "String 要求截止的数据记录时间，返回数据是从此时间开始，往后至endTime的数据，由Date.toISOString方法，默认为2016-01-01"
+        },
+        {
+          "name": "endTime",
+          "description": "String 要求截止的数据记录时间，返回数据是从此时间截止，往前至startTime的数据，由Date.toISOString方法，默认为当前时间"
+        }
+      ],
+      "Return": "{\n    \"historyList\":[\n        {\n            \"timeStamp\":\"时间\",\n            \"DurationTime\":\"总在线时长\",\n            \"InBytes\":\"上传流量\",\n            \"OutBytes\":\"下载流量\",\n            \"offlineCount\":\"下线设备数量\",\n            \"onlineCount\":\"上线设备数量\"\n        },\n        {\n            \"timeStamp\":\"时间\",\n            \"DurationTime\":\"总在线时长\",\n            \"InBytes\":\"上传流量\",\n            \"OutBytes\":\"下载流量\",\n            \"offlineCount\":\"下线设备数量\",\n            \"onlineCount\":\"上线设备数量\"\n        }\n    ],\n    \"totalcount\":\"总记录条数\"\n}\n",
+      "Error": [
+        {
+          "name": "",
+          "description": ""
+        }
+      ]
+    },
+    {
+      "Error": [
+        {
+          "description": "",
+          "name": ""
+        }
+      ],
+      "Return": "{\n    \"historyList\":[\n        {\n            \"timeStamp\":\"时间\",\n            \"DurationTime\":\"总在线时长\",\n            \"InBytes\":\"上传流量\",\n            \"OutBytes\":\"下载流量\",\n            \"offlineCount\":\"下线设备数量\",\n            \"onlineCount\":\"上线设备数量\"\n        },\n        {\n            \"timeStamp\":\"时间\",\n            \"DurationTime\":\"总在线时长\",\n            \"InBytes\":\"上传流量\",\n            \"OutBytes\":\"下载流量\",\n            \"offlineCount\":\"下线设备数量\",\n            \"onlineCount\":\"上线设备数量\"\n        }\n    ],\n    \"totalcount\":\"总记录条数\"\n}\n",
+      "Parameters": [
+        {
+          "description": "Number 要查询的页码，默认为第1页",
+          "name": "page"
+        },
+        {
+          "description": "Number 查询时每页的记录条数，默认为20条",
+          "name": "count"
+        },
+        {
+          "description": "String 要求截止的数据记录时间，返回数据是从此时间开始，往后至endTime的数据，由Date.toISOString方法，默认为2016-01-01",
+          "name": "startTime"
+        },
+        {
+          "description": "String 要求截止的数据记录时间，返回数据是从此时间截止，往前至startTime的数据，由Date.toISOString方法，默认为当前时间",
+          "name": "endTime"
+        }
+      ],
+      "Method": "Post",
+      "Path": "/portalmonitor/portalhistory/getportalhistorydaystatlist",
+      "ItemName": "portal历史记录查询",
+      "SubItem": "获取以天为单位的portal历史记录的统计信息"
+    },
+    {
+      "Error": [
+        {
+          "description": "",
+          "name": "200成功，404文件未找到"
+        }
+      ],
+      "Return": "{\n    \"返回值\":\"二进制流\"\n}\n",
+      "Parameters": [
+        {
+          "description": "请求路径里的filePath为文件的路径名，及/v3/arb/portalhistory/getfilepath接口所获得的路径",
+          "name": "filePath"
+        }
+      ],
+      "Method": "Get",
+      "Path": "/v3/arb/portalhistory/filedownload/filePath",
+      "ItemName": "portal历史记录查询",
+      "SubItem": "获取要下载的文件"
+    },
+    {
+      "SubItem": "获取要下载的的文件的路径",
+      "ItemName": "portal历史记录查询",
+      "Path": "/v3/arb/portalhistory/getfilepath",
+      "Method": "Post",
+      "Parameters": [
+        {
+          "name": "diffTime",
+          "description": "时间差（单位为秒），默认为一天，即24*3600，大于7*24*3600做一个月对待，介于24*3600-7*24*3600做一个星期对待"
+        },
+        {
+          "name": "devSN",
+          "description": "设备号的数组"
+        },
+        {
+          "name": "userName",
+          "description": "用户名，默认为空"
+        },
+        {
+          "name": "nasid",
+          "description": "场景号，默认为空 ，当场景号、用户名为空时，只能下载单个设备号的历史信息"
+        }
+      ],
+      "Return": "{\n    \"filePath\":\"文件的路径名\",\n    \"retCode\":\"状态码，1代表文件不存在，0代表文件存在并返回文件路径\"\n}\n",
+      "Error": [
+        {
+          "name": "",
+          "description": ""
+        }
+      ]
+    }
+  ],
+  "author": "lkf6741",
+  "description": "",
+  "retcode": 0
+}

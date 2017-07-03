@@ -1,0 +1,305 @@
+{
+  "Name": "cloudapgroup接口文档",
+  "DocIndex": "doc_48850518628023565",
+  "AllItems": [
+    {
+      "SubItem": "添加组",
+      "ItemName": "微服务接口",
+      "Path": "v3/cloudapgroup",
+      "Method": "Post",
+      "Parameters": [
+        {
+          "name": "Method",
+          "description": "setGroupName"
+        },
+        {
+          "name": "query",
+          "description": "{alias:String,parentId:String,userName:String,nasId:String};\n alias: 组名（别名）;\nparentId: 父级组Id;\nuserName: 租户;\nnasId: 场所Id;\n注：新建组时，同步继承父组roleName(顶级组时roleName默认为usrName)"
+        }
+      ],
+      "Return": "{\n    \"message\":\"\",\n    \"retCode\":0\n}\n",
+      "Error": [
+        {
+          "name": "retCode",
+          "description": "0:成功,message:成功建组的具体数据;\n-1:失败,message对应错误提示。"
+        }
+      ]
+    },
+    {
+      "Error": [
+        {
+          "description": "0:成功,message对应具体数据;\n-1:失败,message对应错误提示。",
+          "name": "retCode"
+        }
+      ],
+      "Return": "{\n    \"message\":\"\",\n    \"retCode\":0\n}\n",
+      "Parameters": [
+        {
+          "description": "setApsnData",
+          "name": "Method"
+        },
+        {
+          "description": "groupId:组Id",
+          "name": "query:{groupId:String}"
+        },
+        {
+          "description": "apSN:ac序列号；\nacSN:ac序列号;\n注：后台对apSN/acSN非空校验\n",
+          "name": "data:[{apSN:String,acSN:String},...]"
+        }
+      ],
+      "Method": "Post",
+      "Path": "v3/cloudapgroup",
+      "ItemName": "微服务接口",
+      "SubItem": "ap入组"
+    },
+    {
+      "Error": [
+        {
+          "description": "0:成功,message对应具体数据;\n-1:失败,message对应错误提示。",
+          "name": "retCode"
+        }
+      ],
+      "Return": "{\n    \"message\":\"\",\n    \"retCode\":0\n}\n",
+      "Parameters": [
+        {
+          "description": "setRoleName",
+          "name": "Method"
+        },
+        {
+          "description": "元素为groupId(组Id)",
+          "name": "groupIdList: [String,String,...]"
+        },
+        {
+          "description": "元素为分支管理者（字符串）\n\n注：添加中间组某些权限时，添加该组以及子集对应的权限",
+          "name": "roleName: [String,String,...]"
+        }
+      ],
+      "Method": "Post",
+      "Path": "v3/cloudapgroup",
+      "ItemName": "微服务接口",
+      "SubItem": "设置分支管理者"
+    },
+    {
+      "SubItem": "删除分支管理者",
+      "ItemName": "微服务接口",
+      "Path": "v3/cloudapgroup",
+      "Method": "Post",
+      "Parameters": [
+        {
+          "name": "Method",
+          "description": "delRoleName"
+        },
+        {
+          "name": "groupIdList: [String,String,...]",
+          "description": "元素为groupId（组Id）"
+        },
+        {
+          "name": "roelName: [String,String,...]",
+          "description": "元素为分支管理者（字符串）\n注：删除中间组某些权限时，删除该组以及子集所有对应权限；新增校验父级是否拥有权限，有则返回失败，无则开始删除"
+        }
+      ],
+      "Return": "{\n    \"message\":\"\",\n    \"retCode\":0\n}\n",
+      "Error": [
+        {
+          "name": "retCode",
+          "description": "0:成功,message对应具体数据;\n-1:失败,message对应错误提示。"
+        }
+      ]
+    },
+    {
+      "Error": [
+        {
+          "description": "0:成功,message对应具体数据;\n-1:失败,message对应错误提示。",
+          "name": "retCode"
+        }
+      ],
+      "Return": "{\n    \"message\":{\n        \"gname\":\"总部\",\n        \"groupId\":\"panglidong352331总部\",\n        \"parentId\":\"\",\n        \"topId\":\"panglidong352331总部\",\n        \"roleName\":[\n            \"xiaocai\",\n            \"panglidongTest\"\n        ],\n        \"alias\":\"总部\",\n        \"apSNCount\":6,\n        \"subGroupList\":[\n        ],\n        \"apcount\":6\n    },\n    \"retCode\":0\n}\n",
+      "Parameters": [
+        {
+          "description": "getCloudApgroupNameList",
+          "name": "Method"
+        },
+        {
+          "description": "userName: 租户；\nnasId:场所Id  (基于场所是传入)",
+          "name": "query:{userName:String,nasId:String}"
+        }
+      ],
+      "Method": "Post",
+      "Path": "v3/cloudapgroup",
+      "ItemName": "微服务接口",
+      "SubItem": "获取ap分组（树状结构）"
+    },
+    {
+      "SubItem": "获取组内数据",
+      "ItemName": "微服务接口",
+      "Path": "v3/cloudapgroup",
+      "Method": "Post",
+      "Parameters": [
+        {
+          "name": "Method",
+          "description": "getApgroupData"
+        },
+        {
+          "name": "query:{groupId:String}",
+          "description": "groupId:组Id"
+        }
+      ],
+      "Return": "{\n    \"message\":[\n        {\n            \"apSN\":\"EASYGROUP01_0004\",\n            \"groupId\":\"panglidong352331总部\",\n            \"acSN\":null\n        }\n    ],\n    \"retCode\":0\n}\n",
+      "Error": [
+        {
+          "name": "retCode",
+          "description": "0:成功,message对应具体数据;\n-1:失败,message对应错误提示。"
+        }
+      ]
+    },
+    {
+      "Error": [
+        {
+          "description": "0:成功,message对应具体数据;\n-1:失败,message对应错误提示。",
+          "name": "retCode"
+        }
+      ],
+      "Return": "{\n    \"message\":[\n        {\n            \"apSNList\":[\n                \"EASYGROUP01_0007\",\n                \"EASYGROUP01_0003\",\n                \"EASYGROUP01_0004\"\n            ],\n            \"groupId\":\"panglidong352331总部北京西城\"\n        },\n        {\n            \"apSNList\":[\n                \"EASYGROUP01_0002\",\n                \"EASYGROUP01_0001\"\n            ],\n            \"groupId\":\"panglidong352331总部北京\"\n        }\n    ],\n    \"retCode\":0\n}\n",
+      "Parameters": [
+        {
+          "description": "getApsnList",
+          "name": "Method"
+        },
+        {
+          "description": "topId:顶级组Id,\nmidId:中间组Id(默认获取topId下所有节点数据，midId传入是获取midId下所有节点数据)",
+          "name": "param:{topId:String,midId:String}"
+        }
+      ],
+      "Method": "Post",
+      "Path": "v3/cloudapgroup",
+      "ItemName": "微服务接口",
+      "SubItem": "批量获取数据"
+    },
+    {
+      "SubItem": "修改别名",
+      "ItemName": "微服务接口",
+      "Path": "v3/cloudapgroup",
+      "Method": "Post",
+      "Parameters": [
+        {
+          "name": "Method",
+          "description": "updateAliasName"
+        },
+        {
+          "name": "query:{groupId:String,alias:String}",
+          "description": "groupId:组Id,\nalias:别名"
+        }
+      ],
+      "Return": "{\n    \"message\":\"\",\n    \"retCode\":0\n}\n",
+      "Error": [
+        {
+          "name": "retCode",
+          "description": "0:成功,message对应具体数据;\n-1:失败,message对应错误提示。"
+        }
+      ]
+    },
+    {
+      "Error": [
+        {
+          "description": "0:成功,message对应具体数据;\n-1:失败,message对应错误提示。",
+          "name": "retCode"
+        }
+      ],
+      "Return": "{\n    \"message\":\"\",\n    \"retCode\":0\n}\n",
+      "Parameters": [
+        {
+          "description": "delOneApGroupData",
+          "name": "Method"
+        },
+        {
+          "description": "groupId:组Id",
+          "name": "query:{groupId:String}"
+        },
+        {
+          "description": "data中元素为apSN字符串",
+          "name": "data:[String,String,...]"
+        }
+      ],
+      "Method": "Post",
+      "Path": "v3/cloudapgroup",
+      "ItemName": "微服务接口",
+      "SubItem": "删除某组apSN数据"
+    },
+    {
+      "SubItem": "删除叶子节点数据",
+      "ItemName": "微服务接口",
+      "Path": "v3/cloudapgroup",
+      "Method": "Post",
+      "Parameters": [
+        {
+          "name": "Method",
+          "description": "clearSubAccountApAccess"
+        },
+        {
+          "name": "param:{groupId:String}",
+          "description": "groupId:级组Id:\n只支持删除叶子节点，不是叶子节点则返回报错"
+        }
+      ],
+      "Return": "{\n    \"message\":\"\",\n    \"retCode\":0\n}\n",
+      "Error": [
+        {
+          "name": "retCode",
+          "description": "0:成功,message对应具体数据;\n-1:失败,message对应错误提示。"
+        }
+      ]
+    },
+    {
+      "Error": [
+        {
+          "description": "0:成功,message对应具体数据;\n-1:失败,message对应错误提示。",
+          "name": "retCode"
+        }
+      ],
+      "Return": "{\n    \"message\":[\n        {\n            \"nasId\":\"352331\",\n            \"topId\":\"panglidong352331总部\",\n            \"groupIdList\":[\n                {\n                    \"groupId\":\"panglidong352331总部北京\",\n                    \"alias\":\"北京1\"\n                }\n            ]\n        }\n    ],\n    \"retCode\":0\n}\n",
+      "Parameters": [
+        {
+          "description": "getGroupNameListByRoleName",
+          "name": "Method"
+        },
+        {
+          "description": "userName:租户；\nroleName:分支管理者",
+          "name": "query:{userName:String,roleName:String}"
+        }
+      ],
+      "Method": "Post",
+      "Path": "v3/cloudapgroup",
+      "ItemName": "微服务接口",
+      "SubItem": "通过子账户获取数据"
+    },
+    {
+      "Error": [
+        {
+          "description": "0:成功,message对应具体数据;\n-1:失败,message对应错误提示。",
+          "name": "retCode"
+        }
+      ],
+      "Return": "{\n    \"message\":\"\",\n    \"retCode\":0\n}\n",
+      "Parameters": [
+        {
+          "description": "updateApGroupData",
+          "name": "Method"
+        },
+        {
+          "description": "FromGroupId: 需要导出的组Id,必传；\nToGroupId: 导入的组Id，必传。",
+          "name": "query:{FromGroupId: String, ToGroupId: String}"
+        },
+        {
+          "description": "元素为apSN字符串",
+          "name": "data：[String,String,...]"
+        }
+      ],
+      "Method": "Post",
+      "Path": "v3/cloudapgroup",
+      "ItemName": "微服务接口",
+      "SubItem": "将A组数据导入B组（同一个根下）"
+    }
+  ],
+  "author": "lishi kf7040",
+  "description": "",
+  "retcode": 0
+}

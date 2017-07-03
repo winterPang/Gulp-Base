@@ -1,0 +1,145 @@
+{
+  "Name": "History of  cpu (by time)  and History of  memory(by time)",
+  "DocIndex": "doc_1952872369302341",
+  "AllItems": [
+    {
+      "SubItem": "History of  cpu (by time)",
+      "ItemName": "history infos of ac device--include cpu and memory",
+      "Path": "/devmonitor/gethistcpuratioinfo",
+      "Method": "Get",
+      "Parameters": [
+        {
+          "name": "devSN",
+          "description": "device sequece number"
+        },
+        {
+          "name": "statistic_type",
+          "description": "oneWeek /oneMonth/custom"
+        },
+        {
+          "name": "startTime",
+          "description": "number  is  better,string is not suggested"
+        },
+        {
+          "name": "endTime",
+          "description": "number  is  better,string is not suggested"
+        },
+        {
+          "name": "statistic_type",
+          "description": "oneWeek /oneMonth/custom"
+        },
+        {
+          "name": "startTime",
+          "description": "number  is  better,string is not suggested"
+        },
+        {
+          "name": "endTime",
+          "description": "number  is  better,string is not suggested"
+        },
+        {
+          "name": "statistic_type",
+          "description": "oneWeek /oneMonth/custom"
+        },
+        {
+          "name": "startTime",
+          "description": "number  is  better,string is not suggested"
+        },
+        {
+          "name": "endTime",
+          "description": "number  is  better,string is not suggested"
+        }
+      ],
+      "Return": "{\n    \"url\":\"devmonitor\",\n    \"dataList\":[\n        {\n            \"recordDate\":\"2017/01/06\",\n            \"highestCpuRatio\":19,\n            \"highestTime\":\"2017-01-06T11:29:17.045Z\",\n            \"lowestCpuRatio\":0,\n            \"lowestTime\":\"2017-01-06T11:09:15.886Z\"\n        }\n    ]\n}\n",
+      "Error": [
+        {
+          "name": "\"errCode\":0,",
+          "description": "no error ----- 0        \nerror  ------1   if error  there is an error info"
+        }
+      ]
+    },
+    {
+      "Error": [
+        {
+          "description": "no error ----- 0        \nerror  ------1   if error  there is an error info",
+          "name": "\"errCode\":0,"
+        }
+      ],
+      "Return": "{\n    \"url\":\"devmonitor\",\n    \"dataList\":[\n        {\n            \"recordDate\":\"2017/01/04\",\n            \"highestMemoryRatio\":40,\n            \"highestTime\":\"2017-01-03T16:00:05.596Z\",\n            \"lowestTime\":\"2017-01-03T16:00:05.596Z\",\n            \"lowestMemoryRatio\":40\n        }\n    ]\n}\n",
+      "Parameters": [
+        {
+          "description": "device sequece number",
+          "name": "devSN"
+        },
+        {
+          "description": "oneWeek /oneMonth/custom",
+          "name": "statistic_type"
+        },
+        {
+          "description": "number  is  better,string is not suggested",
+          "name": "startTime"
+        },
+        {
+          "description": "number  is  better,string is not suggested",
+          "name": "endTime"
+        },
+        {
+          "description": "oneWeek /oneMonth/custom",
+          "name": "statistic_type"
+        },
+        {
+          "description": "number  is  better,string is not suggested",
+          "name": "startTime"
+        },
+        {
+          "description": "number  is  better,string is not suggested",
+          "name": "endTime"
+        }
+      ],
+      "Method": "Get",
+      "Path": "/devmonitor/gethistmemoryratioinfo",
+      "ItemName": "history infos of ac device--include cpu and memory",
+      "SubItem": "History of  memory(by time)"
+    },
+    {
+      "SubItem": "cpu info history by hour",
+      "ItemName": "history infos of ac device--include cpu and memory",
+      "Path": "/devmonitor/gethistmemoryratioinfo",
+      "Method": "Get",
+      "Parameters": [
+        {
+          "name": "as above",
+          "description": "as above "
+        }
+      ],
+      "Return": "",
+      "Error": [
+        {
+          "name": "",
+          "description": ""
+        }
+      ]
+    },
+    {
+      "Error": [
+        {
+          "description": "",
+          "name": ""
+        }
+      ],
+      "Return": "",
+      "Parameters": [
+        {
+          "description": "",
+          "name": ""
+        }
+      ],
+      "Method": "Get",
+      "Path": "/devmonitor/gethistmemoryratioinfobyhour",
+      "ItemName": "history infos of ac device--include cpu and memory",
+      "SubItem": "memory info by hour"
+    }
+  ],
+  "author": "qkf7000",
+  "description": "as  u  can c\naddtion:if u find these  highestTime and lowestTime is equal,don't  worry,it means this device's cpuratio and memory ratio hasn' changed on that day(i mean all day).If equal ,this time is first gram form device.",
+  "retcode": 0
+}

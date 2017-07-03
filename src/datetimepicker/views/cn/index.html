@@ -1,0 +1,71 @@
+<div class="input">
+    <header class="content-header">
+        <h1>Datetimepicker组件</h1>
+        <p>Desc: 绿洲OASIS提供一套基于绿洲的表单组件</p>
+        <p>Author: <a href="mailto:KF.zhangfuqiang@h3c.com">KF.zhangfuqiang@h3c.com</a></p>
+        <!--<p>Published: 2017/06/09</p>-->
+    </header>
+    <oasis-row>
+        <oasis-col md=12>
+            <oasis-box>
+                <oasis-box-header>
+                    <span class="title">Example</span>
+                </oasis-box-header>
+                <oasis-box-body height-auto ng-init="date='2017-06-08 06:30'">
+                    <button class="btn btn-default" ng-click="dis=!dis">disable</button>
+                    <oasis-datetime os-label="开始时间" os-model="date" os-disabled="dis" placeholder="请选择时间"></oasis-datetime>{{date}}
+                </oasis-box-body>
+                <oasis-box-footer>
+                    <div class="code-change">
+                        <div ng-show="!codeShow" ng-click="codeShow=!codeShow">
+                            <i class="glyphicon glyphicon-menu-down"></i>
+                            <span>显示代码</span>
+                        </div>
+                        <div ng-show="codeShow" ng-click="codeShow=!codeShow">
+                            <i class="glyphicon glyphicon-menu-up"></i>
+                            <span>隐藏代码</span>
+                        </div>
+                    </div>
+                    <div ng-show="codeShow" class="code-content">
+                        <oasis-col md=12>
+                            <pre>&lt;oasis-datetime os-label="开始时间" os-model="date" os-disabled="dis" placeholder="请选择时间"&gt;&lt;/oasis-datetime&gt;{{date}}</pre>
+                            <button class="copy-btn" onclick="if(copyToClipboard($(this).parent()[0])){alert('复制成功')}else{alert('复制失败')}">copy
+                            </button>
+                        </oasis-col>
+                    </div>
+                </oasis-box-footer>
+            </oasis-box>
+        </oasis-col>
+    </oasis-row>
+    <oasis-row>
+        <oasis-col md=12>
+            <oasis-box>
+                <oasis-box-header>
+                    <span class="title">属性配置 (<small>请关注着色的样式,开发的时候请看完配置，否则会导致自己实现组件的功能</small>)</span>
+                </oasis-box-header>
+                <oasis-box-body height-auto>
+                    <table class="table doc-table">
+                        <thead>
+                            <tr class="active">
+                                <th width="150px">属性</th>
+                                <th width="100px">类型</th>
+                                <th width="100px">可选值</th>
+                                <th width="150px">默认值</th>
+                                <th>说明</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="prop in props" ng-class="{info:prop.important}">
+                                <td>{{prop.name}}</td>
+                                <td>{{prop.type}}</td>
+                                <td>{{prop.values || '---'}}</td>
+                                <td style="color:blue">{{prop.def===undefined ?'---':prop.def}}</td>
+                                <td>{{prop.desc || '---'}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </oasis-box-body>
+            </oasis-box>
+        </oasis-col>
+    </oasis-row>
+</div>

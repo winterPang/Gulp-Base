@@ -1,0 +1,1047 @@
+{
+  "Name": "apmonitor微服务接口文档",
+  "DocIndex": "doc_15196074615232646",
+  "AllItems": [
+    {
+      "Error": [
+        {
+          "description": "",
+          "name": ""
+        }
+      ],
+      "Return": "{\n    \"count_left\":\"int,剩余数量\",\n    \"count_total\":\"int,总数\",\n    \"apList\":[\n        {\n            \"macAddr\":\"string,AP MAC\",\n            \"apName\":\"string,AP名称\",\n            \"apSN\":\"string,AP序列号\",\n            \"status\":\"int,ap状态,1-在线,2-离线,3-版本下载\",\n            \"apModel\":\"string,ap型号\",\n            \"radioNum\":\"int,radio 数\",\n            \"ipv4Addr\":\"string,AP IPv4地址\",\n            \"ipv6Addr\":\"string,AP IPv6地址\",\n            \"softVersion\":\"string,版本号\",\n            \"apType\":\"int,0-手工，1-自动\",\n            \"apAuthState\":\"int,0-未认证,1-认证OK,2-认证failed\",\n            \"apGroupName\":\"string,组名\",\n            \"timeStamp\":\"int,时戳\",\n            \"transmitTraffic\":\"double,上行流量\",\n            \"receiveTraffic\":\"double;下行流量\",\n            \"transmitRate\":\"int,上行速率\",\n            \"receiveRate\":\"int,下行速率\",\n            \"cpuRatio\":\"int,cp占有率\",\n            \"memoryRatio\":\"int,内存占有率\",\n            \"onlineTime\":\"date,在线时长(s)\",\n            \"packLostRatio\":\"int,包丢失率\",\n            \"uniqueKey\":\"string,约束键\",\n            \"branchName\":\"string,所属分支\",\n            \"client5GNum\":\"int,5G客户端数量\",\n            \"client24GNum\":\"int,2.4G客户端数量\",\n            \"radioList\":[\n                {\n                    \"radioId\":\"int\",\n                    \"radioMode\":\"string,radio物理模式，5G、2.4G\",\n                    \"radioStatus\":\"int,radio状态：1-开启，0-关闭\",\n                    \"radioChannel\":\"int,radio信道\",\n                    \"radioPower\":\"int,radio功率\"\n                }\n            ]\n        }\n    ]\n}\n",
+      "Parameters": [
+        {
+          "description": "“设备序列号“",
+          "name": "devSN"
+        },
+        {
+          "description": "“跳过数目“",
+          "name": "skipnum"
+        },
+        {
+          "description": "“显示数目“",
+          "name": "limitnum"
+        },
+        {
+          "description": "{\n    findoption:\"查找条件，JSON格式，以ap信息字段为查找条件（JSON格式，模糊匹配）,如{macAddr:”aa”,ipv4Addr:”192”}注意：1.数值类型的字段只支持精确匹配\",\n    sortoption:\"排序条件，JSON格式，排序关键字，以ap信息字段，值为1（表示升序，值为-1表示降序）如：以mac地址为升序：{macAddr:1}\"\n}",
+          "name": "body"
+        },
+        {
+          "description": "\"分支名称（可选字段，根据该字段做分支过滤）\"",
+          "name": "branch"
+        }
+      ],
+      "Method": "Post",
+      "Path": "/apmonitor/app/aplist_page或/apmonitor/getaplist_page",
+      "ItemName": "按条件分批获取ap列表",
+      "SubItem": "按条件分批获取ap列表"
+    },
+    {
+      "Error": [
+        {
+          "description": "",
+          "name": ""
+        }
+      ],
+      "Return": "{\n    \"apList\":[\n        {\n            \"ApGroupName\":\"string,AP组名\",\n            \"Description\":\"string,AP组描述\",\n            \"ApCount\":\"int,AP数量\"\n        }\n    ]\n}\n",
+      "Parameters": [
+        {
+          "description": "“设备序列号”",
+          "name": "devSN"
+        },
+        {
+          "description": "\"分支名称（可选字段，做分支过滤用）\"",
+          "name": "branch"
+        }
+      ],
+      "Method": "Get",
+      "Path": "/apmonitor/getApCountAndDescByGroup",
+      "ItemName": "获取AP组名、描述及其组下AP数量",
+      "SubItem": "获取AP组名、描述及其组下AP数量"
+    },
+    {
+      "SubItem": "按条件分批获取相应组下AP信息及不在该组下的AP信息",
+      "ItemName": "按条件分批获取相应组下AP信息及不在该组下的AP信息",
+      "Path": "/apmonitor/aplistbygroup",
+      "Method": "Post",
+      "Parameters": [
+        {
+          "name": "devSN",
+          "description": "“设备序列号”"
+        },
+        {
+          "name": "skipnum",
+          "description": "“跳过数目”"
+        },
+        {
+          "name": "limitnum",
+          "description": "“显示数目”"
+        },
+        {
+          "name": "apGroupName",
+          "description": "“AP组名”"
+        },
+        {
+          "name": "body",
+          "description": "{\n    findoption:{\n        \"findOptInGrp\":\"查找条件，JSON格式，以apName、apSN、apModel、macAddr为查找条件（JSON格式，模糊匹配）,如{macAddr:”aa”,apName:”ap”},\n        \"findOptOutGrp\":\"同上\"\n    }\n    sortoption:{\n        \"sortOptInGrp\":\"排序条件，JSON格式，排序关键字，以apName、apSN、apModel、macAddr字段，值为1（表示升序，值为-1表示降序）如：以apName为升序：{apName:1}\",\n        \"sortOptOutGrp\":\"同上\"\n    }\n}"
+        }
+      ],
+      "Return": "{\n    \"totalCntInGrp\":\"int,在该组的AP总数\",\n    \"leftCntInGrp\":\"int,在该组的剩余AP总数\",\n    \"totalCntOutGrp\":\"int,不在该组的AP总数\",\n    \"leftCntOutGrp\":\"int,不在该组的剩余AP总数\",\n    \"apList\":[\n        {\n            \"apName\":\"string,AP名称\",\n            \"apSN\":\"string,AP序列号\",\n            \"apModel\":\"string,AP型号\",\n            \"macAddr\":\"string,MAC地址\"\n        }\n    ],\n    \"leftApList\":[\n        {\n            \"apName\":\"string,AP名称\",\n            \"apSN\":\"string,AP序列号\",\n            \"apModel\":\"string,AP型号\",\n            \"macAddr\":\"string,MAC地址\"\n        }\n    ]\n}\n",
+      "Error": [
+        {
+          "name": "",
+          "description": ""
+        }
+      ]
+    },
+    {
+      "SubItem": "根据AP型号获取该型号的在线AP数量",
+      "ItemName": "根据AP型号获取该型号的在线AP数量",
+      "Path": "/apmonitor/getOnlineApCountByModel",
+      "Method": "Get",
+      "Parameters": [
+        {
+          "name": "devSN",
+          "description": "“设备序列号“"
+        }
+      ],
+      "Return": "{\n    \"apList\":[\n        {\n            \"ApModel\":\"string,AP型号\",\n            \"ApCount\":\"int,AP数量\"\n        }\n    ]\n}\n",
+      "Error": [
+        {
+          "name": "",
+          "description": ""
+        }
+      ]
+    },
+    {
+      "Error": [
+        {
+          "description": "",
+          "name": ""
+        }
+      ],
+      "Return": "{\n    \"apList\":[\n        {\n            \"ApModel\":\"string,AP型号\",\n            \"ApCount\":\"int,AP数量\"\n        }\n    ]\n}\n",
+      "Parameters": [
+        {
+          "description": "“设备序列号”",
+          "name": "devSN"
+        }
+      ],
+      "Method": "Get",
+      "Path": "/apmonitor/getOfflineApCountByModel",
+      "ItemName": "根据AP型号获取该型号的离线AP数量",
+      "SubItem": "根据AP型号获取该型号的离线AP数量"
+    },
+    {
+      "SubItem": "获取分支列表",
+      "ItemName": "获取分支列表",
+      "Path": "/apmonitor/getBranchList",
+      "Method": "Get",
+      "Parameters": [
+        {
+          "name": "devSN",
+          "description": "\"xxx\"，String，设备序列号"
+        },
+        {
+          "name": "branch",
+          "description": "“xxx”，String，分支名称（可选字段，做分支过滤用）"
+        }
+      ],
+      "Return": "{\n    \"branchList\":[\n        {\n            \"branchName\":\"String\",\n            \"location\":\"String,区域名称\",\n            \"branchType\":\"Number\",\n            \"managePermmit\":\"Number(0---无本地管理权限，1---有本地管理权限)\",\n            \"localACCount\":\"Number\",\n            \"apGroupCount\":\"Number\",\n            \"apCount\":\"Number\",\n            \"clientCount\":\"Number\"\n        }\n    ]\n}\n",
+      "Error": [
+        {
+          "name": "",
+          "description": ""
+        }
+      ]
+    },
+    {
+      "Error": [
+        {
+          "description": "",
+          "name": ""
+        }
+      ],
+      "Return": "{\n    \"localACList\":[\n        {\n            \"localACSN\":\"String\",\n            \"localACType\":\"Number\",\n            \"localACModel\":\"String\",\n            \"bootVersion\":\"String\",\n            \"softVersion\":\"String\"\n        }\n    ]\n}\n",
+      "Parameters": [
+        {
+          "description": "\"xxx\"，String，设备序列号",
+          "name": "devSN"
+        },
+        {
+          "description": "“xxx”，String，分支名称",
+          "name": "branchName"
+        }
+      ],
+      "Method": "Get",
+      "Path": "/apmonitor/getLocalACListByBranch",
+      "ItemName": "根据分支名获取本地AC列表",
+      "SubItem": "根据分支名获取本地AC列表"
+    },
+    {
+      "Error": [
+        {
+          "description": "",
+          "name": ""
+        }
+      ],
+      "Return": "{\n    \"totalCount\":\"Number,AP组总数\",\n    \"leftCount\":\"Number,剩余数量\",\n    \"apGroupInfoList\":[\n        {\n            \"apGroupName\":\"String,AP组名\",\n            \"description\":\"String,AP组描述\",\n            \"totalApCnt\":\"Number,AP总数\",\n            \"onlineApCnt\":\"Number,在线AP数量\"\n        }\n    ]\n}\n",
+      "Parameters": [
+        {
+          "description": "\"xxx\"，String，设备序列号",
+          "name": "devSN"
+        },
+        {
+          "description": "“xxx”，String，分支名称",
+          "name": "branchName"
+        },
+        {
+          "description": "Number，跳过数目",
+          "name": "skipnum"
+        },
+        {
+          "description": "Number，显示数目",
+          "name": "limitnum"
+        },
+        {
+          "description": "{\n    findoption:\"查找条件，JSON格式，以apGroupName、description、totalApCnt、onlineApCnt字段为查找条件（JSON格式，模糊匹配）,如{apGroupName:”aa”},\n    sortoption:\"排序条件，JSON格式，排序关键字，以apGroupName、description、totalApCnt、onlineApCnt字段，值为1（表示升序，值为-1表示降序）如：以apGroupName为升序：{apGroupName:1}”\n}",
+          "name": "body"
+        }
+      ],
+      "Method": "Post",
+      "Path": "/apmonitor/getApGroupInfoByBranch",
+      "ItemName": "根据分支名分批获取AP组名、描述及其组下在线AP数量",
+      "SubItem": "根据分支名分批获取AP组名、描述及其组下在线AP数量"
+    },
+    {
+      "SubItem": "根据分支名按条件分批获取ap信息",
+      "ItemName": "根据分支名按条件分批获取ap信息",
+      "Path": "/apmonitor/getApListPageByBranch",
+      "Method": "Post",
+      "Parameters": [
+        {
+          "name": "devSN",
+          "description": "\"xxx\"，String，设备序列号"
+        },
+        {
+          "name": "branchName",
+          "description": "“xxx“，String，分支名称"
+        },
+        {
+          "name": "skipnum",
+          "description": "Number，跳过数目"
+        },
+        {
+          "name": "limitnum",
+          "description": "Number，显示数目"
+        },
+        {
+          "name": "body",
+          "description": "{\n    findoption:\"查找条件，JSON格式，以ap名、ap序列号、mac，clientCount为查找条件（JSON格式，模糊匹配）,如{macAddr:”aa”},\n    sortoption:\"排序条件，JSON格式，排序关键字，以ap名、ap序列号、mac,clientCount字段,值为1（表示升序，值为-1表示降序）如：以ap名为升序：{apName:1}”\n}"
+        }
+      ],
+      "Return": "{\n    \"totalCount\":\"Number,AP总数\",\n    \"leftCount\":\"Number,剩余数量\",\n    \"apList\":[\n        {\n            \"apName\":\"String,AP名\",\n            \"apSN\":\"String\",\n            \"macAddr\":\"String,MAC地址\",\n            \"clientCount\":\"Number,客户端数量\"\n        }\n    ]\n}\n",
+      "Error": [
+        {
+          "name": "",
+          "description": ""
+        }
+      ]
+    },
+    {
+      "SubItem": "获取分支总数",
+      "ItemName": "获取分支总数",
+      "Path": "/apmonitor/getBranchCount",
+      "Method": "Get",
+      "Parameters": [
+        {
+          "name": "devSN",
+          "description": "\"xxx\"，String，设备序列号"
+        }
+      ],
+      "Return": "{\n    \"branchCount\":\"Number,分支总数\"\n}\n",
+      "Error": [
+        {
+          "name": "",
+          "description": ""
+        }
+      ]
+    },
+    {
+      "SubItem": "获取本地有AC分支总数",
+      "ItemName": "获取本地有AC分支总数",
+      "Path": "/apmonitor/getLocalACBranchCount",
+      "Method": "Get",
+      "Parameters": [
+        {
+          "name": "devSN",
+          "description": "\"xxx\"，String，设备序列号"
+        }
+      ],
+      "Return": "{\n    \"count\":\"Number,本地有AC分支总数\"\n}\n",
+      "Error": [
+        {
+          "name": "",
+          "description": ""
+        }
+      ]
+    },
+    {
+      "Error": [
+        {
+          "description": "",
+          "name": ""
+        }
+      ],
+      "Return": "{\n    \"totalCount\":\"Number,本地AC总数\",\n    \"leftCount\":\"Number,剩余数量\",\n    \"localACList\":[\n        {\n            \"localACName\":\"String,本地AC名称\",\n            \"localACSN\":\"String,本地AC序列号\",\n            \"branch\":\"String,所属分支\"\n        }\n    ]\n}\n",
+      "Parameters": [
+        {
+          "description": "\"xxx\"，String，设备序列号",
+          "name": "devSN"
+        },
+        {
+          "description": "Number，跳过数目",
+          "name": "skipnum"
+        },
+        {
+          "description": "Number，显示数目",
+          "name": "limitnum"
+        },
+        {
+          "description": "{\n    findoption:\"查找条件，JSON格式，以localACName、localACSN、branch字段为查找条件（JSON格式，模糊匹配）,如{localACName:”aa”},\n    sortoption:\"排序条件，JSON格式，排序关键字，以localACName、localACSN、branch字段，值为1（表示升序，值为-1表示降序）如：以localACName为升序：{localACName:1}”\n}",
+          "name": "body"
+        }
+      ],
+      "Method": "Post",
+      "Path": "/apmonitor/getLocalACDesBranch",
+      "ItemName": "分批获取本地在线AC名称、序列号及其所属分支",
+      "SubItem": "分批获取本地在线AC名称、序列号及其所属分支"
+    },
+    {
+      "SubItem": "分批获取AP组名称、描述及其所属分支",
+      "ItemName": "分批获取AP组名称、描述及其所属分支",
+      "Path": "/apmonitor/getApGrpDesBranch",
+      "Method": "Post",
+      "Parameters": [
+        {
+          "name": "devSN",
+          "description": "\"xxx\"，String，设备序列号"
+        },
+        {
+          "name": "skipnum",
+          "description": "Number，跳过数目"
+        },
+        {
+          "name": "limitnum",
+          "description": "Number，显示数目"
+        },
+        {
+          "name": "body",
+          "description": "{\n    findoption:\"查找条件，JSON格式，以apGroupName、description、branch字段为查找条件（JSON格式，模糊匹配）,如{apGroupName:”aa”},\n    sortoption:\"排序条件，JSON格式，排序关键字，以apGroupName、description、branch字段，值为1（表示升序，值为-1表示降序）如：以apGroupName为升序：{apGroupName:1}”\n}"
+        }
+      ],
+      "Return": "{\n    \"totalCount\":\"Number,AP组总数\",\n    \"leftCount\":\"Number,剩余数量\",\n    \"apGroupList\":[\n        {\n            \"apGroupName\":\"String,AP组名称\",\n            \"description\":\"String,AP组描述\",\n            \"branch\":\"String,所属分支\"\n        }\n    ]\n}\n",
+      "Error": [
+        {
+          "name": "",
+          "description": ""
+        }
+      ]
+    },
+    {
+      "Error": [
+        {
+          "description": "",
+          "name": ""
+        }
+      ],
+      "Return": "{\n    \"branchName\":\"String,分支名称\",\n    \"location\":\"String,区域名称\",\n    \"branchType\":\"Number,分支类型,0-本地无AC，1-本地有AC，2-本地有AC且有独立无线服务\",\n    \"localAcSN\":\"String,本地AC序列号\",\n    \"localACName\":\"String,本地AC名称\",\n    \"wlanIdNum\":\"Number,无线服务数量\",\n    \"apGroupList\":[\n        {\n            \"apGroupName\":\"String,AP组名称\",\n            \"description\":\"String,AP组描述\"\n        }\n    ]\n}\n",
+      "Parameters": [
+        {
+          "description": "\"xxx\"，String，设备序列号",
+          "name": "devSN"
+        },
+        {
+          "description": "”xxx“，String，分支名称",
+          "name": "branchName"
+        }
+      ],
+      "Method": "Get",
+      "Path": "/apmonitor/getBranchInfoByBranch",
+      "ItemName": "根据分支名获取分支信息",
+      "SubItem": "根据分支名获取分支信息"
+    },
+    {
+      "SubItem": "根据AP型号按条件分批获取ap信息",
+      "ItemName": "根据AP型号按条件分批获取ap信息",
+      "Path": "/apmonitor/getApListPageByModel",
+      "Method": "Post",
+      "Parameters": [
+        {
+          "name": "devSN",
+          "description": "\"xxx\"，String，设备序列号"
+        },
+        {
+          "name": "skipnum",
+          "description": "Number，跳过数目"
+        },
+        {
+          "name": "limitnum",
+          "description": "Number，显示数目"
+        },
+        {
+          "name": "body",
+          "description": "{\n    findoption:\"查找条件，JSON格式，以ap名、ap型号、ap序列号、mac地址字段为查找条件（JSON格式，模糊匹配）,如{macAddr:”aa”}\",\n    sortoption:\"排序条件，JSON格式，排序关键字，以ap名、ap型号、ap序列号、mac地址字段，如：以mac地址升序（1为升序，-1为降序）：{macAddr：1}\",\n    apModelList:[{\n    apModel:\"xxx\"，String，AP型号\n    }]\n}"
+        }
+      ],
+      "Return": "{\n    \"totalCount\":\"Number,AP总数\",\n    \"leftCount\":\"Number,剩余AP数\",\n    \"apList\":[\n        {\n            \"apName\":\"String,AP名称\",\n            \"apSN\":\"String,AP序列号\",\n            \"apModel\":\"String,AP型号\",\n            \"macAddr\":\"String,MAC地址\"\n        }\n    ]\n}\n",
+      "Error": [
+        {
+          "name": "",
+          "description": ""
+        }
+      ]
+    },
+    {
+      "SubItem": "根据AP型号获取该型号在线AP数和离线AP数",
+      "ItemName": "根据AP型号获取该型号在线AP数和离线AP数",
+      "Path": "/apmonitor/getApCountByModel",
+      "Method": "Get",
+      "Parameters": [
+        {
+          "name": "devSN",
+          "description": "“xxx”，String，设备序列号"
+        },
+        {
+          "name": "branch",
+          "description": "“xxx”，String，分支名称（可选字段，做分支过滤用）"
+        }
+      ],
+      "Return": "{\n    \"apList\":[\n        {\n            \"ApModel\":\"string,AP型号\",\n            \"ApCount\":\"Number,AP总数\",\n            \"OnlineApCount\":\"Number,在线AP数量\",\n            \"OfflineApCount\":\"Number,离线AP数量\"\n        }\n    ]\n}\n",
+      "Error": [
+        {
+          "name": "",
+          "description": ""
+        }
+      ]
+    },
+    {
+      "SubItem": "根据状态获取AP数目",
+      "ItemName": "根据状态获取AP数目",
+      "Path": "/apmonitor/getApCountByStatus",
+      "Method": "Get",
+      "Parameters": [
+        {
+          "name": "devSN",
+          "description": "\"xxx\"，String，设备序列号"
+        },
+        {
+          "name": "branch",
+          "description": "“xxx”，String，分支名称（可选字段，做分支过滤用）"
+        }
+      ],
+      "Return": "{\n    \"ap_statistic\":{\n        \"online\":\"Number\",<code>//在线AP数</code>\n        \"offline\":\"Number\",<code>//离线AP数</code>\n        \"other\":\"Number\"<code>//不健康AP数</code>\n    }\n}\n",
+      "Error": [
+        {
+          "name": "",
+          "description": ""
+        }
+      ]
+    },
+    {
+      "Error": [
+        {
+          "description": "",
+          "name": ""
+        }
+      ],
+      "Return": "{\n    \"apList\":[\n        {\n            \"CreateMethod\":\"Number\",<code>//1-在线的手工ap，2-自动ap，3-离线的手工ap，4-未认证ap</code>\n            \"ApCount\":\"Number\"<code>//AP个数</code>\n        }\n    ]\n}\n",
+      "Parameters": [
+        {
+          "description": "\"xxx\"，String，设备序列号",
+          "name": "devSN"
+        },
+        {
+          "description": "“xxx”，String，分支名称（可选字段，做分支过滤用）",
+          "name": "branch"
+        }
+      ],
+      "Method": "Get",
+      "Path": "/apmonitor/getApCountByMethod",
+      "ItemName": "根据创建ap的方式获取AP数目",
+      "SubItem": "根据创建ap的方式获取AP数目"
+    },
+    {
+      "SubItem": "获取本地管理分支总数",
+      "ItemName": "获取本地管理分支总数",
+      "Path": "/apmonitor/getLocalManageBranchCount",
+      "Method": "Get",
+      "Parameters": [
+        {
+          "name": "devSN",
+          "description": "“xxx”，String，设备序列号"
+        }
+      ],
+      "Return": "{\n    \"localManageCnt\":\"Number，本地管理分支总数\"\n}\n",
+      "Error": [
+        {
+          "name": "",
+          "description": ""
+        }
+      ]
+    },
+    {
+      "Error": [
+        {
+          "description": "",
+          "name": ""
+        }
+      ],
+      "Return": "{\n    \"retCode\":\"Number，0-成功,1-失败\",\n    \"filename\":\"String\",<code>//文件名</code>\n    \"fileName\":\"String\"<code>//完整路径文件名</code>\n}\n",
+      "Parameters": [
+        {
+          "description": "{\n    devSN:\"xxx\"，String，设备序列号,\n    branch:\"xxx\"，String，分支名称（可选字段，可传可不传，做分支过滤用，若字段为“”也表示不过滤）\n}",
+          "name": "body"
+        }
+      ],
+      "Method": "Post",
+      "Path": "/fs/exportApsList",
+      "ItemName": "导出AP详细列表",
+      "SubItem": "导出AP详细列表"
+    },
+    {
+      "SubItem": "导出本地AC详细列表",
+      "ItemName": "导出本地AC详细列表",
+      "Path": "/fs/exportLocalACsList",
+      "Method": "Post",
+      "Parameters": [
+        {
+          "name": "body",
+          "description": "{\n    devSN:\"xxx\", String, 设备序列号\n}"
+        }
+      ],
+      "Return": "{\n    \"retCode\":\"Number，0-成功,1-失败\",\n    \"filename\":\"String\",<code>//文件名</code>\n    \"fileName\":\"String\"<code>//完整路径文件名</code>\n}\n",
+      "Error": [
+        {
+          "name": "",
+          "description": ""
+        }
+      ]
+    },
+    {
+      "SubItem": "按条件分批获取本地AC列表",
+      "ItemName": "按条件分批获取本地AC列表",
+      "Path": "/apmonitor/getLocalACList",
+      "Method": "Post",
+      "Parameters": [
+        {
+          "name": "devSN",
+          "description": "“设备序列号“"
+        },
+        {
+          "name": "skipnum",
+          "description": "Number，跳过数目"
+        },
+        {
+          "name": "limitnum",
+          "description": "Number，显示数目"
+        },
+        {
+          "name": "body",
+          "description": "{\n    findoption:\"查找条件，JSON格式，以本地AC信息字段为查找条件（JSON格式，模糊匹配）,如{localACName:”aa”},\n    sortoption:\"排序条件，JSON格式，排序关键字，以本地AC信息字段排序，值为1（表示升序，值为-1表示降序）如：以本地AC名为升序：{localACName:1}”\n}"
+        }
+      ],
+      "Return": "{\n    \"totalCount\":\"Number,本地AC总数\",\n    \"leftCount\":\"Number,剩余数量\",\n    \"localACList\":[\n        {\n            \"localACName\":\"String,本地AC名称\",\n            \"localACSN\":\"String,本地AC序列号\",\n            \"localACModel\":\"String,本地AC型号\",\n            \"macAddr\":\"String,mac地址\",\n            \"status\":\"Number,本地AC状态,1-在线,2-离线,3-版本下载\",\n            \"ipv4Addr\":\"String,本地ACIPV4地址\",\n            \"ipv6Addr\":\"String,本地ACIPV6地址\",\n            \"controlIpv4Addr\":\"String,AP依附ACIPV4地址\",\n            \"controlIpv6Addr\":\"String,AP依附ACIPV6地址\",\n            \"location\":\"String,归属地，可能是未知的\",\n            \"cntAPCount\":\"Number,关联AP数量\",\n            \"onlineTime\":\"Number,在线时长\",\n            \"runTime\":\"Number,本地AC设备运行时长\",\n            \"bootVersion\":\"Number,boot版本号\",\n            \"softVersion\":\"Number,版本号\"\n        }\n    ]\n}\n",
+      "Error": [
+        {
+          "name": "",
+          "description": ""
+        }
+      ]
+    },
+    {
+      "SubItem": "根据特定的某个创建AP的方式按条件分批获取AP详细信息",
+      "ItemName": "根据特定的某个创建AP的方式按条件分批获取AP详细信息",
+      "Path": "/apmonitor/getApCountByMethodForApList",
+      "Method": "Post",
+      "Parameters": [
+        {
+          "name": "devSN",
+          "description": "\"xxx\"，String，设备序列号"
+        },
+        {
+          "name": "branch",
+          "description": "“xxx”，分支名称（可选字段，做分支过滤用）"
+        },
+        {
+          "name": "limitnum",
+          "description": "Number，显示数目"
+        },
+        {
+          "name": "skipnum",
+          "description": "Number，跳过数目"
+        },
+        {
+          "name": "CreateMethod",
+          "description": "Number,1-在线的手工ap，2-自动ap，3-离线的手工ap，4-未认证ap"
+        },
+        {
+          "name": "body",
+          "description": "{\n    findoption:\"查找条件，JSON格式，以ap信息字段为查找条件（JSON格式，模糊匹配）,如{macAddr:”aa”,ipv4Addr:”192”}注意：1.数值类型的字段只支持精确匹配\",\n    sortoption:\"排序条件，JSON格式，排序关键字，以ap信息字段，值为1（表示升序，值为-1表示降序）如：以mac地址为升序：{macAddr:1}\"\n}"
+        }
+      ],
+      "Return": "{\n    \"totalCount\":\"int,总数\",\n    \"leftCount\":\"int,剩余数量\",\n    \"CreateMethod\":\"Number,1-在线的手工ap，2-自动ap，3-离线的手工ap，4-未认证ap\",\n    \"apList\":[\n        {\n            \"macAddr\":\"string,AP MAC\",\n            \"apName\":\"string,AP名称\",\n            \"status\":\"int,ap状态,1-在线,2-离线,3-版本下载\",\n            \"apModel\":\"string,ap型号\",\n            \"radioNum\":\"int,radio 数\",\n            \"ipv4Addr\":\"string,AP IPv4地址\",\n            \"ipv6Addr\":\"string,AP IPv6地址\",\n            \"softVersion\":\"string,版本号\",\n            \"apType\":\"int,0-手工，1-自动\",\n            \"apAuthState\":\"int,0-未认证,1-认证OK,2-认证failed\",\n            \"apGroupName\":\"string,组名\",\n            \"timeStamp\":\"int,时戳\",\n            \"transmitTraffic\":\"double,上行流量\",\n            \"receiveTraffic\":\"double;下行流量\",\n            \"transmitRate\":\"int,上行速率\",\n            \"receiveRate\":\"int,下行速率\",\n            \"cpuRatio\":\"int,cp占有率\",\n            \"memoryRatio\":\"int,内存占有率\",\n            \"onlineTime\":\"date,在线时长(s)\",\n            \"packLostRatio\":\"int,包丢失率\",\n            \"uniqueKey\":\"string,约束键\",\n            \"radioList\":[\n                {\n                    \"radioId\":\"int\",\n                    \"radioMode\":\"string,radio物理模式，5G、2.4G\",\n                    \"radioStatus\":\"int,radio状态：1-开启，0-关闭\",\n                    \"radioChannel\":\"int,radio信道\",\n                    \"radioPower\":\"int,radio功率\"\n                }\n            ]\n        }\n    ]\n}\n",
+      "Error": [
+        {
+          "name": "",
+          "description": ""
+        }
+      ]
+    },
+    {
+      "SubItem": "根据本地AC名按条件分批获取ap信息",
+      "ItemName": "根据本地AC名按条件分批获取ap信息",
+      "Path": "/apmonitor/getApListPageByLocalAC",
+      "Method": "Post",
+      "Parameters": [
+        {
+          "name": "devSN",
+          "description": "\"xxx\"，String，设备序列号"
+        },
+        {
+          "name": "localACName",
+          "description": "“xxx“，String，本地AC名"
+        },
+        {
+          "name": "skipnum",
+          "description": "Number，跳过数目"
+        },
+        {
+          "name": "limitnum",
+          "description": "Number，显示数目"
+        },
+        {
+          "name": "body",
+          "description": "{\n    findoption:\"查找条件，JSON格式，以ap名、ap序列号、mac、clientCount为查找条件（JSON格式，模糊匹配）,如{macAddr:”aa”},\n    sortoption:\"排序条件，JSON格式，排序关键字，以ap名、ap序列号、mac字段、clientCount,值为1（表示升序，值为-1表示降序）如：以ap名为升序：{apName:1}”\n}"
+        }
+      ],
+      "Return": "{\n    \"totalCount\":\"Number,AP总数\",\n    \"leftCount\":\"Number,剩余数量\",\n    \"apList\":[\n        {\n            \"apName\":\"String,AP名\",\n            \"apSN\":\"String\",\n            \"macAddr\":\"String,MAC地址\",\n            \"clientCount\":\"Number,客户端数量\"\n        }\n    ]\n}\n",
+      "Error": [
+        {
+          "name": "",
+          "description": ""
+        }
+      ]
+    },
+    {
+      "SubItem": "根据特定的客户端数量范围按条件分批获取AP详细信息",
+      "ItemName": "根据特定的客户端数量范围按条件分批获取AP详细信息",
+      "Path": "/apmonitor/getapstaticbyclientnumforaplist",
+      "Method": "Post",
+      "Parameters": [
+        {
+          "name": "devSN",
+          "description": "\"xxx\"，String，设备序列号"
+        },
+        {
+          "name": "branch",
+          "description": "“xxx”，String，分支名称（可选字段，做分支过滤用）"
+        },
+        {
+          "name": "limitnum",
+          "description": "Number，显示数目"
+        },
+        {
+          "name": "skipnum",
+          "description": "Number，跳过数目"
+        },
+        {
+          "name": "clientNumLeft",
+          "description": "Number，客户端数量左值（0,1,11,21,41,61,81,101）"
+        },
+        {
+          "name": "clientNumRight",
+          "description": "Number，客户端数量右值（0,10,20,40,60,80,100,-1分别与上述左值对应，-1表示右值无限大）"
+        },
+        {
+          "name": "body",
+          "description": "{\n    findoption:\"查找条件，JSON格式，以ap信息字段为查找条件（JSON格式，模糊匹配）,如{macAddr:”aa”,ipv4Addr:”192”}注意：1.数值类型的字段只支持精确匹配\",\n    sortoption:\"排序条件，JSON格式，排序关键字，以ap信息字段，值为1（表示升序，值为-1表示降序）如：以mac地址为升序：{macAddr:1}\"\n}"
+        }
+      ],
+      "Return": "{\n    \"totalCount\":\"int,总数\",\n    \"leftCount\":\"int,剩余数量\",\n    \"clientNumLeft\":\"Number,左值\",\n    \"clientNumRight\":\"Number,右值\",\n    \"apList\":[\n        {\n            \"macAddr\":\"string,AP MAC\",\n            \"apName\":\"string,AP名称\",\n            \"status\":\"int,ap状态,1-在线,2-离线,3-版本下载\",\n            \"apModel\":\"string,ap型号\",\n            \"radioNum\":\"int,radio 数\",\n            \"ipv4Addr\":\"string,AP IPv4地址\",\n            \"ipv6Addr\":\"string,AP IPv6地址\",\n            \"softVersion\":\"string,版本号\",\n            \"apType\":\"int,0-手工，1-自动\",\n            \"apAuthState\":\"int,0-未认证,1-认证OK,2-认证failed\",\n            \"apGroupName\":\"string,组名\",\n            \"timeStamp\":\"int,时戳\",\n            \"transmitTraffic\":\"double,上行流量\",\n            \"receiveTraffic\":\"double;下行流量\",\n            \"transmitRate\":\"int,上行速率\",\n            \"receiveRate\":\"int,下行速率\",\n            \"cpuRatio\":\"int,cp占有率\",\n            \"memoryRatio\":\"int,内存占有率\",\n            \"onlineTime\":\"date,在线时长(s)\",\n            \"packLostRatio\":\"int,包丢失率\",\n            \"uniqueKey\":\"string,约束键\",\n            \"radioList\":[\n                {\n                    \"radioId\":\"int\",\n                    \"radioMode\":\"string,radio物理模式，5G、2.4G\",\n                    \"radioStatus\":\"int,radio状态：1-开启，0-关闭\",\n                    \"radioChannel\":\"int,radio信道\",\n                    \"radioPower\":\"int,radio功率\"\n                }\n            ],\n            \"clientCount\":\"int,客户端数量\"\n        }\n    ]\n}\n",
+      "Error": [
+        {
+          "name": "",
+          "description": ""
+        }
+      ]
+    },
+    {
+      "SubItem": "获取本地AC删除标记",
+      "ItemName": "获取本地AC删除标记",
+      "Path": "/apmonitor/getLocalACDeleteFlag",
+      "Method": "Post",
+      "Parameters": [
+        {
+          "name": "devSN",
+          "description": "\"xxx\"，String，设备序列号"
+        },
+        {
+          "name": "body",
+          "description": "{\n    localACSNList:[\n        {\n            localACSN:String，本地AC序列号\n        }\n    ]\n}"
+        }
+      ],
+      "Return": "{\n    \"list\":[\n        {\n            \"localACSN\":\"String，本地AC序列号\",\n            \"isBelongBranch\":\"BOOL，true表示本地AC有所属分支，false表示本地AC无分支\"\n        }\n    ]\n}\n",
+      "Error": [
+        {
+          "name": "",
+          "description": ""
+        }
+      ]
+    },
+    {
+      "Error": [
+        {
+          "description": "",
+          "name": ""
+        }
+      ],
+      "Return": "{\n    \"totalCount\":\"Number,radio总数\",\n    \"leftCount\":\"Number,剩余数量\",\n    \"radioList\":[\n        {\n            \"apName\":\"String,AP名\",\n            \"apModel\":\"String,AP型号\",\n            \"apSN\":\"String,AP序列号\",\n            \"radio\":\"String,例如5GHz(1)\",\n            \"radioId\":\"Number\",\n            \"radioMode\":\"String,射频模式\",\n            \"radioStatus\":\"Number,射频状态,0-down,1-up\",\n            \"radioChannel\":\"Number,射频信道\",\n            \"radioPower\":\"Number,射频功率\"\n        }\n    ]\n}\n",
+      "Parameters": [
+        {
+          "description": "\"xxx\"，String，设备序列号",
+          "name": "devSN"
+        },
+        {
+          "description": "Number，跳过数目",
+          "name": "skipnum"
+        },
+        {
+          "description": "Number，显示数目",
+          "name": "limitnum"
+        },
+        {
+          "description": "\"分支名称（可选字段，根据该字段做分支过滤）\"",
+          "name": "branch"
+        },
+        {
+          "description": "{\n    findoption:\"查找条件，JSON格式，以radio信息字段为查找条件（JSON格式，模糊匹配）,如{radioMode:”aa”}注意：1.数值类型的字段只支持精确匹配\",\n    sortoption:\"排序条件，JSON格式，排序关键字，以radio信息字段，值为1（表示升序，值为-1表示降序）如：以radioMode地址为升序：{radioMode:1}\"\n}",
+          "name": "body"
+        }
+      ],
+      "Method": "Post",
+      "Path": "/apmonitor/getRadioListByPage",
+      "ItemName": "按条件分批获取radio列表",
+      "SubItem": "按条件分批获取radio列表"
+    },
+    {
+      "SubItem": "获取分支创建标记",
+      "ItemName": "获取分支创建标记",
+      "Path": "/apmonitor/getBranchAddFlag",
+      "Method": "Get",
+      "Parameters": [
+        {
+          "name": "devSN",
+          "description": "\"xxx\"，String，设备序列号"
+        },
+        {
+          "name": "branchName",
+          "description": "\"xxx\"，String，分支名"
+        }
+      ],
+      "Return": "{\n    \"addBranch\":\"BOOL,为true表明分支可创建\"\n}\n",
+      "Error": [
+        {
+          "name": "",
+          "description": ""
+        }
+      ]
+    },
+    {
+      "Error": [
+        {
+          "description": "",
+          "name": ""
+        }
+      ],
+      "Return": "{\n    \"addLocalAC\":\"BOOL,为true时表示可以创建本地AC\",\n    \"localACNameFlag\":\"BOOL,为true时表示本地AC名称没有重复\",\n    \"localACSNFlag\":\"BOOL,为true时表示本地AC序列号没有重复\"\n}\n",
+      "Parameters": [
+        {
+          "description": "\"xxx\"，String，设备序列号",
+          "name": "devSN"
+        },
+        {
+          "description": "\"xxx\"，String，本地AC名称",
+          "name": "localACName"
+        },
+        {
+          "description": "\"xxx\"，String，本地AC序列号",
+          "name": "localACSN"
+        }
+      ],
+      "Method": "Get",
+      "Path": "/apmonitor/getLocalACAddFlag",
+      "ItemName": "获取本地AC创建标记",
+      "SubItem": "获取本地AC创建标记"
+    },
+    {
+      "SubItem": "根据APSnList数组获取ap信息",
+      "ItemName": "根据APSnList数组获取ap信息",
+      "Path": "/apmonitor/app/apinfo_byapsnlist",
+      "Method": "Post",
+      "Parameters": [
+        {
+          "name": "devSN",
+          "description": "\"xxx\"，String，设备序列号"
+        },
+        {
+          "name": "body",
+          "description": "{ap_snlist:[]} apSN数组"
+        }
+      ],
+      "Return": "[\n    {\n        \"macAddr\":\"string,AP MAC\",\n        \"apName\":\"string,AP名称\",\n        \"status\":\"int,ap状态,1-在线,2-离线,3-版本下载\",\n        \"apModel\":\"string,ap型号\",\n        \"radioNum\":\"int,radio 数\",\n        \"ipv4Addr\":\"string,AP IPv4地址\",\n        \"ipv6Addr\":\"string,AP IPv6地址\",\n        \"softVersion\":\"string,版本号\",\n        \"apType\":\"int,0-手工，1-自动\",\n        \"apAuthState\":\"int,0-未认证,1-认证OK,2-认证failed\",\n        \"apGroupName\":\"string,组名\",\n        \"timeStamp\":\"int,时戳\",\n        \"transmitTraffic\":\"double,上行流量\",\n        \"receiveTraffic\":\"double;下行流量\",\n        \"transmitRate\":\"int,上行速率\",\n        \"receiveRate\":\"int,下行速率\",\n        \"cpuRatio\":\"int,cp占有率\",\n        \"memoryRatio\":\"int,内存占有率\",\n        \"onlineTime\":\"date,在线时长(s)\"\n    }\n]\n",
+      "Error": [
+        {
+          "name": "o",
+          "description": "o"
+        }
+      ]
+    },
+    {
+      "Error": [
+        {
+          "description": "",
+          "name": ""
+        }
+      ],
+      "Return": "{\n    \"ap_statistic\":{\n        \"online\":\"Number  \",\n        \"offline\":\"Number \",\n        \"other\":\"Number  \"\n    }\n}\n",
+      "Parameters": [
+        {
+          "description": "String //顶级组名，必须有的",
+          "name": "topId"
+        },
+        {
+          "description": "String //中间组名，非必须",
+          "name": "midId"
+        }
+      ],
+      "Method": "Get",
+      "Path": "/apmonitor/getApStatusCountByCloudGroup",
+      "ItemName": "通过cloudGroup 组获取信息",
+      "SubItem": "根据cloudGroup 获取ap 状态信息"
+    },
+    {
+      "SubItem": "通过cloudGroup获取组下ap 型号的在线数和离线数",
+      "ItemName": "通过cloudGroup 组获取信息",
+      "Path": "/apmonitor/getApModelCountByCloudGroup",
+      "Method": "Get",
+      "Parameters": [
+        {
+          "name": " topId",
+          "description": "String //顶级组名，必须有的"
+        },
+        {
+          "name": "midId",
+          "description": "String //中间组名，非必须"
+        }
+      ],
+      "Return": "{\n    \"apList\":[\n        {\n            \"ApModel\":\"string,AP型号\",\n            \"ApCount\":\"Number,AP总数\",\n            \"OnlineApCount\":\"Number,在线AP数量\",\n            \"OfflineApCount\":\"Number,离线AP数量\"\n        }\n    ]\n}\n",
+      "Error": [
+        {
+          "name": "",
+          "description": ""
+        }
+      ]
+    },
+    {
+      "Error": [
+        {
+          "description": "",
+          "name": ""
+        }
+      ],
+      "Return": "{\n    \"apList\":[\n        {\n            \"CreateMethod\":\"Number 线的手工ap，2-自动ap，3-离线的手工ap，4-未认证ap \",\n            \"ApCount\":\"Number\"\n        }\n    ]\n}\n",
+      "Parameters": [
+        {
+          "description": "String //中间组名，非必须",
+          "name": "midId"
+        },
+        {
+          "description": "String //顶级组名，必须有的",
+          "name": "topId"
+        }
+      ],
+      "Method": "Get",
+      "Path": "/apmonitor/getMethodCountByCloudGroup",
+      "ItemName": "通过cloudGroup 组获取信息",
+      "SubItem": "根据cloudGroup 获取根据ap的方式获取AP数目"
+    },
+    {
+      "Error": [
+        {
+          "description": "",
+          "name": ""
+        }
+      ],
+      "Return": "{\n    \"count_left\":\"int,剩余数量\",\n    \"count_total\":\"int,总数\",\n    \"apList\":[\n        {\n            \"acSN\":\"String \",\n            \"apSN\":\"String \",\n            \"apName\":\"String\",\n            \"apModel\":\"String\",\n            \"macAddr\":\"String\"\n        }\n    ]\n}\n",
+      "Parameters": [
+        {
+          "description": ":String 当前组Id ，必须有",
+          "name": "groupId"
+        },
+        {
+          "description": "“跳过数目“",
+          "name": "skipnum"
+        },
+        {
+          "description": "“显示数目“",
+          "name": "limitnum"
+        },
+        {
+          "description": "body\n{\n    findoption:\"查找条件，JSON格式，以ap信息字段为查找条件（JSON格式，模糊匹配）,如{macAddr:”aa”,ipv4Addr:”192”}注意：1.数值类型的字段只支持精确匹配\",\n    sortoption:\"排序条件，JSON格式，排序关键字，以ap信息字段，值为1（表示升序，值为-1表示降序）如：以mac地址为升序：{macAddr:1}\"\n}",
+          "name": "body"
+        }
+      ],
+      "Method": "Post",
+      "Path": "apmonitor/getApBriefInfoByCloudGroup",
+      "ItemName": "通过cloudGroup 组获取信息",
+      "SubItem": "通过cloudGroup 获取该组下所有的ap 的信息"
+    },
+    {
+      "SubItem": "通过parent cloudGroup获取所有子集的ap",
+      "ItemName": "通过cloudGroup 组获取信息",
+      "Path": "apmonitor/getApBriefInfoByParentCloudGroup",
+      "Method": "Post",
+      "Parameters": [
+        {
+          "name": "topId",
+          "description": "String //顶级组名，必须有的"
+        },
+        {
+          "name": "midId",
+          "description": "String //中间组名，非必须"
+        },
+        {
+          "name": "skipnum",
+          "description": "“跳过数目“"
+        },
+        {
+          "name": "limitnum",
+          "description": "“显示数目“"
+        },
+        {
+          "name": "body",
+          "description": "body\n{\n    findoption:\"查找条件，JSON格式，以ap信息字段为查找条件（JSON格式，模糊匹配）,如{macAddr:”aa”,ipv4Addr:”192”}注意：1.数值类型的字段只支持精确匹配\",\n    sortoption:\"排序条件，JSON格式，排序关键字，以ap信息字段，值为1（表示升序，值为-1表示降序）如：以mac地址为升序：{macAddr:1}\"\n}"
+        }
+      ],
+      "Return": "{\n    \"count_left\":\"int,剩余数量\",\n    \"count_total\":\"int,总数\",\n    \"apList\":[\n        {\n            \"acSN\":\"String \",\n            \"apSN\":\"String \",\n            \"apName\":\"String\",\n            \"apModel\":\"String\",\n            \"macAddr\":\"String\"\n        }\n    ]\n}\n",
+      "Error": [
+        {
+          "name": "",
+          "description": ""
+        }
+      ]
+    },
+    {
+      "Error": [
+        {
+          "description": "",
+          "name": ""
+        }
+      ],
+      "Return": "{\n    \"count_left\":\"int,剩余数量\",\n    \"count_total\":\"int,总数\",\n    \"apList\":[\n        {\n            \"acSN\":\"String \",\n            \"apSN\":\"String \",\n            \"apName\":\"String\",\n            \"apModel\":\"String\",\n            \"macAddr\":\"String\"\n        }\n    ]\n}\n",
+      "Parameters": [
+        {
+          "description": "String //顶级组名，必须有的",
+          "name": "topId"
+        },
+        {
+          "description": "String //中间组名，非必须",
+          "name": "midId"
+        },
+        {
+          "description": ":String // ac序列号",
+          "name": "acSN"
+        },
+        {
+          "description": "“跳过数目“",
+          "name": "skipnum"
+        },
+        {
+          "description": "“显示数目“",
+          "name": "limitnum"
+        },
+        {
+          "description": "body\n{\n    findoption:\"查找条件，JSON格式，以ap信息字段为查找条件（JSON格式，模糊匹配）,如{macAddr:”aa”,ipv4Addr:”192”}注意：1.数值类型的字段只支持精确匹配\",\n    sortoption:\"排序条件，JSON格式，排序关键字，以ap信息字段，值为1（表示升序，值为-1表示降序）如：以mac地址为升序：{macAddr:1}\"\n}",
+          "name": "body"
+        }
+      ],
+      "Method": "Post",
+      "Path": "apmonitor/getApListOutOfCloudGroupByACSN",
+      "ItemName": "通过cloudGroup 组获取信息",
+      "SubItem": "通过acsn 和顶级cloudGroup获取不在该cloudGroup下的ap"
+    },
+    {
+      "SubItem": "通过顶级parent cloudGroup和中间组名获取ap 的详细信息",
+      "ItemName": "通过cloudGroup 组获取信息",
+      "Path": "/apmonitor/getApInfoListByCloudGroup",
+      "Method": "Post",
+      "Parameters": [
+        {
+          "name": "topId",
+          "description": "String //顶级组名，必须有的"
+        },
+        {
+          "name": "midId",
+          "description": "String //中间组名，非必须"
+        },
+        {
+          "name": "skipnum",
+          "description": "\"跳过数目\""
+        },
+        {
+          "name": "limitnum",
+          "description": "\"显示数目\""
+        },
+        {
+          "name": "body",
+          "description": "body\n{\n    findoption:\"查找条件，JSON格式，以ap信息字段为查找条件（JSON格式，模糊匹配）,如{macAddr:”aa”,ipv4Addr:”192”}注意：1.数值类型的字段只支持精确匹配\",\n    sortoption:\"排序条件，JSON格式，排序关键字，以ap信息字段，值为1（表示升序，值为-1表示降序）如：以mac地址为升序：{macAddr:1}\"\n}"
+        }
+      ],
+      "Return": "{\n    \"count_left\":\"int,剩余数量\",\n    \"count_total\":\"int,总数\",\n    \"apList\":[\n        {\n            \"macAddr\":\"string,AP MAC\",\n            \"apName\":\"string,AP名称\",\n            \"apSN\":\"string,AP序列号\",\n            \"status\":\"int,ap状态,1-在线,2-离线,3-版本下载\",\n            \"apModel\":\"string,ap型号\",\n            \"radioNum\":\"int,radio 数\",\n            \"ipv4Addr\":\"string,AP IPv4地址\",\n            \"ipv6Addr\":\"string,AP IPv6地址\",\n            \"softVersion\":\"string,版本号\",\n            \"apType\":\"int,0-手工，1-自动\",\n            \"apAuthState\":\"int,0-未认证,1-认证OK,2-认证failed\",\n            \"apGroupName\":\"string,组名\",\n            \"timeStamp\":\"int,时戳\",\n            \"transmitTraffic\":\"double,上行流量\",\n            \"receiveTraffic\":\"double;下行流量\",\n            \"transmitRate\":\"int,上行速率\",\n            \"receiveRate\":\"int,下行速率\",\n            \"cpuRatio\":\"int,cp占有率\",\n            \"memoryRatio\":\"int,内存占有率\",\n            \"onlineTime\":\"date,在线时长(s)\",\n            \"packLostRatio\":\"int,包丢失率\",\n            \"radioList\":[\n                {\n                    \"radioId\":\"int\",\n                    \"radioMode\":\"string,radio物理模式，5G、2.4G\",\n                    \"radioStatus\":\"int,radio状态：1-开启，0-关闭\",\n                    \"radioChannel\":\"int,radio信道\",\n                    \"radioPower\":\"int,radio功率\"\n                }\n            ]\n        }\n    ]\n}\n",
+      "Error": [
+        {
+          "name": "",
+          "description": ""
+        }
+      ]
+    },
+    {
+      "SubItem": "通过顶级parent cloudGroup 和mid cloudGroup 获取流量top5的ap",
+      "ItemName": "通过cloudGroup 组获取信息",
+      "Path": "/apmonitor/getTop5ApTransmitTrafficByCloudGroup",
+      "Method": "Get",
+      "Parameters": [
+        {
+          "name": "topId",
+          "description": "String //顶级组名，必须有的"
+        },
+        {
+          "name": "midId",
+          "description": "String //中间组名，非必须"
+        }
+      ],
+      "Return": "{\n    \"ApList\":[\n        {\n            \"acSN\":\"String \",\n            \"apSN\":\"String \",\n            \"apName\":\"String\",\n            \"transmitTraffic\":\"String\"\n        }\n    ]\n}\n",
+      "Error": [
+        {
+          "name": "",
+          "description": ""
+        }
+      ]
+    }
+  ],
+  "author": "kf6204",
+  "description": "关于apmonitor微服务提供给其他web、app的接口文档",
+  "retcode": 0
+}

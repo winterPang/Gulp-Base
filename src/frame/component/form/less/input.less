@@ -1,0 +1,25 @@
+@import "../../../less/$variable";
+
+.oasis-input {
+  display: inline-block;
+  &.disabled {
+    label,
+    input {
+      cursor: not-allowed;
+    }
+  }
+  label {
+    font-weight: lighter;
+    text-align: right;
+    &::after {
+      content: ":"
+    }
+  }
+  .form-control {
+    width: auto;
+  }
+  .errmsg {
+    font-size: 14px;
+    color: @invalid-color;
+  }
+}

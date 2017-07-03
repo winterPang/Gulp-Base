@@ -1,0 +1,332 @@
+{
+  "Name": "菜单权限微服务(menuaccess)接口",
+  "DocIndex": "doc_5813548141305123",
+  "AllItems": [
+    {
+      "Error": [
+        {
+          "description": "0表示成功 非0表示失败",
+          "name": "0 或 －1"
+        }
+      ],
+      "Return": "{\n    \"retCode\":0\n}\n",
+      "Parameters": [
+        {
+          "description": "字符串 字段啥意思我也不知道 问panglidong吧",
+          "name": "state"
+        },
+        {
+          "description": "字符串",
+          "name": "url"
+        },
+        {
+          "description": "字符串",
+          "name": "templateUrl"
+        },
+        {
+          "description": "字符串",
+          "name": "controller"
+        },
+        {
+          "description": "字符串数组",
+          "name": "dependencies"
+        }
+      ],
+      "Method": "Post",
+      "Path": "/v3/menuaccess/setRouter",
+      "ItemName": "router",
+      "SubItem": "向router表中添加一条数据"
+    },
+    {
+      "SubItem": "获取router表内容",
+      "ItemName": "router",
+      "Path": "/v3/menuaccess/getRouter",
+      "Method": "Post",
+      "Parameters": [
+        {
+          "name": "",
+          "description": ""
+        }
+      ],
+      "Return": "{\n    \"routes\":[\n        {\n            \"_id\":\"xxxxxxxxxxxxxxxxxxxxxxx\",\n            \"state\":\"global\",\n            \"url\":\"/global\",\n            \"templateUrl\":\"frame/views/global.html\",\n            \"controller\":\"frame/controller/global\",\n            \"dependencies\":[\n            ]\n        }\n    ]\n}\n",
+      "Error": [
+        {
+          "name": "0 或 非0",
+          "description": "0表示成功，非0表示失败"
+        }
+      ]
+    },
+    {
+      "SubItem": "更新router表中的一条数据",
+      "ItemName": "router",
+      "Path": "/v3/menuaccess/updateRouter",
+      "Method": "Post",
+      "Parameters": [
+        {
+          "name": "_id",
+          "description": "数据id，该id由 \"v3/menuaccess/getRouter\"获得"
+        },
+        {
+          "name": "state",
+          "description": "xxxxxxxxxxxxxx"
+        },
+        {
+          "name": "url",
+          "description": "xxxxxxxxxxxxx"
+        },
+        {
+          "name": "templateUrl",
+          "description": "xxxxxxxxxxxxxx"
+        },
+        {
+          "name": "controller",
+          "description": "xxxxxxxxxxxxxxxxxx"
+        },
+        {
+          "name": "dependencies",
+          "description": "xxxxxxxxxxxxxxxxxxx"
+        }
+      ],
+      "Return": "{\n    \"retCode\":0\n}\n",
+      "Error": [
+        {
+          "name": "0或 非0",
+          "description": "0表示成功 非0表示失败"
+        }
+      ]
+    },
+    {
+      "SubItem": "删除router表中的若干条数据",
+      "ItemName": "router",
+      "Path": "/v3/menuaccess/delRouter",
+      "Method": "Post",
+      "Parameters": [
+        {
+          "name": "idList",
+          "description": "该参数为一个数组，形如：[\"id1\",\"id2\",...]里面的每个元素为一条数据的id,其中id由 get 接口获得"
+        }
+      ],
+      "Return": "{\n    \"retCode\":0\n}\n",
+      "Error": [
+        {
+          "name": "0或非0",
+          "description": "0表示成功，非0表示失败"
+        }
+      ]
+    },
+    {
+      "Error": [
+        {
+          "description": "0表示成功 非0表示失败",
+          "name": "0或非0"
+        }
+      ],
+      "Return": "{\n    \"menu\":{\n        \"default\":[\n            {\n                \"name\":\"系统管理\",\n                \"id\":\"system\",\n                \"sref\":\"global.content.system.shop\",\n                \"tabs\":[\n                    {\n                        \"name\":\"场所管理\",\n                        \"id\":\"shop\",\n                        \"sref\":\"global.content.system.shop\",\n                        \"permission\":[\n                            \"xxxx\",\n                            \"xxxx\",\n                            \"xxxx\"\n                        ],\n                        \"tabs\":[\n                        ]\n                    },\n                    {\n                        \"name\":\"短信配置\",\n                        \"id\":\"message\",\n                        \"sref\":\"global.content.system.message\",\n                        \"permission\":[\n                            \"xxxx\",\n                            \"xxxx\",\n                            \"xxxx\"\n                        ],\n                        \"tabs\":[\n                        ]\n                    },\n                    {\n                        \"name\":\"操作日志\",\n                        \"id\":\"operate_log\",\n                        \"sref\":\"global.content.system.operate_log\",\n                        \"permission\":[\n                            \"xxxx\",\n                            \"xxxx\",\n                            \"xxxx\"\n                        ],\n                        \"tabs\":[\n                        ]\n                    },\n                    {\n                        \"name\":\"修改密码\",\n                        \"id\":\"password\",\n                        \"sref\":\"global.content.system.password\",\n                        \"permission\":[\n                            \"xxxx\",\n                            \"xxxx\",\n                            \"xxxx\"\n                        ],\n                        \"tabs\":[\n                        ]\n                    }\n                ]\n            }\n        ]\n    }\n}\n",
+      "Parameters": [
+        {
+          "description": "string,场景类型，场景外用\"default\"表示",
+          "name": "model"
+        },
+        {
+          "description": "number,场所ID，当model不为\"default\"时必须携带该字段",
+          "name": "sceneId"
+        },
+        {
+          "description": "字符串     中英文标识，\"cn\"：中文，\"en\"：英文。默认为\"cn\"",
+          "name": "lang"
+        }
+      ],
+      "Method": "Post",
+      "Path": "/v3/menuaccess/getMenuTree",
+      "ItemName": "menu",
+      "SubItem": "获取menu列表的树状结构"
+    },
+    {
+      "SubItem": "获取menu列表",
+      "ItemName": "menu",
+      "Path": "/v3/menuaccess/getMenu",
+      "Method": "Post",
+      "Parameters": [
+        {
+          "name": "lang",
+          "description": "字符串     中英文标识，\"cn\"：中文，\"en\"：英文。默认为\"cn\""
+        }
+      ],
+      "Return": "[\n    {\n        \"_id\":\"xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\",\n        \"sref_3\":\"ee.rew\",\n        \"name_3\":\"ress\",\n        \"id_3\":\"ews\",\n        \"sref_2\":\"ee.rr\",\n        \"name_2\":\"sss\",\n        \"id_2\":\"ee\",\n        \"sref_1\":\"yy.dd\",\n        \"name_1\":\"加下\",\n        \"id_1\":\"4444444\",\n        \"model\":\"0\",\n        \"permission\":[\n            \"xxxxx\",\n            \"xxxxx\"\n        ],\n        \"m_permission\":[\n            \"xxxx\",\n            \"xxxx\"\n        ]\n    }\n]\n",
+      "Error": [
+        {
+          "name": "0或非0",
+          "description": "0表示成功 非0表示失败"
+        }
+      ]
+    },
+    {
+      "Error": [
+        {
+          "description": "0表示成功 非0表示失败",
+          "name": "0或非0"
+        }
+      ],
+      "Return": "{\n    \"retCode\":0\n}\n",
+      "Parameters": [
+        {
+          "description": "字符串 字段啥意思我也不知道问panglidong吧",
+          "name": "model"
+        },
+        {
+          "description": "number,场所ID，当model不为\"default\"时必须携带该字段",
+          "name": "sceneId"
+        },
+        {
+          "description": "字符串",
+          "name": "id_3"
+        },
+        {
+          "description": "字符串",
+          "name": "name_3"
+        },
+        {
+          "description": "字符串",
+          "name": "sref_3"
+        },
+        {
+          "description": "字符串",
+          "name": "id_1"
+        },
+        {
+          "description": "字符串",
+          "name": "name_1"
+        },
+        {
+          "description": "字符串",
+          "name": "sref_1"
+        },
+        {
+          "description": "字符串",
+          "name": "id_2"
+        },
+        {
+          "description": "字符串",
+          "name": "name_2"
+        },
+        {
+          "description": "字符串",
+          "name": "sref_2"
+        },
+        {
+          "description": "字符串数组，表示该menu具有的所有权限",
+          "name": "permission"
+        },
+        {
+          "description": "字符串数组，强制权限列表，意为：该menu与用户权限匹配后的结果必须包含该字段的所有元素才返回前台",
+          "name": "m_permission"
+        },
+        {
+          "description": "字符串     中英文标识，\"cn\"：中文，\"en\"：英文。默认为\"cn\"",
+          "name": "lang"
+        }
+      ],
+      "Method": "Post",
+      "Path": "/v3/menuaccess/setMenu",
+      "ItemName": "menu",
+      "SubItem": "向menu表中填加一条数据"
+    },
+    {
+      "SubItem": "更新menu表中的一条数据",
+      "ItemName": "menu",
+      "Path": "/v3/menuaccess/updateMenu",
+      "Method": "Post",
+      "Parameters": [
+        {
+          "name": "_id",
+          "description": "该字段唯一表示一条menu数据，由get接口获取"
+        },
+        {
+          "name": "model",
+          "description": "xxxxxxxxxxxxxxx"
+        },
+        {
+          "name": "id_3",
+          "description": "xxxxxxxxxxxxxxxxxxx"
+        },
+        {
+          "name": "name_3",
+          "description": "xxxxxxxxxxxxxxxxxxxxxx"
+        },
+        {
+          "name": "sref_3",
+          "description": "xxxxxxxxxxxxxxxxxx"
+        },
+        {
+          "name": "id_1",
+          "description": "xxxxxxxxxxxxxxx"
+        },
+        {
+          "name": "name_1",
+          "description": "xxxxxxxxxxxxxxxxxxxxxxx"
+        },
+        {
+          "name": "sref_1",
+          "description": "xxxxxxxxxxxxxxxxxxx"
+        },
+        {
+          "name": "id_2",
+          "description": "xxxxxxxxxxxxxxxxxx"
+        },
+        {
+          "name": "name_2",
+          "description": "xxxxxxxxxxxxxxxx"
+        },
+        {
+          "name": "sref_2",
+          "description": "xxxxxxxxxxxxxxxxxx"
+        },
+        {
+          "name": "permission",
+          "description": "字符串数组"
+        },
+        {
+          "name": "m_permission",
+          "description": "字符串数组,非必须"
+        },
+        {
+          "name": "lang",
+          "description": "字符串     中英文标识，\"cn\"：中文，\"en\"：英文。默认为\"cn\""
+        }
+      ],
+      "Return": "{\n    \"retCode\":0\n}\n",
+      "Error": [
+        {
+          "name": "0或非0",
+          "description": "0表示成功 非0表示失败"
+        }
+      ]
+    },
+    {
+      "Error": [
+        {
+          "description": "0表示成功 非0表示失败",
+          "name": "0或非0 "
+        }
+      ],
+      "Return": "{\n    \"retCode\":0\n}\n",
+      "Parameters": [
+        {
+          "description": "该参数为一个数组，形如：[\"id1\",\"id2\",...]里面的每个元素为一条数据的id,其中id由 get 接口获得",
+          "name": "idList"
+        },
+        {
+          "description": "字符串     中英文标识，\"cn\"：中文，\"en\"：英文。默认为\"cn\"",
+          "name": "lang"
+        }
+      ],
+      "Method": "Post",
+      "Path": "/v3/menuaccess/delMenu",
+      "ItemName": "menu",
+      "SubItem": "删除menu表中的若干条数据"
+    }
+  ],
+  "author": "l11184",
+  "description": "该微服务提供对menu表获取权限及对应router的增删改查操作 ",
+  "retcode": 0
+}

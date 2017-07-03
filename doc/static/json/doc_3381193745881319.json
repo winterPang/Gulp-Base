@@ -1,0 +1,993 @@
+{
+  "Name": "stamonitor微服务接口文档",
+  "DocIndex": "doc_3381193745881319",
+  "AllItems": [
+    {
+      "Error": [
+        {
+          "description": "",
+          "name": ""
+        }
+      ],
+      "Return": "{\n    \"clientList\":[\n        {\n            \"_id\":\"string,终端模式\",\n            \"clientCount\":\"number,该终端模式用户数（根据不同过滤条件）\"\n        }\n    ]\n}\n",
+      "Parameters": [
+        {
+          "description": "设备序列号",
+          "name": "devSN"
+        },
+        {
+          "description": "请求类型{‘mode’：根据终端模式获取终端数}",
+          "name": "reqType"
+        },
+        {
+          "description": "过滤条件：是否过滤认证用户（不传不过滤）",
+          "name": "auth"
+        },
+        {
+          "description": "过滤条件：过滤分支名（不传不过滤）",
+          "name": "branch"
+        }
+      ],
+      "Method": "Get",
+      "Path": "/stamonitor/getclientlistbycondition",
+      "ItemName": "通用",
+      "SubItem": "基于终端模式及过滤条件获取终端信息"
+    },
+    {
+      "SubItem": "根据终端产商及过滤条件获取终端数",
+      "ItemName": "通用",
+      "Path": "/stamonitor/getclientlistbycondition",
+      "Method": "Get",
+      "Parameters": [
+        {
+          "name": "devSN",
+          "description": "设备序列号"
+        },
+        {
+          "name": "reqType",
+          "description": "请求类型{‘vendor’：根据终端厂商获取终端数}"
+        },
+        {
+          "name": "auth",
+          "description": "过滤条件：是否过滤认证用户（不传不过滤）"
+        },
+        {
+          "name": "branch",
+          "description": "过滤条件：过滤分支名（不传不过滤）"
+        }
+      ],
+      "Return": "{\n    \"clientList\":[\n        {\n            \"_id\":\"string,终端厂商\",\n            \"clientCount\":\"number,该终端厂商用户数（根据不同过滤条件）\"\n        }\n    ]\n}\n",
+      "Error": [
+        {
+          "name": "",
+          "description": ""
+        }
+      ]
+    },
+    {
+      "Error": [
+        {
+          "description": "",
+          "name": ""
+        }
+      ],
+      "Return": "{\n    \"clientList\":[\n        {\n            \"clientSSID\":\"string,终端的SSID\",\n            \"Count5G\":\"number,5G用户数(根据不同过滤条件)\",\n            \"Count24G\":\"number,2.4G用户数(根据不同过滤条件)\"\n        }\n    ]\n}\n",
+      "Parameters": [
+        {
+          "description": "设备序列号",
+          "name": "devSN"
+        },
+        {
+          "description": "请求类型{‘ssid’：根据ssid获取终端数}",
+          "name": "reqType"
+        },
+        {
+          "description": "过滤条件：是否过滤认证用户（不传不过滤）",
+          "name": "auth"
+        },
+        {
+          "description": "过滤条件：过滤分支名（不传不过滤）",
+          "name": "branch"
+        }
+      ],
+      "Method": "Get",
+      "Path": "/stamonitor/getclientlistbycondition",
+      "ItemName": "通用",
+      "SubItem": "基于 SSID 及过滤条件获取终端数"
+    },
+    {
+      "SubItem": "基于ap组及过滤条件获取终端数",
+      "ItemName": "通用",
+      "Path": "/stamonitor/getclientlistbycondition",
+      "Method": "Get",
+      "Parameters": [
+        {
+          "name": "devSN",
+          "description": "设备序列号"
+        },
+        {
+          "name": "reqType",
+          "description": "请求类型{‘group’：根据ap组获取终端数}"
+        },
+        {
+          "name": "auth",
+          "description": "过滤条件：是否过滤认证用户（不传不过滤）"
+        },
+        {
+          "name": "branch",
+          "description": "过滤条件：过滤分支名（不传不过滤）"
+        }
+      ],
+      "Return": "{\n    \"clientList\":[\n        {\n            \"ApGroup\":\"string,终端所在ap组\",\n            \"Count5G\":\"number,5G用户数(根据不同过滤条件)\",\n            \"Count24G\":\"number,2.4G用户数(根据不同过滤条件)\"\n        }\n    ]\n}\n",
+      "Error": [
+        {
+          "name": "",
+          "description": ""
+        }
+      ]
+    },
+    {
+      "Error": [
+        {
+          "description": "",
+          "name": ""
+        }
+      ],
+      "Return": "{\n    \"clientList\":[\n        {\n            \"staCount\":\"number,用户总数(根据不同过滤条件)\",\n            \"Count5G\":\"number,5G用户数(根据不同过滤条件)\",\n            \"Count24G\":\"number,2.4G用户数(根据不同过滤条件)\"\n        }\n    ]\n}\n",
+      "Parameters": [
+        {
+          "description": "设备序列号",
+          "name": "devSN"
+        },
+        {
+          "description": "请求类型:{‘count’}",
+          "name": "reqType"
+        },
+        {
+          "description": "过滤条件：是否过滤认证用户（不传不过滤）",
+          "name": "auth"
+        },
+        {
+          "description": "过滤条件：过滤分支名（不传不过滤）",
+          "name": "branch"
+        }
+      ],
+      "Method": "Get",
+      "Path": "/stamonitor/getclientlistbycondition",
+      "ItemName": "通用",
+      "SubItem": "根据过滤条件获取终端总数及其中5G、2.4G终端数"
+    },
+    {
+      "Error": [
+        {
+          "description": "",
+          "name": ""
+        }
+      ],
+      "Return": "{\n    \"clientList\":[\n        {\n            \"totalCount\":\"number,关联用户总数\",\n            \"conditionCount\":\"number,满足过滤条件的认证终端数\"\n        }\n    ]\n}\n",
+      "Parameters": [
+        {
+          "description": "设备序列号",
+          "name": "devSN"
+        },
+        {
+          "description": "请求类型:{‘all’}",
+          "name": "reqType"
+        },
+        {
+          "description": "过滤条件：过滤分支名（不传不做过滤）",
+          "name": "branch"
+        }
+      ],
+      "Method": "Get",
+      "Path": "/stamonitor/getclientlistbycondition",
+      "ItemName": "通用",
+      "SubItem": "根据过滤条件获取终端总数及认证终端数"
+    },
+    {
+      "Error": [
+        {
+          "description": "",
+          "name": ""
+        }
+      ],
+      "Return": "{\n    \"clientList\":[\n        {\n            \"count_total\":\"Number, 查询总数\",\n            \"count_left\":\"Number,  剩余未查询数\",\n            \"clientInfo\":[\n                {\n                    \"clientMAC\":\"String, 终端MAC地址\",\n                    \"clientIP\":\"String, 终端IP地址\",\n                    \"onlineTime\":\"date, 终端在线时长\",\n                    \"upLineTime\":\"date, 终端上线时间\"\n                }\n            ]\n        }\n    ]\n}\n",
+      "Parameters": [
+        {
+          "description": "设备序列号",
+          "name": "devSN"
+        },
+        {
+          "description": "请求类型:{‘onlineinfo’}",
+          "name": "reqType"
+        },
+        {
+          "description": "过滤条件：是否过滤认证用户（不传不过滤）",
+          "name": "auth"
+        },
+        {
+          "description": "过滤条件：过滤分支名（不传不过滤）",
+          "name": "branch"
+        },
+        {
+          "description": "查询跳过数",
+          "name": "skipnum"
+        },
+        {
+          "description": "每次查询数",
+          "name": "limitnum"
+        },
+        {
+          "description": "{\n    findoption:\"查找条件，JSON格式，以apSN、clientMAC等client属性为查找条件（JSON格式，模糊匹配）,如{clientMAC:”aa”},\n    sortoption:\"排序条件，JSON格式，排序关键字，以apSN、clientMAC等client属性为关键字排序，正序传1，逆序传-1\"\n}",
+          "name": "body"
+        }
+      ],
+      "Method": "Post",
+      "Path": "/stamonitor/getclientlistbycondition",
+      "ItemName": "通用",
+      "SubItem": "分页获取在线宾客信息"
+    },
+    {
+      "SubItem": "分页获取历史宾客信息",
+      "ItemName": "通用",
+      "Path": "/stamonitor/getclientlistbycondition",
+      "Method": "Post",
+      "Parameters": [
+        {
+          "name": "devSN",
+          "description": "设备序列号"
+        },
+        {
+          "name": "reqType",
+          "description": "请求类型:{‘history’}"
+        },
+        {
+          "name": "auth",
+          "description": "过滤条件：是否过滤认证用户（不传不过滤）"
+        },
+        {
+          "name": "branch",
+          "description": "过滤条件：过滤分支名（不传不过滤）"
+        },
+        {
+          "name": "skipnum",
+          "description": "查询跳过数"
+        },
+        {
+          "name": "limitnum",
+          "description": "每次查询数"
+        },
+        {
+          "name": "body",
+          "description": "{\n    findoption:\"查找条件，JSON格式，以apSN、clientMAC等client属性为查找条件（JSON格式，模糊匹配）,如{clientMAC:”aa”},\n    sortoption:\"排序条件，JSON格式，排序关键字，以apSN、clientMAC等client属性为关键字排序，正序传1，逆序传-1\"\n}"
+        }
+      ],
+      "Return": "{\n    \"clientList\":[\n        {\n            \"count_total\":\"Number, 查询总数\",\n            \"count_left\":\"Number,  剩余未查询数\",\n            \"clientInfo\":[\n                {\n                    \"clientMAC\":\"String, 历史终端MAC地址\",\n                    \"clientIP\":\"String, 历史终端IP地址\",\n                    \"onlineTime\":\"date, 历史终端在线时长\",\n                    \"upLineDate\":\"date, 历史终端上线时间\"\n                }\n            ]\n        }\n    ]\n}\n",
+      "Error": [
+        {
+          "name": "",
+          "description": ""
+        }
+      ]
+    },
+    {
+      "SubItem": "获取宾客驻留时长",
+      "ItemName": "通用",
+      "Path": "/stamonitor/getclientlistbycondition",
+      "Method": "Get",
+      "Parameters": [
+        {
+          "name": "devSN",
+          "description": "设备序列号"
+        },
+        {
+          "name": "reqType",
+          "description": "请求类型:{‘onlinetime’}"
+        },
+        {
+          "name": "auth",
+          "description": "过滤条件：是否过滤认证用户（不传不过滤）"
+        },
+        {
+          "name": "branch",
+          "description": "过滤条件：过滤分支名（不传不过滤）"
+        }
+      ],
+      "Return": "{\n    \"clientList\":[\n        {\n            \"halfhour\":\"number, 半小时以内的宾客数（宾客驻留时长）\",\n            \"onehour\":\"number, 一小时以内的宾客数\",\n            \"twohour\":\"number, 两小时以内的宾客数\",\n            \"greatertwohour\":\"number, 大于两小时的宾客数\"\n        }\n    ]\n}\n",
+      "Error": [
+        {
+          "name": "",
+          "description": ""
+        }
+      ]
+    },
+    {
+      "SubItem": "分页获取终端详细信息",
+      "ItemName": "通用",
+      "Path": "/stamonitor/getclientverbose_page",
+      "Method": "Post",
+      "Parameters": [
+        {
+          "name": "devSN",
+          "description": "设备序列号"
+        },
+        {
+          "name": "auth",
+          "description": "过滤条件：是否过滤认证用户（不传不过滤）"
+        },
+        {
+          "name": "branch",
+          "description": "过滤条件：过滤分支名（不传不过滤）"
+        },
+        {
+          "name": "skipnum",
+          "description": "查询跳过数"
+        },
+        {
+          "name": "limitnum",
+          "description": "每次查询数"
+        },
+        {
+          "name": "body",
+          "description": "{\n    findoption:\"查找条件，JSON格式，以apSN、clientMAC等client属性为查找条件（JSON格式，模糊匹配）,如{clientMAC:”aa”},\n    sortoption:\"排序条件，JSON格式，排序关键字，以apSN、clientMAC等client属性为关键字排序\"\n}"
+        }
+      ],
+      "Return": "{\n    \"clientList\":[\n        {\n            \"count_total\":\"number, 查询总数\",\n            \"count_left\":\"number, 剩余未查询数（总数-跳过数）\",\n            \"clientInfo\":[\n                {\n                    \"clientMAC\":\"string, 终端mac\",\n                    \"clientIP\":\"string, 终端IP地址\",\n                    \"clientName\":\"string, 终端名\",\n                    \"clientVendor\":\"string, 终端产商\",\n                    \"ApName\":\"string, 接入点名称\",\n                    \"clientSSID\":\"string, 关联的无线服务名\",\n                    \"clientBssID\":\"string, 关联的无线服务ID\",\n                    \"clientChannel\":\"int， 接入的信道\",\n                    \"signalStrength\":\"int, 终端信息强度\",\n                    \"clientTxRate\":\"int, 终端发送速率\",\n                    \"clientRxRate\":\"int, 终端接收速率\",\n                    \"onlineTime\":\"int, 终端在线时长\",\n                    \"upLineTime\":\"date, 终端上线时间\",\n                    \"timestamp\":\"Number, 上线时间戳\",\n                    \"clientTxBytes\":\"int,终端发送报文字节数\",\n                    \"clientRxBytes\":\"int, 终端接收报文字节数\",\n                    \"clientRadioMode\":\"int,终端关联radio三类型 枚举1-802.11b,2-802.11a,4-802.11g,8-802.11gn,16 -802.11gac,64-802.11ac\",\n                    \"clientTxPackets\":\"int,终端发送报文数\",\n                    \"clientRxPackets\":\"int, 终端接收报文数\",\n                    \"NegoMaxRate\":\"int, 协商速率，单位M\",\n                    \"clientMode\":\"string, 终端模式:802.11gn,802.11an...\",\n                    \"portalUserName\":\"string, portal用户名\",\n                    \"portalAuthType\":\"int, portal认证类型\",\n                    \"portalOnlineTime\":\"string, portal上线时间\"\n                }\n            ]\n        }\n    ]\n}\n",
+      "Error": [
+        {
+          "name": "",
+          "description": ""
+        }
+      ]
+    },
+    {
+      "Error": [
+        {
+          "description": "",
+          "name": ""
+        }
+      ],
+      "Return": "{\n    \"clientList\":[\n        {\n            \"count_total\":\"Number, 查询总数\",\n            \"count_left\":\"Number,  剩余未查询数\",\n            \"clientInfo\":[\n                {\n                    \"clientMAC\":\"String, 终端MAC地址\",\n                    \"clientIP\":\"String, 终端IP地址\",\n                    \"clientVendor\":\"String, 终端厂商\",\n                    \"ApName\":\"String, 终端所在AP名\",\n                    \"clientSSID\":\"String, 终端SSID\",\n                    \"portalAuthType\":\"String, 终端认证类型\"\n                }\n            ]\n        }\n    ]\n}\n",
+      "Parameters": [
+        {
+          "description": "设备序列号",
+          "name": "devSN"
+        },
+        {
+          "description": "查询的ap组名",
+          "name": "group"
+        },
+        {
+          "description": "指定的终端模式(查询5G：mode5G，查询2.4G：mode24G)",
+          "name": "mode"
+        },
+        {
+          "description": "过滤条件：是否过滤认证用户（不传不过滤）",
+          "name": "auth"
+        },
+        {
+          "description": "查询跳过数",
+          "name": "skipnum"
+        },
+        {
+          "description": "每次查询数",
+          "name": "limitnum"
+        },
+        {
+          "description": "{\n    findoption:\"查找条件，JSON格式，以apSN、clientMAC等client属性为查找条件（JSON格式，模糊匹配）,如{clientMAC:”aa”},\n    sortoption:\"排序条件，JSON格式，排序关键字，以apSN、clientMAC等client属性为关键字排序，正序传1，逆序传-1\"\n}",
+          "name": "body"
+        }
+      ],
+      "Method": "Post",
+      "Path": "/stamonitor/getclientlist_bygroupandmode",
+      "ItemName": "通用",
+      "SubItem": "基于ap组分页获取5G/2.4G终端信息"
+    },
+    {
+      "SubItem": "基于SSID分页获取5G/2.4G终端信息",
+      "ItemName": "通用",
+      "Path": "/stamonitor/getclientlist_byssidandmode",
+      "Method": "Post",
+      "Parameters": [
+        {
+          "name": "devSN",
+          "description": "设备序列号"
+        },
+        {
+          "name": "ssid",
+          "description": "查询的终端ssid"
+        },
+        {
+          "name": "mode",
+          "description": "指定的终端模式(查询5G：mode5G，查询2.4G：mode24G)"
+        },
+        {
+          "name": "auth",
+          "description": "过滤条件：是否过滤认证用户（不传不过滤）"
+        },
+        {
+          "name": "branch",
+          "description": "过滤条件：过滤分支名（不传不过滤）"
+        },
+        {
+          "name": "skipnum",
+          "description": "查询跳过数"
+        },
+        {
+          "name": "limitnum",
+          "description": "每次查询数"
+        },
+        {
+          "name": "body",
+          "description": "{\n    findoption:\"查找条件，JSON格式，以apSN、clientMAC等client属性为查找条件（JSON格式，模糊匹配）,如{clientMAC:”aa”},\n    sortoption:\"排序条件，JSON格式，排序关键字，以apSN、clientMAC等client属性为关键字排序，正序传1，逆序传-1\"\n}"
+        }
+      ],
+      "Return": "{\n    \"clientList\":[\n        {\n            \"count_total\":\"Number, 查询总数\",\n            \"count_left\":\"Number,  剩余未查询数\",\n            \"clientInfo\":[\n                {\n                    \"clientMAC\":\"String, 终端MAC地址\",\n                    \"clientIP\":\"String, 终端IP地址\",\n                    \"clientVendor\":\"String, 终端厂商\",\n                    \"ApName\":\"String, 终端所在AP名\",\n                    \"clientSSID\":\"String, 终端SSID\",\n                    \"portalAuthType\":\"String, 终端认证类型\"\n                }\n            ]\n        }\n    ]\n}\n",
+      "Error": [
+        {
+          "name": "",
+          "description": ""
+        }
+      ]
+    },
+    {
+      "Error": [
+        {
+          "description": "",
+          "name": ""
+        }
+      ],
+      "Return": "{\n    \"clientList\":[\n        {\n            \"count_total\":\"Number, 查询总数\",\n            \"count_left\":\"Number,  剩余未查询数\",\n            \"clientInfo\":[\n                {\n                    \"clientMAC\":\"String, 终端MAC地址\",\n                    \"clientIP\":\"String, 终端IP地址\",\n                    \"clientVendor\":\"String, 终端厂商\",\n                    \"ApName\":\"String, 终端所在AP名\",\n                    \"clientSSID\":\"String, 终端SSID\",\n                    \"portalAuthType\":\"String, 终端认证类型\"\n                }\n            ]\n        }\n    ]\n}\n",
+      "Parameters": [
+        {
+          "description": "设备序列号",
+          "name": "devSN"
+        },
+        {
+          "description": "过滤的终端厂商名",
+          "name": "vendor"
+        },
+        {
+          "description": "过滤的终端模式名",
+          "name": "mode"
+        },
+        {
+          "description": "过滤条件：是否过滤认证用户（不传不过滤）",
+          "name": "auth"
+        },
+        {
+          "description": "过滤条件：过滤分支名（不传不过滤）",
+          "name": "branch"
+        },
+        {
+          "description": "查询跳过数",
+          "name": "skipnum"
+        },
+        {
+          "description": "每次查询数",
+          "name": "limitnum"
+        },
+        {
+          "description": "{\n    findoption:\"查找条件，JSON格式，以apSN、clientMAC等client属性为查找条件（JSON格式，模糊匹配）,如{clientMAC:”aa”},\n    sortoption:\"排序条件，JSON格式，排序关键字，以apSN、clientMAC等client属性为关键字排序，正序传1，逆序传-1\"\n}",
+          "name": "body"
+        }
+      ],
+      "Method": "Post",
+      "Path": "/stamonitor/getclientlist_bymodeorvendor",
+      "ItemName": "通用",
+      "SubItem": "基于终端厂商或终端模式分页获取终端信息"
+    },
+    {
+      "SubItem": "基于SSID分页获取所有终端信息",
+      "ItemName": "通用",
+      "Path": "/stamonitor/getclientinfo_byssid",
+      "Method": "Post",
+      "Parameters": [
+        {
+          "name": "devSN",
+          "description": "设备序列号"
+        },
+        {
+          "name": "ssid",
+          "description": "终端SSID"
+        },
+        {
+          "name": "auth",
+          "description": "过滤条件：是否过滤认证用户（不传不过滤）"
+        },
+        {
+          "name": "branch",
+          "description": "过滤条件：过滤分支名（不传不过滤）"
+        },
+        {
+          "name": "skipnum",
+          "description": "查询跳过数"
+        },
+        {
+          "name": "limitnum",
+          "description": "每次查询数"
+        },
+        {
+          "name": "body",
+          "description": "{\n    findoption:\"查找条件，JSON格式，以apSN、clientMAC等client属性为查找条件（JSON格式，模糊匹配）,如{clientMAC:”aa”},\n    sortoption:\"排序条件，JSON格式，排序关键字，以apSN、clientMAC等client属性为关键字排序，正序传1，逆序传-1\"\n}"
+        }
+      ],
+      "Return": "{\n    \"clientList\":[\n        {\n            \"count_total\":\"Number, 查询总数\",\n            \"count_left\":\"Number,  剩余未查询数\",\n            \"clientInfo\":[\n                {\n                    \"clientMAC\":\"String, 终端MAC地址\",\n                    \"clientIP\":\"String, 终端IP地址\",\n                    \"clientVendor\":\"String, 终端厂商\",\n                    \"ApName\":\"String, 终端所在AP名\",\n                    \"clientSSID\":\"String, 终端SSID\",\n                    \"portalAuthType\":\"String, 终端认证类型\"\n                }\n            ]\n        }\n    ]\n}\n",
+      "Error": [
+        {
+          "name": "",
+          "description": ""
+        }
+      ]
+    },
+    {
+      "Error": [
+        {
+          "description": "",
+          "name": ""
+        }
+      ],
+      "Return": "{\n    \"clientList\":[\n        {\n            \"branchName\":\"string,终端所在分支名称\",\n            \"Count5G\":\"number,5G用户数(根据不同过滤条件)\",\n            \"Count24G\":\"number,2.4G用户数(根据不同过滤条件)\"\n        }\n    ]\n}\n",
+      "Parameters": [
+        {
+          "description": "设备序列号",
+          "name": "devSN"
+        },
+        {
+          "description": "请求类型{‘branch’：根据分支名获取终端数}",
+          "name": "reqType"
+        },
+        {
+          "description": "过滤条件：是否过滤认证用户（不传不过滤）",
+          "name": "auth"
+        },
+        {
+          "description": "过滤条件：过滤分支名（不传不过滤）",
+          "name": "branch"
+        }
+      ],
+      "Method": "Get",
+      "Path": "/stamonitor/getclientlistbycondition",
+      "ItemName": "通用",
+      "SubItem": "基于分支名称及过滤条件获取终端数"
+    },
+    {
+      "Error": [
+        {
+          "description": "",
+          "name": ""
+        }
+      ],
+      "Return": "{\n    \"clientList\":[\n        {\n            \"count_total\":\"Number, 查询总数\",\n            \"count_left\":\"Number,  剩余未查询数\",\n            \"clientInfo\":[\n                {\n                    \"clientMAC\":\"String, 终端MAC地址\",\n                    \"clientIP\":\"String, 终端IP地址\",\n                    \"clientVendor\":\"String, 终端厂商\",\n                    \"ApName\":\"String, 终端所在AP名\",\n                    \"clientSSID\":\"String, 终端SSID\",\n                    \"portalAuthType\":\"String, 终端认证类型\"\n                }\n            ]\n        }\n    ]\n}\n",
+      "Parameters": [
+        {
+          "description": "设备序列号",
+          "name": "devSN"
+        },
+        {
+          "description": "分支名称",
+          "name": "branch"
+        },
+        {
+          "description": "指定的终端模式(查询5G：mode5G，查询2.4G：mode24G)",
+          "name": "mode"
+        },
+        {
+          "description": "过滤条件：是否过滤认证用户（不传不过滤）",
+          "name": "auth"
+        },
+        {
+          "description": "查询跳过数",
+          "name": "skipnum"
+        },
+        {
+          "description": "每次查询数",
+          "name": "limitnum"
+        },
+        {
+          "description": "{\n    findoption:\"查找条件，JSON格式，以apSN、clientMAC等client属性为查找条件（JSON格式，模糊匹配）,如{clientMAC:”aa”},\n    sortoption:\"排序条件，JSON格式，排序关键字，以apSN、clientMAC等client属性为关键字排序，正序传1，逆序传-1\"\n}",
+          "name": "body"
+        }
+      ],
+      "Method": "Post",
+      "Path": "/stamonitor/getclientlist_bybranchandmode",
+      "ItemName": "通用",
+      "SubItem": "基于分支名称分页获取5G/2.4G终端信息"
+    },
+    {
+      "SubItem": "导出认证分支终端详细列表",
+      "ItemName": "导出",
+      "Path": "/fs/exportClientsListbyCondition",
+      "Method": "Post",
+      "Parameters": [
+        {
+          "name": "body",
+          "description": "{\n    \"devSN\": \"String，设备序列号\",\n    \"auth\": \"String，是否过滤认证终端（可选字段）\",\n    \"branch\" \"String, 过滤的分支名称（可选字段，不传或传\"\"为不过滤）\"\n}\n"
+        }
+      ],
+      "Return": "{\n    \"retCode\":\"Number, 0-成功,1-失败\",\n    \"filename\":\"String, 文件名\",\n    \"fileName\":\"String, 完整路径文件名\"\n}\n",
+      "Error": [
+        {
+          "name": "",
+          "description": ""
+        }
+      ]
+    },
+    {
+      "Error": [
+        {
+          "description": "",
+          "name": ""
+        }
+      ],
+      "Return": "{\n    \"totalCount\":\"Number 设备总数\",\n    \"statistics\":[\n        {\n            \"count\":\"Number 设备个数\",\n            \"percent\":\"Number 占比，如占10%,则数据为0.1\"\n        }\n    ]\n}\n",
+      "Parameters": [
+        {
+          "description": "设备序列号",
+          "name": "devSN"
+        },
+        {
+          "description": "是否过滤认证用户（不传不过滤）",
+          "name": "auth"
+        },
+        {
+          "description": "分支名称（不传不过滤）",
+          "name": "branch"
+        }
+      ],
+      "Method": "Get",
+      "Path": "/stamonitor/statisticaplist_byclientcount",
+      "ItemName": "通用",
+      "SubItem": "根据上线终端数统计AP分布情况"
+    },
+    {
+      "SubItem": "基于无线服务名分批获取在线用户信息",
+      "ItemName": "通用",
+      "Path": "/stamonitor/getclientinfo_bystname",
+      "Method": "Post",
+      "Parameters": [
+        {
+          "name": "devSN",
+          "description": "设备序列号"
+        },
+        {
+          "name": "clientSTName",
+          "description": "终端所在无线服务名"
+        },
+        {
+          "name": "branch",
+          "description": "过滤的分支名（可选字段，不传不过滤）"
+        },
+        {
+          "name": "skipnum",
+          "description": "查询跳过数"
+        },
+        {
+          "name": "limitnum",
+          "description": "每次查询数"
+        },
+        {
+          "name": "body",
+          "description": "{\n    findoption:\"查找条件，JSON格式，以apSN、clientMAC等client属性为查找条件（JSON格式，模糊匹配）,如{clientMAC:”aa”},\n    sortoption:\"排序条件，JSON格式，排序关键字，以apSN、clientMAC等client属性为关键字排序，正序传1，逆序传-1\"\n}"
+        }
+      ],
+      "Return": "{\n    \"clientList\":[\n        {\n            \"count_total\":\"Number, 查询总数\",\n            \"count_left\":\"Number,  剩余未查询数\",\n            \"clientInfo\":[\n                {\n                    \"clientMAC\":\"String, 终端MAC地址\",\n                    \"clientIP\":\"String, 终端IP地址\",\n                    \"clientVendor\":\"String, 终端厂商\",\n                    \"ApName\":\"String, 终端所在AP名\",\n                    \"onlineTime\":\"Number, 终端在线时长\",\n                    \"portalAuthType\":\"String, 终端认证类型\"\n                }\n            ]\n        }\n    ]\n}\n",
+      "Error": [
+        {
+          "name": "",
+          "description": ""
+        }
+      ]
+    },
+    {
+      "SubItem": "客流统计根据过滤条件获取指定时段终端数",
+      "ItemName": "通用",
+      "Path": "/stamonitor/histclientstatistic_bycondition",
+      "Method": "Get",
+      "Parameters": [
+        {
+          "name": "devSN",
+          "description": "设备序列号"
+        },
+        {
+          "name": "dataType",
+          "description": "指定时段（oneday、oneweek、onemonth）"
+        },
+        {
+          "name": "auth",
+          "description": "是否过滤认证用户（可选字段，不传不过滤）"
+        },
+        {
+          "name": "branch",
+          "description": "指定分支名（可选字段，不传不过滤）"
+        }
+      ],
+      "Return": "{\n    \"histclientList\":[\n        {\n            \"totalCount\":\"Number, 宾客总数\",\n            \"newCount\":\"Number, 新增宾客数\",\n            \"time\":\"Date, 统计时间\"\n        }\n    ]\n}\n",
+      "Error": [
+        {
+          "name": "",
+          "description": ""
+        }
+      ]
+    },
+    {
+      "Error": [
+        {
+          "description": "",
+          "name": ""
+        }
+      ],
+      "Return": "{\n    \"totalCount\":\"Number 终端总数\",\n    \"statistics\":[\n        {\n            \"clientCount\":\"Number 终端个数\"\n        }\n    ]\n}\n",
+      "Parameters": [
+        {
+          "description": "{\n    devSN:设备序列号,\n    clientRxRate:终端接收速率区间数组（如[0,10,20]则区间划分为0~9,10~19,>20）\n}",
+          "name": "body"
+        }
+      ],
+      "Method": "Post",
+      "Path": "/stamonitor/getclientlist_byrxrate",
+      "ItemName": "网络优化",
+      "SubItem": "根据终端接收速率获取client分布情况"
+    },
+    {
+      "Error": [
+        {
+          "description": "",
+          "name": ""
+        }
+      ],
+      "Return": "{\n    \"statistics\":[\n        {\n            \"clientCount\":\"Number 终端个数\"\n        }\n    ]\n}\n",
+      "Parameters": [
+        {
+          "description": "{\n    devSN:设备序列号,\n    signalStrength:终端信噪比区间数组（如[0,10,20]则区间划分为0~9,10~19,>20）\n}",
+          "name": "body"
+        }
+      ],
+      "Method": "Post",
+      "Path": "/stamonitor/clientstatistic_bysignalstrength",
+      "ItemName": "网络优化",
+      "SubItem": "基于信噪比统计client分布"
+    },
+    {
+      "SubItem": "基于协商速率统计client分布",
+      "ItemName": "网络优化",
+      "Path": "/stamonitor/clientstatistic_bynegomaxrate",
+      "Method": "Post",
+      "Parameters": [
+        {
+          "name": "body",
+          "description": "{\n    devSN:设备序列号,\n    NegoMaxRate:终端协商速率区间数组（如[0,10,20]则区间划分为0~9,10~19,>20）\n}"
+        }
+      ],
+      "Return": "{\n    \"statistics\":[\n        {\n            \"clientCount\":\"Number 终端个数\"\n        }\n    ]\n}\n",
+      "Error": [
+        {
+          "name": "",
+          "description": ""
+        }
+      ]
+    },
+    {
+      "SubItem": "非健康AP统计-过载",
+      "ItemName": "网络优化",
+      "Path": "/stamonitor/apstatistic_byhistclientcount",
+      "Method": "Get",
+      "Parameters": [
+        {
+          "name": "devSN",
+          "description": "设备序列号"
+        },
+        {
+          "name": "dataType",
+          "description": "请求类型:(curday, oneweek, onemonth)"
+        }
+      ],
+      "Return": "{\n    \"statistics\":[\n        {\n            \"unhealthyCount\":\"Number 非健康AP个数\",\n            \"dataTime\":\"Date 统计时间\"\n        }\n    ]\n}\n",
+      "Error": [
+        {
+          "name": "",
+          "description": ""
+        }
+      ]
+    },
+    {
+      "Error": [
+        {
+          "description": "",
+          "name": ""
+        }
+      ],
+      "Return": "{\n    \"count_total\":\"Number, 查询总数\",\n    \"count_left\":\"Number,  剩余未查询数\",\n    \"histClientList\":[\n        {\n            \"macAddr\":\"String, apMAC地址（ap下线返回N/A）\",\n            \"clientMAC\":\"String, 终端MAC地址\",\n            \"clientIP\":\"String, 终端IP地址\",\n            \"clientVendor\":\"String, 终端厂商\",\n            \"clientSSID\":\"String, 终端连接的SSID\",\n            \"onlineTime\":\"Number, 终端在线时长\",\n            \"upLineDate\":\"Date, 终端上线时间\",\n            \"offLineDate\":\"Date, 终端下线时间（未下线返回null）\"\n        }\n    ]\n}\n",
+      "Parameters": [
+        {
+          "description": "设备序列号",
+          "name": "devSN"
+        },
+        {
+          "description": "查询跳过数",
+          "name": "skipnum"
+        },
+        {
+          "description": "每次查询数",
+          "name": "limitnum"
+        },
+        {
+          "description": "{\n    findoption:\"查找条件，JSON格式，以apSN、clientMAC等client属性为查找条件（JSON格式，模糊匹配）,字符型如{clientMAC:”aa”}，数值或日期型如{onlineTime{min: 10, max: 100}}(min与max必须传，若只查大于则max传-1，查小于则min传-1)，\n    sortoption:\"排序条件，JSON格式，排序关键字，以clientMAC、clientIP等client属性为关键字排序，正序传1，逆序传-1\"\n}",
+          "name": "body"
+        }
+      ],
+      "Method": "Post",
+      "Path": "/stamonitor/histstationlistbypage_fuzzy",
+      "ItemName": "通用",
+      "SubItem": "模糊搜索获取历史client信息(分页)"
+    },
+    {
+      "SubItem": "非内部WIFI上线的终端统计",
+      "ItemName": "通用",
+      "Path": "/stamonitor/histclientstatistic_byexteroir",
+      "Method": "Get",
+      "Parameters": [
+        {
+          "name": "devSN",
+          "description": "设备序列号"
+        },
+        {
+          "name": "statistic_type",
+          "description": "统计时长（oneday, oneweek, onemonth）"
+        }
+      ],
+      "Return": "{\n    \"client_statistic\":[\n        {\n            \"count\":\"Number, 非内部宾客总数\",\n            \"newCount\":\"Number, 新增非内部宾客数\",\n            \"time\":\"Date, 统计时间\"\n        }\n    ]\n}\n",
+      "Error": [
+        {
+          "name": "",
+          "description": ""
+        }
+      ]
+    },
+    {
+      "SubItem": "回头客与新宾客终端统计",
+      "ItemName": "通用",
+      "Path": "/stamonitor/getstastatistic",
+      "Method": "Get",
+      "Parameters": [
+        {
+          "name": "devSN",
+          "description": "设备序列号"
+        }
+      ],
+      "Return": "{\n    \"stationList\":{\n        \"OldStaCount\":\"Number, 回头客（老客户）数\",\n        \"NewStaCount\":\"Number, 新宾客（新客户）数\"\n    }\n}\n",
+      "Error": [
+        {
+          "name": "",
+          "description": ""
+        }
+      ]
+    },
+    {
+      "Error": [
+        {
+          "description": "",
+          "name": ""
+        }
+      ],
+      "Return": "{\n    \"totalAP\":\"Number, 设备下的ap总数\",\n    \"objAP\":\"Number,  关联成功率大于x%的ap数\",\n    \"APList\":[\n        {\n            \"macAddr\":\"String, ap的MAC地址\",\n            \"apName\":\"String, ap名称\",\n            \"apModel\":\"String, ap型号\",\n            \"ipv4Addr\":\"String, ipv4地址\",\n            \"ipv6Addr\":\"String, ipv6地址\",\n            \"successCount\":\"Number, 关联成功的终端数\",\n            \"failedCount\":\"Number, 关联失败的终端数\"\n        }\n    ]\n}\n",
+      "Parameters": [
+        {
+          "description": "设备序列号",
+          "name": "devSN"
+        },
+        {
+          "description": "查询时间（如参数传1则查询1小时内的终端关联情况）",
+          "name": "time"
+        },
+        {
+          "description": "统计的成功率（0~100）",
+          "name": "percent"
+        }
+      ],
+      "Method": "Get",
+      "Path": "/stamonitor/getaplist_byclientassoc",
+      "ItemName": "通用",
+      "SubItem": "统计终端关联成功率大于x%的ap信息"
+    },
+    {
+      "SubItem": "模糊搜索获取历史终端信息",
+      "ItemName": "模糊搜索获取历史终端信息",
+      "Path": "/stamonitor/histstationlist_fuzzy",
+      "Method": "Get",
+      "Parameters": [
+        {
+          "name": "devSN",
+          "description": "设备序列号"
+        }
+      ],
+      "Return": "{\n    \"histClientList\":[\n        {\n            \"macAddr\":\"String, apMAC地址（ap下线返回N/A）\",\n            \"clientMAC\":\"String, 终端MAC地址\",\n            \"clientIP\":\"String, 终端IP地址\",\n            \"clientVendor\":\"String, 终端厂商\",\n            \"clientSSID\":\"String, 终端连接的SSID\",\n            \"onlineTime\":\"Number, 终端在线时长\",\n            \"upLineDate\":\"Date, 终端上线时间\",\n            \"offLineDate\":\"Date, 终端下线时间（未下线返回null）\"\n        }\n    ]\n}\n",
+      "Error": [
+        {
+          "name": "",
+          "description": ""
+        }
+      ]
+    },
+    {
+      "SubItem": "根据设备号查询Ap下Client个数",
+      "ItemName": "新增By Hkf6160",
+      "Path": "/stamonitor/getApClientNumBydevSN",
+      "Method": "Get",
+      "Parameters": [
+        {
+          "name": "devSN",
+          "description": "设备序列号"
+        }
+      ],
+      "Return": "{\n    \"retCode\":\"\",\n    \"message\":[\n        {\n            \"ApName\":\"\",\n            \"count2G\":\"\",\n            \"count5G\":\"\"\n        }\n    ]\n}\n",
+      "Error": [
+        {
+          "name": "retCode",
+          "description": "0:正确 -1：异常  \n注释：如果返回码为-1   message就是错误提示"
+        }
+      ]
+    },
+    {
+      "SubItem": "根据AP和radioType获取client信息",
+      "ItemName": "新增By Hkf6160",
+      "Path": "/stamonitor/getClientInfosByRadioType",
+      "Method": "Get",
+      "Parameters": [
+        {
+          "name": "devSN",
+          "description": "设备号"
+        },
+        {
+          "name": "skipnum",
+          "description": "查询跳过数"
+        },
+        {
+          "name": "limitnum",
+          "description": "每次查询数"
+        },
+        {
+          "name": "ApName",
+          "description": "Ap名称"
+        },
+        {
+          "name": "radioType",
+          "description": "射频类型"
+        },
+        {
+          "name": "body",
+          "description": "{\n    findoption:\"查找条件，JSON格式，以apSN、clientMAC等client属性为查找条件（JSON格式，模糊匹配）,字符型如{clientMAC:”aa”}，\n    sortoption:\"排序条件，JSON格式，排序关键字，以clientMAC、clientIP等client属性为关键字排序，正序传\n}"
+        }
+      ],
+      "Return": "{\n    \"message\":{\n        \"totalNum\":1,\n        \"clientInfos\":[\n            {\n                \"clientMAC\":\"d022-be7f-440b\",\n                \"portalAuthType\":\"\",\n                \"clientVendor\":\"三星\",\n                \"ApName\":\"bangonglou2-2\",\n                \"clientSSID\":\"HXKJ-BG\",\n                \"clientIP\":\"172.16.2.141\"\n            }\n        ]\n    },\n    \"retCode\":0\n}\n",
+      "Error": [
+        {
+          "name": "retCode",
+          "description": "0：正常 -1 :失败"
+        }
+      ]
+    },
+    {
+      "Error": [
+        {
+          "description": "0：正常-1异常  message是错误消息 ，businessCount默认为0   manageCount默认为0",
+          "name": "retCode"
+        }
+      ],
+      "Return": "{\n    \"manageCount\":0,\n    \"businessCount\":0,\n    \"message\":\"\",\n    \"retCode\":\"\"\n}\n",
+      "Parameters": [
+        {
+          "description": "设备序列号",
+          "name": "devSN"
+        }
+      ],
+      "Method": "Get",
+      "Path": "/stamonitor/getClientCountByServiceType",
+      "ItemName": "新增By Hkf6160",
+      "SubItem": "获取小小贝商业wifi、内部wifi个数"
+    }
+  ],
+  "author": "ykf6434",
+  "description": "stamonitor微服务相关的接口介绍",
+  "retcode": 0
+}

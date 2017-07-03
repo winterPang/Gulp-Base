@@ -1,0 +1,309 @@
+{
+  "Name": "APP_无线定位接口文档",
+  "DocIndex": "doc_04901845207687283",
+  "AllItems": [
+    {
+      "Path": "/v3/wloc",
+      "Error": [
+        {
+          "description": "添加成功",
+          "name": "0"
+        },
+        {
+          "description": "添加失败",
+          "name": "-1"
+        }
+      ],
+      "Parameters": [
+        {
+          "description": "\"当前设备的序列号,内容为字符串\"\n",
+          "name": "desSN"
+        },
+        {
+          "description": "\"addmapwithindex,标示添加地图操作\"\n",
+          "name": "Method"
+        },
+        {
+          "description": "\"添加地图的具体信息，是一个结构{devSN:\"<code>//设备的devSN, mapName://添加的地图的名字}</code>\n",
+          "name": "Param"
+        }
+      ],
+      "Return": "{\n    \"retCode\":\"0表示成功，非0表示失败\",\n    \"errorMessage\":\"错误信息用来调试\"\n}\n",
+      "author": "yuanyuekun",
+      "Method": "POST",
+      "subitemdesc": "WEB向地图微服务添加地图信息接口",
+      "SubItem": "添加地图",
+      "Itemdesc": "用来管理用户上传地图的微服务",
+      "ItemName": "地图管理"
+    },
+    {
+      "Path": "/v3/wloc",
+      "Error": [
+        {
+          "description": "添加成功",
+          "name": "0"
+        },
+        {
+          "description": "添加失败",
+          "name": "-1"
+        }
+      ],
+      "Parameters": [
+        {
+          "description": "\"当前设备的序列号,内容为字符串\"\n",
+          "name": "desSN"
+        },
+        {
+          "description": "\"GetMap,标示获取地图操作\"\n",
+          "name": "Method"
+        },
+        {
+          "description": "\"{devSN:\"<code>//设备的devSN}</code>\n",
+          "name": "Param"
+        },
+        {
+          "description": "\"微服务需要返回哪些字段，[mapName, scale, wallList, apList, bgInfo]\"\n",
+          "name": "Return"
+        }
+      ],
+      "Return": "{\n    \"data\":{\n        \"maplist\":[\n            {\n                \"mapName\":\"地图名字,类型为字符串\",\n                \"scale\":\"地图的比例尺信息，类型数字\",\n                \"apList\":[\n                    {\n                        \"macAddr\":\"ap的mac地址，类型字符串\",\n                        \"apName\":\"ap的名字，类型字符串\",\n                        \"XCord\":\"ap的x坐标，类型数字\",\n                        \"YCord\":\"ap的y坐标，类型数字\",\n                        \"status\":\"ap的状态，类型数字，1在线，2不在线\"\n                    }\n                ]\n            }\n        ]\n    }\n}\n",
+      "author": "yuanyuekun",
+      "Method": "POST",
+      "subitemdesc": "WEB向地图微服务获取地图信息接口",
+      "SubItem": "获取地图",
+      "Itemdesc": "用来管理用户上传地图的微服务",
+      "ItemName": "地图管理"
+    },
+    {
+      "Path": "/v3/wloc/delMapAndDir",
+      "Error": [
+        {
+          "description": "删除成功",
+          "name": "0"
+        },
+        {
+          "description": "删除失败",
+          "name": "-1"
+        }
+      ],
+      "Parameters": [
+        {
+          "description": "\"当前设备的序列号,内容为字符串\"\n",
+          "name": "desSN"
+        },
+        {
+          "description": "\"delMapFile,标示获取地图操作\"\n",
+          "name": "Method"
+        },
+        {
+          "description": "\"{devSN:\"<code>//设备的devSN,mapName://删除地图的名字}</code>\n",
+          "name": "Param"
+        }
+      ],
+      "Return": "{\n    \"retCode\":\"错误码，类型数字 0表示成功 -1表示失败\"\n}\n",
+      "author": "yuanyuekun",
+      "Method": "POST",
+      "subitemdesc": "WEB向地图微服务删除地图信息接口",
+      "SubItem": "删除地图",
+      "Itemdesc": "用来管理用户上传地图的微服务",
+      "ItemName": "地图管理"
+    },
+    {
+      "Path": "/v3/wloc_map",
+      "Error": [
+        {
+          "description": "删除成功",
+          "name": "0"
+        },
+        {
+          "description": "删除失败",
+          "name": "-1"
+        }
+      ],
+      "Parameters": [
+        {
+          "description": "\"微服务根据这个字段来区分设备过来的消息类型，11表示请求所有地图，12表示请求未下发的地图\"\n",
+          "name": "optType"
+        },
+        {
+          "description": "\"设备上送的随机值，微服务不关心\"\n",
+          "name": "uuid"
+        },
+        {
+          "description": "\"设备的序列号\"\n",
+          "name": "devSN"
+        },
+        {
+          "description": "\"微服务的名字必须填成wloc_map\"\n",
+          "name": "cloudModName"
+        },
+        {
+          "description": "\"设备端模块名必须填成wloc\"\n",
+          "name": "devModName"
+        }
+      ],
+      "Return": "{\n    \"optType\":\"13表示获取地图信息\",\n    \"uuid\":\"string\",\n    \"devSN\":\"设备序列号\",\n    \"cloudModName\":\"wloc_map\",\n    \"devModName\":\"wloc\",\n    \"message\":{\n        \"end\":\"类型为数字，0表示还有应答消息，1表示最后一个地图信息\",\n        \"apList\":[\n            {\n                \"apMac\":\"类型字符串，ap的mac地址\",\n                \"XCord\":\"类型数字，ap的x坐标\",\n                \"YCord\":\"类型数字，ap的y坐标\"\n            }\n        ]\n    }\n}\n",
+      "author": "yuanyuekun",
+      "Method": "POST",
+      "subitemdesc": "设备向微服务请求地图信息接口",
+      "SubItem": "设备获取地图信息",
+      "Itemdesc": "用来管理用户上传地图的微服务",
+      "ItemName": "地图管理"
+    },
+    {
+      "Path": "v3/wloc_clientread",
+      "Error": [
+        {
+          "description": "获取坐标信息成功",
+          "name": "0"
+        },
+        {
+          "description": "获取坐标信息失败",
+          "name": "-1"
+        }
+      ],
+      "Parameters": [
+        {
+          "description": "\"设备序列号\"\n",
+          "name": "devSN"
+        },
+        {
+          "description": "\"固定字段，getClientSite，微服务用来区分前端消息\"\n",
+          "name": "Method"
+        },
+        {
+          "description": "{\n    \"devSN\":\"类型字符串 设备序列号\",\n    \"mapName\":\"类型字符串，地图名\",\n    \"time\":\"类型数字，获取time这个时间点的定位信息\"\n}\n",
+          "name": "Param"
+        },
+        {
+          "description": "[\n    \"clientMac\",\n    \"XCord\",\n    \"YCord\",\n    \"clientStatus\"\n]\n",
+          "name": "result"
+        }
+      ],
+      "Return": "{\n    \"result\":[\n        {\n            \"clientMac\":\"类型为字符串，终端的mac地址\",\n            \"XCord\":\"类型为数字，终端的x坐标\",\n            \"YCord\":\"类型为数字，终端的y坐标\",\n            \"clientStatus\":\"类型为数字，1表示在线终端，0表示不在线终端\"\n        }\n    ],\n    \"retCode\":\"错误码，0表示成功 -1表示失败\"\n}\n",
+      "author": "yuanyuekun",
+      "Method": "POST",
+      "subitemdesc": "获取实时的cupid定位的终端坐标",
+      "SubItem": "获取终端坐标",
+      "Itemdesc": "用来管理设备上报的cupid定位数据的微服务",
+      "ItemName": "cupid定位数据管理"
+    },
+    {
+      "Path": "v3/wloc_clientread",
+      "Error": [
+        {
+          "description": "获取终端列表成功",
+          "name": "0"
+        },
+        {
+          "description": "获取终端列表失败",
+          "name": "-1"
+        }
+      ],
+      "Parameters": [
+        {
+          "description": "\"设备序列号\"\n",
+          "name": "devSN"
+        },
+        {
+          "description": "\"固定字段，getClientList，微服务用来区分前端消息\"\n",
+          "name": "Method"
+        },
+        {
+          "description": "{\n    \"devSN\":\"类型字符串，设备序列号\",\n    \"mapName\":\"类型字符串，地图名\",\n    \"startTime\":\"类型数字，起始时间\",\n    \"endTime\":\"类型数字，终止时间\"\n}\n",
+          "name": "Param"
+        },
+        {
+          "description": "[\n    \"clientMac\"\n]\n",
+          "name": "result"
+        }
+      ],
+      "Return": "{\n    \"result\":[\n        {\n            \"clientMac\":\"类型为字符串，终端的mac地址\"\n        }\n    ],\n    \"retCode\":\"错误码，0表示成功 -1表示失败\"\n}\n",
+      "author": "yuanyuekun",
+      "Method": "POST",
+      "subitemdesc": "获取实时的cupid定位的终端列表",
+      "SubItem": "获取终端列表",
+      "Itemdesc": "用来管理设备上报的cupid定位数据的微服务",
+      "ItemName": "cupid定位数据管理"
+    },
+    {
+      "Path": "v3/wloc_clientread",
+      "Error": [
+        {
+          "description": "获取终端轨迹成功",
+          "name": "0"
+        },
+        {
+          "description": "获取终端轨迹失败",
+          "name": "-1"
+        }
+      ],
+      "Parameters": [
+        {
+          "description": "\"设备序列号\"\n",
+          "name": "devSN"
+        },
+        {
+          "description": "\"固定字段，getClientTrack，微服务用来区分前端消息\"\n",
+          "name": "Method"
+        },
+        {
+          "description": "{\n    \"devSN\":\"类型字符串，设备序列号\",\n    \"mapName\":\"类型字符串，地图名\",\n    \"startTime\":\"类型数字，起始时间\",\n    \"endTime\":\"类型数字，终止时间\",\n    \"intervalTime\":\"间隔时间\"\n}\n",
+          "name": "Param"
+        },
+        {
+          "description": "[\n    \"time\",\n    \"XCord\",\n    \"YCord\",\n    \"clientStatus\"\n]\n",
+          "name": "result"
+        }
+      ],
+      "Return": "{\n    \"result\":[\n        {\n            \"time\":\"类型为数字，终端的上报\",\n            \"XCord\":\"类型为数字，终端的x坐标\",\n            \"YCord\":\"类型为数字，终端的y坐标\",\n            \"clientStatus\":\"类型为数字，1表示在线终端，0表示不在线终端\"\n        }\n    ],\n    \"retCode\":\"错误码，0表示成功 -1表示失败\"\n}\n",
+      "author": "yuanyuekun",
+      "Method": "POST",
+      "subitemdesc": "获取指定终端的一段时间类的定位信息",
+      "SubItem": "获取指定终端的定位信息",
+      "Itemdesc": "用来管理设备上报的cupid定位数据的微服务",
+      "ItemName": "cupid定位数据管理"
+    },
+    {
+      "Path": "v3/wloc_clientread",
+      "Error": [
+        {
+          "description": "获取终端轨迹成功",
+          "name": "0"
+        },
+        {
+          "description": "获取终端轨迹失败",
+          "name": "-1"
+        }
+      ],
+      "Parameters": [
+        {
+          "description": "\"设备序列号\"\n",
+          "name": "devSN"
+        },
+        {
+          "description": "\"固定字段，getClientTrack，微服务用来区分前端消息\"\n",
+          "name": "Method"
+        },
+        {
+          "description": "{\n    \"devSN\":\"类型字符串，设备序列号\",\n    \"mapName\":\"类型字符串，地图名\",\n    \"startTime\":\"类型数字，起始时间\",\n    \"endTime\":\"类型数字，终止时间\",\n    \"intervalTime\":\"间隔时间\"\n}\n",
+          "name": "Param"
+        },
+        {
+          "description": "[\n    \"time\",\n    \"XCord\",\n    \"YCord\",\n    \"clientStatus\"\n]\n",
+          "name": "result"
+        }
+      ],
+      "Return": "{\n    \"result\":[\n        {\n            \"time\":\"类型为数字，终端的上报\",\n            \"XCord\":\"类型为数字，终端的x坐标\",\n            \"YCord\":\"类型为数字，终端的y坐标\",\n            \"clientStatus\":\"类型为数字，1表示在线终端，0表示不在线终端\"\n        }\n    ],\n    \"retCode\":\"错误码，0表示成功 -1表示失败\"\n}\n",
+      "author": "yuanyuekun",
+      "Method": "POST",
+      "subitemdesc": "获取指定终端的一段时间类的定位信息",
+      "SubItem": "获取指定终端的定位信息",
+      "Itemdesc": "用来管理设备上报的cupid定位数据的微服务",
+      "ItemName": "cupid定位数据管理"
+    }
+  ],
+  "author": "yuanyuekun",
+  "description": "本文档是用来描述无线定位的接口信息，包括地图微服务，和终端坐标微服务",
+  "retcode": 0
+}

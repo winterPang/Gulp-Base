@@ -1,0 +1,63 @@
+{
+  "Name": "portal认证失败及错误信息分析接口文档",
+  "DocIndex": "doc_4552455050010258",
+  "AllItems": [
+    {
+      "SubItem": "同一设备不同时间段出现的错误信息统计",
+      "ItemName": "portal认证失败及错误信息分析",
+      "Path": "/portalanalyser/getAllErrorSampleStatOfDevSN",
+      "Method": "Post",
+      "Parameters": [
+        {
+          "name": "endTime",
+          "description": "String 要求截止的数据记录时间，返回数据是从此时间截止，往前的数据，由Date.toISOString方法获取"
+        },
+        {
+          "name": "interval",
+          "description": "Number 统计间隔，单位为小时数"
+        },
+        {
+          "name": "count",
+          "description": "Number 条数"
+        }
+      ],
+      "Return": "[\n    {\n        \"devSN\":\"String 设备号\",\n        \"reasonsAndNum\":[\n            {\n                \"AuthErrorReason\":\"String 错误原因\",\n                \"AuthTimeAndNum\":[\n                    {\n                        \"AuthErrorTime\":\"Number 出错的时间\",\n                        \"count\":\"Number 该时间内出现的错误数\"\n                    },\n                    {\n                        \"AuthErrorTime\":\"Number 出错的时间\",\n                        \"count\":\"Number 该时间内出现的错误数\"\n                    }\n                ]\n            },\n            {\n                \"AuthErrorReason\":\"String 错误原因\",\n                \"AuthTimeAndNum\":[\n                    {\n                        \"AuthErrorTime\":\"Number 出错的时间\",\n                        \"count\":\"Number 该时间内出现的错误数\"\n                    },\n                    {\n                        \"AuthErrorTime\":\"Number 出错的时间\",\n                        \"count\":\"Number 该时间内出现的错误数\"\n                    }\n                ]\n            }\n        ]\n    },\n    {\n        \"devSN\":\"String 设备号\",\n        \"reasonsAndNum\":[\n            {\n                \"AuthErrorReason\":\"String 错误原因\",\n                \"AuthTimeAndNum\":[\n                    {\n                        \"AuthErrorTime\":\"Number 出错的时间\",\n                        \"count\":\"Number 该时间内出现的错误数\"\n                    },\n                    {\n                        \"AuthErrorTime\":\"Number 出错的时间\",\n                        \"count\":\"Number 该时间内出现的错误数\"\n                    }\n                ]\n            },\n            {\n                \"AuthErrorReason\":\"String 错误原因\",\n                \"AuthTimeAndNum\":[\n                    {\n                        \"AuthErrorTime\":\"Number 出错的时间\",\n                        \"count\":\"Number 该时间内出现的错误数\"\n                    },\n                    {\n                        \"AuthErrorTime\":\"Number 出错的时间\",\n                        \"count\":\"Number 该时间内出现的错误数\"\n                    }\n                ]\n            }\n        ]\n    }\n]\n",
+      "Error": [
+        {
+          "name": "",
+          "description": ""
+        }
+      ]
+    },
+    {
+      "Error": [
+        {
+          "description": "",
+          "name": ""
+        }
+      ],
+      "Return": "[\n    {\n        \"devSN\":\"String 设备号\",\n        \"reasonsAndNum\":[\n            {\n                \"AuthFailReason\":\"String 失败原因\",\n                \"AuthTimeAndNum\":[\n                    {\n                        \"AuthFailTime\":\"Number 失败的时间\",\n                        \"count\":\"Number 该时间内出现的失败数\"\n                    },\n                    {\n                        \"AuthFailTime\":\"Number 失败的时间\",\n                        \"count\":\"Number 该时间内出现的失败数\"\n                    }\n                ]\n            },\n            {\n                \"AuthFailReason\":\"String 失败原因\",\n                \"AuthTimeAndNum\":[\n                    {\n                        \"AuthFailTime\":\"Number 失败的时间\",\n                        \"count\":\"Number 该时间内出现的失败数\"\n                    },\n                    {\n                        \"AuthFailTime\":\"Number 失败的时间\",\n                        \"count\":\"Number 该时间内出现的失败数\"\n                    }\n                ]\n            }\n        ]\n    },\n    {\n        \"devSN\":\"String 设备号\",\n        \"reasonsAndNum\":[\n            {\n                \"AuthFailReason\":\"String 失败原因\",\n                \"AuthTimeAndNum\":[\n                    {\n                        \"AuthFailTime\":\"Number 失败的时间\",\n                        \"count\":\"Number 该时间内出现的失败数\"\n                    },\n                    {\n                        \"AuthFailTime\":\"Number 失败的时间\",\n                        \"count\":\"Number 该时间内出现的失败数\"\n                    }\n                ]\n            },\n            {\n                \"AuthFailReason\":\"String 失败原因\",\n                \"AuthTimeAndNum\":[\n                    {\n                        \"AuthFailTime\":\"Number 失败的时间\",\n                        \"count\":\"Number 该时间内出现的失败数\"\n                    },\n                    {\n                        \"AuthFailTime\":\"Number 失败的时间\",\n                        \"count\":\"Number 该时间内出现的失败数\"\n                    }\n                ]\n            }\n        ]\n    }\n]\n",
+      "Parameters": [
+        {
+          "description": "String 要求截止的数据记录时间，返回数据是从此时间截止，往前的数据，由Date.toISOString方法获取",
+          "name": "endTime"
+        },
+        {
+          "description": "Number 统计间隔，单位为小时数",
+          "name": "interval"
+        },
+        {
+          "description": "Number 条数",
+          "name": "count"
+        }
+      ],
+      "Method": "Post",
+      "Path": "/portalanalyser/getAllFailSampleStatOfDevSN",
+      "ItemName": "portal认证失败及错误信息分析",
+      "SubItem": "同一设备不同时间段出现的认证失败的信息统计"
+    }
+  ],
+  "author": "lkf6741",
+  "description": "提供关于portal认证失败及错误信息的分析统计相关的接口",
+  "retcode": 0
+}

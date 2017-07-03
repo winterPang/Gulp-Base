@@ -1,0 +1,93 @@
+{
+  "Name": "经典配置接口文档",
+  "DocIndex": "doc_9683783475344414",
+  "AllItems": [
+    {
+      "Error": [
+        {
+          "description": "",
+          "name": ""
+        }
+      ],
+      "Return": "{\n}\n",
+      "Parameters": [
+        {
+          "description": "String 提供配置文件的设备的设备号",
+          "name": "devSN"
+        },
+        {
+          "description": "String  提供配置文件的设备的MAC地址",
+          "name": "providerMac"
+        },
+        {
+          "description": "该参数为要上传的配置文件以附件的方式上传",
+          "name": "fileName"
+        }
+      ],
+      "Method": "Post",
+      "Path": "/v3/arb/typicalconfig/putFile2HDFSFromBro",
+      "ItemName": "经典配置文件上传下载",
+      "SubItem": "配置文件的上传"
+    },
+    {
+      "SubItem": "配置文件的下载",
+      "ItemName": "经典配置文件上传下载",
+      "Path": "/v3/arb/typicalconfig/getFileFromHDFS",
+      "Method": "Post",
+      "Parameters": [
+        {
+          "name": "fileName",
+          "description": "String  要下载的文件名（hdfs上的存储名称）"
+        }
+      ],
+      "Return": "",
+      "Error": [
+        {
+          "name": "",
+          "description": ""
+        }
+      ]
+    },
+    {
+      "SubItem": "获取hdfs上的指定条件的文件列表",
+      "ItemName": "经典配置文件上传下载",
+      "Path": "/typicalconfig/getFileListOnHDFS",
+      "Method": "Post",
+      "Parameters": [
+        {
+          "name": "conditions",
+          "description": "Object 为各个字段任意组合的筛选条件( devSN设备号，provider上传者名称， providerIp 上传者的IP地址， providerMac上传者的mac地址，uploadName 上传时的文件名称"
+        }
+      ],
+      "Return": "[\n    {\n        \"devSN\":\"设备号\",\n        \"fileName\":\"文件名称\",\n        \"provider\":\"提供者名称\",\n        \"providerIp\":\"提供者的IP\",\n        \"providerMac\":\"提供者的mac地址\",\n        \"uploadName\":\"上传时的文件名称\",\n        \"uploadTime\":\"上传文件的时间的毫秒数\"\n    },\n    {\n        \"devSN\":\"设备号\",\n        \"fileName\":\"文件名称\",\n        \"provider\":\"提供者名称\",\n        \"providerIp\":\"提供者的IP\",\n        \"providerMac\":\"提供者的mac地址\",\n        \"uploadName\":\"上传时的文件名称\",\n        \"uploadTime\":\"上传文件的时间的毫秒数\"\n    }\n]\n",
+      "Error": [
+        {
+          "name": "",
+          "description": ""
+        }
+      ]
+    },
+    {
+      "Error": [
+        {
+          "description": "",
+          "name": ""
+        }
+      ],
+      "Return": "",
+      "Parameters": [
+        {
+          "description": "String 要删除的文件的文件名",
+          "name": "fileName"
+        }
+      ],
+      "Method": "Post",
+      "Path": "/typicalconfig/delFileFromHDFS",
+      "ItemName": "经典配置文件上传下载",
+      "SubItem": "删除指定文件名的文件"
+    }
+  ],
+  "author": "lkf6741",
+  "description": "提供配置文件的上传下载删除等功能",
+  "retcode": 0
+}
